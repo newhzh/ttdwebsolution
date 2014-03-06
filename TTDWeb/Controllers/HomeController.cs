@@ -24,5 +24,9 @@ namespace TTDWeb.Controllers
         
         #endregion
 
+        public ActionResult Detail()
+        {
+            return View();
+        }
     }
 }
