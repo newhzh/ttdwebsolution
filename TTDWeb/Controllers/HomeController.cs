@@ -16,7 +16,10 @@ namespace TTDWeb.Controllers
         #endregion
 
         #region 产品列表
-
+        public ActionResult ProductList()
+        {
+            return View();
+        }
         #endregion
 
     }
