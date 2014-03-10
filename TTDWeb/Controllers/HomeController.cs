@@ -24,7 +24,7 @@ namespace TTDWeb.Controllers
         
         #endregion
 
-        public ActionResult Detail()
+        public ActionResult Detail(string productid)
         {
             return View();
         }
