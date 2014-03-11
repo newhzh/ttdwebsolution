@@ -8,6 +8,11 @@ namespace TTDWeb.Models
 {
     public class ProductModel
     {
+        public ProductModel() 
+        {
+            Customs = new List<CustomModel>();
+        }
+
         /// <summary>
         /// 自动编号
         /// </summary>
@@ -129,5 +134,9 @@ namespace TTDWeb.Models
         [Required(ErrorMessage = "担保方式必填")]
         public string VouchType { get; set; }
 
+        /// <summary>
+        /// 客户经理集合
+        /// </summary>
+        public List<CustomModel> Customs { get; set; }
     }
 }
