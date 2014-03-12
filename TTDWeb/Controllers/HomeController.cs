@@ -101,14 +101,17 @@ namespace TTDWeb.Controllers
              return View();         
          }
 
-        [HttpPost]
+         [HttpPost]
          public ActionResult Carloan1(ApplyingRecord a)
          {
-            if (ModelState.IsValid)
-            {
-                if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
-                    return View("Index");
-             return View();
+             if (ModelState.IsValid)
+             {
+               ///  if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+               ///      return View("Index");
+                 
+             }
+                return View();
+
          }
         #endregion
 
