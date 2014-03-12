@@ -132,6 +132,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\BizCommon.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoanStep.cs" />
+    <Compile Include="Controllers\ProjectAttachmentModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

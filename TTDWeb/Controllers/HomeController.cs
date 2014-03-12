@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TTDWeb.Common;
 using TTDWeb.Models;
 
 namespace TTDWeb.Controllers
@@ -101,18 +102,27 @@ namespace TTDWeb.Controllers
              return View();         
          }
 
-         [HttpPost]
-         public ActionResult Carloan1(ApplyingRecord a)
-         {
-             if (ModelState.IsValid)
-             {
-               ///  if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
-               ///      return View("Index");
-                 
-             }
-                return View();
+         //[HttpPost]
+         //public ActionResult Carloan1(ApplyingRecord a)
+         //{
+         //    if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+         //    {
+         //        //为了防止已填写数据丢失，此处将Session中的内容取出填入
+         //        ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+         //        ApplyStep01Model m = new ApplyStep01Model();
 
-         }
+         //        m.Term = p.Term;
+         //        m.Money = p.Money;
+         //        m.ProfitRate = p.ProfitRate;
+         //        m.Description = p.Description;
+
+         //        return View(m);
+         //    }
+         //    else
+         //    {
+         //        return View();
+         //    }
+         //}
         #endregion
 
         #endregion
