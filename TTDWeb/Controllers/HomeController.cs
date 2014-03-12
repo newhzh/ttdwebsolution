@@ -92,14 +92,25 @@ namespace TTDWeb.Controllers
         }      
         #endregion
 
-        #region 产品详情页
-        public ActionResult Detail(string productid)
-        {
-            return View();
-        }
-        #endregion
 
         #region 车贷申请
+
+         #region 第一步
+         public ActionResult Carloan1() 
+         {
+             return View();         
+         }
+
+        [HttpPost]
+         public ActionResult Carloan1(ApplyingRecord a)
+         {
+            if (ModelState.IsValid)
+            {
+                if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                    return View("Index");
+             return View();
+         }
+        #endregion
 
         #endregion
 
