@@ -139,4 +139,18 @@ namespace TTDWeb.Models
         /// </summary>
         public List<CustomModel> Customs { get; set; }
     }
+
+    #region AA10枚举模型
+    public class AA10_Item
+    {
+        public AA10_Item(string text, string val)
+        {
+            Text = text;
+            Value = val;
+        }
+
+        public string Text { get; set; }
+        public string Value { get; set; }
+    }
+    #endregion
 }
