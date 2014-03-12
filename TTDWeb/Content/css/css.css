@@ -8,9 +8,10 @@ ul,li{list-style:none;}
 body {
 	padding:0px;
 	margin:0px;
-	background-image: url(../images/bg.jpg);
+	background-image: url(../images/headbg.jpg);
 	background-repeat: no-repeat;
 	background-position: top center;
+	background-color:#f7f7f7;
 	font-family: "微软雅黑", "黑体";
 	font-size: 14px;
 	color:#fff;
@@ -76,4 +77,84 @@ a:hover{
 	}
 .type img{
 	margin-top:28px;
+	}
+.product{
+	width:920px;
+	height:85px;
+	border:1px solid #e1e1e1;
+	margin-top:15px;
+	background-color:#fff;
+	padding:15px;
+	}
+.product a{
+	color:#282828;
+	margin-right:30px;
+	}
+.product a:hover{
+	color:#5489d2;
+	}
+.sx{
+	border:1px solid #e1e1e1;
+	width:170px;
+	height:25px;
+	margin-left:10px;
+	margin-right:25px;
+	padding:5px;
+	font-family:"微软雅黑", "黑体";
+	font-size:14px;
+	}
+.producthead{
+	float:right; line-height:40px;
+	}
+.producthead a{
+	color:#282828;
+	padding-left:20px;
+	padding-right:10px;
+	background:url(../images/down1.png) right center no-repeat;
+	}
+.producthead a:hover{
+	color:#5489d2;
+	background:url(../images/down2.png) right center no-repeat;
+	}
+.productup{
+	width:922px;
+	min-height:50px;
+	background:url(../images/bglist.png) no-repeat;
+	padding:15px;
+	}
+.container{
+	width:880px;
+	height:0px;
+	overflow:hidden;
+	background-image:url(../images/containerbg.png);
+	margin-top:65px;
+	margin-left:15px;
+	clear:both;
+}
+.look{
+	width:86px;
+	height:28px;
+	float:right;
+	background-color:#5489d2;;
+	margin-top:10px;
+	margin-right:10px;
+	font-weight:normal;
+	font-size:14px;
+	color:#fff;
+	cursor:pointer;
+	text-align:center;
+	line-height:28px;
+	}
+.look:hover{
+	background-color:#4781d0;
+	}
+.productdown{
+	width:920px;
+	height:50px;
+	border:1px solid #e1e1e1;
+	border-top:none;
+	margin-top:-20px;
+	margin-bottom:15px;
+	background-color:#fff;
+	padding:15px;
 	}

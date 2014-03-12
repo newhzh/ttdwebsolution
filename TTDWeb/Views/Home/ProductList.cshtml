@@ -8,10 +8,85 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>ProductList</title>
+    <script src="~/content/js/jquery1.3.2.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".productup h1").toggle(function () {
+            $(this).html("收起详情");
+            $(this).next(".container").animate({ height: 268, }, "slow");
+        }, function () {
+            $(this).html("展开详情");
+            $(this).next(".container").animate({ height: 0 }, "slow");
+        });
+    });
+
+
+</script>
 </head>
 <body>
-    <div>
-        
-    </div>
+<div class="bodycontent" style="padding-top:20px; color:#282828;">
+<img src="~/content/images/logo.png" width="298" height="99" style="float:left;"/>
+<div style="float:right; text-align:right;"><span style="font-size:18px; color:#fff;">客服热线：400-8055-855</span><br /><a href="#">信贷经理登录</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">注册</a></div>
+<div style="clear:both; height:33px;"></div>
+
+<div class="product">
+<div style="width:710px; border-right:1px solid #bdbdbd; float:left;">
+<a href="#">购房贷款</a><a href="#">购车贷款</a><a href="#">企业贷款</a><a href="#">消费贷款</a><a href="#">信用卡</a><br /><br />
+<form>
+贷款金额:<input class="sx" name="" type="text" style="background:url(~/content/images/money.png) 140px center no-repeat;"/>贷款期限:<input class="sx" name="" type="text" style="background:url(~/content/images/time.png) 155px center no-repeat;"/><button type="submit" class="btn" style="width:85px; height:35px; font-size:14px;">马上搜索</button>
+</form>
+</div>
+
+<div style="line-height:35px; text-align:center;">
+共为您找到贷款产品<br />
+<font style="font-size:36px; color:#fbb03f;">20</font>款
+</div>
+</div>
+
+<div style="padding:15px; margin-top:20px;">
+机构类型:<input class="sx" name="" type="text" value="不限" readonly="readonly" style="background-color:#f7f7f7;"/>
+<div class="producthead" ><a href="#" style="background:none; padding-right:0px;">默认</a><a href="#">总利息</a><a href="#">月供</a></div>
+</div>
+
+<!--list start-->
+<div class="productup">
+<div style="float:left; width:350px;"><img src="~/content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="font-size:18px; color:#5489d2">产品标题</span><br />宜信贷</div>
+<div style="float:left; text-align:center; width:180px;"><span style="font-size:24px;">6.9% APR</span><br />年化利率</div>
+<div style="float:left; text-align:center; width:260px;"><span style="font-size:24px;">￥10663</span><br />分期付款</div>
+<h1 class="look" >展开详情</h1>
+
+<div class="container">aaa</div>
+</div>
+<div class="productdown">bbb</div>
+<!--list end-->
+
+<!--list start-->
+<div class="productup">
+<div style="float:left; width:350px;"><img src="~/content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="font-size:18px; color:#5489d2">产品标题</span><br />宜信贷</div>
+<div style="float:left; text-align:center; width:180px;"><span style="font-size:24px;">6.9% APR</span><br />年化利率</div>
+<div style="float:left; text-align:center; width:260px;"><span style="font-size:24px;">￥10663</span><br />分期付款</div>
+<h1 class="look" >展开详情</h1>
+
+<div class="container">aaa</div>
+</div>
+<div class="productdown">bbb</div>
+<!--list end-->
+
+<!--list start-->
+<div class="productup">
+<div style="float:left; width:350px;"><img src="~/content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="font-size:18px; color:#5489d2">产品标题</span><br />宜信贷</div>
+<div style="float:left; text-align:center; width:180px;"><span style="font-size:24px;">6.9% APR</span><br />年化利率</div>
+<div style="float:left; text-align:center; width:260px;"><span style="font-size:24px;">￥10663</span><br />分期付款</div>
+<h1 class="look" >展开详情</h1>
+
+<div class="container">aaa</div>
+</div>
+<div class="productdown">bbb</div>
+<!--list end-->
+
+
+</div>
 </body>
 </html>
