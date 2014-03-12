@@ -143,6 +143,22 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\css\css.css" />
+    <Content Include="Content\css\public.css" />
+    <Content Include="Content\css\SearchHome.css" />
+    <Content Include="Content\images\bg.jpg" />
+    <Content Include="Content\images\bg_tm.png" />
+    <Content Include="Content\images\button_1.png" />
+    <Content Include="Content\images\button_2.png" />
+    <Content Include="Content\images\button_3.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\fenge.png" />
+    <Content Include="Content\images\house.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\up.png" />
+    <Content Include="Content\js\jquery-1.7.1.js" />
+    <Content Include="Content\js\jquery.searchBox.js" />
+    <Content Include="Content\js\share.js" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />

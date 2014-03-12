@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* CSS Document */
+body,div,ul,li,a,p,span,form,input,table,tbody,tr,td,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+img{border:none;}
+input{outline:none;}
+body{font-family:Arial,"微软雅黑","宋体";}
+ul,li{list-style:none;}
+body {
+	padding:0px;
+	margin:0px;
+	background-image: url(../images/bg.jpg);
+	background-repeat: no-repeat;
+	background-position: top center;
+	font-family: "微软雅黑", "黑体";
+	font-size: 14px;
+	color:#fff;
+}
+a{
+	text-decoration:none;
+	color:#fff;
+	/*IE6、IE7*/
+	+noFocusLine: expression(this.hidefocus=true);
+	/*Firefox/Chrome/Opera*/
+	outline:none;
+	}
+:focus { outline:none; } /*取消超链接的虚线框和表单项的黄色边框*/
+textarea { resize:none; overflow:hidden; }/*取消下拉框和拖动改变大小*/
+a:hover{
+	color:#5489d2;
+	}
+.bodycontent{
+	margin:0 auto;
+	width: 950px;
+	min-height:700px;
+	}
+.btn{
+	cursor:pointer;
+	height:41px;
+	border:none;
+	background-color:#5489d2;
+	color:#fff;
+	font-size:18px;
+	font-family:"微软雅黑", "黑体";
+	}
+.btn:hover{
+	background-color:#4781d0;
+	}
+.denglu{
+	font-size:18px;
+	background-image: url(../images/fenge.png);
+	background-repeat: no-repeat;
+	background-position: 450px 0;
+	height:33px;
+	padding-top:8px;
+	}
+.typewrap{
+	margin-top:90px;
+	}
+.typewrap2{
+	float:left;
+	margin-right:36px;
+	margin-left:36px;
+	cursor:pointer;
+	background-image:url(../images/button_2.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	}
+.type{
+	width:116px;
+	height:130px;
+	font-size:18px;
+	letter-spacing:5px;
+	}
+.type:hover{
+	background:url(../images/button_3.png) no-repeat;
+	}
+.type img{
+	margin-top:28px;
+	}

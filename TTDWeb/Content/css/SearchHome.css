@@ -1,0 +1,37 @@
+.vblock{ width: 960px; margin:0 auto;}
+.pt35{ padding-top:35px;}
+.vblank{height:12px; line-height:12px; clear:both; visibility:hidden;}
+.vopacity{background-color:transparent; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#85000000, endColorstr=#85000000); background:rgba(0,0,0,0.3);}
+.os{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; /* for IE */ -o-text-overflow: ellipsis; /* for Opera */ -icab-text-overflow: ellipsis; /* for iCab */ -khtml-text-overflow: ellipsis; /* for Konqueror Safari */ -moz-text-overflow: ellipsis; /* for Firefox,mozilla */ -webkit-text-overflow: ellipsis; /* for Safari,Swift*/}
+.zindex4{ z-index:4;}
+.zindex3{ z-index:3;}
+.zindex2{ z-index:2;}
+.zindex1{ z-index:1;}
+.vsearchBox{ width:950px; height:400px; text-align:left; color:#fff;}
+.vsearchBox .vboxtitle{ line-height: 30px; padding-top: 20px; padding-bottom: 5px; color:#FFF; font-size:24px; text-indent:20px;}
+.vsearchBox .vboxcontent dl.searchitems{ padding-bottom:5px;}
+.vsearchBox .vboxcontent dl.searchitems dt{ clear:both; display:block; width:100%; height:16px; line-height:16px; padding-bottom:5px; padding-top:5px;}
+.vsearchBox .vboxcontent dl.searchitems label{ color:#fff; float:left; padding-left:3px; padding-right:3px; font-size:14px; font-family:"微软雅黑", "黑体"; }
+.vsearchBox .vboxcontent dl.searchitems .inputnotice{ float:right; padding-left:14px; padding-right:5px; background:url(../i/notice_img.gif) left center no-repeat; color:#fff; display:none;}
+.vsearchBox .vboxcontent dl.searchitems .searchNotice{ padding-right:5px; font-size: 12px; float:right; color:#fff;}
+.vsearchBox .vboxcontent dl.searchitems dd.selectDD{ position:relative; width:320px; height: 42px; display: inline-block; float:left; color:#fff; background:url(../images/bg_tm.png) repeat;}
+.vsearchBox .vboxcontent dl.searchitems input.search_input{ width:220px; height:28px; line-height:26px; font-size:14px; background:none; float:left; display: inline-block; border: 0; margin:7px 0 0 8px; color:#fff;}
+.vsearchBox .vboxcontent dl.searchitems div.search_btn{ width:42px; height:41px; background:url(../images/down.png); cursor:pointer; border:0px solid #cecece; float:right; margin-top:1px; border-left:1px solid #9d8364; color:#fff;}
+.vsearchBox .vboxcontent dl.searchitems div.search_btn_bg1{background:url(../images/up.png) center center no-repeat; }
+.vsearchBox .vboxcontent dl.searchitems div.search_btn_bg2{ background:url(../images/down.png) center center no-repeat;}
+
+.vsearchBox .vboxcontent .search_ul{ width:318px; background:url(../images/bg_tm.png) repeat; border:1px solid #9d8364; position:absolute; top:42px;}
+.vsearchBox .vboxcontent .search_ul li{ text-indent:8px; margin:0 auto; display:inline-block; width:100%; line-height:25px; _line-height:22px; *line-height:22px;
+-moz-user-select: none; /*火狐*/
+   -webkit-user-select: none;  /*webkit浏览器*/
+   -ms-user-select: none;   /*IE10*/
+   -khtml-user-select: none; /*早期浏览器*/
+   user-select: none;}
+.vsearchBox .vboxcontent .search_ul li.liover{  background:#5489d2; cursor:pointer;}
+.vsearchBox .vboxcontent .search_ul li.lioverin{  background:#5489d2; cursor:pointer;}
+.vsearchBox .vboxcontent .sidw{ width:30px; line-height:42px; _line-height:40px; *line-height:40px; text-align:right; float:left; color:#fff;}
+.vsearchBox .vboxcontent .search_submit_div{ width:282px; height:44px; margin:0 auto; cursor:pointer; float:left;}
+.vsearchBox .vboxcontent .search_submit{ width: 100%; height: 44px;  background:url(../i/NewSearch_btn.png) 0px 0px no-repeat; cursor: pointer; border: none;}
+.vsearchBox .vboxcontent .search_submit:hover{ background:url(../i/NewSearch_btn.png) 0px -44px no-repeat;}
+
+.wdcon_ri_other{ text-align: center; line-height: 30px; color: #cecece;}
