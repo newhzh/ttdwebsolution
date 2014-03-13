@@ -81,7 +81,7 @@ body {
         <!--form start-->
         <div class="vsearchBox">
             <div id="searchBox" class="vboxcontent">
-                 @using (Html.BeginForm("productlist", "Home"))
+                 @using (Html.BeginForm("productlist", "Home",FormMethod.Get))
                  {
                     <input type="hidden" value="1" id="type" name="type" />
                     <dl class="searchitems clearfix moneydl" style="position: absolute; top: 560px; margin-left: 50px;">
@@ -123,7 +123,7 @@ body {
                             </ul>
                         </dd>
                     </dl>
-                    <button  type="submit" class="btn" style="width: 152px; position: absolute; top: 586px; margin-left: -200px;"><a href="@Url.Action("Productist","Home")">马上搜索</a></button>
+                    <button  type="submit" class="btn" style="width: 152px; position: absolute; top: 586px; margin-left: -200px;">马上搜索</button>
                  }
             </div>
             <script type="text/javascript">
