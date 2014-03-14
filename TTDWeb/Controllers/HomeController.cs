@@ -59,7 +59,7 @@ namespace TTDWeb.Controllers
             ViewBag.PageIndex = pageIndex;
 
             var productsShow = new List<ProductModel>();
-            int start = (pageIndex - 1) * countPerPage;
+            int start = pageIndex < 1 ? 0 : ((pageIndex - 1) * countPerPage);
             int end = (pageIndex * countPerPage) > products.Count ? products.Count : (pageIndex * countPerPage);
             for (int i = start; i < end; i++)
             {
