@@ -1,4 +1,4 @@
-﻿@charset "utf-8";
+@charset "utf-8";
 /* CSS Document */
 body,div,ul,li,a,p,span,form,input,table,tbody,tr,td,dl,dt,dd,h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
 img{border:none;}
@@ -150,11 +150,146 @@ a:hover{
 	}
 .productdown{
 	width:920px;
-	height:50px;
+	height:30px;
 	border:1px solid #e1e1e1;
-	border-top:none;
+	border-top:1px solid #f2f2f2;
 	margin-top:-20px;
 	margin-bottom:15px;
 	background-color:#fff;
+	padding-left:15px;
+	padding-right:15px;
+	padding-top:5px;
+	}
+	
+.container .mytabs{
+    position:relative;
+	width:600px;
+	float:left;
+}
+.container .mytabs ul.tab_title{
+    height:35px;
+	padding-left:10px;
+	padding-top:25px;
+    font-size:14px;
+	font-family:"微软雅黑", "黑体";
+	border-bottom:1px solid #b9b9b9;
+}
+.container .mytabs ul.tab_title li{
+    float:left;
+	height:33px;
+    position:relative;   
+    cursor:pointer;  
+    margin-right:20px;
+	margin-left:20px;
+}
+  
+.container .mytabs ul li.one{
+	border-bottom:3px solid #5489d2;
+
+}
+  
+.container .mytabs ul li.two{
+
+}
+  
+.container .mytabs .content { 
+	margin-left:20px;
+	margin-top:17px;
+    font-size:12px;
+    width:600px; 
+    height:auto;
+    position:absolute;
+    top:60px;
+    z-index:1;
+	line-height:22px;
+}
+.apply{
+	width:250px;
+	float:right;
+	text-align:center;
+	margin-top:80px;
+	font-size:18px;
+	}
+.apply a{
+	background-color:#5489d2;
+	padding:6px;
+	padding-left:45px;
+	padding-right:45px;
+	}
+.apply a:hover{
+	background-color:#4781d0;
+	color:#fff;
+	}
+.go-top {
+	position: fixed;
+	bottom:35px;
+	left:50%;
+	margin-left:512px;
+	display: none;
+}
+.feedback{
+	width:46px;
+	height:46px;
+	background-image:url(../images/feedback.png);
+	}
+.feedback:hover{
+	background-image:url(../images/feedback1.png);
+	}
+.gotop{
+	width:46px;
+	height:46px;
+	background-image:url(../images/top.png);
+	cursor:pointer;
+	}
+.gotop:hover{
+	background-image:url(../images/top1.png);
+	}
+.pagenumber{
+	text-align:right;
+	margin-top:30px;
+	}
+.number{
+	color:#282828;
+	border:1px solid #999;
 	padding:15px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-left:10px;
+	}
+.number:hover{
+	border:1px solid #5489d2;
+	}
+.numberclick{
+	color:#fff;
+	background-color:#5489d2;
+	padding:15px;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-left:10px;
+	}
+.footer{
+	text-align:right;
+	margin-top:60px;
+	color:#999;
+	padding-bottom:50px;
+	}
+.footer a{
+	color:#999;
+	margin-left:15px;
+	}
+.footer a:hover{
+	text-decoration:underline;
+	}
+.inputtitle{
+	text-align:right;
+	width:155px;
+	float:left;
+	}
+.inputtext{
+	width:250px;
+	height:35px;
+	border:1px solid #999;
+	padding-left:5px;
+	background:transparent;
+	-webkit-appearance: none; /*for Webkit browsers*/
 	}
