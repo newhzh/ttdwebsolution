@@ -201,10 +201,14 @@
     <Content Include="Content\images\button_1.png" />
     <Content Include="Content\images\button_2.png" />
     <Content Include="Content\images\button_3.png" />
+    <Content Include="Content\images\buy.png" />
+    <Content Include="Content\images\car.png" />
     <Content Include="Content\images\containerbg.png" />
+    <Content Include="Content\images\credit.png" />
     <Content Include="Content\images\down.png" />
     <Content Include="Content\images\down1.png" />
     <Content Include="Content\images\down2.png" />
+    <Content Include="Content\images\factory.png" />
     <Content Include="Content\images\feedback.png" />
     <Content Include="Content\images\feedback1.png" />
     <Content Include="Content\images\fenge.png" />
