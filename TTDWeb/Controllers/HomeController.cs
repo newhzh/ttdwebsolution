@@ -96,8 +96,11 @@ namespace TTDWeb.Controllers
         #region 车贷申请
 
          #region 第一步
-         public ActionResult Carloan1() 
+         public ActionResult Carloan1(string productcode,string producttype) 
          {
+             ViewBag.productcode = productcode;
+             ViewBag.producttype = producttype;
+
              if (Session[BizCommon.g_SessionName_ApplyProject] != null)
              {
                  //为了防止已填写数据丢失，此处将Session中的内容取出填入
@@ -117,15 +120,21 @@ namespace TTDWeb.Controllers
          }
 
          [HttpPost]
-         public ActionResult Carloan1(CarLoanStep1 c)
+         public ActionResult Carloan1(CarLoanStep1 c, FormCollection values)
          {
              if (ModelState.IsValid)
              {
+                 string productcode = values["productcode"].ToString();
+                 string producttype = values["producttype"].ToString();
+
                  if (Session[BizCommon.g_SessionName_ApplyProject] != null)
                  {
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarProperty = c.CarProperty;
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarPurchasingPeriod = c.CarPurchasingPeriod;
+
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
 
                      return View("Carloan2");
                  }
@@ -135,6 +144,8 @@ namespace TTDWeb.Controllers
                      p.CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
                      p.CarProperty = c.CarProperty;
                      p.CarPurchasingPeriod = c.CarPurchasingPeriod;
+                     p.ProductCode = productcode;
+                     p.ProductType = producttype;
 
                      //第一步创建project类放到session中
                      if (Session[BizCommon.g_SessionName_ApplyProject] != null)
@@ -174,6 +185,34 @@ namespace TTDWeb.Controllers
                  p.CustomerPhone = c.CustomerPhone;
 
                  p.CaseState = "0";
+                 p.CreatTime = DateTime.Today.ToString("yyyy-MM-dd");
+
+                 p.FirmAccountBill = 0;
+                 p.FirmAge = "";
+                 p.FirmProperty = "";
+                 p.FirmType = "";
+
+                 p.HouseIncome = "";
+                 p.HouseLocalorNot = "";
+                 p.HouseNew = "";
+                 p.HouseType = "";
+
+                 p.IPaddress = BizCommon.GetIP(this);
+                 
+                 p.PerslCardNo = "";
+                 p.PerslCreditAllowance = "";
+                 p.PerslCreditDue = "";
+                 p.PerslCreditOwner = "";
+                 p.PerslEmployment = "";
+                 p.PerslLoan = "";
+                 p.PerslLoanDue = "";
+                 p.PerslSalaryTypee = "";
+                 p.PerslWorkingAge = "";
+                 p.PerslYoBirth = "";
+
+                 //此处无需针对以下两个属性赋值，在第一步的时候已经完成赋值
+                 //p.ProductCode = productcode;
+                 //p.ProductType = producttype;
 
                  #endregion
 
