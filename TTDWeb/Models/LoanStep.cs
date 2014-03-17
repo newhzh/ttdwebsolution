@@ -49,7 +49,7 @@ namespace TTDWeb.Models
         /// </summary>
         [Required(ErrorMessage = "申请人-手机必填")]
         [Display(Name = "申请人-手机")]
-        public string BustomerPhone { get; set; }
+        public string CustomerPhone { get; set; }
 
         /// <summary>
         /// 申请人-邮箱
