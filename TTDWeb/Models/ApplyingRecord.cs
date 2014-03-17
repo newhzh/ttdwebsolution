@@ -139,7 +139,7 @@ namespace TTDWeb.Models
         /// </summary>
         [Required(ErrorMessage = "融资方名称个人-工资形式必填")]
         [Display(Name = "个人-工资形式")]
-        public string PerslSalaryTypee { get; set; }
+        public string PerslSalaryType { get; set; }
 
         /// <summary>
         /// 个人-工作时间

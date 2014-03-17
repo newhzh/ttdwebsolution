@@ -206,7 +206,7 @@ namespace TTDWeb.Controllers
                  p.PerslEmployment = "";
                  p.PerslLoan = "";
                  p.PerslLoanDue = "";
-                 p.PerslSalaryTypee = "";
+                 p.PerslSalaryType = "";
                  p.PerslWorkingAge = "";
                  p.PerslYoBirth = "";
 
@@ -218,7 +218,17 @@ namespace TTDWeb.Controllers
 
                  #region 保存至数据库,并跳转到第三步
 
-                 return View();
+                 string err = "";
+                 if (DataAdapter.Apply_Insert(p, ref err))
+                 {
+                     return View("Carloan3");
+                 }
+                 else
+                 {
+                     //保存失败
+                     ModelState.AddModelError("", "：（ 保存失败了！");
+                     return View();
+                 }
 
                  #endregion
              }
