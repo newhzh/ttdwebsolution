@@ -93,7 +93,6 @@ namespace TTDWeb.Controllers
         }      
         #endregion
 
-
         #region 车贷申请
 
          #region 第一步
@@ -123,6 +122,124 @@ namespace TTDWeb.Controllers
          //        return View();
          //    }
          //}
+        #endregion
+
+         #region 第二步
+         public ActionResult Carloan2()
+         {
+             return View();
+         }
+
+        //[HttpPost]
+        //public ActionResult Carloan2(ApplyingRecord a)
+        //{
+        //    if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+        //    {
+        //        //为了防止已填写数据丢失，此处将Session中的内容取出填入
+        //        ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+        //        ApplyStep01Model m = new ApplyStep01Model();
+
+        //        m.Term = p.Term;
+        //        m.Money = p.Money;
+        //        m.ProfitRate = p.ProfitRate;
+        //        m.Description = p.Description;
+
+        //        return View(m);
+        //    }
+        //    else
+        //    {
+        //        return View();
+        //    }
+        //}
+         #endregion
+
+        #region 第三步（成功提示）
+         public ActionResult Carloan3()
+         {
+             return View();
+         }
+        #endregion
+
+        #endregion
+
+        #region 房贷申请
+
+         #region 第一步
+         public ActionResult Homeloan1()
+         {
+             return View();
+         }
+         #endregion
+
+         #region 第二步
+         public ActionResult Homeloan2()
+         {
+             return View();
+         }
+         #endregion
+
+         #region 第三步
+         public ActionResult Homeloan3()
+         {
+             return View();
+         }
+         #endregion
+
+        #endregion
+
+        #region 企业贷申请
+
+        #region 第一步
+        public ActionResult Firmloan1()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第二步
+        public ActionResult Firmloan2()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第三步
+        public ActionResult Firmloan3()
+        {
+            return View();
+        }
+        #endregion
+
+        #endregion
+
+        #region 消费贷申请
+
+        #region 第一步
+        public ActionResult Purchaseloan1()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第二步
+        public ActionResult Purchaseloan2()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第三步
+        public ActionResult Purchaseloan3()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第四步
+        public ActionResult Purchaseloan4()
+        {
+            return View();
+        }
         #endregion
 
         #endregion
