@@ -74,3 +74,4 @@ values ('sHouseNew', '0', '是否二手房', '新房', null, null);
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sHouseNew', '1', '是否二手房', '二手房', null, null);
 
+
