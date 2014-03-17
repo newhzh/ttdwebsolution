@@ -287,5 +287,22 @@ namespace TTDWeb.Common
         }
 
         #endregion
+
+        #region 获取IP
+        public static string GetIP(Controller ctrl)
+        {
+            string ip;
+            if (ctrl.HttpContext.Request.ServerVariables["HTTP_VIA"] != null)
+            {
+                ip = ctrl.HttpContext.Request.ServerVariables["HTTP_X_FORWARDED_FOR"].ToString();
+            }
+            else
+            {
+                ip = ctrl.HttpContext.Request.ServerVariables["REMOTE_ADDR"].ToString();
+            }
+            return ip;
+        }
+        #endregion
+
     }
 }

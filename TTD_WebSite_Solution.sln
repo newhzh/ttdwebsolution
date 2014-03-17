@@ -5,6 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTDWeb", "TTDWeb\TTDWeb.csp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "数据库设计", "数据库设计", "{57A5DC1E-1628-433E-93DA-542A6D9EF559}"
 	ProjectSection(SolutionItems) = preProject
+		AA10.sql = AA10.sql
 		DB.xls = DB.xls
 	EndProjectSection
 EndProject

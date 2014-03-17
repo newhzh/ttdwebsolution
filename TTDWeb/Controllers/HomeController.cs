@@ -93,36 +93,229 @@ namespace TTDWeb.Controllers
         }      
         #endregion
 
-
         #region 车贷申请
 
          #region 第一步
-         public ActionResult Carloan1() 
+         public ActionResult Carloan1(string productcode,string producttype) 
          {
-             return View();         
+             ViewBag.productcode = productcode;
+             ViewBag.producttype = producttype;
+
+             if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+             {
+                 //为了防止已填写数据丢失，此处将Session中的内容取出填入
+                 ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+                 CarLoanStep1 m = new CarLoanStep1();
+
+                 m.CarCustomerMonthlySalary = p.CarCustomerMonthlySalary;
+                 m.CarProperty = p.CarProperty;
+                 m.CarPurchasingPeriod = p.CarPurchasingPeriod;
+
+                 return View(m);
+             }
+             else
+             {
+                 return View();
+             }        
          }
 
-         //[HttpPost]
-         //public ActionResult Carloan1(ApplyingRecord a)
-         //{
-         //    if (Session[BizCommon.g_SessionName_ApplyProject] != null)
-         //    {
-         //        //为了防止已填写数据丢失，此处将Session中的内容取出填入
-         //        ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
-         //        ApplyStep01Model m = new ApplyStep01Model();
+         [HttpPost]
+         public ActionResult Carloan1(CarLoanStep1 c, FormCollection values)
+         {
+             if (ModelState.IsValid)
+             {
+                 string productcode = values["productcode"].ToString();
+                 string producttype = values["producttype"].ToString();
 
-         //        m.Term = p.Term;
-         //        m.Money = p.Money;
-         //        m.ProfitRate = p.ProfitRate;
-         //        m.Description = p.Description;
+                 if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                 {
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarProperty = c.CarProperty;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarPurchasingPeriod = c.CarPurchasingPeriod;
 
-         //        return View(m);
-         //    }
-         //    else
-         //    {
-         //        return View();
-         //    }
-         //}
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
+
+                     return View("Carloan2");
+                 }
+                 else
+                 {
+                     ApplyingRecord p = new ApplyingRecord();
+                     p.CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
+                     p.CarProperty = c.CarProperty;
+                     p.CarPurchasingPeriod = c.CarPurchasingPeriod;
+                     p.ProductCode = productcode;
+                     p.ProductType = producttype;
+
+                     //第一步创建project类放到session中
+                     if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                         Session[BizCommon.g_SessionName_ApplyProject] = null;
+
+                     Session[BizCommon.g_SessionName_ApplyProject] = p;
+
+                     return View("Carloan2");
+                 }
+             }
+
+             //万一发生异常时，将执行以下代码（即返回第一步页面）
+             ViewBag.Term = BizCommon.GetAA10Items("sLoanTerm", "cast(aaa102 as int)");
+             return View("Carloan1");
+         }
+        #endregion
+
+         #region 第二步
+         public ActionResult Carloan2()
+         {
+             return View();
+         }
+
+         [HttpPost]
+         public ActionResult Carloan2(CarLoanStep2 c)
+         {
+             if (ModelState.IsValid)
+             {
+                 if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                     return View("Carloan1");
+
+                 ApplyingRecord p = Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord;
+
+                 #region 完整的类赋值
+                 p.CustomerEmail = c.CustomerEmail;
+                 p.CustomerName = c.CustomerName;
+                 p.CustomerPhone = c.CustomerPhone;
+
+                 p.CaseState = "0";
+                 p.CreatTime = DateTime.Today.ToString("yyyy-MM-dd");
+
+                 p.FirmAccountBill = 0;
+                 p.FirmAge = "";
+                 p.FirmProperty = "";
+                 p.FirmType = "";
+
+                 p.HouseIncome = "";
+                 p.HouseLocalorNot = "";
+                 p.HouseNew = "";
+                 p.HouseType = "";
+
+                 p.IPaddress = BizCommon.GetIP(this);
+                 
+                 p.PerslCardNo = "";
+                 p.PerslCreditAllowance = "";
+                 p.PerslCreditDue = "";
+                 p.PerslCreditOwner = "";
+                 p.PerslEmployment = "";
+                 p.PerslLoan = "";
+                 p.PerslLoanDue = "";
+                 p.PerslSalaryTypee = "";
+                 p.PerslWorkingAge = "";
+                 p.PerslYoBirth = "";
+
+                 //此处无需针对以下两个属性赋值，在第一步的时候已经完成赋值
+                 //p.ProductCode = productcode;
+                 //p.ProductType = producttype;
+
+                 #endregion
+
+                 #region 保存至数据库,并跳转到第三步
+
+                 return View();
+
+                 #endregion
+             }
+             else
+             {
+                 return View();
+             }
+         }
+         #endregion
+
+        #region 第三步（成功提示）
+         public ActionResult Carloan3()
+         {
+             return View();
+         }
+        #endregion
+
+        #endregion
+
+        #region 房贷申请
+
+         #region 第一步
+         public ActionResult Homeloan1()
+         {
+             return View();
+         }
+         #endregion
+
+         #region 第二步
+         public ActionResult Homeloan2()
+         {
+             return View();
+         }
+         #endregion
+
+         #region 第三步
+         public ActionResult Homeloan3()
+         {
+             return View();
+         }
+         #endregion
+
+        #endregion
+
+        #region 企业贷申请
+
+        #region 第一步
+        public ActionResult Firmloan1()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第二步
+        public ActionResult Firmloan2()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第三步
+        public ActionResult Firmloan3()
+        {
+            return View();
+        }
+        #endregion
+
+        #endregion
+
+        #region 消费贷申请
+
+        #region 第一步
+        public ActionResult Purchaseloan1()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第二步
+        public ActionResult Purchaseloan2()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第三步
+        public ActionResult Purchaseloan3()
+        {
+            return View();
+        }
+        #endregion
+
+        #region 第四步
+        public ActionResult Purchaseloan4()
+        {
+            return View();
+        }
         #endregion
 
         #endregion

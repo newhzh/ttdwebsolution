@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TTDWeb.Controllers
+namespace TTDWeb.Models
 {
     #region 车贷申请
 
@@ -49,7 +49,7 @@ namespace TTDWeb.Controllers
         /// </summary>
         [Required(ErrorMessage = "申请人-手机必填")]
         [Display(Name = "申请人-手机")]
-        public string BustomerPhone { get; set; }
+        public string CustomerPhone { get; set; }
 
         /// <summary>
         /// 申请人-邮箱
@@ -65,7 +65,7 @@ namespace TTDWeb.Controllers
 
     #region 房贷申请
 
-    #region 车贷申请第一步
+    #region 房贷申请第一步
     public class HomeLoanStep1
     {
         /// <summary>
@@ -270,7 +270,7 @@ namespace TTDWeb.Controllers
     }
     #endregion
 
-    #region 企业贷申请第三步
+    #region 消费贷申请第三步
     public class PurchaseLoanStep3
     {
         /// <summary>

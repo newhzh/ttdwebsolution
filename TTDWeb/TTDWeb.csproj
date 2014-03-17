@@ -131,6 +131,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Common\BizCommon.cs" />
+    <Compile Include="Common\DataAdapter.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Models\LoanStep.cs" />
     <Compile Include="Global.asax.cs">
@@ -341,8 +344,33 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
-    <Content Include="Views\Home\Carloan.cshtml" />
     <Content Include="Views\Home\Carloan1.cshtml" />
+    <Content Include="Views\Home\Carloan2.cshtml" />
+    <Content Include="Views\Home\Carloan3.cshtml" />
+    <Content Include="Views\Home\Homeloan2.cshtml" />
+    <Content Include="Views\Home\Homeloan3.cshtml" />
+    <Content Include="Views\Home\Homeloan1.cshtml" />
+    <Content Include="Views\Home\Firmloan1.cshtml" />
+    <Content Include="Views\Home\Firmloan2.cshtml" />
+    <Content Include="Views\Home\Firmloan3.cshtml" />
+    <Content Include="Views\Home\Purchaseloan1.cshtml" />
+    <Content Include="Views\Home\Purchaseloan2.cshtml" />
+    <Content Include="Views\Home\Purchaseloan3.cshtml" />
+    <Content Include="Views\Home\Purchaseloan4.cshtml" />
+    <Content Include="Views\Help\Aboutus.cshtml" />
+    <Content Include="Views\Help\Contactus.cshtml" />
+    <Content Include="Views\Help\Complain.cshtml" />
+    <Content Include="Views\Help\Joinus.cshtml" />
+    <Content Include="Views\Help\Feedback.cshtml" />
+    <Content Include="Views\Help\Serverlist.cshtml" />
+    <Content Include="Views\Account\OrganIndex.cshtml" />
+    <Content Include="Views\Account\Reg.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\MyApplition.cshtml" />
+    <Content Include="Views\Account\MyInfo.cshtml" />
+    <Content Include="Views\Account\CreateProduct.cshtml" />
+    <Content Include="Views\Account\MyProducts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
