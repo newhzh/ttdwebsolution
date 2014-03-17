@@ -337,7 +337,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
-    <Content Include="Views\Home\Carloan.cshtml" />
     <Content Include="Views\Home\Carloan1.cshtml" />
   </ItemGroup>
   <ItemGroup>
