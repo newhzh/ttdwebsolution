@@ -25,12 +25,13 @@
         });
     </script>
     <style type="text/css">
-body {
-	background-image: url(../content/images/bg.jpg);
-	background-repeat: no-repeat;
-	background-position: top center;
-}
-</style>
+        body
+        {
+            background-image: url(../content/images/bg.jpg);
+            background-repeat: no-repeat;
+            background-position: top center;
+        }
+    </style>
 </head>
 <body>
     <div class="bodycontent" style="text-align: center; padding-top: 85px;">
@@ -39,41 +40,45 @@ body {
         <div class="denglu"><a href="#" style="margin-right: 22px;">随便逛逛</a><a href="#">信贷经理登录</a></div>
 
         <div class="typewrap">
-
             <div class="typewrap2" onclick="document.getElementById('type').value=1">
                 <div class="type">
-                    <img src="~/content/images/house.png" width="64" height="57" /><br />
+                    <img src="../content/images/house.png" width="64" height="57" /><br />
                     <br />
                     <br />
-                    &nbsp;购房贷款</div>
+                    &nbsp;购房贷款
+                </div>
             </div>
             <div class="typewrap2" onclick="document.getElementById('type').value=2">
                 <div class="type">
-                    <img src="~/content/images/house.png" width="64" height="57" /><br />
+                    <img src="../content/images/car.png" width="64" height="57" /><br />
                     <br />
                     <br />
-                    &nbsp;购房贷款</div>
+                    &nbsp;购车贷款
+                </div>
             </div>
             <div class="typewrap2" onclick="document.getElementById('type').value=3">
                 <div class="type">
-                    <img src="~/content/images/house.png" width="64" height="57" /><br />
+                    <img src="../content/images/factory.png" width="64" height="57" /><br />
                     <br />
                     <br />
-                    &nbsp;购房贷款</div>
+                    &nbsp;企业贷款
+                </div>
             </div>
             <div class="typewrap2" onclick="document.getElementById('type').value=4">
                 <div class="type">
-                    <img src="~/content/images/house.png" width="64" height="57" /><br />
+                    <img src="../content/images/buy.png" width="64" height="57" /><br />
                     <br />
                     <br />
-                    &nbsp;购房贷款</div>
+                    &nbsp;消费贷款
+                </div>
             </div>
             <div class="typewrap2" onclick="document.getElementById('type').value=5">
                 <div class="type">
-                    <img src="~/content/images/house.png" width="64" height="57" /><br />
+                    <img src="../content/images/credit.png" width="64" height="57" /><br />
                     <br />
                     <br />
-                    &nbsp;购房贷款</div>
+                    &nbsp;信用卡
+                </div>
             </div>
         </div>
 
@@ -81,8 +86,8 @@ body {
         <!--form start-->
         <div class="vsearchBox">
             <div id="searchBox" class="vboxcontent">
-                 @using (Html.BeginForm("productlist", "Home",FormMethod.Get))
-                 {
+                @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
+                {
                     <input type="hidden" value="1" id="type" name="type" />
                     <dl class="searchitems clearfix moneydl" style="position: absolute; top: 560px; margin-left: 50px;">
                         <dt>
@@ -123,8 +128,8 @@ body {
                             </ul>
                         </dd>
                     </dl>
-                    <button type="submit" class="btn" style="width:152px; position:absolute; top:586px; margin-left:-200px;">马上搜索</button>
-                 }
+                    <button type="submit" class="btn" style="width: 152px; position: absolute; top: 586px; margin-left: -200px;">马上搜索</button>
+                }
             </div>
             <script type="text/javascript">
                 jQuery(function () {
