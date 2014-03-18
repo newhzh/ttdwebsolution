@@ -6,6 +6,20 @@ values ('sCaseState', '1', '申请状态', '已发送', null, null);
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sCaseState', '2', '申请状态', '已处理', null, null);
 
+--产品类型 0车贷，1房贷，2企业贷款，3消费贷款，4信用卡，5保险
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '0', '产品类型', '车贷', null, null);
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '1', '产品类型', '房贷', null, null);
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '2', '产品类型', '企业贷款', null, null);
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '3', '产品类型', '消费贷款', null, null);
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '4', '产品类型', '信用卡', null, null);
+insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
+values ('sProductType', '5', '产品类型', '保险', null, null);
+
 
 --车贷-房产
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
@@ -45,22 +59,19 @@ insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sFirmAge', '0', '经营年限', '不足半年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sFirmAge', '1', '经营年限', '半年', null, null);
+values ('sFirmAge', '1', '经营年限', '1年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sFirmAge', '2', '经营年限', '1年', null, null);
+values ('sFirmAge', '2', '经营年限', '2年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sFirmAge', '3', '经营年限', '2年', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sFirmAge', '4', '经营年限', '3年', null, null);
+values ('sFirmAge', '3', '经营年限', '3年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sFirmAge', '4', '经营年限', '4年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sFirmAge', '4', '经营年限', '5年（及以上）', null, null);
+values ('sFirmAge', '5', '经营年限', '5年（及以上）', null, null);
 
 --企业-房产
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
@@ -82,208 +93,27 @@ values ('sPerslEmployment', '2', '请问您的公司类型', '公务员/事业单位', null, nu
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sPerslEmployment', '3', '请问您的公司类型', '国企/上市企业', null, null);
 
---个人-年龄
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '0', '您的出生年份', '1959', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '1', '您的出生年份', '1960', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '2', '您的出生年份', '1961', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '3', '您的出生年份', '1962', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '4', '您的出生年份', '1963', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '5', '您的出生年份', '1964', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '6', '您的出生年份', '1965', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '7', '您的出生年份', '1966', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '8', '您的出生年份', '1967', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '9', '您的出生年份', '1968', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '10', '您的出生年份', '1969', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '11', '您的出生年份', '1970', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '12', '您的出生年份', '1971', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '13', '您的出生年份', '1972', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '14', '您的出生年份', '1973', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '15', '您的出生年份', '1974', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '16', '您的出生年份', '1975', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '17', '您的出生年份', '1976', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '18', '您的出生年份', '1977', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '19', '您的出生年份', '1978', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '20', '您的出生年份', '1979', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '21', '您的出生年份', '1980', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '22', '您的出生年份', '1981', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '23', '您的出生年份', '1982', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '24', '您的出生年份', '1983', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '25', '您的出生年份', '1984', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '26', '您的出生年份', '1985', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '27', '您的出生年份', '1986', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '28', '您的出生年份', '1987', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '29', '您的出生年份', '1988', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '30', '您的出生年份', '1989', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '31', '您的出生年份', '1990', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '32', '您的出生年份', '1991', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '33', '您的出生年份', '1992', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '34', '您的出生年份', '1993', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslYoBirth', '35', '您的出生年份', '1994', null, null);
-
 --个人-工作时间
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '0', '您的工作时间', '0', null, null);
+values ('sPerslWorkingAge', '0', '您的工作时间', '无工作经验', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '1', '您的工作时间', '1', null, null);
+values ('sPerslWorkingAge', '1', '您的工作时间', '1年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '2', '您的工作时间', '2', null, null);
+values ('sPerslWorkingAge', '2', '您的工作时间', '2年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '3', '您的工作时间', '3', null, null);
+values ('sPerslWorkingAge', '3', '您的工作时间', '3年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '4', '您的工作时间', '4', null, null);
+values ('sPerslWorkingAge', '4', '您的工作时间', '4年', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '5', '您的工作时间', '5', null, null);
+values ('sPerslWorkingAge', '5', '您的工作时间', '5年以上', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '6', '您的工作时间', '6', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '7', '您的工作时间', '7', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '8', '您的工作时间', '8', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '9', '您的工作时间', '9', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '10', '您的工作时间', '10', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '11', '您的工作时间', '11', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '12', '您的工作时间', '12', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '13', '您的工作时间', '13', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '14', '您的工作时间', '14', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '15', '您的工作时间', '15', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '16', '您的工作时间', '16', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '17', '您的工作时间', '17', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '18', '您的工作时间', '18', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '19', '您的工作时间', '19', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '20', '您的工作时间', '20', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '21', '您的工作时间', '21', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '22', '您的工作时间', '22', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '23', '您的工作时间', '23', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '24', '您的工作时间', '24', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '25', '您的工作时间', '25', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '26', '您的工作时间', '26', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '27', '您的工作时间', '27', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '28', '您的工作时间', '28', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '29', '您的工作时间', '29', null, null);
-
-insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslWorkingAge', '30', '您的工作时间', '30', null, null);
+values ('sPerslWorkingAge', '10', '您的工作时间', '10年以上', null, null);
 
 
 --个人-公资发放

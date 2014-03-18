@@ -22,6 +22,11 @@ namespace TTDWeb.Controllers
         #region 产品列表 
         public ActionResult ProductList(string type,string money,string term,string pindex)
         {
+            //前端页要用这三个参数
+            ViewBag.type=type;
+            ViewBag.money = money;
+            ViewBag.term = term;
+
             DA_Adapter da = new DA_Adapter();
 
             string sql1 = " select t1.sProductName, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails," + 
@@ -101,6 +106,10 @@ namespace TTDWeb.Controllers
              ViewBag.productcode = productcode;
              ViewBag.producttype = producttype;
 
+             //第一步中的下拉选项预加载
+             ViewBag.CarProperty = BizCommon.GetAA10Items("sCarProperty", "cast(aaa102 as int)");          //车贷-房产 下拉选项
+             ViewBag.CarPurchasingPeriod = BizCommon.GetAA10Items("sCarPurchasingPeriod", "cast(aaa102 as int)");  //车贷-购车阶段 下拉选项
+
              if (Session[BizCommon.g_SessionName_ApplyProject] != null)
              {
                  //为了防止已填写数据丢失，此处将Session中的内容取出填入
@@ -129,6 +138,7 @@ namespace TTDWeb.Controllers
 
                  if (Session[BizCommon.g_SessionName_ApplyProject] != null)
                  {
+                     //若session中已经存在申请对象，则将本步骤所取得的值赋到session中的对象上；
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarProperty = c.CarProperty;
                      (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).CarPurchasingPeriod = c.CarPurchasingPeriod;
@@ -140,6 +150,7 @@ namespace TTDWeb.Controllers
                  }
                  else
                  {
+                     //否则，新创建一个申请对象，并将本步骤取得值赋到新的对象上，然后将对象放到session中；
                      ApplyingRecord p = new ApplyingRecord();
                      p.CarCustomerMonthlySalary = c.CarCustomerMonthlySalary;
                      p.CarProperty = c.CarProperty;
@@ -158,7 +169,9 @@ namespace TTDWeb.Controllers
              }
 
              //万一发生异常时，将执行以下代码（即返回第一步页面）
-             ViewBag.Term = BizCommon.GetAA10Items("sLoanTerm", "cast(aaa102 as int)");
+             //第一步中的下拉选项预加载
+             ViewBag.CarProperty = BizCommon.GetAA10Items("sCarProperty", "cast(aaa102 as int)");          //车贷-房产 下拉选项
+             ViewBag.CarPurchasingPeriod = BizCommon.GetAA10Items("sCarPurchasingPeriod", "cast(aaa102 as int)");  //车贷-购车阶段 下拉选项
              return View("Carloan1");
          }
         #endregion
@@ -251,9 +264,84 @@ namespace TTDWeb.Controllers
         #region 房贷申请
 
          #region 第一步
-         public ActionResult Homeloan1()
+         public ActionResult Homeloan1(string productcode, string producttype)
          {
-             return View();
+             ViewBag.productcode = productcode;
+             ViewBag.producttype = producttype;
+
+             //第一步中的下拉选项预加载
+             ViewBag.HouseLocalorNot = BizCommon.GetAA10Items("sHouseLocalorNot", "cast(aaa102 as int)");
+             ViewBag.HouseNew = BizCommon.GetAA10Items("sHouseNew", "cast(aaa102 as int)");
+             ViewBag.HouseType = BizCommon.GetAA10Items("sHouseType", "cast(aaa102 as int)");
+
+             if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+             {
+                 //为了防止已填写数据丢失，此处将Session中的内容取出填入
+                 ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+                 HomeLoanStep1 m = new HomeLoanStep1();
+
+                 m.HouseIncome = p.HouseIncome;         //输入
+                 m.HouseLocalorNot = p.HouseLocalorNot; //选项
+                 m.HouseNew = p.HouseNew;               //选项
+                 m.HouseType = p.HouseType;             //选项
+
+                 return View(m);
+             }
+             else
+             {
+                 return View();
+             }        
+         }
+
+         [HttpPost]
+         public ActionResult Homeloan1(HomeLoanStep1 c, FormCollection values)
+         {
+             if (ModelState.IsValid)
+             {
+                 string productcode = values["productcode"].ToString();
+                 string producttype = values["producttype"].ToString();
+
+                 if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                 {
+                     //若session中已经存在申请对象，则将本步骤所取得的值赋到session中的对象上；
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).HouseIncome = c.HouseIncome;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).HouseLocalorNot = c.HouseLocalorNot;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).HouseNew = c.HouseNew;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).HouseType = c.HouseType;
+
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
+
+                     return View("Homeloan2");
+                 }
+                 else
+                 {
+                     //否则，新创建一个申请对象，并将本步骤取得值赋到新的对象上，然后将对象放到session中；
+                     ApplyingRecord p = new ApplyingRecord();
+                     p.HouseIncome = c.HouseIncome;
+                     p.HouseLocalorNot = c.HouseLocalorNot;
+                     p.HouseNew = c.HouseNew;
+                     p.HouseType = c.HouseType;
+                     p.ProductCode = productcode;
+                     p.ProductType = producttype;
+
+                     //第一步创建project类放到session中
+                     if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                         Session[BizCommon.g_SessionName_ApplyProject] = null;
+
+                     Session[BizCommon.g_SessionName_ApplyProject] = p;
+
+                     return View("Homeloan2");
+                 }
+             }
+
+
+             //万一发生异常时，将执行以下代码（即返回第一步页面）
+             //第一步中的下拉选项预加载
+             ViewBag.HouseLocalorNot = BizCommon.GetAA10Items("sHouseLocalorNot", "cast(aaa102 as int)");
+             ViewBag.HouseNew = BizCommon.GetAA10Items("sHouseNew", "cast(aaa102 as int)");
+             ViewBag.HouseType = BizCommon.GetAA10Items("sHouseType", "cast(aaa102 as int)");
+             return View("Homeloan1");
          }
          #endregion
 
@@ -261,6 +349,80 @@ namespace TTDWeb.Controllers
          public ActionResult Homeloan2()
          {
              return View();
+         }
+
+         [HttpPost]
+         public ActionResult Homeloan2(HomeLoanStep2 c)
+         {
+             if (ModelState.IsValid)
+             {
+                 if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                     return View("Homeloan1");
+
+                 ApplyingRecord p = Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord;
+
+                 #region 完整的类赋值
+                 p.CarCustomerMonthlySalary = 0;
+                 p.CarProperty = "";
+                 p.CarPurchasingPeriod = ""; 
+                
+                 p.CustomerEmail = c.CustomerEmail;
+                 p.CustomerName = c.CustomerName;
+                 p.CustomerPhone = c.CustomerPhone;
+
+                 p.CaseState = "0";
+                 p.CreatTime = DateTime.Today.ToString("yyyy-MM-dd");
+
+                 p.FirmAccountBill = 0;
+                 p.FirmAge = "";
+                 p.FirmProperty = "";
+                 p.FirmType = "";
+
+                 //以下几个属性在第一步中已经完成输入
+                 //p.HouseIncome = "";
+                 //p.HouseLocalorNot = "";
+                 //p.HouseNew = "";
+                 //p.HouseType = "";
+
+                 p.IPaddress = BizCommon.GetIP(this);
+
+                 p.PerslCardNo = "";
+                 p.PerslCreditAllowance = "";
+                 p.PerslCreditDue = "";
+                 p.PerslCreditOwner = "";
+                 p.PerslEmployment = "";
+                 p.PerslLoan = "";
+                 p.PerslLoanDue = "";
+                 p.PerslSalaryType = "";
+                 p.PerslWorkingAge = "";
+                 p.PerslYoBirth = "";
+
+                 //此处无需针对以下两个属性赋值，在第一步的时候已经完成赋值
+                 //p.ProductCode = productcode;
+                 //p.ProductType = producttype;
+
+                 #endregion
+
+                 #region 保存至数据库,并跳转到第三步
+
+                 string err = "";
+                 if (DataAdapter.Apply_Insert(p, ref err))
+                 {
+                     return View("Homeloan3");
+                 }
+                 else
+                 {
+                     //保存失败
+                     ModelState.AddModelError("", "：（ 保存失败了！");
+                     return View();
+                 }
+
+                 #endregion
+             }
+             else
+             {
+                 return View();
+             }
          }
          #endregion
 
@@ -276,16 +438,166 @@ namespace TTDWeb.Controllers
         #region 企业贷申请
 
         #region 第一步
-        public ActionResult Firmloan1()
+         public ActionResult Firmloan1(string productcode, string producttype)
         {
-            return View();
+            ViewBag.productcode = productcode;
+            ViewBag.producttype = producttype;
+
+            //第一步中的下拉选项预加载
+            ViewBag.FirmAge = BizCommon.GetAA10Items("sFirmAge", "cast(aaa102 as int)");
+            ViewBag.FirmProperty = BizCommon.GetAA10Items("sFirmProperty", "cast(aaa102 as int)");
+            ViewBag.FirmType = BizCommon.GetAA10Items("sFirmType", "cast(aaa102 as int)");
+
+            if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+            {
+                //为了防止已填写数据丢失，此处将Session中的内容取出填入
+                ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+                FirmLoanStep1 m = new FirmLoanStep1();
+
+                m.FirmAccountBill = p.FirmAccountBill;         //输入
+                m.FirmAge = p.FirmAge;                          //选项
+                m.FirmProperty = p.FirmProperty;               //选项
+                m.FirmType = p.FirmType;                         //选项
+
+                return View(m);
+            }
+            else
+            {
+                return View();
+            }        
         }
+
+         [HttpPost]
+         public ActionResult Firmloan1(FirmLoanStep1 c, FormCollection values)
+         {
+             if (ModelState.IsValid)
+             {
+                 string productcode = values["productcode"].ToString();
+                 string producttype = values["producttype"].ToString();
+
+                 if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                 {
+                     //若session中已经存在申请对象，则将本步骤所取得的值赋到session中的对象上；
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).FirmAccountBill = c.FirmAccountBill;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).FirmAge = c.FirmAge;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).FirmProperty = c.FirmProperty;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).FirmType = c.FirmType;
+
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
+                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
+
+                     return View("Firmloan2");
+                 }
+                 else
+                 {
+                     //否则，新创建一个申请对象，并将本步骤取得值赋到新的对象上，然后将对象放到session中；
+                     ApplyingRecord p = new ApplyingRecord();
+                     p.FirmAccountBill = c.FirmAccountBill;
+                     p.FirmAge = c.FirmAge;
+                     p.FirmProperty = c.FirmProperty;
+                     p.FirmType = c.FirmType;
+                     p.ProductCode = productcode;
+                     p.ProductType = producttype;
+
+                     //第一步创建project类放到session中
+                     if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                         Session[BizCommon.g_SessionName_ApplyProject] = null;
+
+                     Session[BizCommon.g_SessionName_ApplyProject] = p;
+
+                     return View("Firmloan2");
+                 }
+             }
+
+
+             //万一发生异常时，将执行以下代码（即返回第一步页面）
+             //第一步中的下拉选项预加载
+             ViewBag.FirmAge = BizCommon.GetAA10Items("sFirmAge", "cast(aaa102 as int)");
+             ViewBag.FirmProperty = BizCommon.GetAA10Items("sFirmProperty", "cast(aaa102 as int)");
+             ViewBag.FirmType = BizCommon.GetAA10Items("sFirmType", "cast(aaa102 as int)");
+             return View("Firmloan1");
+         }
         #endregion
 
         #region 第二步
         public ActionResult Firmloan2()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Firmloan2(FirmLoanStep2 c)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                    return View("Firmloan1");
+
+                ApplyingRecord p = Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord;
+
+                #region 完整的类赋值
+                p.CarCustomerMonthlySalary = 0;
+                p.CarProperty = "";
+                p.CarPurchasingPeriod = "";
+                
+                p.CustomerEmail = c.CustomerEmail;
+                p.CustomerName = c.CustomerName;
+                p.CustomerPhone = c.CustomerPhone;
+
+                p.CaseState = "0";
+                p.CreatTime = DateTime.Today.ToString("yyyy-MM-dd");
+
+                //以下几个属性在第一步中已经完成输入
+                //p.FirmAccountBill = 0;
+                //p.FirmAge = "";
+                //p.FirmProperty = "";
+                //p.FirmType = "";
+
+
+                p.HouseIncome = "";
+                p.HouseLocalorNot = "";
+                p.HouseNew = "";
+                p.HouseType = "";
+
+                p.IPaddress = BizCommon.GetIP(this);
+
+                p.PerslCardNo = "";
+                p.PerslCreditAllowance = "";
+                p.PerslCreditDue = "";
+                p.PerslCreditOwner = "";
+                p.PerslEmployment = "";
+                p.PerslLoan = "";
+                p.PerslLoanDue = "";
+                p.PerslSalaryType = "";
+                p.PerslWorkingAge = "";
+                p.PerslYoBirth = "";
+
+                //此处无需针对以下两个属性赋值，在第一步的时候已经完成赋值
+                //p.ProductCode = productcode;
+                //p.ProductType = producttype;
+
+                #endregion
+
+                #region 保存至数据库,并跳转到第三步
+
+                string err = "";
+                if (DataAdapter.Apply_Insert(p, ref err))
+                {
+                    return View("Firmloan3");
+                }
+                else
+                {
+                    //保存失败
+                    ModelState.AddModelError("", "：（ 保存失败了！");
+                    return View();
+                }
+
+                #endregion
+            }
+            else
+            {
+                return View();
+            }
         }
         #endregion
 
@@ -301,16 +613,167 @@ namespace TTDWeb.Controllers
         #region 消费贷申请
 
         #region 第一步
-        public ActionResult Purchaseloan1()
+        public ActionResult Purchaseloan1(string productcode, string producttype)
         {
-            return View();
+            ViewBag.productcode = productcode;
+            ViewBag.producttype = producttype;
+
+            //第一步中的下拉选项预加载
+            ViewBag.PerslEmployment = BizCommon.GetAA10Items("sPerslEmployment", "cast(aaa102 as int)");
+            ViewBag.PerslSalaryType = BizCommon.GetAA10Items("sPerslSalaryType", "cast(aaa102 as int)");
+            ViewBag.PerslWorkingAge = BizCommon.GetAA10Items("sPerslWorkingAge", "cast(aaa102 as int)");
+
+            if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+            {
+                //为了防止已填写数据丢失，此处将Session中的内容取出填入
+                ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+                PurchaseLoanStep1 m = new PurchaseLoanStep1();
+
+                m.PerslEmployment = p.PerslEmployment;                  //选项
+                m.PerslSalaryType = p.PerslSalaryType;                  //选项
+                m.PerslWorkingAge = p.PerslWorkingAge;                  //选项
+                m.PerslYoBirth = p.PerslYoBirth;                        //选项（但不从数据库中取）
+
+                return View(m);
+            }
+            else
+            {
+                return View();
+            }        
+        }
+
+        [HttpPost]
+        public ActionResult Purchaseloan1(PurchaseLoanStep1 c, FormCollection values)
+        {
+            if (ModelState.IsValid)
+            {
+                string productcode = values["productcode"].ToString();
+                string producttype = values["producttype"].ToString();
+
+                if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                {
+                    //若session中已经存在申请对象，则将本步骤所取得的值赋到session中的对象上；
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslEmployment = c.PerslEmployment;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslSalaryType = c.PerslSalaryType;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslWorkingAge = c.PerslWorkingAge;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslYoBirth = c.PerslYoBirth;
+
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
+
+                    return View("Purchaseloan2");
+                }
+                else
+                {
+                    //否则，新创建一个申请对象，并将本步骤取得值赋到新的对象上，然后将对象放到session中；
+                    ApplyingRecord p = new ApplyingRecord();
+                    p.PerslEmployment = c.PerslEmployment;
+                    p.PerslSalaryType = c.PerslSalaryType;
+                    p.PerslWorkingAge = c.PerslWorkingAge;
+                    p.PerslYoBirth = c.PerslYoBirth;
+                    p.ProductCode = productcode;
+                    p.ProductType = producttype;
+
+                    //第一步创建project类放到session中
+                    if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                        Session[BizCommon.g_SessionName_ApplyProject] = null;
+
+                    Session[BizCommon.g_SessionName_ApplyProject] = p;
+
+                    return View("Purchaseloan2");
+                }
+            }
+
+
+            //万一发生异常时，将执行以下代码（即返回第一步页面）
+            //第一步中的下拉选项预加载
+            ViewBag.PerslEmployment = BizCommon.GetAA10Items("sPerslEmployment", "cast(aaa102 as int)");
+            ViewBag.PerslSalaryType = BizCommon.GetAA10Items("sPerslSalaryType", "cast(aaa102 as int)");
+            ViewBag.PerslWorkingAge = BizCommon.GetAA10Items("sPerslWorkingAge", "cast(aaa102 as int)");
+            return View("Purchaseloan1");
         }
         #endregion
 
         #region 第二步
         public ActionResult Purchaseloan2()
         {
-            return View();
+            //第一步中的下拉选项预加载
+            ViewBag.PerslCardNo = BizCommon.GetAA10Items("sPerslCardNo", "cast(aaa102 as int)");
+            ViewBag.PerslCreditOwner = BizCommon.GetAA10Items("sPerslCreditOwner", "cast(aaa102 as int)");
+            ViewBag.PerslLoan = BizCommon.GetAA10Items("sPerslLoan", "cast(aaa102 as int)");
+            ViewBag.PerslLoanDue = BizCommon.GetAA10Items("sPerslLoanDue", "cast(aaa102 as int)");
+
+            if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+            {
+                //为了防止已填写数据丢失，此处将Session中的内容取出填入
+                ApplyingRecord p = (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord);
+                PurchaseLoanStep2 m = new PurchaseLoanStep2();
+
+                m.PerslCreditAllowance = p.PerslCreditAllowance;                //输入
+                m.PerslCreditDue = p.PerslCreditDue;                            //输入
+
+                m.PerslCardNo = p.PerslCardNo;                                  //选项
+                m.PerslCreditOwner = p.PerslCreditOwner;                        //选项
+                m.PerslLoan = p.PerslLoan;                                      //选项
+                m.PerslLoanDue = p.PerslLoanDue;                                //选项
+
+                return View(m);
+            }
+            else
+            {
+                return View();
+            }        
+        }
+
+        [HttpPost]
+        public ActionResult Purchaseloan2(PurchaseLoanStep2 c)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                    return View("Purchaseloan1");
+
+                if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                {
+                    //若session中已经存在申请对象，则将本步骤所取得的值赋到session中的对象上；
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslCardNo = c.PerslCardNo;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslCreditAllowance = c.PerslCreditAllowance;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslCreditDue = c.PerslCreditDue;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslCreditOwner = c.PerslCreditOwner;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslLoan = c.PerslLoan;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslLoanDue = c.PerslLoanDue;
+
+                    return View("Purchaseloan3");
+                }
+                else
+                {
+                    //否则，新创建一个申请对象，并将本步骤取得值赋到新的对象上，然后将对象放到session中；
+                    ApplyingRecord p = new ApplyingRecord();
+                    p.PerslCardNo = c.PerslCardNo;
+                    p.PerslCreditAllowance = c.PerslCreditAllowance;
+                    p.PerslCreditDue = c.PerslCreditDue;
+                    p.PerslCreditOwner = c.PerslCreditOwner;
+                    p.PerslLoan = c.PerslLoan;
+                    p.PerslLoanDue = c.PerslLoanDue;
+
+                    //第一步创建project类放到session中
+                    if (Session[BizCommon.g_SessionName_ApplyProject] != null)
+                        Session[BizCommon.g_SessionName_ApplyProject] = null;
+
+                    Session[BizCommon.g_SessionName_ApplyProject] = p;
+
+                    return View("Purchaseloan3");
+                }
+            }
+
+
+            //万一发生异常时，将执行以下代码（即返回第一步页面）
+            //第一步中的下拉选项预加载
+            ViewBag.PerslCardNo = BizCommon.GetAA10Items("sPerslCardNo", "cast(aaa102 as int)");
+            ViewBag.PerslCreditOwner = BizCommon.GetAA10Items("sPerslCreditOwner", "cast(aaa102 as int)");
+            ViewBag.PerslLoan = BizCommon.GetAA10Items("sPerslLoan", "cast(aaa102 as int)");
+            ViewBag.PerslLoanDue = BizCommon.GetAA10Items("sPerslLoanDue", "cast(aaa102 as int)");
+            return View("Purchaseloan2");
         }
         #endregion
 
@@ -318,6 +781,82 @@ namespace TTDWeb.Controllers
         public ActionResult Purchaseloan3()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Purchaseloan3(PurchaseLoanStep3 c)
+        {
+            if (ModelState.IsValid)
+            {
+                if (Session[BizCommon.g_SessionName_ApplyProject] == null)    //若Session为空，则返回第一步（这是有可能的，长时间不操作）
+                    return View("Purchaseloan1");
+                
+                ApplyingRecord p = Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord;
+
+                #region 完整的类赋值
+                p.CarCustomerMonthlySalary = 0;
+                p.CarProperty = "";
+                p.CarPurchasingPeriod = "";
+
+                p.CustomerEmail = c.CustomerEmail;
+                p.CustomerName = c.CustomerName;
+                p.CustomerPhone = c.CustomerPhone;
+
+                p.CaseState = "0";
+                p.CreatTime = DateTime.Today.ToString("yyyy-MM-dd");
+
+
+                p.FirmAccountBill = 0;
+                p.FirmAge = "";
+                p.FirmProperty = "";
+                p.FirmType = "";
+
+
+                p.HouseIncome = "";
+                p.HouseLocalorNot = "";
+                p.HouseNew = "";
+                p.HouseType = "";
+
+                p.IPaddress = BizCommon.GetIP(this);
+
+                //以下几个属性在前面几个步骤中已经完成输入
+                //p.PerslCardNo = "";
+                //p.PerslCreditAllowance = "";
+                //p.PerslCreditDue = "";
+                //p.PerslCreditOwner = "";
+                //p.PerslEmployment = "";
+                //p.PerslLoan = "";
+                //p.PerslLoanDue = "";
+                //p.PerslSalaryType = "";
+                //p.PerslWorkingAge = "";
+                //p.PerslYoBirth = "";
+
+                //此处无需针对以下两个属性赋值，在第一步的时候已经完成赋值
+                //p.ProductCode = productcode;
+                //p.ProductType = producttype;
+
+                #endregion
+
+                #region 保存至数据库,并跳转到第三步
+
+                string err = "";
+                if (DataAdapter.Apply_Insert(p, ref err))
+                {
+                    return View("Purchaseloan4");
+                }
+                else
+                {
+                    //保存失败
+                    ModelState.AddModelError("", "：（ 保存失败了！");
+                    return View();
+                }
+
+                #endregion
+            }
+            else
+            {
+                return View();
+            }
         }
         #endregion
 
