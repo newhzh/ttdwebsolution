@@ -20,20 +20,23 @@ namespace TTDWeb.Controllers
         #endregion
 
         #region 产品列表 
-        public ActionResult ProductList(string type,string money,string term,string pindex)
+        public ActionResult ProductList(string type,string money,string term1,string term,string pindex)
         {
             //前端页要用这三个参数
             ViewBag.type=type;
             ViewBag.money = money;
             ViewBag.term = term;
+            ViewBag.term1 = term1;
 
+            decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
 
             string sql1 = " select t1.sProductName, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails," + 
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
-                          " where t1.sProductType='"+ type +"' and t1.dMoneyBottom<="+ money +"and t1.dMoneyTop>="+ money +
+                          " where t1.sProductType='" + type + "' and t1.dMoneyBottom<=" + dYuanMoney.ToString() + 
+                          " and t1.dMoneyTop>=" + dYuanMoney.ToString() +
                           " and t1.nTermBottom<="+ term +" and t1.nTermTop>="+ term;
 
             string sql2 = " select t1.sCustomName, t1.sOrganID, t2.sOrganName" +
