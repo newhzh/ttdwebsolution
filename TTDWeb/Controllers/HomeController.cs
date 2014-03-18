@@ -31,7 +31,7 @@ namespace TTDWeb.Controllers
             decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
 
-            string sql1 = " select t1.sProductName, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails," + 
+            string sql1 = " select t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails," + 
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -45,13 +45,13 @@ namespace TTDWeb.Controllers
 
             DataSet ds = new DataSet();
             string err = "";
-            da.Common_Query_MultiTable(ref ds, sql1, "T_product", sql2, "T_Custom", ref err);
+            da.Common_Query_MultiTable(ref ds, sql1, "T_Product", sql2, "T_Custom", ref err);
 
             List<ProductModel> products = new List<ProductModel>();
             ProductModel p;
             DataRow[] listCustomRows;
 
-            foreach (DataRow dr in ds.Tables["T_product"].Rows)
+            foreach (DataRow dr in ds.Tables["T_Product"].Rows)
             {
                 listCustomRows=ds.Tables["T_Custom"].Select("sOrganID='" + dr["sOrganID"].ToString() + "'");
                 p = Convert2Product(dr, listCustomRows);
