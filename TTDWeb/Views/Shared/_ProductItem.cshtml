@@ -1,0 +1,104 @@
+﻿@model TTDWeb.Models.ProductModel
+
+@{
+    Layout = null;
+}
+
+
+<div class="productup">
+            <div style="float: left; width: 350px;">
+                <img src="../content/images/headpic1.jpg" width="46" height="46" style="float: left; margin-right: 20px;" />
+                <span style="font-size: 18px; color: #5489d2">@Model.ProductName</span><br />
+                @Model.ProductType</div>
+            <div style="float: left; text-align: center; width: 180px;"><span style="font-size: 24px;">@Model.AnnualRate</span><br />
+                年化利率</div>
+            <div style="float: left; text-align: center; width: 260px;"><span style="font-size: 24px;">@Model.RepaymentMonthly</span><br />
+                分期付款</div>
+            <h1 class="look">展开详情</h1>@Model.
+
+            <div class="container">
+
+                <!--tabs start-->
+                <div class="mytabs">
+                    <ul class="tab_title">
+                        <li class="one">产品详情</li>
+                        <li>申请条件</li>
+                        <li>所需材料</li>
+                        <li>详细说明</li>
+                        <li>产品经理</li>
+                    </ul>
+                    <div class="content">
+                        <div class="ct">
+                            22周岁-60周岁、现单位工作6个月、税前收入1700以上<br />
+                            1、年龄要求：22周岁（含）-60周岁（含）<br />
+                            2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+                            3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+                            4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+                            5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月<br />
+                            6、在本公司申请过且未满3个月不能再申请
+                        </div>
+                        <div class="ct" style="display: none">
+                            申请条件说明：
+1、年龄要求：22周岁（含）-60周岁（含）<br />
+                            2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+                            3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+                            4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+                            5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月
+                        </div>
+                        <div class="ct" style="display: none">
+                            1、申请人（及配偶）身份证明<br />
+                            2、工作证明：劳动合同、工作证明加盖单位人事章（二者选一）<br />
+                            3、收入证明：近6个月工资卡流水<br />
+                            4、居住证明：房屋租赁合同、近2个月水、电、燃气缴费单、居委会或街道办事处开的居住证明（任选一）<br />
+                            5、个人征信报告<br />
+                            6、其他资信证明：如税单、房产证、行驶证、基金、股票等能提高申请额度（可选择提供）
+                        </div>
+                        <div class="ct" style="display: none">
+                            提供本地房产、车等资产证明可提高贷款额度5万以下，批额是打卡工资的5到15倍，如果有社保是10到20倍<br />
+                            本科以上学历证书、车辆行驶证、股票基金市值等都可以选择性提供
+                        </div>
+                        <div class="ct" style="display: none">
+                            <strong>程经理</strong><br />
+                            杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                            <strong>程经理</strong><br />
+                            杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                            <strong>程经理</strong><br />
+                            杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                        </div>
+                    </div>
+                </div>
+                <!--tabs end  AA10固定：0车贷，1房贷，2企业贷款，3消费贷款，4信用卡，5保险-->
+                <div class="apply">
+                    成功申请<span style="font-size: 30px; color: #fbb03f;">1000</span>人<br />
+                    <br />
+                    @if(Model.ProductType=="0")
+                    {
+                        <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
+                    }
+                    else if (Model.ProductType == "1")
+                    { 
+                        <a id="various3" href="@Url.Action("Homeloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
+                    }
+                    else if (Model.ProductType == "2")
+                    { 
+                       <a id="various3" href="@Url.Action("Firmloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
+                    }
+                    else if (Model.ProductType == "3")
+                    { 
+                       <a id="various3" href="@Url.Action("Purchaseloanloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
+                    }
+                </div>
+            </div>
+            <!--container end-->
+        </div>
+
+        <div class="productdown">
+            <div style="float: left; margin-right: 30px;">
+                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
+            <div style="float: left; margin-right: 30px;">
+                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
+            <div style="float: left; margin-right: 30px;">
+                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
+            <div style="float: left; margin-right: 30px;">
+                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
+        </div>

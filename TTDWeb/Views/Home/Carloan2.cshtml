@@ -1,5 +1,4 @@
-﻿@model TTDWeb.Models.CarLoanStep2
-
+﻿@model  TTDWeb.Models.CarLoanStep2
 
 @{
     Layout = null;
@@ -11,10 +10,35 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Carloan2</title>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<style type="text/css">
+    body
+    {
+        background-image: none;
+        background-color: #FFF;
+        color: #282828;
+    }
+</style>
 </head>
 <body>
+<div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply2.png" width="573" height="44" /></div>
+<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px; height:600px;">
+
+@using (Html.BeginForm("Carloan2", "Home", FormMethod.Post))
+{
     <div>
-        
+        <div class="inputtitle" style="margin-right:20px;">您是否有信用卡：</div>
+                <input name="card" type="radio" value="" />否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input name="card" type="radio" value="" />是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总信用额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" class="inputtext" style="width:120px; background:url(content/images/yuan.png) 100px center no-repeat;"/><br /><br />
+        <div class="inputtitle" style="margin-right:20px;">您是否有负债(信用卡)：</div><input name="card" type="radio" value="" />否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value="" />是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="inputtext" style="width:120px; background:url(content/images/yuan.png) 100px center no-repeat;"/><br /><br />
+        <div class="inputtitle" style="width:200px; position:absolute; left:0px; margin-top:-8px;">您之前是否成功申请贷款：</div><input style="margin-left:175px;" name="card" type="radio" value="" />否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value="" />是<br /><br />
+        <div class="inputtitle" style="margin-right:20px;">您是否有负债(贷款)：</div> <input name="card" type="radio" value="" />否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value="" />是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" class="inputtext" style="width:120px; background:url(content/images/yuan.png) 100px center no-repeat;"/><br /><br /><br />
+        <div class="inputtitle" style="margin-right:80px;">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+
     </div>
+}
+
+</div>
 </body>
 </html>

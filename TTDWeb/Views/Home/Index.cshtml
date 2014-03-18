@@ -114,18 +114,19 @@
                         </dt>
                         <dd class="selectDD zindex2">
                             <input class="search_input" name="term" id="term" type="text" maxlength="6" data-type="num" data-val="1" data-dw="年" value="1">
-                            <div class="sidw">年</div>
-                            <div class="search_btn search_btn_bg2"></div>
-                            <ul class="search_ul" style="display: none;">
-                                <li data-txt="3" data-val="3" data-dw="个月">3个月</li>
-                                <li data-txt="6" data-val="6" data-dw="个月">6个月</li>
-                                <li data-txt="1" data-val="1" data-dw="年">1年</li>
-                                <li data-txt="18" data-val="18" data-dw="个月">18个月</li>
-                                <li data-txt="2" data-val="2" data-dw="年">2年</li>
-                                <li data-txt="3" data-val="3" data-dw="年">3年</li>
-                                <li data-txt="5" data-val="5" data-dw="年">5年</li>
-                                <li data-txt="10" data-val="10" data-dw="年">10年</li>
-                            </ul>
+            <input type="hidden" value="12" id="term" name="term"/>
+            <div class="sidw">年</div>
+            <div class="search_btn search_btn_bg2"></div>
+            <ul class="search_ul" style="display: none; ">
+              <li data-txt="3" data-val="3" data-dw="个月" onclick="document.getElementById('term').value=3">3个月</li>
+              <li data-txt="6" data-val="6" data-dw="个月" onclick="document.getElementById('term').value=6">6个月</li>
+              <li data-txt="1" data-val="1" data-dw="年" onclick="document.getElementById('term').value=12">1年</li>
+              <li data-txt="18" data-val="18" data-dw="个月" onclick="document.getElementById('term').value=18">18个月</li>
+              <li data-txt="2" data-val="2" data-dw="年" onclick="document.getElementById('term').value=24">2年</li>
+              <li data-txt="3" data-val="3" data-dw="年" onclick="document.getElementById('term').value=36">3年</li>
+              <li data-txt="5" data-val="5" data-dw="年" onclick="document.getElementById('term').value=60">5年</li>
+              <li data-txt="10" data-val="10" data-dw="年" onclick="document.getElementById('term').value=120">10年</li>
+            </ul>
                         </dd>
                     </dl>
                     <button type="submit" class="btn" style="width: 152px; position: absolute; top: 586px; margin-left: -200px;">马上搜索</button>

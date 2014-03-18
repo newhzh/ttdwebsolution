@@ -371,6 +371,7 @@
     <Content Include="Views\Account\MyInfo.cshtml" />
     <Content Include="Views\Account\CreateProduct.cshtml" />
     <Content Include="Views\Account\MyProducts.cshtml" />
+    <Content Include="Views\Shared\_ProductItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

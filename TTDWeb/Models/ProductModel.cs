@@ -135,6 +135,11 @@ namespace TTDWeb.Models
         public string VouchType { get; set; }
 
         /// <summary>
+        /// 每月偿还金额
+        /// </summary>
+        public string RepaymentMonthly { get; set; }
+
+        /// <summary>
         /// 客户经理集合
         /// </summary>
         public List<CustomModel> Customs { get; set; }

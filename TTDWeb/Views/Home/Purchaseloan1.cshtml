@@ -9,11 +9,42 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Purchaseloan1</title>
+    <title>Carloan1</title>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<style type="text/css">
+    body
+    {
+        background-image: none;
+        background-color: #FFF;
+        color: #282828;
+    }
+</style>
 </head>
 <body>
-    <div>
-        
-    </div>
+   <div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply1.png" width="573" height="44" /></div>
+<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px;height:600px;">
+@using (Html.BeginForm("Purchaseloan2", "Home", FormMethod.Get))
+{
+<div class="inputtitle">您的公司类型：</div>
+<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
+ 		<option value="1"  selected="selected">类型一</option>
+		<option value="2" >类型二</option>
+        <option value="3" >类型三</option>
+</select>
+<br /><br />
+<div class="inputtitle">您的出生年份：</div><input type="text" class="inputtext" style="background:url(../content/images/time.png) 235px center no-repeat;"/><br /><br />
+<div class="inputtitle">工资发放形式：</div>
+<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
+ 		<option value="1"  selected="selected">类型一</option>
+		<option value="2" >类型二</option>
+        <option value="3" >类型三</option>
+</select>
+<br /><br />
+<div class="inputtitle">每月打入银行卡的工资：</div><input type="text" class="inputtext" style="background:url(../content/images/yuan.png) 235px center no-repeat;"/><br /><br />
+<div class="inputtitle">您的工作时间：</div><input type="text" class="inputtext" /><br /><br />
+<div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+}
+</div>
+
 </body>
 </html>
