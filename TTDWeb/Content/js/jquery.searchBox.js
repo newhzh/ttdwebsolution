@@ -87,7 +87,7 @@
 				if($itemname == 'index'){ setTypesData();}
 				if($itemname == 'gouche'){ setData('First',$itemname);}
 				setData('Money',$itemname);
-				setData('Time',$itemname);
+				setData('Term',$itemname);
 			}
 		};
 		var setTypesData = function(){
@@ -122,7 +122,7 @@
 				$iobj = '.type_'+$itemname+' '+$dataClass+' '+$itembox;
 				$input = box.find($iobj+' '+$inputClass);
 				$isdef = typeof($input.attr('data-val')) == 'undefined' || $input.attr('data-val') == '' || typeof($input.attr('data-dw')) == 'undefined' || $input.attr('data-dw') == '';
-				if(datatype == 'Money' || datatype == 'Time'){
+				if(datatype == 'Money' || datatype == 'Term'){
 					if($isdef){
 						var a = new Array($dataDef['val'],$dataDef['val'],$dataDef['dw']);
 					}else{
@@ -247,7 +247,7 @@
 					}else{
 						$type = $form.attr('data-type');
 						$moneyItem = $form.find("input[name=money]");
-						$timeItem = $form.find("input[name=time]");
+						$timeItem = $form.find("input[name=term]");
 						$moneyNum = $moneyItem.attr('data-val');
 						$moneyDw = $moneyItem.attr('data-dw');
 						$timeNum = $timeItem.attr('data-val');

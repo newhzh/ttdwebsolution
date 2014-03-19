@@ -93,6 +93,12 @@ a:hover{
 .product a:hover{
 	color:#5489d2;
 	}
+.agency{
+	color:#282828;
+	}
+.agency:hover{
+	color:#5489d2;
+	}
 .sx{
 	border:1px solid #e1e1e1;
 	width:170px;
@@ -182,7 +188,6 @@ a:hover{
     margin-right:20px;
 	margin-left:20px;
 }
-  
 .container .mytabs ul li.one{
 	border-bottom:3px solid #5489d2;
 
@@ -217,6 +222,26 @@ a:hover{
 	padding-right:45px;
 	}
 .apply a:hover{
+	background-color:#4781d0;
+	color:#fff;
+	}
+.apply2{
+	font-size:14px;
+	width:86px;
+	float:right;
+	text-align:center;
+	margin-top:-35px;
+	margin-right:25px;
+	position:relative;
+	z-index:10;
+	}
+.apply2 a{
+	background-color:#5489d2;
+	padding:6px;
+	padding-left:15px;
+	padding-right:15px;
+	}
+.apply2 a:hover{
 	background-color:#4781d0;
 	color:#fff;
 	}
@@ -267,6 +292,27 @@ a:hover{
 	padding-bottom:5px;
 	margin-left:10px;
 	}
+	
+	
+.inpagenumber{
+	text-align:center;
+	margin-top:20px;
+	}
+.innumber{
+	color:#282828;
+	padding:5px;
+	margin-left:10px;
+	}
+.innumber:hover{
+	color:#5489d2;
+	text-decoration:underline;
+	}
+.innumberclick{
+	color:#5489d2;
+	text-decoration:underline;
+	padding:5px;
+	margin-left:10px;
+	}
 .footer{
 	text-align:right;
 	margin-top:60px;
@@ -284,6 +330,7 @@ a:hover{
 	text-align:right;
 	width:155px;
 	float:left;
+	line-height:35px;
 	}
 .inputtext{
 	width:250px;
@@ -292,4 +339,57 @@ a:hover{
 	padding-left:5px;
 	background:transparent;
 	-webkit-appearance: none; /*for Webkit browsers*/
+	}
+.agrncyhead{
+	background-image:url(../images/agencybg.jpg);
+	margin-top:15px;
+	height:277px;
+	width:950px;
+	position:relative;
+	}
+.headpic{
+	width:128px;
+	height:128px;
+	background-image:url(../images/headpicbg.jpg);
+	padding:8px;
+	position:absolute;
+	bottom:0px;
+	left:10px;
+	}
+.intro{
+	width:918px;
+	height:135px;
+	border:1px solid #e1e1e1;
+	border-top:none;
+	background-color:#fff;
+	padding:15px;
+	line-height:25px;
+	margin-bottom:15px;
+	}
+.agrncyleft{
+	float:left;
+	width:600px;
+	}
+.agrncyright{
+	float:right;
+	width:305px;
+	}
+.changewith{
+	width:598px;
+	}
+.agencytype{
+	border:1px solid #e1e1e1;
+	width:180px;
+	background-color:#FFF;
+	overflow:hidden;
+	position:absolute;
+	margin-left:69px;
+	}
+.agencytype li{
+	padding:5px;
+	color:#282828;
+	}
+.agencytype li:hover{
+	background-color:#5489d2;
+	color:#fff;
 	}

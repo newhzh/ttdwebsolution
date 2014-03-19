@@ -92,8 +92,15 @@
             </div>
         </div>
 
-        <div style="padding: 15px; margin-top: 20px;">
-            机构类型:<input class="sx" name="" type="text" value="不限" readonly="readonly" style="background-color: #f7f7f7;" />
+        <div style="padding:15px; margin-top:20px;">
+机构类型:<input class="sx" id="agency" name="" type="text" value="不限" readonly="readonly" style=" background:url(../content/images/select.png) 160px center no-repeat; cursor:pointer;"/>
+<ul class="agencytype" id="agencytype">
+<a href="productlist.html"><li>不限</li></a>
+<a href="productlist.html"><li>银行</li></a>
+<a href="productlist.html"><li>小贷公司</li></a>
+<a href="productlist.html"><li>担保公司</li></a>
+<a href="productlist.html"><li>P2P网贷</li></a>
+</ul>
             <div class="producthead"><a href="#" style="background: none; padding-right: 0px;">默认</a><a href="#">总利息</a><a href="#">月供</a></div>
         </div>
     @foreach (var item in Model)
@@ -107,13 +114,19 @@
 
 
         <div class="pagenumber">
-            <a class="number" href="#">上一页</a>
-            <a class="numberclick" href="#">1</a>
-            <a class="number" href="#">2</a>
-            ...
-            <a class="number" href="#">9</a>
-            <a class="number" href="#">10</a>
-            <a class="number" href="#">下一页</a>
+            <a class="number" href="@Url.Action("PreviewPage", new { p=@ViewBag.PageIndex})">上一页</a>
+             @for (int i = 1; i <= ViewBag.PageCount; i++)
+      {
+          if (i == ViewBag.PageIndex)
+          { 
+            <a class="numberclick" href="?p=@i.ToString()">@i.ToString()</a>
+                 }
+          else
+          {
+            <a class="number" href="?p=@i.ToString()">@i.ToString()</a>
+            }
+      }
+            <a class="number" href="@Url.Action("NextPage", new { p=@ViewBag.PageIndex})">下一页</a>
         </div>
 
         <div class="footer">
@@ -133,6 +146,33 @@
         <div class="gotop"></div>
     </div>
 
+<script type="text/javascript">
+    var agency = document.getElementById("agency"), agencytype = document.getElementById("agencytype");
+    agencytype.style.display = "none";
+    agency.onmouseover = function () {
 
+        agencytype.style.display = "";
+        agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
+
+    }
+    agency.onmouseout = function () {
+
+        agencytype.style.display = "none";
+        agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
+
+    }
+    agencytype.onmouseover = function () {
+
+        agencytype.style.display = "";
+        agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
+
+    }
+    agencytype.onmouseout = function () {
+
+        agencytype.style.display = "none";
+        agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
+
+    }
+</script> 
 </body>
 </html>
