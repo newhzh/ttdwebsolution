@@ -1,0 +1,38 @@
+.vblock{ width: 960px; margin:0 auto;}
+.pt35{ padding-top:35px;}
+.vblank{height:12px; line-height:12px; clear:both; visibility:hidden;}
+.vopacity{background-color:transparent; filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#85000000, endColorstr=#85000000); background:rgba(0,0,0,0.6);}
+.os{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; /* for IE */ -o-text-overflow: ellipsis; /* for Opera */ -icab-text-overflow: ellipsis; /* for iCab */ -khtml-text-overflow: ellipsis; /* for Konqueror Safari */ -moz-text-overflow: ellipsis; /* for Firefox,mozilla */ -webkit-text-overflow: ellipsis; /* for Safari,Swift*/}
+.zindex4{ z-index:4;}
+.zindex3{ z-index:3;}
+.zindex2{ z-index:2;}
+.zindex1{ z-index:1;}
+.vsearchBox{ float:left; width:305px; height:400px; background-color:#FFF; border:1px solid #e1e1e1;}
+.vsearchBox .vboxtitle{ line-height: 30px; padding-top: 20px; padding-bottom: 5px; color:#282828; font-size:24px; text-indent:20px;}
+.vsearchBox .vboxcontent{ width:280px; margin:0 auto; font-family:'Microsoft Yahei';}
+.vsearchBox .vboxcontent dl.searchitems{ padding-bottom:5px;}
+.vsearchBox .vboxcontent dl.searchitems dt{ clear:both; display:block; width:100%; height:16px; line-height:16px; padding-bottom:5px; padding-top:5px;}
+.vsearchBox .vboxcontent dl.searchitems label{ color:#9a9a9a; float:left; padding-left:3px; padding-right:3px; font-family:"微软雅黑", "黑体";}
+.vsearchBox .vboxcontent dl.searchitems .inputnotice{ float:right; padding-left:14px; padding-right:5px; font-family:"微软雅黑", "黑体"; background:url(../i/notice_img.gif) left center no-repeat; color:#fff; display:none;}
+.vsearchBox .vboxcontent dl.searchitems .searchNotice{ padding-right:5px; font-family:"微软雅黑", "黑体"; font-size: 14px; float:right; color:#fff;}
+.vsearchBox .vboxcontent dl.searchitems dd.selectDD{ margin:0 auto; position:relative; width:280px; height: 42px; display: inline-block; background:#fff url(../i/inputbg.png) 0 0 no-repeat; border: 1px solid #a7a7a7; vertical-align: top; cursor:text;}
+.vsearchBox .vboxcontent dl.searchitems input.search_input{ width:190px; height:28px; line-height:26px; font-size:14px; background:none; float:left; display: inline-block; border: 0; margin:7px 0 0 8px; color:#666; font-family:'Microsoft Yahei';}
+.vsearchBox .vboxcontent dl.searchitems div.search_btn{ width:42px; height:41px; background:url(../images/select.png) 15px center no-repeat;cursor:pointer; border:0px solid #cecece; float:right; margin-top:1px; border-left:1px solid #cecece;}
+.vsearchBox .vboxcontent dl.searchitems div.search_btn_bg1{background:url(../images/select1.png) 15px center no-repeat;}
+.vsearchBox .vboxcontent dl.searchitems div.search_btn_bg2{ background:url(../images/select.png) 15px center no-repeat;}
+
+.vsearchBox .vboxcontent .search_ul{ width:280px; background:#fff; border:1px solid #B6B6B6; position:absolute; left:-1px; top:42px;}
+.vsearchBox .vboxcontent .search_ul li{ text-indent:8px; margin:0 auto; color:#555; display:inline-block; width:100%; line-height:25px; _line-height:22px; *line-height:22px;
+-moz-user-select: none; /*火狐*/
+   -webkit-user-select: none;  /*webkit浏览器*/
+   -ms-user-select: none;   /*IE10*/
+   -khtml-user-select: none; /*早期浏览器*/
+   user-select: none;}
+.vsearchBox .vboxcontent .search_ul li.liover{ color:#fff; background:#5489d2; cursor:pointer;}
+.vsearchBox .vboxcontent .search_ul li.lioverin{ color:#fff; background:#5489d2; cursor:pointer;}
+.vsearchBox .vboxcontent .sidw{ width:30px; line-height:42px; _line-height:40px; *line-height:40px; text-align:right; float:left; font-weight:700; font-size:14px; color:#777;}
+.vsearchBox .vboxcontent .search_submit_div{ width:282px; height:44px; margin:0 auto; cursor:pointer; float:left;}
+.vsearchBox .vboxcontent .search_submit{ width: 100%; height: 44px;  background:url(../i/NewSearch_btn.png) 0px 0px no-repeat; cursor: pointer; border: none;}
+.vsearchBox .vboxcontent .search_submit:hover{ background:url(../i/NewSearch_btn.png) 0px -44px no-repeat;}
+
+.wdcon_ri_other{ text-align: center; line-height: 30px; color: #cecece;}
