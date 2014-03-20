@@ -10,10 +10,25 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Firmloan2</title>
+        <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<style type="text/css">
+body {
+	background-image:none;
+	background-color:#FFF;
+	color:#282828;
+}
+</style>
 </head>
 <body>
-    <div>
-        
-    </div>
+<div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply21.png" width="573" height="44" /></div>
+<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px; height:600px;">
+@using (Html.BeginForm("Firmloan3", "Home", FormMethod.Get))
+{
+<div class="inputtitle">您的昵称：</div><input type="text" class="inputtext"/><br /><br />
+<div class="inputtitle">手机号码：</div><input type="text" class="inputtext"/><br /><br />
+<div class="inputtitle">电子邮箱：</div><input type="text" class="inputtext"/><br /><br />
+<div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+}
+</div>
 </body>
 </html>

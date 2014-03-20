@@ -23,30 +23,23 @@
 </style>
 </head>
 <body>
-   <div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply1.png" width="573" height="44" /></div>
-<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px;height:600px;">
-@using (Html.BeginForm("Carloan2", "Home", FormMethod.Get))
+<div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply1.png" width="573" height="44" /></div>
+@using (Html.BeginForm("Carloan3", "Home", FormMethod.Get))
 {
-<div class="inputtitle">您的公司类型：</div>
-<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
- 		<option value="1"  selected="selected">类型一</option>
-		<option value="2" >类型二</option>
-        <option value="3" >类型三</option>
-</select>
-<br /><br />
-<div class="inputtitle">您的出生年份：</div><input type="text" class="inputtext" style="background:url(../content/images/time.png) 235px center no-repeat;"/><br /><br />
-<div class="inputtitle">工资发放形式：</div>
-<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
- 		<option value="1"  selected="selected">类型一</option>
-		<option value="2" >类型二</option>
-        <option value="3" >类型三</option>
-</select>
-<br /><br />
-<div class="inputtitle">每月打入银行卡的工资：</div><input type="text" class="inputtext" style="background:url(../content/images/yuan.png) 235px center no-repeat;"/><br /><br />
-<div class="inputtitle">您的工作时间：</div><input type="text" class="inputtext" /><br /><br />
-<div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
-}
-</div>
+<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px;height:600px;">
 
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div><input name="card" type="radio" value="" style=" margin-top:10px;"/>否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value=""/>是<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div><input type="text" class="inputtext" style="background:url(../content/images/yuan.png) 235px center no-repeat;"/><br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">购车阶段：</div>
+<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
+ 		<option value="1"  selected="selected">类型一</option>
+		<option value="2" >类型二</option>
+        <option value="3" >类型三</option>
+</select>
+<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+
+</div>
+}
 </body>
 </html>

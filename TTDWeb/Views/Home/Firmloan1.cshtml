@@ -10,10 +10,42 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Firmloan1</title>
+        <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<style type="text/css">
+    body
+    {
+        background-image: none;
+        background-color: #FFF;
+        color: #282828;
+    }
+</style>
 </head>
 <body>
-    <div>
-        
-    </div>
+<div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply11.png" width="573" height="44" /></div>
+@using (Html.BeginForm("Firmloan2", "Home", FormMethod.Get))
+{
+<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px;height:600px;">
+
+<div class="inputtitle" style="margin-right:20px; width:130px;">您的公司类型：</div>
+<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
+ 		<option value="1"  selected="selected">类型一</option>
+		<option value="2" >类型二</option>
+        <option value="3" >类型三</option>
+</select>
+<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">公司月流水：</div><input type="text" class="inputtext" style="background:url(../content/images/yuan.png) 235px center no-repeat;"/><br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">经营年限：</div>
+<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
+ 		<option value="1"  selected="selected">类型一</option>
+		<option value="2" >类型二</option>
+        <option value="3" >类型三</option>
+</select>
+<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div><input name="card" type="radio" value="" style=" margin-top:10px;"/>否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value=""/>是<br /><br />
+<div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+
+</div>
+}
 </body>
 </html>
+
