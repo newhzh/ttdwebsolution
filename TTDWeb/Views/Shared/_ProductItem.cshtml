@@ -42,11 +42,16 @@
                         </div>
                         <div class="ct" style="display: none">
 
-                                 <div>
-                            <strong>@Model.Customs</strong><br />
-                            杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
-                            <strong>程经理</strong><br />
-                                     </div>
+                                 
+                    @foreach (var itemCustom in Model.Customs)
+    {
+                        <div>
+                            <strong>@itemCustom.CustomName</strong><br />
+                            @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID<br />
+
+                            </div>
+ }
+                                     
 
                         </div>
                     </div>
