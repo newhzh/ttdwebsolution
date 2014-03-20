@@ -26,6 +26,11 @@ namespace TTDWeb.Models
         public string ProductName { get; set; }
 
         /// <summary>
+        /// 机构名称
+        /// </summary>
+        public string OrganName { get; set; }
+
+        /// <summary>
         /// 产品类型
         /// </summary>
         [Display(Name = "产品类型")]
@@ -38,6 +43,11 @@ namespace TTDWeb.Models
         [Display(Name = "年化利率")]
         [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
         public decimal AnnualRate { get; set; }
+
+        /// <summary>
+        /// 年华利率（用于显示）
+        /// </summary>
+        public string AnnualRateDisplay { get; set; }
 
         /// <summary>
         /// 还款方式
