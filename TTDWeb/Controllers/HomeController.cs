@@ -58,7 +58,7 @@ namespace TTDWeb.Controllers
                 products.Add(p);//未分页显示。
             }
             //总页数（每页显示10条）
-            int countPerPage = 10;
+            int countPerPage = 3;
             int pageCount = products.Count / countPerPage + (products.Count % countPerPage > 0 ? 1 : 0);
             int pageIndex = (pindex == null || pindex == "") ? 1 : Convert.ToInt32(pindex);
             pageIndex = pageIndex > pageCount ? pageCount : pageIndex;
