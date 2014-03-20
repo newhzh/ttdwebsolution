@@ -31,7 +31,7 @@ namespace TTDWeb.Controllers
             decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
 
-            string sql1 = " select t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails," + 
+            string sql1 = " select t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," + 
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -54,7 +54,7 @@ namespace TTDWeb.Controllers
             foreach (DataRow dr in ds.Tables["T_Product"].Rows)
             {
                 listCustomRows=ds.Tables["T_Custom"].Select("sOrganID='" + dr["sOrganID"].ToString() + "'");
-                p = Convert2Product(dr, listCustomRows);
+                p = Convert2Product(dr, listCustomRows, dYuanMoney, Convert.ToInt32(term));
                 products.Add(p);//未分页显示。
             }
             //总页数（每页显示10条）
@@ -77,18 +77,22 @@ namespace TTDWeb.Controllers
         }
 
 
-         static ProductModel Convert2Product(DataRow dr,DataRow[] listCustomRows)
+        ProductModel Convert2Product(DataRow dr,DataRow[] listCustomRows,decimal money,int term)
         {
             ProductModel p;
             p = new ProductModel();
             p.ProductType = dr["sProductType"].ToString();
             p.ProductName = dr["sProductName"].ToString();
+            p.OrganName = dr["sOrganName"].ToString();
             p.AnnualRate = Convert.ToDecimal(dr["dAnnualRate"]);
+            p.AnnualRateDisplay = (p.AnnualRate * 100).ToString("F1") + "%";
             p.ApplyCondition = dr["sApplyCondition"].ToString();
             p.RequiredFile = dr["sRequiredFile"].ToString();
             p.Memo = dr["sMemo"].ToString();
             p.Details = dr["sDetails"].ToString();
-
+            p.RepaymentType = dr["sRepaymentType"].ToString();
+            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
+            
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)
             {
@@ -98,7 +102,29 @@ namespace TTDWeb.Controllers
                 p.Customs.Add(c);              
             }            
             return p;
-        }      
+        }
+
+        decimal CalcRepaymentMonthly(string repaymentType, decimal annualRate, decimal money, int term)
+        {
+            decimal sumMonth = 0, moneyCap = 0, moneyAcc = 0, moneyBalance = 0;
+            decimal monthlyRate = annualRate/12;
+            switch (repaymentType)
+            {
+                case "01":  //月利清本
+                    Message.FunctionCommon.BorrowRateCalc_03(false, money, money, monthlyRate, term, 
+                                                             ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                    break;
+                case "02":  //等额本息
+                    Message.FunctionCommon.BorrowRateCalc_01(money, money, monthlyRate, term,
+                                                            ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                    break;
+                default:
+                    break;
+            }
+
+            return sumMonth;
+        }
+
         #endregion
 
         #region 车贷申请
