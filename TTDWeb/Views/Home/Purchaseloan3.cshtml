@@ -21,15 +21,21 @@ body {
 </head>
 <body>
 <div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply3.png" width="573" height="44" /></div>
-<div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px; height:600px;">
-@using (Html.BeginForm("Purchaseloan4", "Home", FormMethod.Get))
+
+@using (Html.BeginForm("Purchaseloan4", "Home", FormMethod.Post))
 {
-<div class="inputtitle">您的昵称：</div><input type="text" class="inputtext"/><br /><br />
-<div class="inputtitle">手机号码：</div><input type="text" class="inputtext"/><br /><br />
-<div class="inputtitle">电子邮箱：</div><input type="text" class="inputtext"/><br /><br />
+<div style=" background-color:#f7f7f7; padding-left:70px; padding-top:35px; height:600px;">
+    <div style="width:340px; margin-left:85px;"><span style="color:#5489d2; font-size:30px;">天天贷郑重承诺</span><br />
+天天贷致力保护您的个人隐私，您提供的信息将不会以任何形式公布，
+有任何疑问，请致电天天贷网客服：400-8055-855</div>
+<br />
+<div class="inputtitle">您的昵称：</div>@Html.TextBoxFor(m=>m.CustomerName,new { placeholder="必填",@class="inputtext"})<br /><br />
+<div class="inputtitle">手机号码：</div>@Html.TextBoxFor(m=>m.CustomerPhone,new { placeholder="必填",@class="inputtext"})<br /><br />
+<div class="inputtitle">电子邮箱：</div>@Html.TextBoxFor(m=>m.CustomerEmail,new { placeholder="必填",@class="inputtext"})<br /><br />
 <div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
+        </div>
 }
-</div>
+
 </body>
 </html>
 

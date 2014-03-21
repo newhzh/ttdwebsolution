@@ -23,25 +23,19 @@ body {
 <body>
 <div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply11.png" width="573" height="44" /></div>
 
-@using (Html.BeginForm("Homeloan2", "Home", FormMethod.Get))
+@using (Html.BeginForm("Homeloan2", "Home", FormMethod.Post))
 {
-    <div style=" background-color:#f7f7f7; padding-left:45px; padding-top:35px;height:600px;">
+    <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
 <div class="inputtitle" style="margin-right:20px; width:130px;">房屋类型：</div>
-<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
- 		<option value="1"  selected="selected">类型一</option>
-		<option value="2" >类型二</option>
-        <option value="3" >类型三</option>
-</select>
+        @Html.DropDownList("HouseType",(SelectList)ViewBag.HouseType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
+    @Html.ValidationMessageFor(m => m.HouseType)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div><input type="text" class="inputtext" style="background:url(../content/images/yuan.png) 235px center no-repeat;"/><br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>@Html.TextBoxFor(m=>m.HouseIncome,new { placeholder="必填",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">户籍：</div>
-<select class="inputtext" name="" style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;">
- 		<option value="1"  selected="selected">类型一</option>
-		<option value="2" >类型二</option>
-        <option value="3" >类型三</option>
-</select>
+        @Html.DropDownList("HouseLocalorNot",(SelectList)ViewBag.HouseLocalorNot,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
+    @Html.ValidationMessageFor(m => m.HouseLocalorNot)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">是否二手房：</div><input name="card" type="radio" value="" style=" margin-top:10px;"/>否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="card" type="radio" value=""/>是<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否二手房：</div>@Html.RadioButtonFor(model => model.HouseNew, false, new {@name = "HouseNew",style=" margin-top:10px;"})否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.HouseNew, true, new {@name = "HouseNew",style=" margin-top:10px;"})是<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
 
 </div>
