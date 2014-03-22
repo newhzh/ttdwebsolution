@@ -209,6 +209,7 @@
     <Content Include="Content\images\button_3.png" />
     <Content Include="Content\images\buy.png" />
     <Content Include="Content\images\car.png" />
+    <Content Include="Content\images\car1.png" />
     <Content Include="Content\images\containerbg.png" />
     <Content Include="Content\images\credit.png" />
     <Content Include="Content\images\down.png" />

@@ -40,43 +40,42 @@ a:hover{
 	border:none;
 	background-color:#5489d2;
 	color:#fff;
-	font-size:18px;
+	font-size:16px;
 	font-family:"微软雅黑", "黑体";
 	}
 .btn:hover{
 	background-color:#4781d0;
 	}
 .denglu{
-	font-size:18px;
-	background-image: url(../images/fenge.png);
-	background-repeat: no-repeat;
-	background-position: 450px 0;
-	height:33px;
-	padding-top:8px;
+	font-size:12px;
+	margin:0 auto;
+	width:850px;
+	text-align:right;
+	padding-top:2px;
 	}
 .typewrap{
-	margin-top:90px;
+	margin-top:30px;
 	}
 .typewrap2{
 	float:left;
-	margin-right:36px;
-	margin-left:36px;
+	margin-right:15px;
+	margin-left:15px;
 	cursor:pointer;
 	background-image:url(../images/button_2.png);
 	background-repeat: no-repeat;
 	background-position: 0 0;
 	}
 .type{
-	width:116px;
-	height:130px;
+	width:85px;
+	height:86px;
 	font-size:18px;
-	letter-spacing:5px;
 	}
 .type:hover{
-	background:url(../images/button_3.png) no-repeat;
+	background:url(../images/button_3.png) left top no-repeat;
 	}
 .type img{
-	margin-top:28px;
+	margin-top:25px;
+	margin-bottom:40px;
 	}
 .product{
 	width:920px;
@@ -329,6 +328,20 @@ a:hover{
 .footer a:hover{
 	text-decoration:underline;
 	}
+.footer1{
+	text-align:right;
+	color:#fff;
+	position:fixed;
+	bottom:10px;
+	margin-left:410px;
+	}
+.footer1 a{
+	color:#fff;
+	margin-left:15px;
+	}
+.footer1 a:hover{
+	text-decoration:underline;
+	}
 .inputtitle{
 	text-align:right;
 	width:155px;
@@ -396,3 +409,33 @@ a:hover{
 	background-color:#5489d2;
 	color:#fff;
 	}
+	
+#gallery {
+	position: absolute;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+        z-index:-1;
+}
+#gallery ul {
+	list-style: none;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+#gallery li {
+	list-style: none;
+	display: block;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
+}

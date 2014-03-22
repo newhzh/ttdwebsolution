@@ -14,13 +14,13 @@
 .vsearchBox .vboxcontent dl.searchitems label{ color:#fff; float:left; padding-left:3px; padding-right:3px; font-size:14px; font-family:"微软雅黑", "黑体"; }
 .vsearchBox .vboxcontent dl.searchitems .inputnotice{ float:right; padding-left:14px; padding-right:5px; background:url(../i/notice_img.gif) left center no-repeat; color:#fff; display:none;}
 .vsearchBox .vboxcontent dl.searchitems .searchNotice{ padding-right:5px; font-size: 12px; float:right; color:#fff;}
-.vsearchBox .vboxcontent dl.searchitems dd.selectDD{ position:relative; width:320px; height: 42px; display: inline-block; float:left; color:#fff; background:url(../images/bg_tm.png) repeat;}
-.vsearchBox .vboxcontent dl.searchitems input.search_input{ width:220px; height:28px; line-height:26px; font-size:14px; background:none; float:left; display: inline-block; border: 0; margin:7px 0 0 8px; color:#fff;}
+.vsearchBox .vboxcontent dl.searchitems dd.selectDD{ position:relative; width:225px; height: 42px; display: inline-block; float:left; color:#fff; background:url(../images/bg_tm.png) repeat;}
+.vsearchBox .vboxcontent dl.searchitems input.search_input{ width:135px; height:28px; line-height:26px; font-size:14px; background:none; float:left; display: inline-block; border: 0; margin:7px 0 0 8px; color:#fff;}
 .vsearchBox .vboxcontent dl.searchitems div.search_btn{ width:42px; height:41px; background:url(../images/down.png); cursor:pointer; border:0px solid #cecece; float:right; margin-top:1px; border-left:1px solid #9d8364; color:#fff;}
 .vsearchBox .vboxcontent dl.searchitems div.search_btn_bg1{background:url(../images/up.png) center center no-repeat; }
 .vsearchBox .vboxcontent dl.searchitems div.search_btn_bg2{ background:url(../images/down.png) center center no-repeat;}
 
-.vsearchBox .vboxcontent .search_ul{ width:318px; background:url(../images/bg_tm.png) repeat; border:1px solid #9d8364; position:absolute; top:42px;}
+.vsearchBox .vboxcontent .search_ul{ width:223px; background:url(../images/bg_tm.png) repeat; border:1px solid #9d8364; position:absolute; top:42px;}
 .vsearchBox .vboxcontent .search_ul li{ text-indent:8px; margin:0 auto; display:inline-block; width:100%; line-height:25px; _line-height:22px; *line-height:22px;
 -moz-user-select: none; /*火狐*/
    -webkit-user-select: none;  /*webkit浏览器*/

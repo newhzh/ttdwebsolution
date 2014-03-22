@@ -24,64 +24,44 @@
 
         });
     </script>
-    <style type="text/css">
-        body
-        {
-            background-image: url(../content/images/bg.jpg);
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size:cover;
-        }
-    </style>
 </head>
-<body>
-    <div class="bodycontent" style="text-align: center; padding-top: 85px;">
+<body style="overflow:hidden;">
+    <div id="gallery">
+  <ul  style="width:100%; height:100%;">
+    <li style="width:100%; height:100%;background-image:url(../content/images/bg.jpg) "> </li>
+  </ul>
+</div>
+<div style=" background:url(../content/images/topbg.png) repeat; width:100%; height:22px;">
+  <div class="denglu"><a href="#" style="margin-right:10px;">随便逛逛</a>|<a href="#" style="margin-left:10px;">信贷经理登录</a></div>
+</div>
+    <div class="bodycontent" style="text-align:center; padding-top:27px; width:700px;height:330px; min-height:0"> <img src="../content/images/logo.png" width="183" height="53" style="margin-bottom:23px;"/><br />
 
-        <img src="~/content/images/logo.png" width="298" height="99" style="margin-bottom: 23px;" /><br />
-        <div class="denglu"><a href="#" style="margin-right: 22px;">随便逛逛</a><a href="#">信贷经理登录</a></div>
-
-        <div class="typewrap">
-            <div class="typewrap2" onclick="document.getElementById('type').value=1">
-                <div class="type">
-                    <img src="../content/images/house.png" width="64" height="57" /><br />
-                    <br />
-                    <br />
-                    &nbsp;购房贷款
-                </div>
-            </div>
-            <div class="typewrap2" onclick="document.getElementById('type').value=2">
-                <div class="type">
-                    <img src="../content/images/car.png" width="64" height="57" /><br />
-                    <br />
-                    <br />
-                    &nbsp;购车贷款
-                </div>
-            </div>
-            <div class="typewrap2" onclick="document.getElementById('type').value=3">
-                <div class="type">
-                    <img src="../content/images/factory.png" width="64" height="57" /><br />
-                    <br />
-                    <br />
-                    &nbsp;企业贷款
-                </div>
-            </div>
-            <div class="typewrap2" onclick="document.getElementById('type').value=4">
-                <div class="type">
-                    <img src="../content/images/buy.png" width="64" height="57" /><br />
-                    <br />
-                    <br />
-                    &nbsp;消费贷款
-                </div>
-            </div>
-            <div class="typewrap2" onclick="document.getElementById('type').value=5">
-                <div class="type">
-                    <img src="../content/images/credit.png" width="64" height="57" /><br />
-                    <br />
-                    <br />
-                    &nbsp;信用卡
-                </div>
-            </div>
-        </div>
+<div class="typewrap">
+    <div class="typewrap2" onclick="document.getElementById('type').value=1">
+      <div class="type"><img src="../content/images/house.png" width="47" height="39" /><br />
+        &nbsp;购房贷款</div>
+    </div>
+    <div class="typewrap2" onclick="document.getElementById('type').value=2">
+      <div class="type"><img src="../content/images/car.png" width="47" height="39" /><br />
+        &nbsp;购车贷款</div>
+    </div>
+    <div class="typewrap2" onclick="document.getElementById('type').value=3">
+      <div class="type"><img src="../content/images/factory.png" width="47" height="39" /><br />
+        &nbsp;企业贷款</div>
+    </div>
+    <div class="typewrap2" onclick="document.getElementById('type').value=4">
+      <div class="type"><img src="../content/images/buy.png" width="47" height="39" /><br />
+        &nbsp;消费贷款</div>
+    </div>
+    <div class="typewrap2" onclick="document.getElementById('type').value=5">
+      <div class="type"><img src="../content/images/car1.png" width="47" height="39" /><br />
+        &nbsp;购车保险</div>
+    </div>
+    <div class="typewrap2" onclick="document.getElementById('type').value=6">
+      <div class="type"><img src="../content/images/credit.png" width="47" height="39" /><br />
+        &nbsp;信用卡</div>
+    </div>
+  </div>
 
 
         <!--form start-->
@@ -90,7 +70,7 @@
                 @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
                 {
                     <input type="hidden" value="1" id="type" name="type" />
-                    <dl class="searchitems clearfix moneydl" style="position: absolute; top: 560px; margin-left: 50px;">
+                    <dl class="searchitems clearfix moneydl" style="position:absolute; top:315px; margin-left:40px;">
                         <dt>
                             <label>贷款金额：</label>
                         </dt>
@@ -109,7 +89,7 @@
                             </ul>
                         </dd>
                     </dl>
-                    <dl class="searchitems clearfix timedl" style="position: absolute; top: 560px; margin-left: 395px;">
+                    <dl class="searchitems clearfix timedl" style="position:absolute; top:315px; margin-left:280px;">
                         <dt>
                             <label>贷款期限：</label>
                         </dt>
@@ -130,7 +110,7 @@
             </ul>
                         </dd>
                     </dl>
-                    <button type="submit" class="btn" style="width: 152px; position: absolute; top: 586px; margin-left: -200px;">马上搜索</button>
+                    <button type="submit" class="btn" style="width:130px; position:absolute; top:341px; margin-left:-170px;">马上搜索</button>
                 }
             </div>
             <script type="text/javascript">
@@ -143,7 +123,8 @@
         </div>
         <!--form end-->
 
-
+<div class="footer1"> <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">服务条款</a><br />
+    ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1 </div>
 
     </div>
 </body>
