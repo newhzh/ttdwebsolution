@@ -24,13 +24,15 @@
 <div style="width:650px; text-align:center; margin-top:30px; margin-bottom:30px;"><img src="../content/images/apply11.png" width="573" height="44" /></div>
 @using (Html.BeginForm("Firmloan2", "Home", FormMethod.Post))
 {
+    <input type="hidden" value="@ViewBag.productcode" />
+    <input type="hidden" value="@ViewBag.ViewBag.producttype" />
 <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
 
 <div class="inputtitle" style="margin-right:20px; width:130px;">您的公司类型：</div>
      @Html.DropDownList("FirmType",(SelectList)ViewBag.FirmType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.FirmType)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">公司月流水：</div>@Html.TextBoxFor(m=>m.FirmAccountBill,new { placeholder="必填",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">公司月流水：</div>@Html.TextBoxFor(m=>m.FirmAccountBill,new { placeholder="如：1万元，输入10000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">经营年限：</div>
     @Html.DropDownList("FirmAge",(SelectList)ViewBag.FirmAge,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.FirmAge)

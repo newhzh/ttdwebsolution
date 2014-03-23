@@ -25,17 +25,19 @@
 <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
 @using (Html.BeginForm("Purchaseloan2", "Home", FormMethod.Post))
 {
+    <input type="hidden" value="@ViewBag.productcode" />
+    <input type="hidden" value="@ViewBag.ViewBag.producttype" />
 <div class="inputtitle">您的公司类型：</div>
      @Html.DropDownList("PerslEmployment",(SelectList)ViewBag.PerslEmployment,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.PerslEmployment)
 <br /><br />
-<div class="inputtitle">您的出生年份：</div>@Html.TextBoxFor(m=>m.PerslYoBirth,new { placeholder="必填",@class="inputtext",style="background:url(../content/images/time.png) 235px center no-repeat;"})<br /><br />
+<div class="inputtitle">您的出生年份：</div>@Html.TextBoxFor(m=>m.PerslYoBirth,new { placeholder="如：1990",@class="inputtext",style="background:url(../content/images/time.png) 235px center no-repeat;"})<br /><br />
 <div class="inputtitle">工资发放形式：</div>
     @Html.DropDownList("PerslSalaryType",(SelectList)ViewBag.PerslSalaryType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.PerslSalaryType)
 <br /><br />
-<div class="inputtitle">每月打入银行卡的工资：</div>@Html.TextBoxFor(m=>m.PerslSalaryType,new { placeholder="必填",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
-<div class="inputtitle">您的工作时间：</div>@Html.TextBoxFor(m=>m.PerslWorkingAge,new { placeholder="必填",@class="inputtext"})<br /><br />
+<div class="inputtitle">每月打入银行卡的工资：</div>@Html.TextBoxFor(m=>m.PerslSalaryType,new { placeholder="请输入数字，如：5000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
+<div class="inputtitle">您的工作时间：</div>@Html.TextBoxFor(m=>m.PerslWorkingAge,new { placeholder="如：6年10个月，请输入6年10月",@class="inputtext"})<br /><br />
 <div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
 }
 </div>

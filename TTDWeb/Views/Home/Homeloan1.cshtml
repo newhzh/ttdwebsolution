@@ -25,12 +25,14 @@ body {
 
 @using (Html.BeginForm("Homeloan2", "Home", FormMethod.Post))
 {
+    <input type="hidden" value="@ViewBag.productcode" />
+    <input type="hidden" value="@ViewBag.ViewBag.producttype" />
     <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
 <div class="inputtitle" style="margin-right:20px; width:130px;">房屋类型：</div>
         @Html.DropDownList("HouseType",(SelectList)ViewBag.HouseType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.HouseType)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>@Html.TextBoxFor(m=>m.HouseIncome,new { placeholder="必填",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>@Html.TextBoxFor(m=>m.HouseIncome,new { placeholder="请输入数字，如：5000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">户籍：</div>
         @Html.DropDownList("HouseLocalorNot",(SelectList)ViewBag.HouseLocalorNot,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.HouseLocalorNot)
