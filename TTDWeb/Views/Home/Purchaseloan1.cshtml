@@ -25,8 +25,7 @@
 <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
 @using (Html.BeginForm("Purchaseloan2", "Home", FormMethod.Post))
 {
-    <input type="hidden" value="@ViewBag.productcode" />
-    <input type="hidden" value="@ViewBag.ViewBag.producttype" />
+
 <div class="inputtitle">您的公司类型：</div>
      @Html.DropDownList("PerslEmployment",(SelectList)ViewBag.PerslEmployment,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.PerslEmployment)
