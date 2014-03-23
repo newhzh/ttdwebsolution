@@ -26,6 +26,7 @@ body {
 @using (Html.BeginForm("Homeloan2", "Home", FormMethod.Post))
 {
     <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
+        <br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">房屋类型：</div>
         @Html.DropDownList("HouseType",(SelectList)ViewBag.HouseType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.HouseType)
