@@ -123,7 +123,7 @@ values ('sPerslSalaryType', '0', '工资发放形式', '公司发到银行工资卡', null, nul
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sPerslSalaryType', '1', '工资发放形式', '领取现金', null, null);
 
---个人-信用卡
+--个人-是否有信用卡
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sPerslCreditOwner', '0', '您是否有信用卡', '有', null, null);
 
@@ -137,19 +137,20 @@ values ('sPerslCardNo', '0', '是否有负债（信用卡）', '有', null, null);
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sPerslCardNo', '1', '是否有负债（信用卡）', '没有', null, null);
 
---个人-贷款
+--个人-是否成功贷款
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslLoan', '0', '您之前是否成功申请贷款', '有', null, null);
+values ('sPerslLoanSucc', '0', '您之前是否成功申请贷款', '有', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslLoan', '1', '您之前是否成功申请贷款', '没有', null, null);
+values ('sPerslLoanSucc', '1', '您之前是否成功申请贷款', '没有', null, null);
 
---个人-贷款负责
+--个人-贷款是否负债
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslLoanDue', '0', '是否有负债（贷款）', '有', null, null);
+values ('sPerslLoan', '0', '是否有负债（贷款）', '有', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslLoanDue', '1', '是否有负债（贷款）', '没有', null, null);
+values ('sPerslLoan', '1', '是否有负债（贷款）', '没有', null, null);
+
 
 --房贷-房屋类型
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
