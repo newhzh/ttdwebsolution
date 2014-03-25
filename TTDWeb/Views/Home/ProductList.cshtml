@@ -2,6 +2,24 @@
 
 @{
     Layout = null;
+    ViewBag.Title = "";
+    if (ViewBag.type == "0")
+    {
+        ViewBag.Title = "购车贷款-天天贷";
+    }
+    else if (ViewBag.type == "1")
+    {
+        ViewBag.Title = "购房贷款-天天贷"; 
+    }
+    else if (ViewBag.type == "2")
+    {
+        ViewBag.Title = "企业贷款-天天贷";
+    }
+    else if (ViewBag.type == "3")
+    {
+        ViewBag.Title = "消费贷款-天天贷";
+    }
+        
 }
 
 <!DOCTYPE html>
@@ -9,7 +27,7 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ProductList</title>
+    <title>@ViewBag.Title</title>
     <script src="~/content/js/jquery1.3.2.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
 
@@ -92,7 +110,7 @@
 
         <div class="product">
              @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
-                {     
+             {     
             <div style="width: 710px; border-right: 1px solid #bdbdbd; float: left;">
      
 <div>
@@ -110,7 +128,7 @@
                     <button type="submit" class="btn" style="width: 85px; height: 35px; font-size: 14px;">马上搜索</button>
                      
             </div>
-      }
+             }
             <div style="line-height: 35px; text-align: center;">
                 共为您找到贷款产品<br />
                 <span style="font-size: 36px; color: #fbb03f;">20</span>款
@@ -139,18 +157,18 @@
 
 
         <div class="pagenumber">
-            <a class="number" href="@Url.Action("PreviewPage", new { p=@ViewBag.PageIndex,money=@ViewBag.money,type=@ViewBag.type,term=@ViewBag.term})">上一页</a>
+            <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term })">上一页</a>
              @for (int i = 1; i <= ViewBag.PageCount; i++)
-      {
-          if (i == ViewBag.PageIndex)
-          { 
+             {
+                 if (i == ViewBag.PageIndex)
+                 { 
             <a class="numberclick" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
                  }
-          else
-          {
+                 else
+                 {
             <a class="number" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
-            }
-      }
+                 }
+             }
             <a class="number" href="@Url.Action("NextPage", new { p=@ViewBag.PageIndex,money=@ViewBag.money,type=@ViewBag.type,term=@ViewBag.term})">下一页</a>
         </div>
 
