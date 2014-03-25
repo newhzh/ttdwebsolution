@@ -258,7 +258,7 @@ namespace TTDWeb.Models
         /// 个人-贷款
         /// </summary>
         [Required(ErrorMessage = "个人-贷款必填")]
-        [Display(Name = "个人-贷款")]
+        [Display(Name = "个人-是否成功申请贷款")]
         public string PerslLoan { get; set; }
 
         /// <summary>
