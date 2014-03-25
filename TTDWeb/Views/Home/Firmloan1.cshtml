@@ -37,7 +37,7 @@
     @Html.DropDownList("FirmAge",(SelectList)ViewBag.FirmAge,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.FirmAge)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div>@Html.RadioButtonFor(model => model.FirmProperty, false, new {@name = "FirmProperty",style=" margin-top:10px;"})否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.FirmProperty, true, new {@name = "FirmProperty"})是<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div>@Html.RadioButtonFor(model => model.FirmProperty, 0, new {@name = "FirmProperty",style=" margin-top:10px;"})否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.FirmProperty, 1, new {@name = "FirmProperty"})是<br /><br />
 <div class="inputtitle">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
 
 </div>
