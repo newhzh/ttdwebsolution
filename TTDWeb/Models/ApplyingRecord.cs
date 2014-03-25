@@ -114,7 +114,7 @@ namespace TTDWeb.Models
         public string FirmAge { get; set; }
 
         /// <summary>
-        /// 企业-房产
+        /// 企业-房产 
         /// </summary>
         [Required(ErrorMessage = "企业-房产必填")]
         [Display(Name = "企业-房产")]
