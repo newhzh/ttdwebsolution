@@ -16,6 +16,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+            $("#typewrap2").css({ "background": "url(../content/images/button_1.png) no-repeat", "color": "#fff" })
             $(".typewrap2").click(function () {
                 $(this).css({ "background": "url(../content/images/button_1.png) no-repeat", "color": "#fff" }).siblings().css({ "background": "url(../content/images/button_2.png) no-repeat", "color": "#fff" });
 
@@ -37,7 +38,7 @@
     <div class="bodycontent" style="text-align:center; padding-top:27px; width:700px;height:330px; min-height:0"> <img src="../content/images/logo.png" width="183" height="53" style="margin-bottom:23px;"/><br />
 
 <div class="typewrap">
-    <div class="typewrap2" onclick="document.getElementById('type').value=1">
+    <div class="typewrap2" onclick="document.getElementById('type').value=1" id="typewrap2">
       <div class="type"><img src="../content/images/house.png" width="47" height="39" /><br />
         &nbsp;购房贷款</div>
     </div>
