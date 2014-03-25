@@ -130,12 +130,12 @@ values ('sPerslCreditOwner', '0', '您是否有信用卡', '有', null, null);
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
 values ('sPerslCreditOwner', '1', '您是否有信用卡', '没有', null, null);
 
---个人- 信用卡负债
+--个人-信用卡是否负债
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslCardNo', '0', '是否有负债（信用卡）', '有', null, null);
+values ('sPerslCardPaid', '0', '是否有负债（信用卡）', '有', null, null);
 
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)
-values ('sPerslCardNo', '1', '是否有负债（信用卡）', '没有', null, null);
+values ('sPerslCardPaid', '1', '是否有负债（信用卡）', '没有', null, null);
 
 --个人-是否成功贷款
 insert into AA10 (AAA100, AAA102, AAA101, AAA103, AAA104, AAA105)

@@ -230,26 +230,26 @@ namespace TTDWeb.Models
     public class PurchaseLoanStep2
     {
         /// <summary>
-        /// 个人-信用卡
+        /// 个人-是否有信用卡
         /// </summary>
         [Required(ErrorMessage = "个人-信用卡必填")]
         [Display(Name = "个人-信用卡")]
         public string PerslCreditOwner { get; set; }
 
         /// <summary>
-        /// 个人-信用卡数
-        /// </summary>
-        [Display(Name = "个人-信用卡数")]
-        public string PerslCardNo { get; set; }
-
-        /// <summary>
-        /// 个人-信用卡额度
+        /// 个人-信用卡总额度
         /// </summary>
         [Display(Name = "个人-信用卡额度")]
         public string PerslCreditAllowance { get; set; }
 
         /// <summary>
-        /// 个人-信用卡负债
+        /// 个人-信用卡是否负债
+        /// </summary>
+        [Display(Name = "个人-信用卡数")]
+        public string PerslCardPaid { get; set; }
+                
+        /// <summary>
+        /// 个人-信用卡负债额
         /// </summary>
         [Display(Name = "个人-信用卡负债")]
         public string PerslCreditDue { get; set; }
