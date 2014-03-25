@@ -246,7 +246,7 @@ namespace TTDWeb.Models
         /// 个人-信用卡是否负债
         /// </summary>
         [Display(Name = "个人-信用卡是否负债")]
-        public string PerslCardPaid { get; set; }
+        public string PerslCardNo { get; set; }
                 
         /// <summary>
         /// 个人-信用卡负债额
