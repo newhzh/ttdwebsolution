@@ -234,6 +234,7 @@
     <Content Include="Content\images\time.png" />
     <Content Include="Content\images\top.png" />
     <Content Include="Content\images\top1.png" />
+    <Content Include="Content\images\topbg.png" />
     <Content Include="Content\images\up.png" />
     <Content Include="Content\images\up1.png" />
     <Content Include="Content\images\yuan.png" />
