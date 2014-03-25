@@ -17,7 +17,7 @@ namespace TTDWeb.Common
         public static bool Apply_Insert(ApplyingRecord p, ref string err)
         {
             string newID = SqlServerDAL.DA_Common.GetNewID_ByDate(DateTime.Today.ToString("yyyyMMdd"), "T_ApplyRecord", "sApplyID", 5, "A", 0);
-            string sql = "insert into T_ApplyRecord(sApplyID , sProductCode , sCustomerName , sCustomerPhone , sCustomerEmail , sProductType , sCarProperty , dCarCustomerMonthlySalary , sCarPurchasingPeriod , sHouseType , sHouseIncome , sHouseLocalorNot , sHouseNew , sFirmType , dFirmAccountBill , sFirmAge , sFirmProperty , sPerslEmployment , sPerslYoBirth , sPerslSalaryType , sPerslWorkingAge , sPerslCreditOwner , sPerslCardNo , sPerslCreditAllowance , sPerslCreditDue , sPerslLoan , sPerslLoanDue , dtCreatTime , sCaseState , sIPaddress) values ( " +
+            string sql = "insert into T_ApplyRecord(sApplyID , sProductCode , sCustomerName , sCustomerPhone , sCustomerEmail , sProductType , sCarProperty , dCarCustomerMonthlySalary , sCarPurchasingPeriod , sHouseType , sHouseIncome , sHouseLocalorNot , sHouseNew , sFirmType , dFirmAccountBill , sFirmAge , sFirmProperty , sPerslEmployment , sPerslYoBirth , sPerslSalaryType , sPerslWorkingAge , sPerslCreditOwner , sPerslCardNo , sPerslCreditAllowance , sPerslCreditDue , sPerslLoan , sPerslLoanDue ,sPerslLoanSucc, dtCreatTime , sCaseState , sIPaddress) values ( " +
                     "'" + newID + "'" +
                     ",'" + p.ProductCode + "'" +
                     ",'" + p.CustomerName + "'" +
@@ -45,6 +45,7 @@ namespace TTDWeb.Common
                     ",'" + (p.PerslCreditDue.Split(',').Length > 1 ? p.PerslCreditDue.Split(',')[0] : p.PerslCreditDue) + "'" +
                     ",'" + (p.PerslLoan.Split(',').Length > 1 ? p.PerslLoan.Split(',')[0] : p.PerslLoan) + "'" +
                     ",'" + (p.PerslLoanDue.Split(',').Length > 1 ? p.PerslLoanDue.Split(',')[0] : p.PerslLoanDue) + "'" +
+                    ",'" + (p.PerslLoanSucc.Split(',').Length > 1 ? p.PerslLoanSucc.Split(',')[0] : p.PerslLoanSucc) + "'" +
                     ",GetDate()" +
                     ",'" + p.CaseState + "'" +
                     ",'" + p.IPaddress + "'" + ")";
