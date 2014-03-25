@@ -30,7 +30,7 @@
      <input type="hidden" value="@ViewBag.producttype" id="producttype" name="producttype" />
 <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
     <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div>@Html.RadioButtonFor(model => model.CarProperty, false, new {@name = "CarProperty",style=" margin-top:10px;"})否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.CarProperty, true, new {@name = "CarProperty",style=" margin-top:10px;"})是<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否有本地商品房：</div>@Html.RadioButtonFor(model => model.CarProperty, 0, new {@name = "CarProperty",style=" margin-top:10px;"})否&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.CarProperty, 1, new {@name = "CarProperty",style=" margin-top:10px;"})是<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>@Html.TextBoxFor(m=>m.CarCustomerMonthlySalary,new { placeholder="请输入数字，如：5000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">购车阶段：</div>
      @Html.DropDownList("CarPurchasingPeriod",(SelectList)ViewBag.CarPurchasingPeriod,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
