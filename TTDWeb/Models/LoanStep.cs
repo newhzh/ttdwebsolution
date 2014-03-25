@@ -245,6 +245,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-信用卡是否负债
         /// </summary>
+        [Required(ErrorMessage = "个人-信用卡是否负债必填")]
         [Display(Name = "个人-信用卡是否负债")]
         public string PerslCardNo { get; set; }
                 
@@ -271,8 +272,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-贷款负债额
         /// </summary>
-        [Required(ErrorMessage = "个人-贷款负债必填")]
-        [Display(Name = "个人-贷款负债")]
+        [Display(Name = "个人-贷款负债额")]
         public string PerslLoanDue { get; set; }
     }
     #endregion
