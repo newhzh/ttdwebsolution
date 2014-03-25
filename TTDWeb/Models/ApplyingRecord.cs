@@ -149,39 +149,46 @@ namespace TTDWeb.Models
         public string PerslWorkingAge { get; set; }
 
         /// <summary>
-        /// 个人-信用卡
+        /// 个人-是否有信用卡
         /// </summary>
         [Required(ErrorMessage = "个人-信用卡必填")]
-        [Display(Name = "个人-信用卡")]
+        [Display(Name = "个人-是否有信用卡")]
         public string PerslCreditOwner { get; set; }
 
         /// <summary>
-        /// 个人-信用卡数
+        /// 个人-信用卡总额度
         /// </summary>
-        [Display(Name = "个人-信用卡数")]
-        public string PerslCardNo { get; set; }
-
-        /// <summary>
-        /// 个人-信用卡额度
-        /// </summary>
-        [Display(Name = "个人-信用卡额度")]
+        [Display(Name = "个人-信用卡总额度")]
         public string PerslCreditAllowance { get; set; }
 
         /// <summary>
-        /// 个人-信用卡负债
+        /// 个人-信用卡是否负债
         /// </summary>
-        [Display(Name = "个人-信用卡负债")]
+        [Display(Name = "个人-信用卡是否负债")]
+        public string PerslCardPaid { get; set; }
+
+        /// <summary>
+        /// 个人-信用卡负债额
+        /// </summary>
+        [Display(Name = "个人-信用卡负债额")]
         public string PerslCreditDue { get; set; }
 
         /// <summary>
-        /// 个人-贷款
+        /// 个人-是否成功贷款
         /// </summary>
         [Required(ErrorMessage = "个人-贷款必填")]
-        [Display(Name = "个人-贷款")]
+        [Display(Name = "个人-是否成功贷款")]
+        public string PerslLoanSucc { get; set; }
+
+        /// <summary>
+        /// 个人-贷款是否负债
+        /// </summary>
+        [Required(ErrorMessage = "个人-贷款必填")]
+        [Display(Name = "个人-贷款是否负债")]
         public string PerslLoan { get; set; }
 
         /// <summary>
-        /// 个人-贷款负债
+        /// 个人-贷款负债额
         /// </summary>
         [Required(ErrorMessage = "个人-贷款负债必填")]
         [Display(Name = "个人-贷款负债")]
