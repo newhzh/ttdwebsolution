@@ -137,7 +137,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-工资形式
         /// </summary>
-        [Required(ErrorMessage = "融资方名称个人-工资形式必填")]
+        [Required(ErrorMessage = "个人-工资形式必填")]
         [Display(Name = "个人-工资形式")]
         public string PerslSalaryType { get; set; }
 
@@ -151,7 +151,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-是否有信用卡
         /// </summary>
-        [Required(ErrorMessage = "个人-信用卡必填")]
+        [Required(ErrorMessage = "个人-是否有信用卡必填")]
         [Display(Name = "个人-是否有信用卡")]
         public string PerslCreditOwner { get; set; }
 
@@ -164,6 +164,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-信用卡是否负债
         /// </summary>
+        [Required(ErrorMessage = "个人-信用卡是否负债必填")]
         [Display(Name = "个人-信用卡是否负债")]
         public string PerslCardNo { get; set; }
 
@@ -176,14 +177,14 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-是否成功贷款
         /// </summary>
-        [Required(ErrorMessage = "个人-贷款必填")]
+        [Required(ErrorMessage = "个人-是否成功贷款必填")]
         [Display(Name = "个人-是否成功贷款")]
         public string PerslLoanSucc { get; set; }
 
         /// <summary>
         /// 个人-贷款是否负债
         /// </summary>
-        [Required(ErrorMessage = "个人-贷款必填")]
+        [Required(ErrorMessage = "个人-贷款是否负债必填")]
         [Display(Name = "个人-贷款是否负债")]
         public string PerslLoan { get; set; }
 
