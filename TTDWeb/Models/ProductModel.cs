@@ -31,6 +31,11 @@ namespace TTDWeb.Models
         public string OrganName { get; set; }
 
         /// <summary>
+        /// 机构logo
+        /// </summary>
+        public string OrganLogo { get; set; }
+
+        /// <summary>
         /// 产品类型
         /// </summary>
         [Display(Name = "产品类型")]
