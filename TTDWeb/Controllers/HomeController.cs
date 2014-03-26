@@ -31,7 +31,7 @@ namespace TTDWeb.Controllers
             decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
 
-            string sql1 = " select t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," + 
+            string sql1 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," + 
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -81,6 +81,7 @@ namespace TTDWeb.Controllers
         {
             ProductModel p;
             p = new ProductModel();
+            p.ProductCode = dr["sProductCode"].ToString();
             p.ProductType = dr["sProductType"].ToString();
             p.ProductName = dr["sProductName"].ToString();
             p.OrganName = dr["sOrganName"].ToString();
@@ -92,7 +93,8 @@ namespace TTDWeb.Controllers
             p.Details = dr["sDetails"].ToString();
             p.RepaymentType = dr["sRepaymentType"].ToString();
             p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
-            
+            p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
+
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)
             {
@@ -248,6 +250,7 @@ namespace TTDWeb.Controllers
                  p.PerslEmployment = "";
                  p.PerslLoan = "";
                  p.PerslLoanDue = "";
+                 p.PerslLoanSucc = "";
                  p.PerslSalaryType = "";
                  p.PerslWorkingAge = "";
                  p.PerslYoBirth = "";
@@ -422,6 +425,7 @@ namespace TTDWeb.Controllers
                  p.PerslEmployment = "";
                  p.PerslLoan = "";
                  p.PerslLoanDue = "";
+                 p.PerslLoanSucc = "";
                  p.PerslSalaryType = "";
                  p.PerslWorkingAge = "";
                  p.PerslYoBirth = "";
@@ -597,6 +601,7 @@ namespace TTDWeb.Controllers
                 p.PerslEmployment = "";
                 p.PerslLoan = "";
                 p.PerslLoanDue = "";
+                p.PerslLoanSucc = "";
                 p.PerslSalaryType = "";
                 p.PerslWorkingAge = "";
                 p.PerslYoBirth = "";
@@ -731,6 +736,7 @@ namespace TTDWeb.Controllers
             ViewBag.PerslCreditOwner = BizCommon.GetAA10Items("sPerslCreditOwner", "cast(aaa102 as int)");
             ViewBag.PerslLoan = BizCommon.GetAA10Items("sPerslLoan", "cast(aaa102 as int)");
             ViewBag.PerslLoanDue = BizCommon.GetAA10Items("sPerslLoanDue", "cast(aaa102 as int)");
+            ViewBag.PerslLoanSucc = BizCommon.GetAA10Items("sPerslLoanSucc", "cast(aaa102 as int)");
 
             if (Session[BizCommon.g_SessionName_ApplyProject] != null)
             {
@@ -745,6 +751,7 @@ namespace TTDWeb.Controllers
                 m.PerslCreditOwner = p.PerslCreditOwner;                        //选项
                 m.PerslLoan = p.PerslLoan;                                      //选项
                 m.PerslLoanDue = p.PerslLoanDue;                                //选项
+                m.PerslLoanSucc = p.PerslLoanSucc;                              //选项
 
                 return View(m);
             }
@@ -771,6 +778,7 @@ namespace TTDWeb.Controllers
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslCreditOwner = c.PerslCreditOwner;
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslLoan = c.PerslLoan;
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslLoanDue = c.PerslLoanDue;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslLoanSucc = c.PerslLoanSucc;
 
                     return View("Purchaseloan3");
                 }
@@ -784,6 +792,7 @@ namespace TTDWeb.Controllers
                     p.PerslCreditOwner = c.PerslCreditOwner;
                     p.PerslLoan = c.PerslLoan;
                     p.PerslLoanDue = c.PerslLoanDue;
+                    p.PerslLoanSucc = c.PerslLoanSucc;
 
                     //第一步创建project类放到session中
                     if (Session[BizCommon.g_SessionName_ApplyProject] != null)
@@ -802,6 +811,7 @@ namespace TTDWeb.Controllers
             ViewBag.PerslCreditOwner = BizCommon.GetAA10Items("sPerslCreditOwner", "cast(aaa102 as int)");
             ViewBag.PerslLoan = BizCommon.GetAA10Items("sPerslLoan", "cast(aaa102 as int)");
             ViewBag.PerslLoanDue = BizCommon.GetAA10Items("sPerslLoanDue", "cast(aaa102 as int)");
+            ViewBag.PerslLoanSucc = BizCommon.GetAA10Items("sPerslLoanSucc", "cast(aaa102 as int)");
             return View("Purchaseloan2");
         }
         #endregion
@@ -856,6 +866,7 @@ namespace TTDWeb.Controllers
                 //p.PerslEmployment = "";
                 //p.PerslLoan = "";
                 //p.PerslLoanDue = "";
+                //p.PerslLoanSucc = "";
                 //p.PerslSalaryType = "";
                 //p.PerslWorkingAge = "";
                 //p.PerslYoBirth = "";

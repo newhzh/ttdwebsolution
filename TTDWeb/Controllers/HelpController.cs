@@ -51,5 +51,31 @@ namespace TTDWeb.Controllers
         }
         #endregion
 
+        #region 接收客户端文件上传
+
+        public void up(string folder)
+        {
+            if (Request.Files.Count > 0)
+            {
+                try
+                {
+                    string sfolder = folder;
+                    if (sfolder == null || sfolder == "") sfolder = "doc";
+
+                    HttpPostedFileBase file = Request.Files[0];
+                    string filePath = Server.MapPath("~/") + sfolder + "\\" + file.FileName;
+                    file.SaveAs(filePath);
+                    Response.Write("Success\r\n");
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("Error！详细：" + ex.ToString());
+                }
+            }
+
+        }
+
+        #endregion
+
     }
 }
