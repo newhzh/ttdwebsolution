@@ -6,24 +6,11 @@ using System.Web;
 
 namespace TTDWeb.Models
 {
-    public class ProductModel
+    #region 机构主页
+    public class OrganPage
     {
-        public ProductModel() 
-        {
-            Customs = new List<CustomModel>();
-        }
 
-        /// <summary>
-        /// 自动编号
-        /// </summary>
-        public string ProductCode { get; set; }
-        
-        /// <summary>
-        /// 产品名称
-        /// </summary>
-        [Display(Name = "产品名称")]
-        [Required(ErrorMessage = "产品名称必填")]
-        public string ProductName { get; set; }
+        #region 列表显示
 
         /// <summary>
         /// 机构名称
@@ -34,6 +21,18 @@ namespace TTDWeb.Models
         /// 机构logo
         /// </summary>
         public string OrganLogo { get; set; }
+
+        /// <summary>
+        /// 机构简介
+        /// </summary>
+        public string Memo { get; set; }
+
+        /// <summary>
+        /// 产品名称
+        /// </summary>
+        [Display(Name = "产品名称")]
+        [Required(ErrorMessage = "产品名称必填")]
+        public string ProductName { get; set; }
 
         /// <summary>
         /// 产品类型
@@ -54,13 +53,11 @@ namespace TTDWeb.Models
         /// </summary>
         public string AnnualRateDisplay { get; set; }
 
-        /// <summary>
-        /// 还款方式
-        /// </summary>
-        [Display(Name = "还款方式")]
-        [Required(ErrorMessage = "还款方式必选")]
-        public string RepaymentType { get; set; }
+        #endregion
 
+        #region 展开显示
+
+        #region 产品详情
         /// <summary>
         /// 额度下限
         /// </summary>
@@ -102,6 +99,13 @@ namespace TTDWeb.Models
         public decimal ServerFeeOncee { get; set; }
 
         /// <summary>
+        /// 还款方式
+        /// </summary>
+        [Display(Name = "还款方式")]
+        [Required(ErrorMessage = "还款方式必选")]
+        public string RepaymentType { get; set; }
+
+        /// <summary>
         /// 最快放款时间
         /// </summary>
         [Display(Name = "最快放款时间")]
@@ -110,67 +114,49 @@ namespace TTDWeb.Models
         public int GetLoanDays { get; set; }
 
         /// <summary>
-        /// 申请条件
-        /// </summary>
-        [Display(Name = "申请条件")]
-        [Required(ErrorMessage = "申请条件必填")]
-        public string ApplyCondition { get; set; }
-
-        /// <summary>
-        /// 所需材料
-        /// </summary>
-        [Display(Name = "所需材料")]
-        [Required(ErrorMessage = "所需材料必填")]
-        public string RequiredFile { get; set; }
-
-        /// <summary>
-        /// 详细说明
-        /// </summary>
-        [Display(Name = " 详细说明")]
-        public string Details { get; set; }
-
-        /// <summary>
-        /// 提前还款条件
-        /// </summary>
-        [Display(Name = "提前还款条件")]
-        [Required(ErrorMessage = "提前还款条件必填")]
-        public string EarlyRepaymentCondition { get; set; }
-
-        /// <summary>
-        /// 特殊说明
-        /// </summary>
-        [Display(Name = "特殊说明")]
-        public string Memo { get; set; }
-
-        /// <summary>
         /// 担保方式
         /// </summary>
         [Display(Name = "担保方式")]
         [Required(ErrorMessage = "担保方式必填")]
         public string VouchType { get; set; }
 
-        /// <summary>
-        /// 每月偿还金额
-        /// </summary>
-        public string RepaymentMonthly { get; set; }
+        #endregion
 
+        #region 申请条件
+        /// <summary>
+        /// 申请条件
+        /// </summary>
+        [Display(Name = "申请条件")]
+        [Required(ErrorMessage = "申请条件必填")]
+        public string ApplyCondition { get; set; }
+        #endregion
+
+        #region 所需材料
+        /// <summary>
+        /// 所需材料
+        /// </summary>
+        [Display(Name = "所需材料")]
+        [Required(ErrorMessage = "所需材料必填")]
+        public string RequiredFile { get; set; }
+        #endregion
+
+        #region 详细说明
+        /// <summary>
+        /// 详细说明
+        /// </summary>
+        [Display(Name = "详细说明")]
+        public string Details { get; set; }
+        #endregion
+
+        #region 客户经理
         /// <summary>
         /// 客户经理集合
         /// </summary>
         public List<CustomModel> Customs { get; set; }
-    }
+        #endregion
 
-    #region AA10枚举模型
-    public class AA10_Item
-    {
-        public AA10_Item(string text, string val)
-        {
-            Text = text;
-            Value = val;
-        }
+        #endregion
 
-        public string Text { get; set; }
-        public string Value { get; set; }
     }
     #endregion
 }
