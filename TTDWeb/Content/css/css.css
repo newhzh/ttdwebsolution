@@ -15,6 +15,7 @@ body {
 	font-family: "微软雅黑", "黑体";
 	font-size: 14px;
 	color:#fff;
+	overflow:scroll;
 }
 a{
 	text-decoration:none;
