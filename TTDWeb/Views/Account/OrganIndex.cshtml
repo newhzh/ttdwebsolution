@@ -90,7 +90,7 @@
         </div>
         
         <!--list start-->
-        <div class="productup changewith" style="background:url(../content/images/bglist1.png) left top no-repeat;;">
+        <div class="productup changewith" style="background:url(../content/images/bglist1.png) left top no-repeat;">
           <div style="float:left; width:220px;"><img src="../content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="line-height:30px;">产品标题</span><br />
             <span style="font-size:12px;">宜信贷</span></div>
           <div style="float:left; text-align:center; width:130px; padding-top:10px;"><span style="font-size:12px;">6.9% APR年化利率<br />
@@ -163,26 +163,30 @@
           <div style="font-size:24px; text-align:center; width:280px;">0571-00000000</div>
         </div>
         <div> 
+            @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
+             {   
           <!--form start-->
           <div class="vsearchBox">
             <div style="padding:15px; margin-bottom:15px;border-bottom:1px solid #e1e1e1">我要贷款</div>
             <div id="searchBox" class="vboxcontent">
-              <form action="productlist.html">
+              
                 <dl class="searchitems clearfix typesdl">
                   <dt>
                     <label>贷款用途：</label>
                   </dt>
                   <dd class="selectDD zindex4">
-                    <input class="search_input"value="不限" name="type" type="text" data-val="index" data-dw="" readonly="readonly">
+                    <input class="search_input"value="购房贷款" name="type1" type="text" data-val="index" data-dw="" readonly="readonly">
+                      <input type="hidden" value="1" name="type"/>
                     <div class="sidw"></div>
                     <div class="search_btn search_btn_bg2"></div>
                     <ul class="search_ul" style="display: none; ">
-                      <li data-txt="不限" data-val="null" data-dw="" class="liover">不限</li>
-                      <li data-txt="企业贷款" data-val="firm" data-dw="">企业贷款</li>
-                      <li data-txt="购车贷款" data-val="car" data-dw="">购车贷款</li>
-                      <li data-txt="购房贷款" data-val="home" data-dw="">购房贷款</li>
-                      <li data-txt="消费贷款" data-val="purchase" data-dw="">消费贷款</li>
-                      <li data-txt="信用卡" data-val="credit" data-dw="">消费贷款</li>
+                     <!-- <li data-txt="不限" data-val="null" data-dw="" class="liover">不限</li> -->
+                      <li data-txt="企业贷款" data-val="firm" data-dw="" onclick="document.getElementById('type').value=2">企业贷款</li>
+                      <li data-txt="购车贷款" data-val="car" data-dw="" onclick="document.getElementById('type').value=0">购车贷款</li>
+                      <li data-txt="购房贷款" data-val="home" data-dw="" onclick="document.getElementById('type').value=1">购房贷款</li>
+                      <li data-txt="消费贷款" data-val="purchase" data-dw="" onclick="document.getElementById('type').value=3">消费贷款</li>
+                      <li data-txt="购车保险" data-val="car1" data-dw="" onclick="document.getElementById('type').value=5">购车保险</li>
+                      <li data-txt="信用卡" data-val="credit" data-dw="" onclick="document.getElementById('type').value=4">信用卡</li>
                     </ul>
                   </dd>
                 </dl>
@@ -226,17 +230,19 @@
             </ul>
                   </dd>
                 </dl>
-                <button type="submit" class="btn" style="width:283px; margin-top:20px; font-size:14px;">马上搜索</button>
-              </form>
+                <button type="submit" class="btn" style="width:282px; margin-top:20px; font-size:14px;">马上搜索</button>
+             
             </div>
-            <script language="javascript">            jQuery(function () {
-                jQuery('#searchBox').dkSearch({
+            <script type="text/javascript">
+                jQuery(function () {
+                    jQuery('#searchBox').dkSearch({
+                    });
                 });
-            });
         </script> 
-            <script src="content/js/jquery.searchBox.js" type="text/javascript"></script> 
+            <script src="~/content/js/jquery.searchBox.js" type="text/javascript"></script> 
           </div>
           <!--form end--> 
+            }
         </div>
       </div>
     </div>
@@ -251,6 +257,4 @@
       <div class="gotop"></div>
     </div>
 </body>
-</html>
-
 </html>
