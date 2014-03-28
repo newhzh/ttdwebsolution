@@ -1,4 +1,5 @@
-﻿@{
+﻿@model  IEnumerable<TTDWeb.Models.OrganPage>
+@{
     Layout = null;
 }
 
@@ -8,10 +9,248 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>OrganIndex</title>
-</head>
+<script src="~/content/js/jquery1.3.2.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+	<link href="~/content/css/SearchHome1.css" rel="stylesheet" type="text/css">
+	<script src="~/content/js/jquery-1.7.1.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        $(".productup h1").toggle(function () {
+	            $(this).html("收起详情");
+	            $(this).next(".container").animate({ height: 268, }, "slow");
+	        }, function () {
+	            $(this).html("展开详情");
+	            $(this).next(".container").animate({ height: 0 }, "slow");
+	        });
+	    });
+
+
+</script>
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        /*$('.ct:gt(0)').hide();*/
+	        var hdw = $('.tab_title li');
+	        hdw.click(function () {
+	            $(this).addClass('one').siblings().removeClass();
+	            var hdw_index = hdw.index(this);
+	            $('.ct').eq(hdw.index(this)).show().siblings().hide();
+	        });
+	    });
+</script>
+	<script>
+	    !window.jQuery && document.write('<script src="~/content/js/jquery-1.4.3.min.js"><\/script>');
+	</script>
+	<script type="text/javascript" src="~/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="~/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="~/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	<script type="text/javascript">
+	    $(document).ready(function () {
+
+	        $("a#various3").fancybox({
+	            'width': 670,
+	            'height': 560,
+	            'autoScale': true,
+	            'transitionIn': 'none',
+	            'transitionOut': 'none',
+	            'type': 'iframe',
+	            'overlayColor': '#000',
+	            'overlayOpacity': 0.7,
+	            'scrolling': 'no',
+	            'padding': 0,
+
+	        });
+
+	    });
+	</script>
+	<script src="~/content/js/scrolltop.js" type="text/javascript"></script>
+	</head>
 <body>
-    <div>
+        <div style=" background:url(../content/images/topbg.png) repeat; width:100%; height:22px;">
+  <div class="denglu" style="width:950px;">客服热线：400-0000-000<a href="#" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="#" style="margin-left:10px;">信贷经理登录</a></div>
+</div>
+
+    <div class="bodycontent" style="padding-top:11px; color:#282828; min-height:1150px;">
+ <img src="../content/images/logo.png" width="183" height="53"/>  
+      <div style="clear:both; height:15px;"></div>
+      <div class="agrncyhead">
+        <div class="headpic"><img src="" width="128" height="128" /></div>
+      </div>
+      <div class="intro"> <span style="font-size:24px; margin-right:40px;">杭州维信理财有限公司</span>小贷公司<br />
+        <div style="height:15px;"></div>
+        宜信公司是一家集财富管理、信用风险评估与管理、信用数据整合服务、小额贷款行业投资、小微借款咨询服务与交易促成、公益理财助农平台服务等业务于一体的综合性现代服务业企业。目前已经在100多个城市和20多个农村地区建立起强大的全国协同服务网络，为客户提供全方位、个性化的普惠金融与财富管理服务。 </div>
+      <div class="agrncyleft" >
+        <div class="product" style="width:595px; margin:0; height:60px; margin-bottom:15px;">
+          <div style="line-height:30px; text-align:center; float:left; width:180px;"> 为您提供贷款产品<br />
+            <span style="font-size:24px; color:#fbb03f;">20</span>款 </div>
+          <div style="line-height:30px; text-align:center; float:left; width:180px;"> 已成功受理贷款<br />
+            <span style="font-size:24px; color:#fbb03f;">1000</span>人 </div>
+          <div style="line-height:30px; text-align:center; float:left; width:180px;"> 信用评级<br />
+            <div style="height:5px;"></div>
+            <img src="../content/images/star1.png" width="28" height="22" /> <img src="../content/images/star2.png" width="28" height="22" /> <img src="../content/images/star2.png" width="28" height="22" /> <img src="../content/images/star2.png" width="28" height="22" /> <img src="../content/images/star2.png" width="28" height="22" /> </div>
+        </div>
         
+        <!--list start-->
+        <div class="productup changewith" style="background:url(../content/images/bglist1.png) left top no-repeat;;">
+          <div style="float:left; width:220px;"><img src="../content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="line-height:30px;">产品标题</span><br />
+            <span style="font-size:12px;">宜信贷</span></div>
+          <div style="float:left; text-align:center; width:130px; padding-top:10px;"><span style="font-size:12px;">6.9% APR年化利率<br />
+            ￥10663分期付款</span></div>
+          <h1 class="look" >展开详情</h1>
+          <div class="container changewith" style="margin-left:0px;"> 
+            
+            <!--tabs start-->
+            <div class="mytabs" style="width:550px;">
+              <ul class="tab_title" style="width:420px;">
+                <li class="one" style="margin-left:10px; margin-right:10px;">产品详情</li>
+                <li style="margin-left:10px; margin-right:10px;">申请条件</li>
+                <li style="margin-left:10px; margin-right:10px;">所需材料</li>
+                <li style="margin-left:10px; margin-right:10px;">详细说明</li>
+                <li style="margin-left:10px; margin-right:10px;">产品经理</li>
+              </ul>
+              <div class="content" style="width:550px;">
+                <div class="ct"> 22周岁-60周岁、现单位工作6个月、税前收入1700以上<br />
+                  1、年龄要求：22周岁（含）-60周岁（含）<br />
+                  2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+                  3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+                  4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+                  5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月<br />
+                  6、在本公司申请过且未满3个月不能再申请 </div>
+                <div class="ct" style="display:none"> 申请条件说明：
+                  1、年龄要求：22周岁（含）-60周岁（含）<br />
+                  2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+                  3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+                  4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+                  5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月 </div>
+                <div class="ct" style="display:none"> 1、申请人（及配偶）身份证明<br />
+                  2、工作证明：劳动合同、工作证明加盖单位人事章（二者选一）<br />
+                  3、收入证明：近6个月工资卡流水<br />
+                  4、居住证明：房屋租赁合同、近2个月水、电、燃气缴费单、居委会或街道办事处开的居住证明（任选一）<br />
+                  5、个人征信报告<br />
+                  6、其他资信证明：如税单、房产证、行驶证、基金、股票等能提高申请额度（可选择提供） </div>
+                <div class="ct" style="display:none"> 提供本地房产、车等资产证明可提高贷款额度5万以下，批额是打卡工资的5到15倍，如果有社保是10到20倍<br />
+                  本科以上学历证书、车辆行驶证、股票基金市值等都可以选择性提供 </div>
+                <div class="ct" style="display:none"> <strong>程经理</strong><br />
+                  杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                  <strong>程经理</strong><br />
+                  杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                  <strong>程经理</strong><br />
+                  杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+                  <div class="inpagenumber"> <a class="innumber" href="#">上一页</a> <a class="innumberclick" href="#">1</a> <a class="innumber" href="#">2</a> ... <a class="innumber" href="#">9</a> <a class="innumber" href="#">10</a> <a class="innumber" href="#">下一页</a> </div>
+                  
+                  
+                </div>
+              </div>
+            </div>
+            <!--tabs end-->
+            <div class="apply2"> <a id="various3" href="apply1.html">我要申请</a> </div>
+          </div>
+          <!--container end--> 
+        </div>
+        <div class="productdown changewith" style="font-size:12px; line-height:25px; width:596px;">
+          <div style="float:left; margin-right:30px;">贷款速度快</div>
+          <div style="float:left; margin-right:30px;">贷款速度快</div>
+          <div style="float:left; margin-right:30px;">贷款速度快</div>
+          <div style="float:left; margin-right:30px;">贷款速度快</div>
+        </div>
+        <!--list end-->
+        
+
+      </div>
+      
+      <div class="agrncyright">
+        <div style="background-color:#5489d2; color:#FFF; padding-left:20px; padding-bottom:20px; margin-bottom:15px;"> <br />
+          机构服务电话：<br />
+          <div style="font-size:24px; text-align:center; width:280px;">0571-00000000</div>
+        </div>
+        <div> 
+          <!--form start-->
+          <div class="vsearchBox">
+            <div style="padding:15px; margin-bottom:15px;border-bottom:1px solid #e1e1e1">我要贷款</div>
+            <div id="searchBox" class="vboxcontent">
+              <form action="productlist.html">
+                <dl class="searchitems clearfix typesdl">
+                  <dt>
+                    <label>贷款用途：</label>
+                  </dt>
+                  <dd class="selectDD zindex4">
+                    <input class="search_input"value="不限" name="type" type="text" data-val="index" data-dw="" readonly="readonly">
+                    <div class="sidw"></div>
+                    <div class="search_btn search_btn_bg2"></div>
+                    <ul class="search_ul" style="display: none; ">
+                      <li data-txt="不限" data-val="null" data-dw="" class="liover">不限</li>
+                      <li data-txt="企业贷款" data-val="firm" data-dw="">企业贷款</li>
+                      <li data-txt="购车贷款" data-val="car" data-dw="">购车贷款</li>
+                      <li data-txt="购房贷款" data-val="home" data-dw="">购房贷款</li>
+                      <li data-txt="消费贷款" data-val="purchase" data-dw="">消费贷款</li>
+                      <li data-txt="信用卡" data-val="credit" data-dw="">消费贷款</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="searchitems clearfix moneydl">
+                  <dt>
+                    <label>贷款金额：</label>
+                  </dt>
+                  <dd class="selectDD zindex3">
+                    <input class="search_input" value="10" name="money" type="text" maxlength="6" data-type="numDot" data-val="10" data-dw="万元">
+                    <div class="sidw">万元</div>
+                    <div class="search_btn search_btn_bg2"></div>
+                    <ul class="search_ul" style="display: none; ">
+                      <li data-txt="3" data-val="3" data-dw="万元" class="">3万元</li>
+                      <li data-txt="5" data-val="5" data-dw="万元" class="">5万元</li>
+                      <li data-txt="10" data-val="10" data-dw="万元" class="liover">10万元</li>
+                      <li data-txt="15" data-val="15" data-dw="万元">15万元</li>
+                      <li data-txt="20" data-val="20" data-dw="万元">20万元</li>
+                      <li data-txt="25" data-val="25" data-dw="万元">25万元</li>
+                      <li data-txt="30" data-val="30" data-dw="万元">30万元</li>
+                    </ul>
+                  </dd>
+                </dl>
+                <dl class="searchitems clearfix timedl">
+                  <dt>
+                    <label>贷款期限：</label>
+                  </dt>
+                  <dd class="selectDD zindex2">
+                    <input class="search_input" name="term1" value="1" type="text" maxlength="6" data-type="num" data-val="1" data-dw="年">
+            <input type="hidden" value="12" id="term" name="term"/>
+            <div class="sidw">年</div>
+            <div class="search_btn search_btn_bg2"></div>
+            <ul class="search_ul" style="display: none; ">
+              <li data-txt="3" data-val="3" data-dw="个月" onclick="document.getElementById('term').value=3">3个月</li>
+              <li data-txt="6" data-val="6" data-dw="个月" onclick="document.getElementById('term').value=6">6个月</li>
+              <li data-txt="1" data-val="1" data-dw="年" onclick="document.getElementById('term').value=12">1年</li>
+              <li data-txt="18" data-val="18" data-dw="个月" onclick="document.getElementById('term').value=18">18个月</li>
+              <li data-txt="2" data-val="2" data-dw="年" onclick="document.getElementById('term').value=24">2年</li>
+              <li data-txt="3" data-val="3" data-dw="年" onclick="document.getElementById('term').value=36">3年</li>
+              <li data-txt="5" data-val="5" data-dw="年" onclick="document.getElementById('term').value=60">5年</li>
+              <li data-txt="10" data-val="10" data-dw="年" onclick="document.getElementById('term').value=120">10年</li>
+            </ul>
+                  </dd>
+                </dl>
+                <button type="submit" class="btn" style="width:283px; margin-top:20px; font-size:14px;">马上搜索</button>
+              </form>
+            </div>
+            <script language="javascript">            jQuery(function () {
+                jQuery('#searchBox').dkSearch({
+                });
+            });
+        </script> 
+            <script src="content/js/jquery.searchBox.js" type="text/javascript"></script> 
+          </div>
+          <!--form end--> 
+        </div>
+      </div>
+    </div>
+    <!--body content-->
+            <div class="pagenumber" style="margin:0 auto; width:950px; margin-bottom:30px;"> <a class="number" href="#">上一页</a> <a class="numberclick" href="#">1</a> <a class="number" href="#">2</a> ... <a class="number" href="#">9</a> <a class="number" href="#">10</a> <a class="number" href="#">下一页</a> </div>
+    
+    <div class="footer" style="margin:0 auto; width:950px;"> <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
+      ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1 </div>
+    <div class="go-top"> <a id="various3" href="productlist.html">
+      <div class="feedback"></div>
+      </a>
+      <div class="gotop"></div>
     </div>
 </body>
+</html>
+
 </html>
