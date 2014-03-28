@@ -909,5 +909,58 @@ namespace TTDWeb.Controllers
 
         #endregion
 
+        #region 机构主页
+
+        public ActionResult OrganIndex(string organid)
+        {
+            string sql1 = "select t1.*,"+
+                          "(isnull(select count(1) from t_applyrecord t10,t_product t20 where t10.sproductcode=t20.sproductcode and t10.sCaseState='2' and t20.sOrganID=t1.sOrganID),0) as HandledCount "+
+                          " from t_foreignorgan t1 where sorganid='" + organid + "'";
+            string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," +
+                          " t2.sOrganName, t2.sLogo" +
+                          " from T_Product t1" +
+                          " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID" +
+                          " where t1.sOrganID='" + organid + "'";
+
+            string sql3 = " select t1.sCustomName, t1.sOrganID, t2.sOrganName" +
+                          " from T_Custom t1" +
+                          " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
+                          " where t1.sOrganID='" + organid + "'";
+
+            DA_Adapter da = new DA_Adapter();
+            DataSet ds = new DataSet();
+            string err="";
+            da.Common_Query_MultiTable(ref ds, sql1, "T_Organ", sql2, "T_Product", sql3, "T_Custom", ref err);
+
+            DataRow dr = ds.Tables[0].Rows[0];
+            OrganPage o = new OrganPage();
+            o.HandledCount = dr["HandledCount"].ToString();
+            o.Memo = dr["sMemo"].ToString();
+            o.OrganLogo = "../photos/" + dr["sLogo"].ToString();
+            o.OrganName = dr["sOrganName"].ToString();
+            o.OrganType = dr["sEasyName"].ToString();
+            o.Ranking = "3";
+            o.Tel = dr["sTel"].ToString();
+
+            #region 加载产品列表
+            DataRow[] listCustomRows;
+            ProductModel p;
+            decimal dYuanMoney = 100000;
+            int term = 12;
+            foreach (DataRow drProduct in ds.Tables["T_Product"].Rows)
+            {
+                listCustomRows = ds.Tables["T_Custom"].Select("sOrganID='" + dr["sOrganID"].ToString() + "'");
+                p = Convert2Product(dr, listCustomRows, dYuanMoney, term);
+                o.ProductList.Add(p);//未分页显示。
+            }
+
+            #endregion
+
+            return View(o);
+
+        }
+
+        #endregion
+
     }
 }
