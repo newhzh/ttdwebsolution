@@ -137,9 +137,9 @@ namespace TTDWeb.Models
         public string EarlyRepaymentCondition { get; set; }
 
         /// <summary>
-        /// 特殊说明
+        /// 机构简介
         /// </summary>
-        [Display(Name = "特殊说明")]
+        [Display(Name = "机构简介")]
         public string Memo { get; set; }
 
         /// <summary>

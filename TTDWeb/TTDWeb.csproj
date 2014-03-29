@@ -329,6 +329,7 @@
     <Content Include="fancybox\jquery.mousewheel-3.0.4.pack.js" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="Properties\PublishProfiles\TTDAI.COM.pubxml" />
     <None Include="Properties\PublishProfiles\ttd_webpub.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
