@@ -84,6 +84,7 @@ namespace TTDWeb.Controllers
             p.ProductCode = dr["sProductCode"].ToString();
             p.ProductType = dr["sProductType"].ToString();
             p.ProductName = dr["sProductName"].ToString();
+            p.OrganID = dr["sOrganID"].ToString();
             p.OrganName = dr["sOrganName"].ToString();
             p.AnnualRate = Convert.ToDecimal(dr["dAnnualRate"]);
             p.AnnualRateDisplay = (p.AnnualRate * 100).ToString("F1") + "%";

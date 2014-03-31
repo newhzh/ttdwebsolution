@@ -31,6 +31,11 @@ namespace TTDWeb.Models
         public string OrganName { get; set; }
 
         /// <summary>
+        /// 机构ID
+        /// </summary>
+        public string OrganID { get; set; }
+
+        /// <summary>
         /// 机构logo
         /// </summary>
         public string OrganLogo { get; set; }
