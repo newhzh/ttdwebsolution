@@ -40,7 +40,7 @@
 	padding-top:3px; 
 	left:0px;top:0px;
 	padding:0px;
-	margin::0px;
+	margin:0px;
 }
 
 .onFocus_top
@@ -70,7 +70,7 @@
 	padding-top:3px; 
 	left:0px;top:0px;
 	padding:0px;
-	margin::0px;
+	margin:0px;
 }
 
 .onError_top
@@ -93,7 +93,7 @@
 
 .input_public
 {
-	border:#ddd 1px solid;font-size:12px; height:26px;padding-left:4px; width:210px;
+	border:#999 1px solid;font-size:12px; height:30px;padding-left:4px; width:210px;
 	position:relative; bottom:4px;
 }
 

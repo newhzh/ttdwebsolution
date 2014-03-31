@@ -463,12 +463,12 @@ legend{color:#000;}
 .field-wrap{overflow:visible;}
 .field-wrap legend{padding:10px;font-size:16px;font-weight:bold;margin:0 20px;text-align:center;display:none;overflow:hidden;}
 
-.field-item{padding:10px 0;width:94%;min-height:30px;line-height:26px;clear:both;}
+.field-item{padding:10px 0;width:94%;min-height:30px;line-height:26px;clear:both;margin-bottom:5px;}
 .field-item label,.field-item input,.field-item select,.field-item textarea{float:left;margin-right:10px;display:inline; }
 .field-item label{line-height:30px;height:26px;width:100px;text-align:right;overflow:hidden; }
 .field-item span{float:left;line-height:26px;height:26px;overflow:hidden;}
 .field-item select{margin-top:3px;_margin-top:1px;}
-.input-item{width:210px;height:30px;line-height:20px;padding-left:4px;border:1px solid #CCC;}
+.input-item{width:210px;height:30px;line-height:20px;padding-left:4px;border:1px solid #999;}
 
 .center{text-align:center;}
 #message{width:500px;}
