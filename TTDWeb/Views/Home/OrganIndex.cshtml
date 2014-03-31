@@ -74,7 +74,8 @@
         <div style="clear: both; height: 15px;"></div>
         <div class="agrncyhead">
             <div class="headpic">
-                <img src="@Model.OrganLogo" width="128" height="128" /></div>
+                <img src="@Model.OrganLogo" width="128" height="128" />
+            </div>
         </div>
         <div class="intro">
             <span style="font-size: 24px; margin-right: 40px;">@Model.OrganName</span>@Model.OrganType<br />
@@ -101,86 +102,88 @@
                     <img src="../content/images/star2.png" width="28" height="22" />
                 </div>
             </div>
- @foreach (var itemProduct in Model.ProductList)
-                    {
-            <!--list start-->
-            <div class="productup changewith" style="background: url(../content/images/bglist1.png) left top no-repeat;">
-                <div style="float: left; width: 280px;">
-                    <img src="@itemProduct.OrganLogo" width="46" height="46" style="float: left; margin-right: 20px;" /><span style="line-height: 30px;">@itemProduct.ProductName</span><br />
-                    <span style="font-size: 12px;">@itemProduct.OrganName</span>
-                </div>
-                <div style="float: left; text-align: center; width: 130px; padding-top: 10px;">
-                    <span style="font-size: 12px;">@itemProduct.AnnualRateDisplay APR年化利率<br />
-                        @itemProduct.RepaymentMonthly 分期付款</span>
-                </div>
-                <h1 class="look">展开详情</h1>
-                <div class="container changewith" style="margin-left: 0px;">
+            @foreach (var itemProduct in Model.ProductList)
+            {
+                <!--list start-->
+                <div class="productup changewith" style="background: url(../content/images/bglist1.png) left top no-repeat;">
+                    <div style="float: left; width: 280px;">
+                        <img src="@itemProduct.OrganLogo" width="46" height="46" style="float: left; margin-right: 20px;" /><span style="line-height: 30px;">@itemProduct.ProductName</span><br />
+                        <span style="font-size: 12px;">@itemProduct.OrganName</span>
+                    </div>
+                    <div style="float: left; text-align: center; width: 130px; padding-top: 10px;">
+                        <span style="font-size: 12px;">@itemProduct.AnnualRateDisplay APR年化利率<br />
+                            @itemProduct.RepaymentMonthly 分期付款</span>
+                    </div>
+                    <h1 class="look">展开详情</h1>
+                    <div class="container changewith" style="margin-left: 0px;">
 
-                    <!--tabs start-->
-                    <div class="mytabs" style="width: 550px;">
-                        <ul class="tab_title" style="width: 420px;">
-                            <li class="one" style="margin-left: 10px; margin-right: 10px;">产品详情</li>
-                            <li style="margin-left: 10px; margin-right: 10px;">申请条件</li>
-                            <li style="margin-left: 10px; margin-right: 10px;">所需材料</li>
-                            <li style="margin-left: 10px; margin-right: 10px;">详细说明</li>
-                            <li style="margin-left: 10px; margin-right: 10px;">产品经理</li>
-                        </ul>
-                        <div class="content" style="width: 550px;">
-                            <div class="ct">
-                                @itemProduct.Details
-                            </div>
-                            <div class="ct" style="display: none">
-                                @itemProduct.ApplyCondition
-                            </div>
-                            <div class="ct" style="display: none">
-                                @itemProduct.RequiredFile
-                            </div>
-                            <div class="ct" style="display: none">
-                                @itemProduct.Memo
-                            </div>
-                            <div class="ct" style="display: none">
-                                <strong>程经理</strong><br />
-                                杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
-                                <strong>程经理</strong><br />
-                                杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
-                                <strong>程经理</strong><br />
-                                杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
-                                <div class="inpagenumber"><a class="innumber" href="#">上一页</a> <a class="innumberclick" href="#">1</a> <a class="innumber" href="#">2</a> ... <a class="innumber" href="#">9</a> <a class="innumber" href="#">10</a> <a class="innumber" href="#">下一页</a> </div>
+                        <!--tabs start-->
+                        <div class="mytabs" style="width: 550px;">
+                            <ul class="tab_title" style="width: 420px;">
+                                <li class="one" style="margin-left: 10px; margin-right: 10px;">产品详情</li>
+                                <li style="margin-left: 10px; margin-right: 10px;">申请条件</li>
+                                <li style="margin-left: 10px; margin-right: 10px;">所需材料</li>
+                                <li style="margin-left: 10px; margin-right: 10px;">详细说明</li>
+                                <li style="margin-left: 10px; margin-right: 10px;">产品经理</li>
+                            </ul>
+                            <div class="content" style="width: 550px;">
+                                <div class="ct">
+                                    @itemProduct.Details
+                                </div>
+                                <div class="ct" style="display: none">
+                                    @itemProduct.ApplyCondition
+                                </div>
+                                <div class="ct" style="display: none">
+                                    @itemProduct.RequiredFile
+                                </div>
+                                <div class="ct" style="display: none">
+                                    @itemProduct.Memo
+                                </div>
+                                <div class="ct" style="display: none">
+                                    @foreach (var itemCustom in itemProduct.Customs)
+                                    {
+                                        <div>
+                                            <strong>@itemCustom.CustomName</strong><br />
+                                            @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID<br />
+
+                                        </div>
+                                    }
 
 
+
+                                </div>
                             </div>
                         </div>
+                        <!--tabs end-->
+                        <div class="apply2">
+                            @if (itemProduct.ProductType == "0")
+                            {
+                                <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                            }
+                            else if (itemProduct.ProductType == "1")
+                            { 
+                                <a id="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                            }
+                            else if (itemProduct.ProductType == "2")
+                            { 
+                                <a id="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                            }
+                            else if (itemProduct.ProductType == "3")
+                            { 
+                                <a id="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                            }
+                        </div>
                     </div>
-                    <!--tabs end-->
-                    <div class="apply2">
-                        @if (itemProduct.ProductType == "0")
-            {
-                <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
-            }
-                        else if (itemProduct.ProductType == "1")
-            { 
-                <a id="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
-            }
-                        else if (itemProduct.ProductType == "2")
-            { 
-                <a id="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
-            }
-                        else if (itemProduct.ProductType == "3")
-            { 
-                <a id="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
-            }
-                    </div>
+                    <!--container end-->
                 </div>
-                <!--container end-->
-            </div>
-            <div class="productdown changewith" style="font-size: 12px; line-height: 25px; width: 596px;">
-                <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                <div style="float: left; margin-right: 30px;">贷款速度快</div>
-            </div>
-            <!--list end-->
- }
+                <div class="productdown changewith" style="font-size: 12px; line-height: 25px; width: 596px;">
+                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                </div>
+                <!--list end-->
+            }
 
         </div>
 
