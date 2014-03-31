@@ -95,11 +95,30 @@
                 <div style="line-height: 30px; text-align: center; float: left; width: 180px;">
                     信用评级<br />
                     <div style="height: 5px;"></div>
-                    <img src="../content/images/star1.png" width="28" height="22" />
-                    <img src="../content/images/star2.png" width="28" height="22" />
-                    <img src="../content/images/star2.png" width="28" height="22" />
-                    <img src="../content/images/star2.png" width="28" height="22" />
-                    <img src="../content/images/star2.png" width="28" height="22" />
+                    @if (Model.Ranking == "0")
+                            {
+                    <img src="../content/images/star0.png" width="147" height="21" />
+                    }
+                    else if (Model.Ranking == "1")
+                    {
+                    <img src="../content/images/star1.png" width="147" height="21" />
+                    }
+                    else if (Model.Ranking == "2")
+                    {
+                    <img src="../content/images/star2.png" width="147" height="21" />
+                    }
+                    else if (Model.Ranking == "3")
+                    {
+                    <img src="../content/images/star3.png" width="147" height="21" />
+                    }
+                    else if (Model.Ranking == "4")
+                    {
+                    <img src="../content/images/star4.png" width="147" height="21" />
+                    }
+                    else if (Model.Ranking == "5")
+                    {
+                    <img src="../content/images/star5.png" width="147" height="21" />
+                    }
                 </div>
             </div>
             @foreach (var itemProduct in Model.ProductList)
@@ -128,8 +147,8 @@
                             </ul>
                             <div class="content" style="width: 550px;">
                                 <div class="ct">
-<div><div style="width:190px; float:left;">金额：&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>额度范围：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.MoneyBottom ～@itemProduct.MoneyTop 万元</div>
-<div><div style="width:190px; float:left;">期限：&nbsp;&nbsp;&nbsp;&nbsp;12月</div>期限范围：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.TermBottom ～@itemProduct.TermTop 个月</div>
+<div><div style="width:190px; float:left;">金额：&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>额度范围：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.MoneyBottom ～ @itemProduct.MoneyTop 万元</div>
+<div><div style="width:190px; float:left;">期限：&nbsp;&nbsp;&nbsp;&nbsp;12月</div>期限范围：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.TermBottom ～ @itemProduct.TermTop 个月</div>
 <div><div style="width:190px; float:left;">月供：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.RepaymentMonthly 元</div>还款方式：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.RepaymentType </div>
 <div><div style="width:190px; float:left;">总费用：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.ServerFeeOncee 万元</div>放款时间：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.GetLoanDays </div>
 <div><div style="width:190px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.ServerFeeMonthly </div></div>
@@ -282,8 +301,21 @@
         </div>
     </div>
     <!--body content-->
-    <div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;"><a class="number" href="#">上一页</a> <a class="numberclick" href="#">1</a> <a class="number" href="#">2</a> ... <a class="number" href="#">9</a> <a class="number" href="#">10</a> <a class="number" href="#">下一页</a> </div>
-
+<div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;">
+            <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex,organid=@ViewBag.organid})">上一页</a>
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                if (i == ViewBag.PageIndex)
+                { 
+                <a class="numberclick" href="?p=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
+                }
+                else
+                {
+                <a class="number" href="?p=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
+                }
+            }
+            <a class="number" href="@Url.Action("NextPage", new {  p = @ViewBag.PageIndex,organid=@ViewBag.organid })">下一页</a>
+        </div>
     <div class="footer" style="margin: 0 auto; width: 950px;">
         <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
         ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
