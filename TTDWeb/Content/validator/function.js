@@ -40,7 +40,7 @@ $(document).ready(function(){
 		onWait : "正在对用户名进行合法性校验，请稍候..."
 	});
 	
-	$("#Password").formValidator({
+	$("#Pwd").formValidator({
 		onShow:"请输入密码",
 		onFocus:"至少1个长度",
 		onCorrect:"密码合法"
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		},
 		onError:"重复密码不能为空,请确认"
 	}).compareValidator({
-		desID:"Password",
+		desID:"Pwd",
 		operateor:"=",
 		onError:"2次密码不一致,请确认"
 	});
