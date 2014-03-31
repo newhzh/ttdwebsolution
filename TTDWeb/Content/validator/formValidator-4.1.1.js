@@ -1375,7 +1375,7 @@ var formValidator_setting =
 		left:10,
 		top:-4,
 		height:20,
-		width:280
+		width:200
 	},
 	triggerEvent:"blur",
 	forceValid : false,
