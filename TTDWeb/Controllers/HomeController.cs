@@ -915,7 +915,7 @@ namespace TTDWeb.Controllers
         public ActionResult OrganIndex(string organid)
         {
             string sql1 = "select t1.*,"+
-                          "(isnull(select count(1) from t_applyrecord t10,t_product t20 where t10.sproductcode=t20.sproductcode and t10.sCaseState='2' and t20.sOrganID=t1.sOrganID),0) as HandledCount "+
+                          "isnull((select count(1) from t_applyrecord t10,t_product t20 where t10.sproductcode=t20.sproductcode and t10.sCaseState='2' and t20.sOrganID=t1.sOrganID),0) as HandledCount "+
                           " from t_foreignorgan t1 where sorganid='" + organid + "'";
             string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," +
                           " t2.sOrganName, t2.sLogo" +
@@ -951,7 +951,7 @@ namespace TTDWeb.Controllers
             foreach (DataRow drProduct in ds.Tables["T_Product"].Rows)
             {
                 listCustomRows = ds.Tables["T_Custom"].Select("sOrganID='" + dr["sOrganID"].ToString() + "'");
-                p = Convert2Product(dr, listCustomRows, dYuanMoney, term);
+                p = Convert2Product(drProduct, listCustomRows, dYuanMoney, term);
                 o.ProductList.Add(p);//未分页显示。
             }
 

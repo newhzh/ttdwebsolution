@@ -9,7 +9,7 @@
     <div style="float: left; width: 350px;">
         <img src="@Model.OrganLogo" width="46" height="46" style="float: left; margin-right: 20px;" />
         <span style="font-size: 18px; color: #5489d2">@Model.ProductName</span><br />
-        <a class="agency" href="@Url.Action("OrganIndex", "Account", new { organID = @Model.OrganID})">@Model.OrganName</a>
+        <a class="agency" href="@Url.Action("OrganIndex", "Home", new { organid = @Model.OrganID})">@Model.OrganName</a>
     </div>
     <div style="float: left; text-align: center; width: 180px;">
         <span style="font-size: 24px;">@Model.AnnualRateDisplay <span style="font-size: 20px;">APR</span></span><br />

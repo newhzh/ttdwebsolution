@@ -396,7 +396,7 @@
     <Content Include="Views\Help\Joinus.cshtml" />
     <Content Include="Views\Help\Feedback.cshtml" />
     <Content Include="Views\Help\Serverlist.cshtml" />
-    <Content Include="Views\Account\OrganIndex.cshtml" />
+    <Content Include="Views\Home\OrganIndex.cshtml" />
     <Content Include="Views\Account\Reg.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Index.cshtml" />
