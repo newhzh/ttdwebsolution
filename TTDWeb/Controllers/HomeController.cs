@@ -963,5 +963,21 @@ namespace TTDWeb.Controllers
 
         #endregion
 
+        #region 客户经理申请页
+        public ActionResult CustomApply()
+        {
+            DataSet ds = new DataSet();
+            DataRow dr = ds.Tables[0].Rows[0];
+            CustomModel c = new CustomModel();
+            c.CustomName = dr["SCustomName"].ToString();
+            c.CellPhone = dr["sCellPhone"].ToString();
+            c.OrganID = dr["sOrganID"].ToString();
+            c.OrganName = dr["sOrganName"].ToString();
+            c.Email = dr["sEmail"].ToString();
+            c.Pwd = dr["sPwd"].ToString();
+            return View();
+        }
+        #endregion   
+        //尝试
     }
 }
