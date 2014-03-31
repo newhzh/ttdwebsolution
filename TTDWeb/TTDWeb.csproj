@@ -310,8 +310,8 @@
     <Content Include="Content\validator\formValidatorRegex.js" />
     <Content Include="Content\validator\function.js" />
     <Content Include="Content\validator\jquery-1.4.4.min.js" />
-    <Content Include="Content\validator\themes\ArrowSolidBox\Author.txt" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\background.gif" />
+    <Content Include="Content\validator\themes\ArrowSolidBox\images\bg.png" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\bt.gif" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\onLoad.gif" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\reg-menu.gif" />

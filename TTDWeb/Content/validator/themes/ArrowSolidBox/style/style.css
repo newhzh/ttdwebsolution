@@ -35,7 +35,7 @@
 
 
 .onFocus{ 
-	width:287px; 
+	width:246px; 
 	height:20px; 
 	padding-top:3px; 
 	left:0px;top:0px;
@@ -46,18 +46,18 @@
 .onFocus_top
 {
 	display:block;
-	width:287px;
-	padding:8px 10px 0 40px;
+	width:246px;
+	padding:4px 10px 0 40px;
 	min-height:15px;
 	_height:10px;
-	background:url(../images/verification-ui6.gif) no-repeat 0px 0;
+	background:url(../images/bg.png) no-repeat 0px 0;
 }
 .onFocus_bot
 {
 	display:block;
-	width:287px;
+	width:246px;
 	height:5px;
-	background:url(../images/verification-ui6.gif) no-repeat 0px -185px;
+	background:url(../images/bg.png) no-repeat 0px -185px;
 	overflow:hidden;
 }
 
@@ -65,7 +65,7 @@
 
 .onError
 { 
-	width:287px; 
+	width:246px; 
 	height:20px; 
 	padding-top:3px; 
 	left:0px;top:0px;
@@ -76,18 +76,18 @@
 .onError_top
 { 
 	display:block; 
-	width:287px; 
-	padding:8px 10px 0 40px; 
+	width:246px; 
+	padding:4px 10px 0 40px; 
 	min-height:15px; 
 	_height:10px; 
-	background:url(../images/verification-ui6.gif) no-repeat 0px -190px;
+	background:url(../images/bg.png) no-repeat 0px -190px;
 }
 .onError_bot
 { 
 	display:block; 
-	width:287px; 
+	width:246px; 
 	height:5px; 
-	background:url(../images/verification-ui6.gif) no-repeat 0px -375px; 
+	background:url(../images/bg.png) no-repeat 0px -375px; 
 	overflow:hidden;
 }
 
