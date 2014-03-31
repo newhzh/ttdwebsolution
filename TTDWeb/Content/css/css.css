@@ -463,20 +463,20 @@ legend{color:#000;}
 .field-wrap{overflow:visible;}
 .field-wrap legend{padding:10px;font-size:16px;font-weight:bold;margin:0 20px;text-align:center;display:none;overflow:hidden;}
 
-.field-item{padding:10px 0;width:94%;min-height:26px;line-height:26px;clear:both; margin-bottom:10px;}
+.field-item{padding:10px 0;width:94%;min-height:30px;line-height:26px;clear:both;}
 .field-item label,.field-item input,.field-item select,.field-item textarea{float:left;margin-right:10px;display:inline; }
-.field-item label{line-height:26px;height:26px;width:100px;text-align:right;overflow:hidden; }
+.field-item label{line-height:30px;height:26px;width:100px;text-align:right;overflow:hidden; }
 .field-item span{float:left;line-height:26px;height:26px;overflow:hidden;}
 .field-item select{margin-top:3px;_margin-top:1px;}
-.input-item{width:190px;height:30px;line-height:20px;padding-left:4px;border:1px solid #999;}
+.input-item{width:210px;height:30px;line-height:20px;padding-left:4px;border:1px solid #CCC;}
 
 .center{text-align:center;}
-#message{width:200px;}
-#text-counter{font-weight:bold;color:#282828;padding:0 10px;}
+#message{width:500px;}
+#text-counter{font-weight:bold;color:#C80000;padding:0 10px;}
 #btnsubmit{float:none;width:80px;line-height:30px;height:30px;}
 
 /* Validator */
-.validator-tip{display:none;position:absolute;z-index:999;background:#f7fbff url(../form/img/msg_bg.png) 5px -143px no-repeat;font-size:12px;color:#000;padding:5px 5px 5px 26px;line-height:18px;text-align:left;overflow:hidden; border:1px solid #4c8ffc; border-radius:2px;}
+.validator-tip{display:none;position:absolute;margin-left:20px; z-index:999;background:#f7fbff url(../form/img/msg_bg.png) 5px -143px no-repeat;font-size:12px;color:#000;padding:5px 5px 5px 26px;line-height:18px;text-align:left;overflow:hidden; border:1px solid #4c8ffc; border-radius:2px;}
 .validator-tip a{font-weight:bold;padding:0 5px;cursor:pointer;color:#039;}
 .tip-error{ color:#000; background:#fff7f7 url(../form/img/msg_bg.png) no-repeat; border:1px solid #ff1b03; }
 .item-error{border:1px solid #ff1b03;}

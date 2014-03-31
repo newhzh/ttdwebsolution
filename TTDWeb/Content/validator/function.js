@@ -10,7 +10,7 @@ $(document).ready(function(){
 		inIframe:true
 	});
 		
-	$("#OrganName").formValidator({
+	$("#NickName").formValidator({
 		onShow:"请输入用户名",
 		onFocus:"用户名至少3个字符,最多10个字符",
 		onCorrect:"该用户名可以注册"
@@ -290,6 +290,16 @@ $(document).ready(function(){
 	}).inputValidator({
 		min:2,
 		onError:"请输入真实的名字"
+	});
+	$("#OrganName").formValidator({
+	    onShowText: "",
+	    onShow: "请输入机构名字",
+	    onFocus: "至少要输入2个汉字",
+	    onCorrect: "欢迎你",
+	    defaultValue: ""
+	}).inputValidator({
+	    min: 2,
+	    onError: "请输入真实的机构"
 	});
 	
 });
