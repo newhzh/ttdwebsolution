@@ -6,88 +6,97 @@
 
 
 <div class="productup">
-            <div style="float: left; width: 350px;">
-                <img src="@Model.OrganLogo" width="46" height="46" style="float: left; margin-right: 20px;" />
-                <span style="font-size: 18px; color: #5489d2">@Model.ProductName</span><br />
-                <a class="agency" href="@Url.Action("OrganIndex","Account")">@Model.OrganName</a></div>
-            <div style="float: left; text-align: center; width: 180px;"><span style="font-size: 24px;">@Model.AnnualRateDisplay <span style="font-size:20px;">APR</span></span><br />
-                年化利率</div>
-            <div style="float: left; text-align: center; width: 260px;"><span style="font-size: 24px;">@Model.RepaymentMonthly <span style="font-size:20px;">元/月</span></span><br />
-                分期付款</div>
-            <h1 class="look">展开详情</h1>
+    <div style="float: left; width: 350px;">
+        <img src="@Model.OrganLogo" width="46" height="46" style="float: left; margin-right: 20px;" />
+        <span style="font-size: 18px; color: #5489d2">@Model.ProductName</span><br />
+        <a class="agency" href="@Url.Action("OrganIndex", "Account")">@Model.OrganName</a>
+    </div>
+    <div style="float: left; text-align: center; width: 180px;">
+        <span style="font-size: 24px;">@Model.AnnualRateDisplay <span style="font-size: 20px;">APR</span></span><br />
+        年化利率
+    </div>
+    <div style="float: left; text-align: center; width: 260px;">
+        <span style="font-size: 24px;">@Model.RepaymentMonthly <span style="font-size: 20px;">元/月</span></span><br />
+        分期付款
+    </div>
+    <h1 class="look">展开详情</h1>
 
-            <div class="container">
+    <div class="container">
 
-                <!--tabs start-->
-                <div class="mytabs">
-                    <ul class="tab_title">
-                        <li class="one">产品详情</li>
-                        <li>申请条件</li>
-                        <li>所需材料</li>
-                        <li>详细说明</li>
-                        <li>产品经理</li>
-                    </ul>
-                    <div class="content">
-                        <div class="ct">
-                            @Model.Details
-                        </div>
-                        <div class="ct" style="display: none">
-                            @Model.ApplyCondition
-                        </div>
-                        <div class="ct" style="display: none">
-                            @Model.RequiredFile
-                        </div>
-                        <div class="ct" style="display: none">
-                            @Model.Memo
-                        </div>
-                        <div class="ct" style="display: none">
+        <!--tabs start-->
+        <div class="mytabs">
+            <ul class="tab_title">
+                <li class="one">产品详情</li>
+                <li>申请条件</li>
+                <li>所需材料</li>
+                <li>详细说明</li>
+                <li>产品经理</li>
+            </ul>
+            <div class="content">
+                <div class="ct">
+                    @Model.Details
+                </div>
+                <div class="ct" style="display: none">
+                    @Model.ApplyCondition
+                </div>
+                <div class="ct" style="display: none">
+                    @Model.RequiredFile
+                </div>
+                <div class="ct" style="display: none">
+                    @Model.Memo
+                </div>
+                <div class="ct" style="display: none">
 
-                                 
+
                     @foreach (var itemCustom in Model.Customs)
-    {
+                    {
                         <div>
                             <strong>@itemCustom.CustomName</strong><br />
                             @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID<br />
 
-                            </div>
- }
-                                     
-
                         </div>
-                    </div>
-                </div>
-                <!--tabs end  AA10固定：0车贷，1房贷，2企业贷款，3消费贷款，4信用卡，5保险-->
-                <div class="apply">
-                    成功申请<span style="font-size: 30px; color: #fbb03f;">1000</span>人<br />
-                    <br />
-                    @if(Model.ProductType=="0")
-                    {
-                        <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
                     }
-                    else if (Model.ProductType == "1")
-                    { 
-                        <a id="various3" href="@Url.Action("Homeloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
-                    }
-                    else if (Model.ProductType == "2")
-                    { 
-                       <a id="various3" href="@Url.Action("Firmloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
-                    }
-                    else if (Model.ProductType == "3")
-                    { 
-                       <a id="various3" href="@Url.Action("Purchaseloan1","Home",new { productcode=@Model.ProductCode,producttype=@Model.ProductType})">我要申请</a>
-                    }
+
+
                 </div>
             </div>
-            <!--container end-->
         </div>
+        <!--tabs end  AA10固定：0车贷，1房贷，2企业贷款，3消费贷款，4信用卡，5保险-->
+        <div class="apply">
+            成功申请<span style="font-size: 30px; color: #fbb03f;">1000</span>人<br />
+            <br />
+            @if (Model.ProductType == "0")
+            {
+                <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+            }
+            else if (Model.ProductType == "1")
+            { 
+                <a id="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+            }
+            else if (Model.ProductType == "2")
+            { 
+                <a id="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+            }
+            else if (Model.ProductType == "3")
+            { 
+                <a id="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+            }
+        </div>
+    </div>
+    <!--container end-->
+</div>
 
-        <div class="productdown">
-            <div style="float: left; margin-right: 30px;">
-                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
-            <div style="float: left; margin-right: 30px;">
-                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
-            <div style="float: left; margin-right: 30px;">
-                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
-            <div style="float: left; margin-right: 30px;">
-                <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快</div>
-        </div>
+<div class="productdown">
+    <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
+    </div>
+    <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
+    </div>
+    <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
+    </div>
+    <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
+    </div>
+</div>

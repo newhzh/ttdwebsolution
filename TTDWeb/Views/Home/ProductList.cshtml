@@ -9,7 +9,7 @@
     }
     else if (ViewBag.type == "1")
     {
-        ViewBag.Title = "购房贷款-天天贷"; 
+        ViewBag.Title = "购房贷款-天天贷";
     }
     else if (ViewBag.type == "2")
     {
@@ -94,82 +94,92 @@
 
             });
             var ss = @ViewBag.type
-            $("#type"+ss).css({ "color": "#5489d2" }).siblings().css({ "color": "#282828" });
+            $("#type" + ss).css({ "color": "#5489d2" }).siblings().css({ "color": "#282828" });
 
 
         });
-</script>
+    </script>
 </head>
 <body>
-    <div style=" background:url(../content/images/topbg.png) repeat; width:100%; height:22px;">
-  <div class="denglu" style="width:950px;">客服热线：400-0000-000<a href="@Url.Action("Reg","Account")" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="@Url.Action("Login","Account")" style="margin-left:10px;">信贷经理登录</a></div>
-</div>
+    <div style="background: url(../content/images/topbg.png) repeat; width: 100%; height: 22px;">
+        <div class="denglu" style="width: 950px;">客服热线：400-0000-000<a href="@Url.Action("Reg", "Account")" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="@Url.Action("Login", "Account")" style="margin-left:10px;">信贷经理登录</a></div>
+    </div>
     <div class="bodycontent" style="padding-top: 11px; color: #282828;">
-<img src="../content/images/logo.png" width="183" height="53"/>
-<div style="clear:both; height:20px;"></div>
+        <img src="../content/images/logo.png" width="183" height="53" />
+        <div style="clear: both; height: 20px;"></div>
 
         <div class="product">
-             @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
-             {     
-            <div style="width: 710px; border-right: 1px solid #bdbdbd; float: left;">
-     
-<div>
-<a id="type1" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=1">购房贷款</a>
-<a id="type0" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=0">购车贷款</a>
-<a id="type2" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=2">企业贷款</a>
-<a id="type3" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=3">消费贷款</a>
-<a id="type5" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=5">购车保险</a>
-<a id="type4" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=4">信用卡</a>
-</div>
-<br />
-                    
-<input type="hidden" value="1" id="type" name="type"/>
+            @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
+            {     
+                <div style="width: 710px; border-right: 1px solid #bdbdbd; float: left;">
+
+                    <div>
+                        <a id="type1" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=1">购房贷款</a>
+                        <a id="type0" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=0">购车贷款</a>
+                        <a id="type2" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=2">企业贷款</a>
+                        <a id="type3" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=3">消费贷款</a>
+                        <a id="type5" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=5">购车保险</a>
+                        <a id="type4" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=4">信用卡</a>
+                    </div>
+                    <br />
+
+                    <input type="hidden" value="1" id="type" name="type" />
                     贷款金额:<input value="@ViewBag.money" class="sx" name="money" type="text" style="background: url(../content/images/money.png) 140px center no-repeat;" />贷款期限:<input class="sx" name="term" type="text" value="@ViewBag.term" style="background: url(../content/images/time.png) 155px center no-repeat;" />
                     <button type="submit" class="btn" style="width: 85px; height: 35px; font-size: 14px;">马上搜索</button>
-                     
-            </div>
-             }
+
+                </div>
+            }
             <div style="line-height: 35px; text-align: center;">
                 共为您找到贷款产品<br />
                 <span style="font-size: 36px; color: #fbb03f;">20</span>款
             </div>
         </div>
 
-        <div style="padding:15px; margin-top:20px;">
-机构类型:<input class="sx" id="agency" name="" type="text" value="不限" readonly="readonly" style=" background:url(../content/images/select.png) 160px center no-repeat; cursor:pointer;"/>
-<ul class="agencytype" id="agencytype">
-<a href="productlist.html"><li>不限</li></a>
-<a href="productlist.html"><li>银行</li></a>
-<a href="productlist.html"><li>小贷公司</li></a>
-<a href="productlist.html"><li>担保公司</li></a>
-<a href="productlist.html"><li>P2P网贷</li></a>
-</ul>
+        <div style="padding: 15px; margin-top: 20px;">
+            机构类型:<input class="sx" id="agency" name="" type="text" value="不限" readonly="readonly" style="background: url(../content/images/select.png) 160px center no-repeat; cursor: pointer;" />
+            <ul class="agencytype" id="agencytype">
+                <a href="productlist.html">
+                    <li>不限</li>
+                </a>
+                <a href="productlist.html">
+                    <li>银行</li>
+                </a>
+                <a href="productlist.html">
+                    <li>小贷公司</li>
+                </a>
+                <a href="productlist.html">
+                    <li>担保公司</li>
+                </a>
+                <a href="productlist.html">
+                    <li>P2P网贷</li>
+                </a>
+            </ul>
             <div class="producthead"><a href="#" style="background: none; padding-right: 0px;">默认</a><a href="#">总利息</a><a href="#">月供</a></div>
         </div>
-    @foreach (var item in Model)
-    {
-        Html.RenderPartial("_ProductItem", item);
-    }
-    
+        @foreach (var item in Model)
+        {
+            Html.RenderPartial("_ProductItem", item);
+        }
 
 
-   
+
+
 
 
         <div class="pagenumber">
             <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term })">上一页</a>
-             @for (int i = 1; i <= ViewBag.PageCount; i++)
-             {
-                 if (i == ViewBag.PageIndex)
-                 { 
-            <a class="numberclick" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
-                 }
-                 else
-                 {
-            <a class="number" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
-                 }
-             }
-            <a class="number" href="@Url.Action("NextPage", new { p=@ViewBag.PageIndex,money=@ViewBag.money,type=@ViewBag.type,term=@ViewBag.term})">下一页</a>
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                if (i == ViewBag.PageIndex)
+                { 
+                <a class="numberclick" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
+                }
+                else
+                {
+                <a class="number" href="?p=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term">@i.ToString()</a>
+                }
+            }
+            <a class="number" href="@Url.Action("NextPage", new { p = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term })">下一页</a>
         </div>
 
         <div class="footer">
@@ -189,33 +199,33 @@
         <div class="gotop"></div>
     </div>
 
-<script type="text/javascript">
-    var agency = document.getElementById("agency"), agencytype = document.getElementById("agencytype");
-    agencytype.style.display = "none";
-    agency.onmouseover = function () {
-
-        agencytype.style.display = "";
-        agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
-
-    }
-    agency.onmouseout = function () {
-
+    <script type="text/javascript">
+        var agency = document.getElementById("agency"), agencytype = document.getElementById("agencytype");
         agencytype.style.display = "none";
-        agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
+        agency.onmouseover = function () {
 
-    }
-    agencytype.onmouseover = function () {
+            agencytype.style.display = "";
+            agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
 
-        agencytype.style.display = "";
-        agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
+        }
+        agency.onmouseout = function () {
 
-    }
-    agencytype.onmouseout = function () {
+            agencytype.style.display = "none";
+            agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
 
-        agencytype.style.display = "none";
-        agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
+        }
+        agencytype.onmouseover = function () {
 
-    }
-</script> 
+            agencytype.style.display = "";
+            agency.style.background = "url(../content/images/select1.png) 160px center no-repeat";
+
+        }
+        agencytype.onmouseout = function () {
+
+            agencytype.style.display = "none";
+            agency.style.background = "url(../content/images/select.png) 160px center no-repeat";
+
+        }
+    </script>
 </body>
 </html>
