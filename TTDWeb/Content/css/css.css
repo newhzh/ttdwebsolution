@@ -15,7 +15,6 @@ body {
 	font-family: "微软雅黑", "黑体";
 	font-size: 14px;
 	color:#fff;
-	overflow:scroll;
 }
 a{
 	text-decoration:none;
@@ -39,13 +38,13 @@ a:hover{
 	cursor:pointer;
 	height:41px;
 	border:none;
-	background-color:#5489d2;
+	background-color:#619bed;
 	color:#fff;
 	font-size:16px;
 	font-family:"微软雅黑", "黑体";
 	}
 .btn:hover{
-	background-color:#4781d0;
+	background-color:#5589d2;
 	}
 .denglu{
 	font-size:12px;
@@ -144,7 +143,7 @@ a:hover{
 	width:86px;
 	height:28px;
 	float:right;
-	background-color:#5489d2;
+	background-color:#5489d2;;
 	margin-top:10px;
 	margin-right:10px;
 	font-weight:normal;
@@ -423,3 +422,65 @@ a:hover{
 	background-color:#5489d2;
 	color:#fff;
 	}
+	/*login*/
+.regbg{
+	background-image:url(../images/regbg.png);
+	width:910px;
+	height:527px;
+	}
+.reghref{
+	font-size:18px;
+	padding-left:40px;
+	border-bottom:1px solid #282828;
+	width:861px;
+	margin-left:4px;
+	height:35px;
+	padding-top:20px;
+	}
+.reghref a{
+	color:#282828;
+	padding-top:20px;
+	padding-bottom:10px;
+	margin-right:20px;
+	}
+.reghref a:hover{
+	border-bottom:3px solid #5489d2;
+	}
+
+
+.register{
+	float:left;
+	width:400px;
+	font-size:14px;
+	margin-top:30px;
+	color:#282828;
+	}
+fieldset{border:0;}
+input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}
+input,textarea,select{*font-size:100%;}
+legend{color:#000;}
+
+.field-wrap{overflow:visible;}
+.field-wrap legend{padding:10px;font-size:16px;font-weight:bold;margin:0 20px;text-align:center;display:none;overflow:hidden;}
+
+.field-item{padding:10px 0;width:94%;min-height:26px;line-height:26px;clear:both; margin-bottom:10px;}
+.field-item label,.field-item input,.field-item select,.field-item textarea{float:left;margin-right:10px;display:inline; }
+.field-item label{line-height:26px;height:26px;width:100px;text-align:right;overflow:hidden; }
+.field-item span{float:left;line-height:26px;height:26px;overflow:hidden;}
+.field-item select{margin-top:3px;_margin-top:1px;}
+.input-item{width:190px;height:30px;line-height:20px;padding-left:4px;border:1px solid #999;}
+
+.center{text-align:center;}
+#message{width:200px;}
+#text-counter{font-weight:bold;color:#282828;padding:0 10px;}
+#btnsubmit{float:none;width:80px;line-height:30px;height:30px;}
+
+/* Validator */
+.validator-tip{display:none;position:absolute;z-index:999;background:#f7fbff url(../form/img/msg_bg.png) 5px -143px no-repeat;font-size:12px;color:#282828;padding:5px 5px 5px 26px;line-height:18px;text-align:left;overflow:hidden; border:1px solid #4c8ffc; border-radius:2px;}
+.validator-tip a{font-weight:bold;padding:0 5px;cursor:pointer;color:#039;}
+.tip-error{ color:#ff1b03; background:#fff7f7 url(../form/img/msg_bg.png) no-repeat; border:1px solid #ff1b03; }
+.item-error{border:1px solid #ff1b03;}
+.tip-error{background-position:5px 7px;}
+.item-pass{border:1px solid #68ae52;}
+.tip-pass{background:transparent url(../form/img/msg_bg.png) 5px -243px no-repeat;border:none;text-indent:-99999px;width:50px;}
+span.security-level{float:left;margin-top:3px;width:220px;height:20px;background:transparent url(../form/img/save.jpg) left top no-repeat;overflow:hidden;}
