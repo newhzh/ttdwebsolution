@@ -46,7 +46,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            $("a#various3").fancybox({
+            $("a.various3").fancybox({
                 'width': 670,
                 'height': 560,
                 'autoScale': true,
@@ -181,19 +181,19 @@
                         <div class="apply2">
                             @if (itemProduct.ProductType == "0")
                             {
-                                <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                                <a class="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
                             }
                             else if (itemProduct.ProductType == "1")
                             { 
-                                <a id="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                                <a class="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
                             }
                             else if (itemProduct.ProductType == "2")
                             { 
-                                <a id="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                                <a class="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
                             }
                             else if (itemProduct.ProductType == "3")
                             { 
-                                <a id="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
+                                <a class="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @itemProduct.ProductCode, producttype = @itemProduct.ProductType })">我要申请</a>
                             }
                         </div>
                     </div>

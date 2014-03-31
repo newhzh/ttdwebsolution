@@ -71,19 +71,19 @@
             <br />
             @if (Model.ProductType == "0")
             {
-                <a id="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+                <a class="various3" href="@Url.Action("Carloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
             }
             else if (Model.ProductType == "1")
             { 
-                <a id="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+                <a class="various3" href="@Url.Action("Homeloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
             }
             else if (Model.ProductType == "2")
             { 
-                <a id="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+                <a class="various3" href="@Url.Action("Firmloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
             }
             else if (Model.ProductType == "3")
             { 
-                <a id="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
+                <a class="various3" href="@Url.Action("Purchaseloan1", "Home", new { productcode = @Model.ProductCode, producttype = @Model.ProductType })">我要申请</a>
             }
         </div>
     </div>

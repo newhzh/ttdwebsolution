@@ -27,7 +27,7 @@
         <input type="hidden" value="@ViewBag.productcode" id="productcode" name="productcode" />
      <input type="hidden" value="@ViewBag.producttype" id="producttype" name="producttype" />
 <div style=" background-color:#f7f7f7; padding-left:100px; padding-top:35px;height:600px;">
-
+    <br /> <br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">您的公司类型：</div>
      @Html.DropDownList("FirmType",(SelectList)ViewBag.FirmType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.FirmType)
