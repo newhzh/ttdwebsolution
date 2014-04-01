@@ -7,7 +7,7 @@
 .zindex3{ z-index:3;}
 .zindex2{ z-index:2;}
 .zindex1{ z-index:1;}
-.vsearchBox{ width:950px; height:400px; text-align:left; color:#fff;}
+.vsearchBox{ height:300px; text-align:left; color:#fff;}
 .vsearchBox .vboxtitle{ line-height: 30px; padding-top: 20px; padding-bottom: 5px; color:#FFF; font-size:24px; text-indent:20px;}
 .vsearchBox .vboxcontent dl.searchitems{ padding-bottom:5px;}
 .vsearchBox .vboxcontent dl.searchitems dt{ clear:both; display:block; width:100%; height:16px; line-height:16px; padding-bottom:5px; padding-top:5px;}
