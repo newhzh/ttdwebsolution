@@ -317,11 +317,13 @@
     <Content Include="Content\validator\themes\ArrowSolidBox\images\background.gif" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\bg.png" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\bt.gif" />
+    <Content Include="Content\validator\themes\ArrowSolidBox\images\error.png" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\onLoad.gif" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\reg-menu.gif" />
+    <Content Include="Content\validator\themes\ArrowSolidBox\images\right.png" />
+    <Content Include="Content\validator\themes\ArrowSolidBox\images\tip.png" />
     <Content Include="Content\validator\themes\ArrowSolidBox\images\verification-ui6.gif" />
     <Content Include="Content\validator\themes\ArrowSolidBox\js\theme.js" />
-    <Content Include="Content\validator\themes\ArrowSolidBox\Preview.jpg" />
     <Content Include="Content\validator\themes\ArrowSolidBox\style\style.css" />
     <Content Include="fancybox\blank.gif" />
     <Content Include="fancybox\fancybox-x.png" />
