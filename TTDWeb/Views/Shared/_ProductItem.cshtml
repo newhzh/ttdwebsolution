@@ -41,13 +41,13 @@
 <div><div style="width:190px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;@Model.ServerFeeMonthly </div></div>
                 </div>
                 <div class="ct" style="display: none">
-                    @Model.ApplyCondition
+                    @Html.Raw(@Model.ApplyCondition)
                 </div>
                 <div class="ct" style="display: none">
-                    @Model.RequiredFile
+                   @Html.Raw(@Model.RequiredFile)
                 </div>
                 <div class="ct" style="display: none">
-                    @Model.Memo
+                    @Html.Raw(@Model.Memo)
                 </div>
                 <div class="ct" style="display: none">
 
