@@ -7,11 +7,282 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>MyProducts</title>
+    <title>我的理财产品</title>
+    <script src="~/content/js/jquery1.3.2.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".productup h1").toggle(function () {
+            $(this).html("收起详情");
+            $(this).next(".container").animate({ height: 268, }, "slow");
+        }, function () {
+            $(this).html("展开详情");
+            $(this).next(".container").animate({ height: 0 }, "slow");
+        });
+    });
+
+
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        /*$('.ct:gt(0)').hide();*/
+        var hdw = $('.tab_title li');
+        hdw.click(function () {
+            $(this).addClass('one').siblings().removeClass();
+            var hdw_index = hdw.index(this);
+            $('.ct').eq(hdw.index(this)).show().siblings().hide();
+        });
+    });
+</script>
+
+
+<script type="text/javascript" src="~/content/js/jquery.min.js"></script>
+<script>
+    !window.jQuery && document.write('<script src="~/content/js/jquery-1.4.3.min.js"><\/script>');
+	</script>
+	<script type="text/javascript" src="~/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+<script type="text/javascript" src="~/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+<link rel="stylesheet" type="text/css" href="~/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+	<script type="text/javascript">
+	    $(document).ready(function () {
+
+	        $("a.various3").fancybox({
+	            'width': 670,
+	            'height': 500,
+	            'autoScale': false,
+	            'transitionIn': 'none',
+	            'transitionOut': 'none',
+	            'type': 'iframe',
+	            'overlayColor': '#000',
+	            'overlayOpacity': 0.7,
+	            'scrolling': 'no',
+	            'padding': 0,
+
+	        });
+
+	    });
+	</script>
+    
+    <script src="~/content/js/scrolltop.js" type="text/javascript"></script>
+    
+    
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".typeclick").click(function () {
+            $(this).css({ "color": "#5489d2" }).siblings().css({ "color": "#282828" });
+
+        });
+
+
+
+    });
+</script>
 </head>
-<body>
-    <div>
-        
+<body style="overflow-y:scroll;">
+<div style=" background:url(../content/images/topbg.png) repeat; width:100%; height:22px;">
+  <div class="denglu" style="width:950px;">客服热线：400-8055-855<a href="#" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="#" style="margin-left:10px;">信贷经理登录</a></div>
+</div>
+
+<div class="bodycontent" style="padding-top:11px; color:#282828;">
+<img src="../content/images/logo.png" width="183" height="53" alt=""/>
+<div style="clear:both; height:10px;"></div>
+
+<a href="@Url.Action("MyProducts", "Account")" style="color:#282828;"><div class="homehead">
+<br />我的理财产品<br /><span style="font-size: 36px; color: #fbb03f;">20</span><span style="font-size:12px;">款</span>
+</div></a>
+
+<a href="@Url.Action("MyApplition", "Account")" style="color:#282828;"><div class="homehead">
+<br />我收到的申请<br /><span style="font-size: 36px; color: #fbb03f;">20</span><span style="font-size:12px;">个</span>
+</div></a>
+
+<a href="@Url.Action("MyInfo", "Account")" style="color:#282828;"><div class="homehead" style="margin-right:0; width:302px; line-height:28px;">
+<br />用户中心<br />
+<span style="font-size:14px; color:#5489d2;">查看信息&gt;</span>
+</div></a>
+
+<div style="clear:both;"></div>
+<!--list start-->
+<div class="productup">
+<div style="float:left; width:350px;"><img alt="" src="../content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="font-size:18px; color:#5489d2">产品标题</span><br /><a class="agency" href="agency_index.html">宜信贷</a></div>
+<div style="float:left; text-align:center; width:180px;"><span style="font-size:24px;">6.9% APR</span><br />年化利率</div>
+<div style="float:left; text-align:center; width:260px;"><span style="font-size:24px;">￥10663</span><br />分期付款</div>
+<h1 class="look" >展开详情</h1>
+
+<div class="container">
+
+<!--tabs start-->
+      <div class="mytabs">
+    <ul class="tab_title">
+        <li class="one">产品详情</li>
+        <li>申请条件</li>
+        <li>所需材料</li>
+        <li>详细说明</li>
+        <li>产品经理</li>
+    </ul>
+    <div class="content">
+        <div class="ct" style="margin-left:10px; line-height:30px;">
+<div><div style="width:190px; float:left;">金额：&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>额度范围：&nbsp;&nbsp;&nbsp;&nbsp;1.00～30.00 万元</div>
+<div><div style="width:190px; float:left;">期限：&nbsp;&nbsp;&nbsp;&nbsp;12月</div>期限范围：&nbsp;&nbsp;&nbsp;&nbsp;12～48 个月</div>
+<div><div style="width:190px; float:left;">月供：&nbsp;&nbsp;&nbsp;&nbsp;10663元</div>还款方式：&nbsp;&nbsp;&nbsp;&nbsp;分期还款</div>
+<div><div style="width:190px; float:left;">总费用：&nbsp;&nbsp;&nbsp;&nbsp;2.8万元</div>放款时间：&nbsp;&nbsp;&nbsp;&nbsp;3个工作日（审批为2个工作日）</div>
+<div><div style="width:190px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;月管理费 2.33%</div></div>
+        </div>
+        <div class="ct" style="display:none">
+申请条件说明：
+1、年龄要求：22周岁（含）-60周岁（含）<br />
+2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月
+        </div>
+        <div class="ct" style="display:none">
+1、申请人（及配偶）身份证明<br />
+2、工作证明：劳动合同、工作证明加盖单位人事章（二者选一）<br />
+3、收入证明：近6个月工资卡流水<br />
+4、居住证明：房屋租赁合同、近2个月水、电、燃气缴费单、居委会或街道办事处开的居住证明（任选一）<br />
+5、个人征信报告<br />
+6、其他资信证明：如税单、房产证、行驶证、基金、股票等能提高申请额度（可选择提供）
+        </div>
+        <div class="ct" style="display:none">
+提供本地房产、车等资产证明可提高贷款额度5万以下，批额是打卡工资的5到15倍，如果有社保是10到20倍<br />
+本科以上学历证书、车辆行驶证、股票基金市值等都可以选择性提供
+        </div> 
+        <div class="ct" style="display:none">
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<div class="inpagenumber"> <a class="innumber" href="#">上一页</a> <a class="innumberclick" href="#">1</a> <a class="innumber" href="#">2</a> ... <a class="innumber" href="#">9</a> <a class="innumber" href="#">10</a> <a class="innumber" href="#">下一页</a> </div>
+
+        </div> 
     </div>
+</div>
+<!--tabs end-->
+<div class="apply">
+<br />
+成功申请<span style="font-size:30px; color:#fbb03f;">1000</span>人
+</div>
+</div><!--container end-->
+</div>
+
+<div class="productdown">
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon1.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon2.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon4.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon5.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+</div>
+<!--list end-->
+
+
+
+    <!--list start-->
+<div class="productup">
+<div style="float:left; width:350px;"><img alt="" src="../content/images/headpic1.jpg" width="46" height="46" style="float:left; margin-right:20px;"/><span style="font-size:18px; color:#5489d2">产品标题</span><br /><a class="agency" href="agency_index.html">宜信贷</a></div>
+<div style="float:left; text-align:center; width:180px;"><span style="font-size:24px;">6.9% APR</span><br />年化利率</div>
+<div style="float:left; text-align:center; width:260px;"><span style="font-size:24px;">￥10663</span><br />分期付款</div>
+<h1 class="look" >展开详情</h1>
+
+<div class="container">
+
+<!--tabs start-->
+      <div class="mytabs">
+    <ul class="tab_title">
+        <li class="one">产品详情</li>
+        <li>申请条件</li>
+        <li>所需材料</li>
+        <li>详细说明</li>
+        <li>产品经理</li>
+    </ul>
+    <div class="content">
+        <div class="ct" style="margin-left:10px; line-height:30px;">
+<div><div style="width:190px; float:left;">金额：&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>额度范围：&nbsp;&nbsp;&nbsp;&nbsp;1.00～30.00 万元</div>
+<div><div style="width:190px; float:left;">期限：&nbsp;&nbsp;&nbsp;&nbsp;12月</div>期限范围：&nbsp;&nbsp;&nbsp;&nbsp;12～48 个月</div>
+<div><div style="width:190px; float:left;">月供：&nbsp;&nbsp;&nbsp;&nbsp;10663元</div>还款方式：&nbsp;&nbsp;&nbsp;&nbsp;分期还款</div>
+<div><div style="width:190px; float:left;">总费用：&nbsp;&nbsp;&nbsp;&nbsp;2.8万元</div>放款时间：&nbsp;&nbsp;&nbsp;&nbsp;3个工作日（审批为2个工作日）</div>
+<div><div style="width:190px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;月管理费 2.33%</div></div>
+        </div>
+        <div class="ct" style="display:none">
+申请条件说明：
+1、年龄要求：22周岁（含）-60周岁（含）<br />
+2、收入要求：税前月收入1700元以上，需提供6个月以上打卡工资流水<br />
+3、工作年限：在现单位连续工作满6个月（销售人员需工作满9个月并转正）<br />
+4、行业限制：暂不接受私营业主和个体工商户等自雇人士申请<br />
+5、征信良好，半年内不能有连续3个月逾期，1年内不能有4个月
+        </div>
+        <div class="ct" style="display:none">
+1、申请人（及配偶）身份证明<br />
+2、工作证明：劳动合同、工作证明加盖单位人事章（二者选一）<br />
+3、收入证明：近6个月工资卡流水<br />
+4、居住证明：房屋租赁合同、近2个月水、电、燃气缴费单、居委会或街道办事处开的居住证明（任选一）<br />
+5、个人征信报告<br />
+6、其他资信证明：如税单、房产证、行驶证、基金、股票等能提高申请额度（可选择提供）
+        </div>
+        <div class="ct" style="display:none">
+提供本地房产、车等资产证明可提高贷款额度5万以下，批额是打卡工资的5到15倍，如果有社保是10到20倍<br />
+本科以上学历证书、车辆行驶证、股票基金市值等都可以选择性提供
+        </div> 
+        <div class="ct" style="display:none">
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<strong>程经理</strong><br />
+杭州宜信普惠信息咨询有限公司&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客户经理<br />
+<div class="inpagenumber"> <a class="innumber" href="#">上一页</a> <a class="innumberclick" href="#">1</a> <a class="innumber" href="#">2</a> ... <a class="innumber" href="#">9</a> <a class="innumber" href="#">10</a> <a class="innumber" href="#">下一页</a> </div>
+
+        </div> 
+    </div>
+</div>
+<!--tabs end-->
+<div class="apply">
+<br />
+成功申请<span style="font-size:30px; color:#fbb03f;">1000</span>人
+</div>
+</div><!--container end-->
+</div>
+
+<div class="productdown">
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon1.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon2.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon4.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+<div style="float:left; margin-right:30px;"><img src="../content/images/icon5.png" width="24" height="24" style="float:left;"/>&nbsp;&nbsp;贷款速度快</div>
+</div>
+<!--list end-->
+
+
+
+<div class="pagenumber">
+<a class="number" href="#">上一页</a>
+<a class="numberclick" href="#">1</a>
+<a class="number" href="#">2</a>
+...
+<a class="number" href="#">9</a>
+<a class="number" href="#">10</a>
+<a class="number" href="#">下一页</a>
+</div>
+
+<div class="footer">
+<a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
+©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
+</div>
+
+</div><!--body content-->
+
+
+
+<div class="go-top">
+<a class="various3" href="productlist.html">
+<div class="feedback"></div>
+</a>
+<div class="gotop"></div>
+</div>
+
+
 </body>
 </html>

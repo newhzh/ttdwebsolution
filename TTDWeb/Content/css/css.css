@@ -143,7 +143,7 @@ a:hover{
 	width:86px;
 	height:28px;
 	float:right;
-	background-color:#5489d2;;
+	background-color:#5489d2;
 	margin-top:10px;
 	margin-right:10px;
 	font-weight:normal;
@@ -484,3 +484,20 @@ legend{color:#777;}
 .item-pass{border:1px solid #68ae52;}
 .tip-pass{background:transparent url(../form/img/msg_bg.png) 5px -243px no-repeat;border:none;text-indent:-99999px;width:50px;}
 span.security-level{float:left;margin-top:3px;width:220px;height:20px;background:transparent url(../form/img/save.jpg) left top no-repeat;overflow:hidden;}
+
+
+.homehead{
+	border:1px solid #e1e1e1;
+	width:301px;
+	height:105px;
+	margin-bottom:20px;
+	margin-top:20px;
+	background:#fff;
+	text-align:center;
+	font-size:18px;
+	float:left;
+	margin-right:20px;
+	}
+.homehead:hover{
+	background:#d7e2f1;
+	}
