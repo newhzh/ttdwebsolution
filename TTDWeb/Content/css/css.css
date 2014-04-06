@@ -501,3 +501,39 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 .homehead:hover{
 	background:#d7e2f1;
 	}
+.homeinf{
+	border:1px solid #e1e1e1;
+	width:948px;
+	background-color:#FFF;
+	padding-top:15px;
+	}
+.homedit{
+	float:right;
+	background-image:url(../images/edit1.png);
+	width:55px;
+	height:23px;
+	text-align:center;
+	margin-right:20px;
+	}
+.homedit:hover{
+	background-image:url(../images/edit2.png);
+	}
+.homedit a{
+	color:#727272;
+	padding:10px 10px 11px 11px;
+	}
+.homedit a:hover{
+	color:#5489d2;
+	}
+.infotitle{
+	width:150px; text-align:right; float:left; margin-right:40px;
+	}
+.infocontent{
+	color:#7b7b7b;
+	}
+.lj{
+	color:#619bed;
+	}
+.lj:hover{
+	color:#5589d2;
+	}
