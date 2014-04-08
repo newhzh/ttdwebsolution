@@ -204,6 +204,7 @@
     <Content Include="Content\images\bg.jpg" />
     <Content Include="Content\images\bglist.png" />
     <Content Include="Content\images\bglist1.png" />
+    <Content Include="Content\images\bglist2.png" />
     <Content Include="Content\images\bg_tm.png" />
     <Content Include="Content\images\button_1.png" />
     <Content Include="Content\images\button_2.png" />
@@ -222,6 +223,7 @@
     <Content Include="Content\images\feedback.png" />
     <Content Include="Content\images\feedback1.png" />
     <Content Include="Content\images\fenge.png" />
+    <Content Include="Content\images\head.png" />
     <Content Include="Content\images\headbg.jpg" />
     <Content Include="Content\images\headpic1.jpg" />
     <Content Include="Content\images\headpicbg.jpg" />
@@ -241,6 +243,12 @@
     <Content Include="Content\images\lanren_top.jpg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\images\money.png" />
+    <Content Include="Content\images\order0.png" />
+    <Content Include="Content\images\order1.png" />
+    <Content Include="Content\images\order2.png" />
+    <Content Include="Content\images\order3.png" />
+    <Content Include="Content\images\order4.png" />
+    <Content Include="Content\images\order5.png" />
     <Content Include="Content\images\phone.png" />
     <Content Include="Content\images\regbg.png" />
     <Content Include="Content\images\regright.png" />
@@ -427,6 +435,8 @@
     <Content Include="Views\Account\MyProducts.cshtml" />
     <Content Include="Views\Shared\_ProductItem.cshtml" />
     <Content Include="Views\Help\up.cshtml" />
+    <Content Include="Views\Account\Order.cshtml" />
+    <Content Include="Views\Account\OrderEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

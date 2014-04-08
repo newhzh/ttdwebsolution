@@ -53,6 +53,24 @@ namespace TTDWeb.Controllers
 
         #endregion
 
+        #region 信贷经理·我收到的申请·订单显示
+
+        public ActionResult Order()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region 信贷经理·我收到的申请·订单编辑
+
+        public ActionResult OrderEdit()
+        {
+            return View();
+        }
+
+        #endregion
+
         #region 信贷经理·个人资料
 
         public ActionResult MyInfo()

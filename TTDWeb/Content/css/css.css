@@ -126,7 +126,6 @@ a:hover{
 	}
 .productup{
 	width:922px;
-	min-height:50px;
 	background:url(../images/bglist.png) no-repeat;
 	padding:15px;
 	}
@@ -134,7 +133,8 @@ a:hover{
 	width:880px;
 	height:0px;
 	overflow:hidden;
-	background-image:url(../images/containerbg.png);
+	background:url(../images/containerbg.png) no-repeat;
+	background-color:#e9e9e9;
 	margin-top:65px;
 	margin-left:15px;
 	clear:both;
@@ -525,6 +525,19 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 .homedit a:hover{
 	color:#5489d2;
 	}
+.homedit button{
+	color:#727272;
+	background-color: transparent;
+	padding-left:10px;
+	padding-right:10px;
+	border:0;
+	font-family:"微软雅黑", "黑体";
+	margin-top:0px;
+	}
+.homedit button:hover{
+	color:#5489d2;
+	cursor:pointer;
+	}
 .infotitle{
 	width:150px; text-align:right; float:left; margin-right:40px;
 	}
@@ -536,4 +549,17 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 	}
 .lj:hover{
 	color:#5589d2;
+	}
+.orderbox{
+	height:47px;
+	}
+.orderbox li{
+	float:left;
+	width:73px;
+	height:47px;
+	}
+.orderbox li a{
+	position:absolute;
+	width:73px;
+	height:47px;
 	}
