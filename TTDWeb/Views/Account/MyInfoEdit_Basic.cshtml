@@ -7,7 +7,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>用户中心</title>
+    <title>个人信息</title>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
 </head>
 <body style="overflow-y:scroll;">
@@ -33,31 +33,34 @@
 </div></a>
 
 <div style="clear:both;"></div>
-
+    <form action="@Url.Action("MyInfo", "Account")">
 <div class="homeinf" style="border-bottom:none; height:30px;">
 <div style="width:120px; text-align:right; float:left;"><strong>个人信息</strong></div>
-<div class="homedit"><a href="@Url.Action("MyInfoEdit_Basic", "Account")">编辑</a></div>
+<div class="homedit"><button type="submit">保存</button></div>
 </div>
 
 <div class="homeinf" style="padding-bottom:20px; line-height:35px;">
-<div class="infotitle">姓名</div><div class="infocontent">姓名</div>
-<div class="infotitle">性别</div><div class="infocontent">性别</div>
-<div class="infotitle">出生年月</div><div class="infocontent">出生年月</div>
-<div class="infotitle">所在地</div><div class="infocontent">所在地</div>
-<div class="infotitle">手机号码</div><div class="infocontent">手机号码</div>
-<div class="infotitle">邮箱</div><div class="infocontent">邮箱</div>
-<div class="infotitle">单位地址</div><div class="infocontent">单位地址</div>
-<div class="infotitle">公司名称</div><div class="infocontent">公司名称</div>
-<div class="infotitle">工作职位</div><div class="infocontent">工作职位</div>
-<div class="infotitle">工作年限</div><div class="infocontent">工作年限</div>
-<div class="infotitle">本行业工作年限</div><div class="infocontent">本行业工作年限</div>
+<div style="clear:both;"><div class="infotitle">姓名</div><input type="text"  value="姓名" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">性别</div>
+<select name="" style="margin-bottom:6px;">
+ 		<option value="1"  selected="selected">男</option>
+		<option value="2" >女</option>
+  </select></div>
+<div style="clear:both;"><div class="infotitle">出生年月</div><input type="text"  value="1990-09-09" maxlength="11" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">所在地</div><input type="text"  value="杭州市杭州路100号" maxlength="30" style="width:300px;" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">手机号码</div><input type="text"  value="12345678901" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">邮箱</div><input type="text"  value="12113@qq.com" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">单位地址</div><input type="text"  value="杭州市杭州路100号" maxlength="30" style="width:300px;" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">公司名称</div><input type="text"  value="天代宝公司" maxlength="30" style="width:300px;" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">工作职位</div><input type="text"  value="经理" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">工作年限</div><input type="text"  value="12年" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle">本行业工作年限</div><input type="text"  value="3年" class="infoedit"/></div>
 </div>
-
+        </form>
 <div style="clear:both; height:15px;"></div>
 
 <div class="homeinf" style="border-bottom:none; height:30px;">
 <div style="width:120px; text-align:right; float:left;"><strong>身份认证</strong></div>
-    <span style="color:#5489d2; font-size:14px; margin-left:20px;">保存成功！系统会在3个工作日内完成认证。</span>
 <div class="homedit"><a href="@Url.Action("MyInfoEdit_Identify", "Account")#identify">编辑</a></div>
 </div>
 
@@ -67,7 +70,7 @@
 <div class="infotitle"><img src="../content/images/identify.png" width="23" height="17" style=" position:relative; top:4px; left:3px; margin-right:15px;"/>出生年月</div>认证后可以进行充值并获取客户名单<a class="lj" href="#" style="margin-left:40px;">详细信息></a>
 </div>
 
-<div class="footer"><a name="identify" id="identify"></a>
+<div class="footer">
 <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
 ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
 </div>

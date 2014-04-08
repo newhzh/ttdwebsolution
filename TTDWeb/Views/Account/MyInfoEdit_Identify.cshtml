@@ -7,8 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>用户中心</title>
-    <link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
+    <title>身份认证</title>
+<link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
 </head>
 <body style="overflow-y:scroll;">
 <div style=" background:url(../content/images/topbg.png) repeat; width:100%; height:22px;">
@@ -54,19 +54,18 @@
 </div>
 
 <div style="clear:both; height:15px;"></div>
-
+    <form action="@Url.Action("MyInfo", "Account")#identify">
 <div class="homeinf" style="border-bottom:none; height:30px;">
 <div style="width:120px; text-align:right; float:left;"><strong>身份认证</strong></div>
-    <span style="color:#5489d2; font-size:14px; margin-left:20px;">保存成功！系统会在3个工作日内完成认证。</span>
-<div class="homedit"><a href="@Url.Action("MyInfoEdit_Identify", "Account")#identify">编辑</a></div>
+<div class="homedit"><button type="submit">提交</button></div>
 </div>
-
+    
 <div class="homeinf" style="padding-bottom:20px; line-height:35px;">
-<div class="infotitle"><img src="../content/images/phone.png" width="16" height="23" style=" position:relative; top:5px; margin-right:15px;"/>手机认证</div>已认证手机13606627137<br />
-<div class="infotitle"><img src="../content/images/user.png" width="22" height="22" style=" position:relative; top:5px; left:3px; margin-right:15px;"/>身份认证</div>认证后可以进行充值并获取客户名单<a class="lj" href="#" style="margin-left:40px;">详细信息></a><br />
-<div class="infotitle"><img src="../content/images/identify.png" width="23" height="17" style=" position:relative; top:4px; left:3px; margin-right:15px;"/>出生年月</div>认证后可以进行充值并获取客户名单<a class="lj" href="#" style="margin-left:40px;">详细信息></a>
+<div style="clear:both;"><div class="infotitle"><img src="../content/images/phone.png" width="16" height="23" style=" position:relative; top:5px; margin-right:15px;"/>手机认证</div><input type="text"  value="12345678901" class="infoedit"/></div>
+<div style="clear:both;"><div class="infotitle"><img src="../content/images/user.png" width="22" height="22" style=" position:relative; top:5px; left:3px; margin-right:15px;"/>身份认证</div><input name="" type="file" style="border:0; color:#9e9e9e;" class="infoedit" /></div>
+<div style="clear:both;"><div class="infotitle"><img src="../content/images/identify.png" width="23" height="17" style=" position:relative; top:4px; left:3px; margin-right:15px;"/>出生年月</div><input name="" type="file" style="border:0; color:#9e9e9e;" class="infoedit" /></div>
 </div>
-
+</form>
 <div class="footer"><a name="identify" id="identify"></a>
 <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
 ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1

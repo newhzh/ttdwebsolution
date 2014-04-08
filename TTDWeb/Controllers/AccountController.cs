@@ -80,6 +80,24 @@ namespace TTDWeb.Controllers
 
         #endregion
 
+        #region 信贷经理·个人资料编辑·个人基本信息
+
+        public ActionResult MyInfoEdit_Basic()
+        {
+            return View();
+        }
+
+        #endregion
+
+        #region 信贷经理·个人资料编辑·身份认证
+
+        public ActionResult MyInfoEdit_Identify()
+        {
+            return View();
+        }
+
+        #endregion
+
         #region 信贷经理·发布产品
 
         public ActionResult CreateProduct()
