@@ -2,16 +2,49 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Aboutus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>关于我们-天天贷</title>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
 </head>
-<body>
-    <div>
-        
+<body style="overflow-y: scroll;">
+    <div style="background: url(../content/images/topbg.png) repeat; width: 100%; height: 22px;">
+        <div class="denglu" style="width: 950px;">客服热线：400-8055-855<a href="#" style="margin-right: 10px; margin-left: 35px;">注册</a>|<a href="#" style="margin-left: 10px;">信贷经理登录</a></div>
     </div>
+
+    <div class="bodycontent" style="padding-top: 11px; color: #282828;">
+         <a href="@Url.Action("Index", "Home")"><img src="../content/images/logo.png" width="183" height="53" alt="" /></a>
+        <div style="clear: both; height: 10px;"></div>
+
+        <ul class="abt">
+            <li><a href="@Url.Action("Aboutus", "Help")" style="color:#5489d2;background-image:url(../content/images/abt_bg2.png);">关于我们</a></li>
+            <li><a href="@Url.Action("Contactus", "Help")">联系我们</a></li>
+            <li><a href="@Url.Action("Joinus", "Help")">加入我们</a></li>
+            <li><a href="@Url.Action("Serverlist", "Help")">服务条款</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+        <div class="abthead">
+            天天贷 (<a href="www.ttdai.com">www.ttdai.com</a>) , 杭州天代宝投资管理有限公司旗下独立品牌。<br />
+            公司成立于2013年9月, 拥有一流的软硬件设施、现代化的办公环境和志同道合的精英团队，专注于互联网金融。先后搭建天代宝(<a href="www.tiandaibao.com">www.tiandaibao.com</a>) P2P网络借贷平台, 以及天天贷 (<a href="www.ttdai.com">www.ttdai.com</a>) 金融信息平台。<br />
+            目前中小企业、个人贷款难问题突出，贷款人很难在第一时间找到最符合自己的贷款产品，贷款信息匮乏、信息不安全、信息不对称等问题明显。天天贷拥有强大的技术力量和专业的服务团队，根据所积累的资源，为借贷人寻找到最佳的贷款途径，同时帮助金融机构精准地匹配客户。<br />
+            天天贷本身不提供贷款，而是根据需求，帮助个人、中小企业筛选金融市场上的各类贷款渠道，帮助其最终实现低成本，高效率的贷款。通过天天贷，贷款人可以根据不同的贷款用途进行搜索，选择合适的机构申请贷款；或者根据个人/企业征信问卷，由平台匹配最佳的贷款机构申请贷款。任何一家正规合法的金融机构，包括银行、小贷公司、p2p网贷公司、典当行等，均可与天天贷建立直接合作关系。经过认证的信贷经理可以通过平台在线上直接对接客户。<br />
+            天天贷秉承"方便快捷，服务第一"的理念，为民间借贷提供全面的解决方案。网站为提供贷款服务的金融机构提供产品展示机会，并为有贷款需求的中小企业与个人提供专业信贷信息查询与申请。
+
+        </div>
+
+
+        <div class="footer" style="position: fixed; bottom: 0; width: 950px;">
+            <a href="@Url.Action("Aboutus", "Help")">关于我们</a><a href="@Url.Action("Contactus", "Help")">联系我们</a><a href="@Url.Action("Joinus", "Help")">加入我们</a><a href="@Url.Action("Serverlist", "Help")">服务条款</a><br />
+            ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
+        </div>
+
+
+    </div>
+    <!--body content-->
+
+
 </body>
 </html>

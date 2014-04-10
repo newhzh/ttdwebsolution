@@ -2,16 +2,51 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Contactus</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>联系我们-天天贷</title>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
 </head>
-<body>
-    <div>
-        
+<body style="overflow-y: scroll;">
+    <div style="background: url(../content/images/topbg.png) repeat; width: 100%; height: 22px;">
+        <div class="denglu" style="width: 950px;">客服热线：400-8055-855<a href="#" style="margin-right: 10px; margin-left: 35px;">注册</a>|<a href="#" style="margin-left: 10px;">信贷经理登录</a></div>
     </div>
+
+    <div class="bodycontent" style="padding-top: 11px; color: #282828;">
+        <a href="@Url.Action("Index", "Home")"><img src="../content/images/logo.png" width="183" height="53" alt="" /></a>
+        <div style="clear: both; height: 10px;"></div>
+
+        <ul class="abt">
+            <li><a href="@Url.Action("Aboutus", "Help")" >关于我们</a></li>
+            <li><a href="@Url.Action("Contactus", "Help")" style="color:#5489d2;background-image:url(../content/images/abt_bg2.png);">联系我们</a></li>
+            <li><a href="@Url.Action("Joinus", "Help")">加入我们</a></li>
+            <li><a href="@Url.Action("Serverlist", "Help")">服务条款</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+        <div class="abthead" style="height:150px;">
+地址：杭州市拱墅区湖墅北路77-3号<br />
+邮编：310011<br />
+电话：（0571）88312151<br />
+传真： 82625755-8080<br />
+<div style="float:right; text-align:right;">
+<span style="font-size:24px;">客服电话 <span style="color:#5489d2;">4008-905-360</span></span><br />
+工作日9：00-5：30
+</div>
+</div>
+
+
+        <div class="footer" style="position: fixed; bottom: 0; width: 950px;">
+            <a href="@Url.Action("Aboutus", "Help")">关于我们</a><a href="@Url.Action("Contactus", "Help")">联系我们</a><a href="@Url.Action("Joinus", "Help")">加入我们</a><a href="@Url.Action("Serverlist", "Help")">服务条款</a><br />
+            ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
+        </div>
+
+
+    </div>
+    <!--body content-->
+
+
 </body>
 </html>

@@ -193,6 +193,9 @@
     <Content Include="Content\css\public.css" />
     <Content Include="Content\css\SearchHome.css" />
     <Content Include="Content\css\SearchHome1.css" />
+    <Content Include="Content\images\abt_bg1.png" />
+    <Content Include="Content\images\abt_bg2.png" />
+    <Content Include="Content\images\abt_top.png" />
     <Content Include="Content\images\agencybg.jpg" />
     <Content Include="Content\images\apply1.png" />
     <Content Include="Content\images\apply11.png" />

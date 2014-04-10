@@ -566,3 +566,49 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 .infoedit{
 	width:150px; border:1px solid #e1e1e1; padding:5px;
 	}
+.abt{
+	background-color:#CCC;
+	margin-top:20px;
+	}
+.abt li{
+	width:104px;
+	height:40px;
+	float:left;
+	margin-right:8px;
+	}
+.abt li a{
+	position:absolute;
+	width:104px;
+	height:32px;
+	font-size:18px;
+	text-align:center;
+	padding-top:8px;
+	color:#000;
+	background-image:url(../images/abt_bg1.png);
+	}
+.abt li a:hover{
+	color:#5489d2;
+	background-image:url(../images/abt_bg2.png);
+	}
+.abthead{
+	width:890px;
+	background-color:#FFF;
+	border:1px solid #e1e1e1;
+	margin-top:-1px;
+	padding:30px;
+	font-size:14px;
+	color:#3d3d3d;
+	line-height:25px;
+	}
+.abthead a{
+	color:#5489d2;
+	}
+.abthead a:hover{
+	text-decoration:underline;
+	}
+.abthead p{
+	margin-bottom:25px;
+	}
+.color{
+	color:#5489d2;
+	}

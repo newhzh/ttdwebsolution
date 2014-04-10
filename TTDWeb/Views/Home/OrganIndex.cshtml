@@ -69,7 +69,7 @@
         <div class="denglu" style="width: 950px;">客服热线：400-0000-000<a href="@Url.Action("Reg", "Account")" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="@Url.Action("Login", "Account")" style="margin-left:10px;">信贷经理登录</a></div>
     </div>
 
-    <div class="bodycontent" style="padding-top: 11px; color: #282828; min-height: 1150px;">
+    <div class="bodycontent" style="padding-top:20px; color:#282828;">
         <a href="@Url.Action("Index", "Home")"><img src="../content/images/logo.png" width="183" height="53" alt="" /></a>
         <div style="clear: both; height: 15px;"></div>
         <div class="agrncyhead">
@@ -299,9 +299,10 @@
                 }
             </div>
         </div>
-    </div>
-    <!--body content-->
-<div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;">
+
+          <div style="clear:both; height:20px;"></div>
+
+        <div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;">
             <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex,organid=@ViewBag.organid})">上一页</a>
             @for (int i = 1; i <= ViewBag.PageCount; i++)
             {
@@ -316,10 +317,16 @@
             }
             <a class="number" href="@Url.Action("NextPage", new {  p = @ViewBag.PageIndex,organid=@ViewBag.organid })">下一页</a>
         </div>
-    <div class="footer" style="margin: 0 auto; width: 950px;">
-        <a href="#">关于我们</a><a href="#">联系我们</a><a href="#">加入我们</a><a href="#">意见反馈</a><a href="#">服务条款</a><br />
-        ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
+
+            <div class="footer">
+       <a href="@Url.Action("Aboutus", "Help")">关于我们</a><a href="@Url.Action("Contactus", "Help")">联系我们</a><a href="@Url.Action("Joinus", "Help")">加入我们</a><a href="@Url.Action("Serverlist", "Help")">服务条款</a><br />
+            ©2014 杭州天代宝投资管理有限公司 浙ICP备13008014号-1
     </div>
+
+    </div>
+    <!--body content-->
+
+
     <div class="go-top">
         <a id="various3" href="productlist.html">
             <div class="feedback"></div>
