@@ -31,7 +31,7 @@ namespace TTDWeb.Controllers
             decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
 
-            string sql1 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType," + 
+            string sql1 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," + 
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -95,6 +95,7 @@ namespace TTDWeb.Controllers
             p.RepaymentType = dr["sRepaymentType"].ToString();
             p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
             p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
+            p.Chars = dr["sChars"].ToString();
 
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)

@@ -55,10 +55,10 @@
             <img src="../content/images/logo.png" width="183" height="53" style="margin-bottom: 23px;" /><br />
 
             <div class="typewrap">
-                <div class="typewrap2" onclick="document.getElementById('type').value=1" id="typewrap2">
+                <div class="typewrap2" onclick="document.getElementById('type').value=3" id="typewrap2">
                     <div class="type">
-                        <img src="../content/images/house.png" width="47" height="39" /><br />
-                        &nbsp;购房贷款
+                        <img src="../content/images/buy.png" width="47" height="39" /><br />
+                        &nbsp;消费贷款
                     </div>
                 </div>
                 <div class="typewrap2" onclick="document.getElementById('type').value=0">
@@ -73,10 +73,10 @@
                         &nbsp;企业贷款
                     </div>
                 </div>
-                <div class="typewrap2" onclick="document.getElementById('type').value=3">
+                <div class="typewrap2" onclick="document.getElementById('type').value=1">
                     <div class="type">
-                        <img src="../content/images/buy.png" width="47" height="39" /><br />
-                        &nbsp;消费贷款
+                        <img src="../content/images/house.png" width="47" height="39" /><br />
+                        &nbsp;购房贷款
                     </div>
                 </div>
                 <div class="typewrap2" onclick="document.getElementById('type').value=5">
@@ -99,7 +99,7 @@
                 <div id="searchBox" class="vboxcontent">
                     @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
                     {
-                        <input type="hidden" value="1" id="type" name="type" />
+                        <input type="hidden" value="3" id="type" name="type" />
                         <dl class="searchitems clearfix moneydl" style="position: absolute; top: 265px; margin-left: 40px;">
                             <dt>
                                 <label>贷款金额：</label>
