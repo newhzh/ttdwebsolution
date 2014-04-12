@@ -91,16 +91,37 @@
 </div>
 
 <div class="productdown">
+    @for (int i = 0; i < Model.Chars.Length; i++)
+    {
+        if (Model.Chars[i].ToString() == "1" )
+        {
     <div style="float: left; margin-right: 30px;">
-        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
-    </div>
-    <div style="float: left; margin-right: 30px;">
-        <img src="../content/images/icon2.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
-    </div>
-    <div style="float: left; margin-right: 30px;">
-        <img src="../content/images/icon4.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
-    </div>
-    <div style="float: left; margin-right: 30px;">
-        <img src="../content/images/icon5.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;贷款速度快
-    </div>
+        <img src="../content/images/icon7.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;额度高                                                                                 
+    </div> 
+    }
+        else if (Model.Chars[i].ToString() == "2")
+        { 
+        <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon1.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;放款快                                                                                 
+    </div> 
+        }
+            else if (Model.Chars[i].ToString() == "3")
+        { 
+        <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon2.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;无需担保                                                                   
+    </div> 
+        }
+            else if (Model.Chars[i].ToString() == "4")
+        { 
+        <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon8.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;利率低                                                                                
+    </div> 
+        }
+            else if (Model.Chars[i].ToString() == "5")
+        { 
+        <div style="float: left; margin-right: 30px;">
+        <img src="../content/images/icon4.png" width="24" height="24" style="float: left;" />&nbsp;&nbsp;上门服务                                                                                 
+    </div> 
+        }
+    }
 </div>
