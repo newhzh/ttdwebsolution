@@ -163,6 +163,11 @@ namespace TTDWeb.Models
         /// 客户经理集合
         /// </summary>
         public List<CustomModel> Customs { get; set; }
+
+        /// <summary>
+        /// 产品特点字符串
+        /// </summary>
+        public string Chars { get; set; }
     }
 
     #region AA10枚举模型
