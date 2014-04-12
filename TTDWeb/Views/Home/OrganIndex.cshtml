@@ -200,11 +200,31 @@
                     <!--container end-->
                 </div>
                 <div class="productdown changewith" style="font-size: 12px; line-height: 25px; width: 596px;">
+                     @for (int i = 0; i < itemProduct.Chars.Length; i++)
+    {
+        if (itemProduct.Chars[i].ToString() == "1")
+        {
+   <div style="float: left; margin-right: 30px;">额度高</div> 
+    }
+        else if (itemProduct.Chars[i].ToString() == "2")
+        { 
+       <div style="float: left; margin-right: 30px;">放款快</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "3")
+        { 
+        <div style="float: left; margin-right: 30px;">无需担保</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "4")
+        { 
+        <div style="float: left; margin-right: 30px;">利率低</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "5")
+        { 
+        <div style="float: left; margin-right: 30px;">上门服务</div> 
+        }
+    }
 
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                  
                 </div>
                 <!--list end-->
             }
