@@ -9,7 +9,7 @@ namespace TTDWeb.Models
     public class LoginModel
     {
         [Required]
-        [Display(Name = "用户名")]
+        [Display(Name = "帐号")]
         public string UserName { get; set; }
 
         [Required]
