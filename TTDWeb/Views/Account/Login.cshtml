@@ -1,4 +1,6 @@
-﻿@{
+﻿@model TTDWeb.Models.LoginModel
+
+@{
     Layout = null;
 }
 
@@ -28,14 +30,33 @@
                     <fieldset class="field-wrap">
                         <legend>login</legend>
                         <div class="field-item">
-                            <label for="username" style="margin-top: 5px;">帐号</label>
-                            <input style="color: #ddd;" id="mobile" name="mobile" type="text" class="input-item" value="" maxlength="11" />
+                            <!--<label for="username" style="margin-top: 5px;">帐号</label>
+                            <input style="color: #ddd;" id="mobile" name="mobile" type="text" class="input-item" value="" maxlength="11" />-->
+                            @Html.LabelFor(m => m.UserName, new { style="margin-top:5px;"})
+                            @Html.TextBoxFor(m => m.UserName, new {placeholder="输入手机号码",@class="input-item"})
                         </div>
                         <div class="field-item">
-                            <label for="password" style="margin-top: 5px;">密码</label><input id="password" name="password" class="input-item" type="password" maxlength="20" value="" /></div>
-                        <button type="submit" class="btn" style="width: 215px; height: 35px; font-size: 14px; margin-left: 110px; margin-top: 10px;">登录</button>
+                            <!--<label for="password" style="margin-top: 5px;">密码</label>
+                            <input id="password" name="password" class="input-item" type="password" maxlength="20" value="" /></div>-->
+                            @Html.LabelFor(m => m.Password, new { style="margin-top:5px;"})
+                            @Html.PasswordFor(m => m.Password,new {placeholder="输入密码",@class="input-item"}) 
+                        </div>
+
+                        @Html.ValidationSummary()
+                         <div class="ui-button-blue ui-button" style="margin-left:60px; margin-top:10px;">
+                             <span><button style=" padding-left:93px; padding-right:93px;" name="btnsubmit" type="submit">登录</button></span></div>
+                         <div class="field-item" style="margin-left:60px; position:relative; top:-10px;">
+                             @Html.CheckBoxFor(m => m.RememberMe, new { data_theme="d",data_mini=true,@checked=true})
+                             @Html.LabelFor(m => m.RememberMe)
+                             <a style="color:#5a7caf; margin-left:95px;" href="#">忘记密码？</a>
+                         </div>
+                        
+                        <!--<button type="submit" class="btn" style="width: 215px; height: 35px; font-size: 14px; margin-left: 110px; margin-top: 10px;">登录</button>
+                        
                         <div class="field-item" style="margin-left: 110px; position: relative; top: -10px;">
-                            <input style="position: relative; top: 8px; margin-right: 3px;" name="" type="checkbox" value="" />记住密码<a style="color: #5a7caf; margin-left: 55px;" href="#">忘记密码？</a></div>
+                            <input style="position: relative; top: 8px; margin-right: 3px;" name="" type="checkbox" value="" />记住密码
+                            <a style="color: #5a7caf; margin-left: 55px;" href="#">忘记密码？</a>
+                        </div>-->
 
                     </fieldset>
                 </form>
