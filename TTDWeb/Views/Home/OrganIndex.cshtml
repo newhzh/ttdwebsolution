@@ -200,10 +200,31 @@
                     <!--container end-->
                 </div>
                 <div class="productdown changewith" style="font-size: 12px; line-height: 25px; width: 596px;">
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
-                    <div style="float: left; margin-right: 30px;">贷款速度快</div>
+                     @for (int i = 0; i < itemProduct.Chars.Length; i++)
+    {
+        if (itemProduct.Chars[i].ToString() == "1")
+        {
+   <div style="float: left; margin-right: 30px;">额度高</div> 
+    }
+        else if (itemProduct.Chars[i].ToString() == "2")
+        { 
+       <div style="float: left; margin-right: 30px;">放款快</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "3")
+        { 
+        <div style="float: left; margin-right: 30px;">无需担保</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "4")
+        { 
+        <div style="float: left; margin-right: 30px;">利率低</div> 
+        }
+        else if (itemProduct.Chars[i].ToString() == "5")
+        { 
+        <div style="float: left; margin-right: 30px;">上门服务</div> 
+        }
+    }
+
+                  
                 </div>
                 <!--list end-->
             }
@@ -214,7 +235,7 @@
             <div style="background-color: #5489d2; color: #FFF; padding-left: 20px; padding-bottom: 20px; margin-bottom: 15px;">
                 <br />
                 机构服务电话：<br />
-                <div style="font-size: 24px; text-align: center; width: 280px;">@Model.Tel</div>
+                <div style="font-size: 24px; text-align: center; width: 280px;">400-0000-000</div>
             </div>
             <div>
                 @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
@@ -303,7 +324,7 @@
           <div style="clear:both; height:20px;"></div>
 
         <div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;">
-            <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex,organid=@ViewBag.organid})">上一页</a>
+            <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex, organid = @ViewBag.organid })">上一页</a>
             @for (int i = 1; i <= ViewBag.PageCount; i++)
             {
                 if (i == ViewBag.PageIndex)
@@ -315,7 +336,7 @@
                 <a class="number" href="?p=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
                 }
             }
-            <a class="number" href="@Url.Action("NextPage", new {  p = @ViewBag.PageIndex,organid=@ViewBag.organid })">下一页</a>
+            <a class="number" href="@Url.Action("NextPage", new { p = @ViewBag.PageIndex, organid = @ViewBag.organid })">下一页</a>
         </div>
 
             <div class="footer">
