@@ -1,4 +1,7 @@
-﻿@{
+﻿@model TTDWeb.Models.RegisterModel
+
+
+@{
     Layout = null;
 }
 
@@ -10,6 +13,7 @@
     <title>注册—天天贷</title>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
     <script type="text/javascript" src="~/content/validator/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.min.js"></script>
     <script src="~/content/validator/formValidator-4.1.1.js" type="text/javascript"></script>
     <script src="~/content/validator/formValidatorRegex.js" type="text/javascript"></script>
     <script src="~/content/validator/DateTimeMask.js" type="text/javascript"></script>
@@ -20,6 +24,44 @@
             color: #282828;
         }
     </style>
+
+    <script type="text/javascript">
+        $(function () {        
+            $("#Province").change(function () {
+                var selectedValue = $("#Province").val();
+                $("#City").empty();
+                $("#County").empty();
+                $("#Organ").empty();
+                $.getJSON("GetRegionDataJson", { level: "1", parentid: selectedValue }, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#City"));
+                    });
+                });
+            })
+
+            $("#City").change(function () {
+                var selectedValue = $("#City").val();
+                $("#County").empty();
+                $("#Organ").empty();
+                $.getJSON("GetRegionDataJson", { level: "2", parentid: selectedValue }, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#County"));
+                    });
+                });
+            })
+
+            $("#County").change(function () {
+                var selectedValue = $("#County").val();
+                $("#Organ").empty();
+                $.getJSON("GetOrganDataJson", { regionid: selectedValue }, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#Organ"));
+                    });
+                });
+            })
+        })
+
+    </script>
 </head>
 <body>
     <div style="background: url(../content/images/topbg.png) repeat; width: 100%; height: 22px;">
@@ -40,14 +82,22 @@
                         <legend>register</legend>
                         <div class="field-item">
                             <label for="CellPhone">手机</label><input id="CellPhone" name="CellPhone" type="text" class="input-item" value="" maxlength="11" /></div>
-
                         <div class="field-item">
                             <label for="CustomName">姓名</label><input id="CustomName" name="CustomName" class="input-item" type="text" value="" maxlength="20" /></div>
                         <div class="field-item">
-                            <label for="OrganName">机构</label><input id="OrganName" name="OrganName" class="input-item" type="text" value="" maxlength="20" /></div>
+                            <label for="Province">省份</label>@Html.DropDownList("Province",(SelectList)ViewBag.Province,new{@class="selectm"})
+                        </div>
+                        <div class="field-item">
+                            <label for="City">城市</label>@Html.DropDownList("City",(SelectList)ViewBag.City,new{@class="selectm"})
+                        </div>
+                        <div class="field-item">
+                            <label for="County">区县</label>@Html.DropDownList("County",(SelectList)ViewBag.County,null,new{@class="selectm"})
+                        </div>
+                        <div class="field-item">
+                            <label for="Organ">机构</label>@Html.DropDownList("Organ",(SelectList)ViewBag.Organ,null,new{@class="selectm"})
+                        </div>
                         <div class="field-item">
                             <label for="Pwd">密码</label><input id="Pwd" name="Pwd" class="input-item" type="password" maxlength="40" value="" onkeyup="pwStrength(this.value)" onblur="pwStrength(this.value)" /></div>
-
                         <div class="field-item">
                             <label for="ConfirmPassword">确认密码</label><input id="ConfirmPassword" class="input-item" name="ConfirmPassword" maxlength="20" type="password" value="" /></div>
                         <button type="submit" class="btn" style="width: 215px; height: 35px; font-size: 14px; margin-left: 110px; margin-top: 10px;">注册</button>
