@@ -73,10 +73,10 @@
         <div style="clear: both; height: 40px;"></div>
 
         <div class="regbg">
-            <div class="reghref"><a href="@Url.Action("Login", "Account")">登录</a><a href="@Url.Action("Reg", "Account")" style="border-bottom:3px solid #5489d2;">注册</a></div>
+            <div class="reghref" ><a href="@Url.Action("Login", "Account")">登录</a><a href="@Url.Action("Reg", "Account")" style="border-bottom:3px solid #5489d2;">注册</a></div>
 
 
-            <div class="register">
+            <div class="register" >
                 <form id="validator-form" method="post" action="/Account/Reg">
                     <fieldset class="field-wrap">
                         <legend>register</legend>
@@ -84,17 +84,13 @@
                             <label for="CellPhone">手机</label><input id="CellPhone" name="CellPhone" type="text" class="input-item" value="" maxlength="11" /></div>
                         <div class="field-item">
                             <label for="CustomName">姓名</label><input id="CustomName" name="CustomName" class="input-item" type="text" value="" maxlength="20" /></div>
-                        <div class="field-item">
-                            <label for="Province">省份</label>@Html.DropDownList("Province",(SelectList)ViewBag.Province,new{@class="selectm"})
+                        <div class="field-item" style="width:900px;">
+                            <label for="Province">省份</label>@Html.DropDownList("Province",(SelectList)ViewBag.Province,new{@class="select-item"})
+                             <label for="City" style="width:20px;">市</label>@Html.DropDownList("City",(SelectList)ViewBag.City,new{@class="select-item"})
+                             <label for="County" style="width:20px;">县</label>@Html.DropDownList("County",(SelectList)ViewBag.County,null,new{@class="select-item"})
                         </div>
                         <div class="field-item">
-                            <label for="City">城市</label>@Html.DropDownList("City",(SelectList)ViewBag.City,new{@class="selectm"})
-                        </div>
-                        <div class="field-item">
-                            <label for="County">区县</label>@Html.DropDownList("County",(SelectList)ViewBag.County,null,new{@class="selectm"})
-                        </div>
-                        <div class="field-item">
-                            <label for="Organ">机构</label>@Html.DropDownList("Organ",(SelectList)ViewBag.Organ,null,new{@class="selectm"})
+                            <label for="Organ">机构</label>@Html.DropDownList("Organ",(SelectList)ViewBag.Organ,null,new{@class="select-item",style = "width:215px;",@id="Organ"})
                         </div>
                         <div class="field-item">
                             <label for="Pwd">密码</label><input id="Pwd" name="Pwd" class="input-item" type="password" maxlength="40" value="" onkeyup="pwStrength(this.value)" onblur="pwStrength(this.value)" /></div>
@@ -107,7 +103,7 @@
 
             </div>
 
-            <img src="../content/images/regright.png" width="324" height="402" style="float: right; margin-right: 50px; margin-top: 20px;" />
+
         </div>
 
 

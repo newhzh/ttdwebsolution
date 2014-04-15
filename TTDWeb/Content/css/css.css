@@ -470,6 +470,12 @@ legend{color:#777;}
 .field-item span{float:left;line-height:26px;height:26px;overflow:hidden;}
 .field-item select{margin-top:3px;_margin-top:1px;}
 .input-item{width:210px;height:30px;line-height:20px;padding-left:4px;border:1px solid #999;}
+.select-item{height:30px;line-height:20px;padding-left:4px;border:1px solid #999;background:transparent;
+	-webkit-appearance: none; /*for Webkit browsers*/
+	background:url(../images/select2.png) center right no-repeat;
+	min-width:100px;
+	background-color:#fff;
+}
 
 .center{text-align:center;}
 #message{width:500px;}

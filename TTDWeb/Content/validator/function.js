@@ -131,14 +131,14 @@ $(document).ready(function(){
 		onError:"你输入的邮箱格式不正确"
 	});
 	
-	$("#xueli").formValidator({
-		onShow:"请选择你的学历",
-		onFocus:"学历必须选择",
-		onCorrect:"谢谢你的配合",
+	$("#Organ").formValidator({
+		onShow:"请选择省市县再选择机构",
+		onFocus: "请选择省市县再选择机构",
+		onCorrect: "",
 		defaultValue:"a"
 	}).inputValidator({
 		min:1,
-		onError: "你是不是忘记选择学历了!"
+		onError: "请选择机构！"
 	}).defaultPassed();
 	
 	$("#ewjy").formValidator({
