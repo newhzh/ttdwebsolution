@@ -44,6 +44,13 @@ namespace TTDWeb.Controllers
         }
         #endregion
 
+        #region 提交成功
+        public ActionResult Success()
+        {
+            return View();
+        }
+        #endregion
+
         #region 服务条款
         public ActionResult Serverlist()
         {

@@ -8,10 +8,27 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Feedback</title>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<style type="text/css">
+body {
+	background-image:none;
+	background-color:#FFF;
+	color:#282828;
+}
+</style>
 </head>
 <body>
-    <div>
-        
-    </div>
+<div style="width:600px; text-align:left; margin-top:20px; margin-bottom:20px; font-size:24px; padding-left:50px;">反馈意见</div>
+<div style=" background-color:#f7f7f7; padding-left:50px; padding-top:15px;height:600px;">
+将您对天天贷的建议或者想法告诉我们吧，我们随时倾听您的感受<br /><br />
+<form action="@Url.Action("Success", "Help")">
+<textarea name="feedback" cols="" style="width:560px; height:200px;">欢迎提供宝贵建议或想法，至少输入5个字哦。</textarea><br />
+<div style="width:560px; text-align:right; margin-top:10px;">还可以输入1500字</div>
+<div class="inputtitle" style="width:80px; margin-left:0;">手机号码：</div><input type="text" class="inputtext" /><br /><br />
+<div class="inputtitle" style="width:80px; margin-left:0;">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">提交反馈</button>
+</form>
+</div>
+
 </body>
 </html>
+

@@ -53,6 +53,12 @@ a:hover{
 	text-align:right;
 	padding-top:2px;
 	}
+.denglu a{
+	color:#fff;
+	}
+.denglu a:hover{
+	color:#fbb03f;
+	}
 .typewrap{
 	margin-top:30px;
 	}
@@ -293,7 +299,6 @@ a:hover{
 	padding-top:5px;
 	padding-bottom:5px;
 	margin-left:10px;
-	border:1px solid #5489d2;
 	}
 .numberclick:hover{
 	color:#fff;
@@ -432,7 +437,7 @@ a:hover{
 .reghref{
 	font-size:18px;
 	padding-left:40px;
-	border-bottom:1px solid #e1e1e1;
+	border-bottom:1px solid #282828;
 	width:861px;
 	margin-left:4px;
 	height:35px;
@@ -470,12 +475,6 @@ legend{color:#777;}
 .field-item span{float:left;line-height:26px;height:26px;overflow:hidden;}
 .field-item select{margin-top:3px;_margin-top:1px;}
 .input-item{width:210px;height:30px;line-height:20px;padding-left:4px;border:1px solid #999;}
-.select-item{height:30px;line-height:20px;padding-left:4px;border:1px solid #999;background:transparent;
-	-webkit-appearance: none; /*for Webkit browsers*/
-	background:url(../images/select2.png) center right no-repeat;
-	min-width:100px;
-	background-color:#fff;
-}
 
 .center{text-align:center;}
 #message{width:500px;}
