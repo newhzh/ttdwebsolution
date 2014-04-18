@@ -247,6 +247,7 @@
     <Content Include="Content\images\identify.png" />
     <Content Include="Content\images\lanren_top.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu.png" />
     <Content Include="Content\images\money.png" />
     <Content Include="Content\images\order0.png" />
     <Content Include="Content\images\order1.png" />
