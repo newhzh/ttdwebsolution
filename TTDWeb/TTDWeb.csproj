@@ -446,6 +446,7 @@
     <Content Include="Views\Account\MyInfoEdit_Basic.cshtml" />
     <Content Include="Views\Account\MyInfoEdit_Identify.cshtml" />
     <Content Include="Views\Help\Success.cshtml" />
+    <Content Include="Views\Home\ProductCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

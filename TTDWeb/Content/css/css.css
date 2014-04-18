@@ -136,7 +136,7 @@ a:hover{
 	width:880px;
 	height:0px;
 	overflow:hidden;
-	background:url(../images/containerbg.png) repeat-x;
+	background:url(../images/containerbg.png) no-repeat;
 	background-color:#e9e9e9;
 	margin-top:65px;
 	margin-left:15px;
@@ -146,7 +146,7 @@ a:hover{
 	width:86px;
 	height:28px;
 	float:right;
-	background-color:#5489d2;
+	background-color:#609bec;
 	margin-top:10px;
 	margin-right:10px;
 	font-weight:normal;
@@ -157,7 +157,7 @@ a:hover{
 	line-height:28px;
 	}
 .look:hover{
-	background-color:#4781d0;
+	background-color:#5489d2;
 	}
 .productdown{
 	width:920px;
@@ -631,26 +631,4 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 .menuclick{
 	color:#fff;
 	background:url(../images/menu.png) bottom center no-repeat;
-	}
-.status_btn{
-	border:1px solid #a4a4a4;
-	background-color:#e9e9e9;
-	width:100px;
-	height:35px;
-	position:absolute;
-	cursor:pointer;
-	color:#282828;
-	}
-.status_btn:hover{
-	border:1px solid #91afd9;
-	cursor:pointer;
-	color:#91afd9;
-	}
-.status_btnclick{
-	border:1px solid #91afd9;
-	background-color:#91afd9;
-	width:100px;
-	height:35px;
-	position:absolute;
-	color:#fff;
 	}
