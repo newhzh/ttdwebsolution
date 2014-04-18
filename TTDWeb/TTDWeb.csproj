@@ -260,6 +260,7 @@
     <Content Include="Content\images\regright.png" />
     <Content Include="Content\images\select.png" />
     <Content Include="Content\images\select1.png" />
+    <Content Include="Content\images\select2.png" />
     <Content Include="Content\images\star0.png" />
     <Content Include="Content\images\star1.png" />
     <Content Include="Content\images\star2.png" />
