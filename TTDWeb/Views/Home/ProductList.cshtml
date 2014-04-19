@@ -89,12 +89,9 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $(".typeclick").click(function () {
-                $(this).css({ "color": "#5489d2" }).siblings().css({ "color": "#282828" });
 
-            });
             var ss = @ViewBag.type
-            $("#type" + ss).css({ "color": "#5489d2" }).siblings().css({ "color": "#282828" });
+            $("#type" + ss).css({ "background": "url(../content/images/menu.png) bottom center no-repeat" }).siblings().css({ "background": "none" });
 
 
         });
@@ -108,24 +105,19 @@
     </div>
     <div class="bodycontent" style="margin-top:-70px; color: #282828;">
         <a href="@Url.Action("Index", "Home")"><img src="../content/images/logo.png" width="183" height="53" alt="" /></a>
+<div class="menu" style="float:right;">
+<a id="type3" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 3, money = 10, term = 12 })" >消费贷款</a>
+<a id="type1" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 1, money = 30, term = 36 })" >购房贷款</a>
+<a id="type0" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 0, money = 15, term = 24 })" >购车贷款</a>
+<a id="type2" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 2, money = 20, term = 12 })" >企业贷款</a>
+</div>
         <div style="clear: both; height: 20px;"></div>
 
         <div class="product">
             @using (Html.BeginForm("productlist", "Home", FormMethod.Get))
             {     
-                <div style="width: 710px; border-right: 1px solid #bdbdbd; float: left;">
-
-                    <div>
-                        <a id="type3" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=3">消费贷款</a>
-                        <a id="type0" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=0">购车贷款</a>
-                        <a id="type2" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=2">企业贷款</a>
-                        <a id="type1" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=1">购房贷款</a>
-                        <a id="type5" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=5">购车保险</a>
-                        <a id="type4" class="typeclick" href="javascript:void(0)" onclick="document.getElementById('type').value=4">信用卡</a>
-                    </div>
-                    <br />
-
-                    <input type="hidden" value="3" id="type" name="type" />
+                <div style="width:710px; height:55px; border-right:1px solid #bdbdbd; float:left; padding-top:15px;">
+                    <input type="hidden" value="@ViewBag.type" id="type" name="type" />
                     贷款金额:<input value="@ViewBag.money" class="sx" name="money" type="text" style="background: url(../content/images/money.png) 140px center no-repeat;" />贷款期限:<input class="sx" name="term" type="text" value="@ViewBag.term" style="background: url(../content/images/time.png) 155px center no-repeat;" />
                     <button type="submit" class="btn" style="width: 85px; height: 35px; font-size: 14px;">马上搜索</button>
 

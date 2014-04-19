@@ -8,71 +8,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>_ordereidt</title>
 <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
-<script src="~/content/js/jquery1.3.2.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-    $(function () {
-        $('.orderbox').css('background', 'url(../content/images/order0.png) no-repeat')
-        $('.order1').click(function () {
-            $(this).parent().parent().contents('.orderno').val("1");
-            $(this).parent().parent().css('background', 'url(../content/images/order1.png) no-repeat')
-        });
-
-        $('.order2').click(function () {
-            $(this).parent().parent().contents('.orderno').val("2");
-            $(this).parent().parent().css('background', 'url(../content/images/order2.png) no-repeat')
-        });
-
-
-        $('.order3').click(function () {
-            $(this).parent().parent().contents('.orderno').val("3");
-            $(this).parent().parent().css('background', 'url(../content/images/order3.png) no-repeat')
-        });
-        $('.order4').click(function () {
-            $(this).parent().parent().contents('.orderno').val("4");
-            $(this).parent().parent().css('background', 'url(../content/images/order4.png) no-repeat')
-        });
-        $('.order5').click(function () {
-            $(this).parent().parent().contents('.orderno').val("5");
-            $(this).parent().parent().css('background', 'url(../content/images/order5.png) no-repeat')
-        });
-        /*$('.order3').hover(function(){
-                $(this).parent().parent().css('background','url(content/images/order3.png) no-repeat')
-                },function(){
-                $(this).parent().parent().css('background','url(content/images/order0.png) no-repeat')
-        });
-        */
-
-    })
-</script>
 
 </head>
 
 <body style="background-image:none; color:#282828; background-color:#e9e9e9;">
 
 
-<form action="@Url.Action("Order", "Account")">
-
-<div style="border-bottom:2px solid #bebebe; padding-top:20px; padding-left:20px; padding-bottom:5px; width:750px; margin-bottom:10px;"><strong>订单管理</strong></div>
-<div class="homedit" style=" margin-top:-23px; margin-right:30px;"><button type="submit">保存</button></div>
-<div style="padding-left:20px; float:left;">流程进度<span style="color:#5489d2; font-size:12px; margin-left:20px;">提示：点击选择进度</span><br /><br />
-<div>
-	<ul class="orderbox">
-		<li><a class="order1" href="#"></a></li>
-		<li><a class="order2" href="#"></a></li>
-		<li><a class="order3" href="#"></a></li>
-		<li><a class="order4" href="#"></a></li>
-		<li><a class="order5" href="#"></a></li>
-        <input class="orderno" name="order" value="0" type="hidden" />
-	</ul>
-</div>
-</div>
-<div style=" margin-left:490px;">备注<br /><br />
-<textarea name="remark" cols="40" rows="3" style="border:1px solid #bebebe; margin-top:-3px;">来单容易，结单不易，且骗且珍惜。</textarea>
-
-</div>
-
 </form>
+    <form action="@Url.Action("Order", "Account")">
+<button class="status_btn" type="submit" name="status" value="1" style="left:310px; top:20px;">未完成申请</button>
+<button class="status_btn" type="submit" name="status" value="2" style="left:470px; top:20px;">已放款</button>
+</form>
+
 
 </body>
 </html>

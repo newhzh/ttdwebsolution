@@ -20,6 +20,12 @@
     </div>
     <div class="bodycontent" style="margin-top:-70px; color: #282828;">
          <a href="@Url.Action("Index", "Home")"><img src="../content/images/logo.png" width="183" height="53" alt="" /></a>
+        <div class="menu" style="float:right;">
+<a id="type3" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 3, money = 10, term = 12 })" >消费贷款</a>
+<a id="type1" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 1, money = 30, term = 36 })" >购房贷款</a>
+<a id="type0" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 0, money = 15, term = 24 })" >购车贷款</a>
+<a id="type2" class="typeclick" href="@Url.Action("Productlist", "Home", new { type = 2, money = 20, term = 12 })" >企业贷款</a>
+</div>
         <div style="clear: both; height: 10px;"></div>
 
         <ul class="abt">

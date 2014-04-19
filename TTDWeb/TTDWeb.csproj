@@ -247,6 +247,7 @@
     <Content Include="Content\images\identify.png" />
     <Content Include="Content\images\lanren_top.jpg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\menu.png" />
     <Content Include="Content\images\money.png" />
     <Content Include="Content\images\order0.png" />
     <Content Include="Content\images\order1.png" />
@@ -259,6 +260,7 @@
     <Content Include="Content\images\regright.png" />
     <Content Include="Content\images\select.png" />
     <Content Include="Content\images\select1.png" />
+    <Content Include="Content\images\select2.png" />
     <Content Include="Content\images\star0.png" />
     <Content Include="Content\images\star1.png" />
     <Content Include="Content\images\star2.png" />
@@ -445,6 +447,7 @@
     <Content Include="Views\Account\MyInfoEdit_Basic.cshtml" />
     <Content Include="Views\Account\MyInfoEdit_Identify.cshtml" />
     <Content Include="Views\Help\Success.cshtml" />
+    <Content Include="Views\Home\ProductCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

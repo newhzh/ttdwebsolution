@@ -52,14 +52,7 @@
                 <div class="ct" style="display: none">
 
 
-                    @foreach (var itemCustom in Model.Customs)
-                    {
-                        <div>
-                            <strong>@itemCustom.CustomName</strong><br />
-                            @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID<br />
-
-                        </div>
-                    }
+                   <iframe src="@Url.Action("ProductCustomer", "Home",new { productcode = @Model.ProductCode, producttype = @Model.ProductType })" scrolling="no" frameborder="0" width="600" height="180"></iframe>
 
 
                 </div>
