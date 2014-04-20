@@ -654,6 +654,9 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 	cursor:pointer;
 	}
 .status_btnclick{
+	position:absolute;
+	width:100px;
+	height:35px;
 	border:1px solid #91afd9;
 	color:#fff;
 	background-color:#91afd9;
