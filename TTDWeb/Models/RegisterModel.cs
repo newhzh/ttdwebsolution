@@ -26,29 +26,28 @@ namespace TTDWeb.Models
         [Required]
         [Display(Name = "城市")]
         public string City { get; set; }
-
-        [Required]
+ 
         [Display(Name = "区县")]
         public string County { get; set; }
 
         [Required]
         [Display(Name = "机构")]
-        public string OrganID { get; set; }
+        public string Organ { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
+        //[StringLength(100, ErrorMessage = "{0} 必须至少包含 {2} 个字符。", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "密码")]
-        public string Password { get; set; }
+        public string Pwd { get; set; }
 
         [DataType(DataType.Password)]
         [Display(Name = "确认密码")]
-        [Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
+        [Compare("Pwd", ErrorMessage = "密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
 
         [Display(Name = "电子邮箱")]
-        [DataType(DataType.EmailAddress)]
-        [RegularExpression("\\w+(\\.\\w+)*@\\w+(\\.\\w+)+", ErrorMessage = "电子邮箱格式非法!")]
+        //[DataType(DataType.EmailAddress)]
+        //[RegularExpression("\\w+(\\.\\w+)*@\\w+(\\.\\w+)+", ErrorMessage = "电子邮箱格式非法!")]
         public string Email { get; set; }
 
         [Display(Name = "昵称")]

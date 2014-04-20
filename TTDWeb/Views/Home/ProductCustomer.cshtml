@@ -1,4 +1,4 @@
-﻿@model TTDWeb.Models.ProductModel
+﻿@model IEnumerable<TTDWeb.Models.CustomModel>
 
 @{
     Layout = null;
@@ -82,13 +82,13 @@ body{
 	<input type='hidden' class='current_page' />
 	<input type='hidden' class='show_per_page' />
 	<div class='content'>
-
-         @foreach (var itemCustom in Model.Customs)
-                    {
-<p><strong>@itemCustom.CustomName</strong><br />
-@itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID
-</p>
-                    }
+         @foreach (var itemCustom in Model)
+         {
+                <p><strong>@itemCustom.CustomName</strong><br />
+                    @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    @itemCustom.OrganID
+                </p>
+         }
 	</div>
     <br />
 	<div class='page_navigation'></div><br>

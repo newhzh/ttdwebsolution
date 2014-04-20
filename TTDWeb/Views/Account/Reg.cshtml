@@ -30,7 +30,7 @@
             $("#Province").change(function () {
                 var selectedValue = $("#Province").val();
                 $("#City").empty();
-                $("#County").empty();
+                //$("#County").empty();
                 $("#Organ").empty();
                 $.getJSON("GetRegionDataJson", { level: "1", parentid: selectedValue }, function (data) {
                     $.each(data, function (i, item) {
@@ -41,17 +41,7 @@
 
             $("#City").change(function () {
                 var selectedValue = $("#City").val();
-                $("#County").empty();
-                $("#Organ").empty();
-                $.getJSON("GetRegionDataJson", { level: "2", parentid: selectedValue }, function (data) {
-                    $.each(data, function (i, item) {
-                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#County"));
-                    });
-                });
-            })
-
-            $("#County").change(function () {
-                var selectedValue = $("#County").val();
+                //$("#County").empty();
                 $("#Organ").empty();
                 $.getJSON("GetOrganDataJson", { regionid: selectedValue }, function (data) {
                     $.each(data, function (i, item) {
@@ -59,6 +49,16 @@
                     });
                 });
             })
+
+            /*$("#County").change(function () {
+                var selectedValue = $("#County").val();
+                $("#Organ").empty();
+                $.getJSON("GetOrganDataJson", { regionid: selectedValue }, function (data) {
+                    $.each(data, function (i, item) {
+                        $("<option></option>").val(item["Value"]).text(item["Text"]).appendTo($("#Organ"));
+                    });
+                });
+            })*/
         })
 
     </script>
@@ -94,7 +94,7 @@
                         <div class="field-item" style="width:900px;">
                             <label for="Province">省份</label>@Html.DropDownList("Province",(SelectList)ViewBag.Province,new{@class="select-item"})
                              <label for="City" style="width:20px;">市</label>@Html.DropDownList("City",(SelectList)ViewBag.City,new{@class="select-item"})
-                             <label for="County" style="width:20px;">县</label>@Html.DropDownList("County",(SelectList)ViewBag.County,null,new{@class="select-item"})
+                             
                         </div>
                         <div class="field-item">
                             <label for="Organ">机构</label>@Html.DropDownList("Organ",(SelectList)ViewBag.Organ,null,new{@class="select-item",style = "width:215px;",@id="Organ"})

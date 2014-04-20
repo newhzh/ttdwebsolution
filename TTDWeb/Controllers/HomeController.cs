@@ -58,7 +58,7 @@ namespace TTDWeb.Controllers
                 products.Add(p);//未分页显示。
             }
             //总页数（每页显示10条）
-            int countPerPage = 3;
+            int countPerPage = 10;
             int pageCount = products.Count / countPerPage + (products.Count % countPerPage > 0 ? 1 : 0);
             int pageIndex = (pindex == null || pindex == "") ? 1 : Convert.ToInt32(pindex);
             pageIndex = pageIndex > pageCount ? pageCount : pageIndex;
@@ -129,13 +129,54 @@ namespace TTDWeb.Controllers
             return sumMonth;
         }
 
+        public ActionResult PreviewPage(string type, string money, string term1, string term, string pindex)
+        {
+            //上一页
+            int pageIndex = (pindex == null || pindex == "") ? 1 : Convert.ToInt32(pindex);
+            if (pageIndex > 1)
+            {
+                pageIndex--;
+            }
+
+            return RedirectToAction("ProductList", new { pindex = pageIndex, type = type, money = money, term1 = term1, term = term });
+        }
+
+        public ActionResult NextPage(string type, string money, string term1, string term, string pindex)
+        {
+            //下一页
+            int pageIndex = (pindex == null || pindex == "") ? 1 : Convert.ToInt32(pindex);
+            pageIndex++;
+            return RedirectToAction("ProductList", new { pindex = pageIndex, type = type, money = money, term1 = term1, term = term });
+        }
+
         #endregion
 
         #region 产品经理
 
-        public ActionResult ProductCustomer()
+        public ActionResult ProductCustomer(string productcode)
         {
-            return View();
+            string sql = "select t1.sCustomName,t1.sCellPhone,t1.sOrganID,t1.sEmail,t2.sOrganName " +
+                " from T_Custom t1 " +
+                " inner join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID " +
+                " where t2.sOrganID in(select sOrganID from T_Product where sProductCode='" + productcode + "')";
+            DA_Common da=new DA_Common();
+            DataSet ds = da.CommonQuery(sql);
+
+            List<CustomModel> arrCustoms = new List<CustomModel>();
+            CustomModel m;
+            foreach (DataRow dr in ds.Tables[0].Rows)
+            {
+                m = new CustomModel();
+                m.CellPhone = dr["sCellPhone"].ToString();
+                m.CustomName = dr["sCustomName"].ToString();
+                m.Email = dr["sEmail"].ToString();
+                m.OrganID = dr["sOrganID"].ToString();
+                m.OrganName = dr["sOrganName"].ToString();
+                
+                arrCustoms.Add(m);
+            }
+
+            return View(arrCustoms);
         }
 
         #endregion

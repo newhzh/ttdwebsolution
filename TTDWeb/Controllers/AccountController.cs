@@ -32,7 +32,7 @@ namespace TTDWeb.Controllers
             SelectList list = new SelectList(items,"Value","Text","--请选择--");
             ViewBag.Province = list;
             ViewBag.City = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
-            ViewBag.County = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
+            //ViewBag.County = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
             ViewBag.Organ = new SelectList(GetOrganList("-1"), "Value", "Text", "--请选择--");//传空值
 
             return View();
@@ -40,7 +40,7 @@ namespace TTDWeb.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Reg(RegisterModel model)
         {
             if (ModelState.IsValid)
             {
@@ -49,11 +49,14 @@ namespace TTDWeb.Controllers
                 Message.CustomInfo info = new Message.CustomInfo();
 
                 #region 信息类Info赋值
-                info.NickName = model.NickName;
+                info.NickName = "";//model.NickName;
                 info.CellPhone = model.CellPhone;
-                info.Pwd = model.Password;
+                info.Pwd = model.Pwd;
                 info.CustomName = model.CustomName;
-                info.Email = model.Email;
+                info.Email = "";//model.Email;
+                info.Province = model.Province;
+                info.City = model.City;
+                info.OrganID = model.Organ;
 
                 info.Address = "";
                 info.Balance = 0;
@@ -63,9 +66,9 @@ namespace TTDWeb.Controllers
                 info.CertApproveManName = "";
                 info.CertGrade = "";
                 info.CertNum = "";
-                info.CertState = "0";
+                info.CertState = "1";
                 info.CertType = "";
-                info.City = "";
+                
                 info.CreditGradeBorrow = "01";//默认初级
                 info.CreditGradeInvest = "01";//默认初级
                 info.CreditScoreBorrow = 0;
@@ -89,7 +92,7 @@ namespace TTDWeb.Controllers
                 info.PC = "";
                 info.PhotoFileName = "";
                 info.Points = 0;
-                info.Province = "";
+                
 
                 info.PYM = "";
                 info.RegDate = DateTime.Today;
@@ -112,6 +115,13 @@ namespace TTDWeb.Controllers
             }
 
             // 如果我们进行到这一步时某个地方出错，则重新显示表单
+            //读取省级地区列表
+            List<SelectListItem> items = GetRegionList("0", "");
+            SelectList list = new SelectList(items, "Value", "Text", "--请选择--");
+            ViewBag.Province = list;
+            ViewBag.City = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
+            //ViewBag.County = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
+            ViewBag.Organ = new SelectList(GetOrganList("-1"), "Value", "Text", "--请选择--");//传空值
             return View(model);
         }
 
