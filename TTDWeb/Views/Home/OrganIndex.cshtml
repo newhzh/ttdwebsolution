@@ -257,18 +257,18 @@
                                     <label>贷款用途：</label>
                                 </dt>
                                 <dd class="selectDD zindex4">
-                                    <input class="search_input" value="购房贷款" name="type1" type="text" data-val="index" data-dw="" readonly="readonly">
-                                    <input type="hidden" value="1" name="type" id="type" />
+                                    <input class="search_input" value="消费贷款" name="type1" type="text" data-val="index" data-dw="" readonly="readonly">
+                                    <input type="hidden" value="3" name="type" id="type" />
                                     <div class="sidw"></div>
                                     <div class="search_btn search_btn_bg2"></div>
                                     <ul class="search_ul" style="display: none;">
                                         <!-- <li data-txt="不限" data-val="null" data-dw="" class="liover">不限</li> -->
-                                        <li data-txt="企业贷款" data-val="firm" data-dw="" onclick="document.getElementById('type').value=2">企业贷款</li>
-                                        <li data-txt="购车贷款" data-val="car" data-dw="" onclick="document.getElementById('type').value=0">购车贷款</li>
-                                        <li data-txt="购房贷款" data-val="home" data-dw="" onclick="document.getElementById('type').value=1">购房贷款</li>
-                                        <li data-txt="消费贷款" data-val="purchase" data-dw="" onclick="document.getElementById('type').value=3">消费贷款</li>
-                                        <li data-txt="购车保险" data-val="car1" data-dw="" onclick="document.getElementById('type').value=5">购车保险</li>
-                                        <li data-txt="信用卡" data-val="credit" data-dw="" onclick="document.getElementById('type').value=4">信用卡</li>
+                                        <li data-txt="消费贷款" data-val="purchase" data-dw="" onclick="purchase()">消费贷款</li>
+                                        <li data-txt="企业贷款" data-val="firm" data-dw="" onclick="firm()">企业贷款</li>
+                                        <li data-txt="购车贷款" data-val="car" data-dw="" onclick="car()">购车贷款</li>
+                                        <li data-txt="购房贷款" data-val="home" data-dw="" onclick="house()">购房贷款</li>
+                                        <!--   <li data-txt="购车保险" data-val="car1" data-dw="" onclick="document.getElementById('type').value=5">购车保险</li>
+                                        <li data-txt="信用卡" data-val="credit" data-dw="" onclick="document.getElementById('type').value=4">信用卡</li>        -->
                                     </ul>
                                 </dd>
                             </dl>
@@ -277,8 +277,8 @@
                                     <label>贷款金额：</label>
                                 </dt>
                                 <dd class="selectDD zindex3">
-                                    <input class="search_input" value="10" name="money" type="text" maxlength="6" data-type="numDot" data-val="10" data-dw="万元">
-                                    <div class="sidw">万元</div>
+                                    <input class="search_input" value="10" name="money" id="money" type="text" maxlength="6" data-type="numDot" data-val="10" data-dw="万元">
+                                    <div class="sidw" >万元</div>
                                     <div class="search_btn search_btn_bg2"></div>
                                     <ul class="search_ul" style="display: none;">
                                         <li data-txt="3" data-val="3" data-dw="万元" class="">3万元</li>
@@ -296,9 +296,9 @@
                                     <label>贷款期限：</label>
                                 </dt>
                                 <dd class="selectDD zindex2">
-                                    <input class="search_input" name="term1" value="1" type="text" maxlength="6" data-type="num" data-val="1" data-dw="年">
+                                    <input class="search_input" name="term1" id="term1" value="1" type="text" maxlength="6" data-type="num" data-val="1" data-dw="年">
                                     <input type="hidden" value="12" id="term" name="term" />
-                                    <div class="sidw">年</div>
+                                    <div class="sidw" id="sidw">年</div>
                                     <div class="search_btn search_btn_bg2"></div>
                                     <ul class="search_ul" style="display: none;">
                                         <li data-txt="3" data-val="3" data-dw="个月" onclick="document.getElementById('term').value=3">3个月</li>
@@ -361,5 +361,36 @@
         </a>
         <div class="gotop"></div>
     </div>
+    <script type="text/javascript">
+
+        function firm() {
+            document.getElementById('type').value = 2;
+            document.getElementById('money').value = 50;
+            document.getElementById('term1').value = 1;
+            document.getElementById('term').value = 12;
+            document.getElementById('sidw').innerHTML = "年";
+        }
+        function car() {
+            document.getElementById('type').value = 0;
+            document.getElementById('money').value = 15;
+            document.getElementById('term1').value = 2;
+            document.getElementById('term').value = 24;
+            document.getElementById('sidw').innerHTML = "年";
+        }
+        function house() {
+            document.getElementById('type').value = 1;
+            document.getElementById('money').value = 100;
+            document.getElementById('term1').value = 10;
+            document.getElementById('term').value = 120;
+            document.getElementById('sidw').innerHTML = "年";
+        }
+        function purchase() {
+            document.getElementById('type').value = 1;
+            document.getElementById('money').value = 10;
+            document.getElementById('term1').value = 1;
+            document.getElementById('term').value = 12;
+            document.getElementById('sidw').innerHTML = "年";
+        }
+</script>
 </body>
 </html>

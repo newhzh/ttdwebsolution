@@ -638,3 +638,23 @@ span.security-level{float:left;margin-top:3px;width:220px;height:20px;background
 	color:#fff;
 	background:url(../images/menu.png) bottom center no-repeat;
 	}
+.status_btn{
+	position:absolute;
+	width:100px;
+	height:35px;
+	border:1px solid #a4a4a4;
+	color:#282828;
+	background-color:#e9e9e9;
+	cursor:pointer;
+	}
+.status_btn:hover{
+	border:1px solid #91afd9;
+	color:#91afd9;
+	background-color:#e9e9e9;
+	cursor:pointer;
+	}
+.status_btnclick{
+	border:1px solid #91afd9;
+	color:#fff;
+	background-color:#91afd9;
+	}

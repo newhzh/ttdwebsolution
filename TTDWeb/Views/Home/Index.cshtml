@@ -57,25 +57,25 @@
             <img src="../content/images/logo.png" width="183" height="53" style="margin-bottom: 23px;" /><br />
 
             <div class="typewrap">
-                <div class="typewrap2" onclick="document.getElementById('type').value=3" id="typewrap2">
+                <div class="typewrap2" onclick="purchase()" id="typewrap2">
                     <div class="type">
                         <img src="../content/images/buy.png" width="47" height="39"/><br />
                         &nbsp;消费贷款
                     </div>
                 </div>
-                <div class="typewrap2" onclick="document.getElementById('type').value=0">
+                <div class="typewrap2" onclick="car()">
                     <div class="type">
                         <img src="../content/images/car.png" width="47" height="39" /><br />
                         &nbsp;购车贷款
                     </div>
                 </div>
-                <div class="typewrap2" onclick="document.getElementById('type').value=2">
+                <div class="typewrap2" onclick="firm()">
                     <div class="type">
                         <img src="../content/images/factory.png" width="47" height="39" /><br />
                         &nbsp;企业贷款
                     </div>
                 </div>
-                <div class="typewrap2" onclick="document.getElementById('type').value=1">
+                <div class="typewrap2" onclick="house()">
                     <div class="type">
                         <img src="../content/images/house.png" width="47" height="39" /><br />
                         &nbsp;购房贷款
@@ -128,7 +128,7 @@
                             <dd class="selectDD zindex2">
                                 <input class="search_input" name="term1" id="term1" type="text" maxlength="6" data-type="num" data-val="1" data-dw="年" value="1">
                                 <input type="hidden" value="12" id="term" name="term" />
-                                <div class="sidw">年</div>
+                                <div class="sidw" id="sidw">年</div>
                                 <div class="search_btn search_btn_bg2"></div>
                                 <ul class="search_ul" style="display: none;">
                                     <li data-txt="3" data-val="3" data-dw="个月" onclick="document.getElementById('term').value=3">3个月</li>
@@ -170,5 +170,36 @@
     document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F3f8b7ff7755de842c47325666be35920' type='text/javascript'%3E%3C/script%3E"));
 </script>
 </div>
+        <script type="text/javascript">
+
+            function firm() {
+                document.getElementById('type').value = 2;
+                document.getElementById('money').value = 50;
+                document.getElementById('term1').value = 1;
+                document.getElementById('term').value = 12;
+                document.getElementById('sidw').innerHTML = "年";
+            }
+            function car() {
+                document.getElementById('type').value = 0;
+                document.getElementById('money').value = 15;
+                document.getElementById('term1').value = 2;
+                document.getElementById('term').value = 24;
+                document.getElementById('sidw').innerHTML = "年";
+            }
+            function house() {
+                document.getElementById('type').value = 1;
+                document.getElementById('money').value = 100;
+                document.getElementById('term1').value = 10;
+                document.getElementById('term').value = 120;
+                document.getElementById('sidw').innerHTML = "年";
+            }
+            function purchase() {
+                document.getElementById('type').value = 3;
+                document.getElementById('money').value = 10;
+                document.getElementById('term1').value = 1;
+                document.getElementById('term').value = 12;
+                document.getElementById('sidw').innerHTML = "年";
+            }
+</script>
 </body>
 </html>
