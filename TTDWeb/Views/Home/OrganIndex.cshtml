@@ -17,7 +17,7 @@
         $(document).ready(function () {
             $(".productup h1").toggle(function () {
                 $(this).html("收起详情");
-                $(this).next(".container").animate({ height: 268, }, "slow");
+                $(this).next(".container").animate({ height: 285, }, "slow");
             }, function () {
                 $(this).html("展开详情");
                 $(this).next(".container").animate({ height: 0 }, "slow");
@@ -170,14 +170,8 @@
                                     @itemProduct.Memo
                                 </div>
                                 <div class="ct" style="display: none">
-                                    @foreach (var itemCustom in itemProduct.Customs)
-                                    {
-                                        <div>
-                                            <strong>@itemCustom.CustomName</strong><br />
-                                            @itemCustom.OrganName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@itemCustom.OrganID<br />
 
-                                        </div>
-                                    }
+                                   <iframe src="@Url.Action("ProductCustomer", "Home",new { productcode = @itemProduct.ProductCode })" scrolling="no" frameborder="0" width="600" height="200" style="font-size:12px;"></iframe>
 
 
 
