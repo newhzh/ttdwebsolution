@@ -292,6 +292,7 @@ a:hover{
 .numberclick{
 	color:#fff;
 	background-color:#5489d2;
+	border:1px solid #5489d2;
 	padding:15px;
 	padding-top:5px;
 	padding-bottom:5px;
@@ -434,7 +435,7 @@ a:hover{
 .reghref{
 	font-size:18px;
 	padding-left:40px;
-	border-bottom:1px solid #282828;
+	border-bottom:1px solid #e1e1e1;
 	width:861px;
 	margin-left:4px;
 	height:35px;
