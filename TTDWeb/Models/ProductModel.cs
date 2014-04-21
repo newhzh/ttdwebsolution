@@ -67,6 +67,11 @@ namespace TTDWeb.Models
         public string RepaymentType { get; set; }
 
         /// <summary>
+        /// 还款方式（用于显示）
+        /// </summary>
+        public string RepaymentTypeDisplay { get; set; }
+
+        /// <summary>
         /// 额度下限
         /// </summary>
         [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "额度下限必须数值型!")]
@@ -104,7 +109,7 @@ namespace TTDWeb.Models
         [Display(Name = "一次性费用")]
         [Required(ErrorMessage = "一次性费用必填")]
         [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "一次性费用必须数值型!")]
-        public decimal ServerFeeOncee { get; set; }
+        public decimal ServerFeeOnce { get; set; }
 
         /// <summary>
         /// 最快放款时间

@@ -32,6 +32,9 @@ namespace TTDWeb.Controllers
             DA_Adapter da = new DA_Adapter();
 
             string sql1 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," + 
+                          "t1.dMoneyTop,t1.dMoneyBottom,"+
+                          "t1.nTermTop, t1.nTermBottom," +
+                          "t1.nGetLoanDays,"+
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -86,16 +89,25 @@ namespace TTDWeb.Controllers
             p.ProductName = dr["sProductName"].ToString();
             p.OrganID = dr["sOrganID"].ToString();
             p.OrganName = dr["sOrganName"].ToString();
-            p.AnnualRate = Convert.ToDecimal(dr["dAnnualRate"]);
+            p.AnnualRate = dr["dAnnualRate"] is DBNull ? 0m : Convert.ToDecimal(dr["dAnnualRate"]);
             p.AnnualRateDisplay = (p.AnnualRate * 100).ToString("F1") + "%";
+            p.RepaymentType = dr["sRepaymentType"].ToString();
             p.ApplyCondition = dr["sApplyCondition"].ToString();
             p.RequiredFile = dr["sRequiredFile"].ToString();
             p.Memo = dr["sMemo"].ToString();
-            p.Details = dr["sDetails"].ToString();
-            p.RepaymentType = dr["sRepaymentType"].ToString();
+            p.Details = dr["sDetails"].ToString();            
             p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
             p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
             p.Chars = dr["sChars"].ToString();
+
+            //小潮started here
+            p.MoneyTop = dr["dMoneyTop"] is DBNull ? 0m : Convert.ToInt32(dr["dMoneyTop"])/10000;   //便于显示，不知道怎么去掉decimal后面的小数点，所以用了int32
+            p.MoneyBottom = dr["dMoneyBottom"] is DBNull ? 0m : Convert.ToInt32(dr["dMoneyBottom"])/10000;
+            p.TermTop = dr["nTermTop"] is DBNull ? 0 : Convert.ToInt32(dr["nTermTop"]);
+            p.TermBottom = dr["nTermBottom"] is DBNull ? 0 : Convert.ToInt32(dr["nTermBottom"]);
+            p.RepaymentTypeDisplay = DisplayRepaymentType(dr["sRepaymentType"].ToString());
+            p.GetLoanDays = dr["nGetLoanDays"] is DBNull ? 0 : Convert.ToInt32(dr["nGetLoanDays"]);
+            //end here
 
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)
@@ -107,6 +119,20 @@ namespace TTDWeb.Controllers
             }            
             return p;
         }
+
+        //小潮
+        string DisplayRepaymentType(string repaymentType)
+        {
+            string s = "月利清本";
+            switch (repaymentType)
+            {                
+                case "02":
+                    s = "等额本息";
+                    break;
+            }
+            return s;
+        }
+        //end
 
         decimal CalcRepaymentMonthly(string repaymentType, decimal annualRate, decimal money, int term)
         {
