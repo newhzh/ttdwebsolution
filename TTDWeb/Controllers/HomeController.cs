@@ -108,7 +108,7 @@ namespace TTDWeb.Controllers
             p.RepaymentTypeDisplay = DisplayRepaymentType(dr["sRepaymentType"].ToString());
             p.GetLoanDays = dr["nGetLoanDays"] is DBNull ? 0 : Convert.ToInt32(dr["nGetLoanDays"]);
             //end here
-
+            
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)
             {
