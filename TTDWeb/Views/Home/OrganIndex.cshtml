@@ -158,16 +158,16 @@
 <div><div style="width:190px; float:left;">期限：&nbsp;&nbsp;&nbsp;&nbsp;12月</div>期限范围：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.TermBottom ～ @itemProduct.TermTop 个月</div>
 <div><div style="width:190px; float:left;">月供：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.RepaymentMonthly 元</div>还款方式：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.RepaymentTypeDisplay </div>
 <div><div style="width:190px; float:left;">总费用：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.TotalFeeDisplay 万元</div>放款时间：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.GetLoanDays 天</div>
-<div><div style="width:190px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.FeesDetail </div></div>
+<div><div style="width:250px; float:left;">费用说明：&nbsp;&nbsp;&nbsp;&nbsp;@itemProduct.FeesDetail </div></div>
                                 </div>
                                 <div class="ct" style="display: none">
-                                    @itemProduct.ApplyCondition
+                                    @Html.Raw(@itemProduct.ApplyCondition)
                                 </div>
                                 <div class="ct" style="display: none">
-                                    @itemProduct.RequiredFile
+                                    @Html.Raw(@itemProduct.RequiredFile)
                                 </div>
                                 <div class="ct" style="display: none">
-                                    @itemProduct.Memo
+                                    @Html.Raw(@itemProduct.Memo)
                                 </div>
                                 <div class="ct" style="display: none">
 
