@@ -34,7 +34,7 @@ namespace TTDWeb.Controllers
             string sql1 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," + 
                           "t1.dMoneyTop,t1.dMoneyBottom,"+
                           "t1.nTermTop, t1.nTermBottom," +
-                          "t1.nGetLoanDays,"+
+                          "t1.nGetLoanDays,t1.dServerFeeOnce,t1.dServerFeeMonthly," +
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
@@ -107,8 +107,13 @@ namespace TTDWeb.Controllers
             p.TermBottom = dr["nTermBottom"] is DBNull ? 0 : Convert.ToInt32(dr["nTermBottom"]);
             p.RepaymentTypeDisplay = DisplayRepaymentType(dr["sRepaymentType"].ToString());
             p.GetLoanDays = dr["nGetLoanDays"] is DBNull ? 0 : Convert.ToInt32(dr["nGetLoanDays"]);
-            //end here
+            p.ServerFeeMonthly = dr["dServerFeeMonthly"] is DBNull ? 0m : Convert.ToDecimal(dr["dServerFeeMonthly"]);
+            p.ServerFeeOnce = dr["dServerFeeOnce"] is DBNull ? 0m : Convert.ToDecimal(dr["dServerFeeOnce"]);
+            p.TotalFeeDisplay = TotalFee(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate, money, term).ToString("F2");
+            p.FeesDetail = Feesdetail(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate);
             
+            //end here
+           
             CustomModel c;
             foreach (DataRow drCustom in listCustomRows)
             {
@@ -118,6 +123,32 @@ namespace TTDWeb.Controllers
                 p.Customs.Add(c);              
             }            
             return p;
+        }
+
+        string Feesdetail (decimal ServerFeeOnce, decimal ServerFeeMonthly, decimal annualRate)
+        {
+            string a = "", b = "", c = "";
+            if (ServerFeeOnce != 0) 
+            {
+                a = "一次性费用" + (ServerFeeOnce * 100).ToString("F1") + "% "; 
+            }
+            if (ServerFeeMonthly != 0) 
+            {
+                b = "月服务费" + (ServerFeeMonthly * 100).ToString("F1") + "% "; 
+            }
+            if (annualRate != 0) 
+            {
+                c = "月利率" +  ((annualRate / 12) * 100).ToString("F1") + "%"; 
+            }
+            return a + b + c;
+        }
+
+        decimal  TotalFee(decimal ServerFeeOnce, decimal ServerFeeMonthly, decimal annualRate, decimal money, int term)
+        {
+
+            decimal sumTotal = money * (ServerFeeOnce + (ServerFeeMonthly + (annualRate / 12)) * term) / 10000;            
+            return sumTotal;
+
         }
 
         //小潮
@@ -995,6 +1026,9 @@ namespace TTDWeb.Controllers
                           "isnull((select count(1) from t_applyrecord t10,t_product t20 where t10.sproductcode=t20.sproductcode and t10.sCaseState='2' and t20.sOrganID=t1.sOrganID),0) as HandledCount "+
                           " from t_foreignorgan t1 where sorganid='" + organid + "'";
             string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," +
+                          "t1.dMoneyTop,t1.dMoneyBottom," +
+                          "t1.nTermTop, t1.nTermBottom," +
+                          "t1.nGetLoanDays,t1.dServerFeeOnce,t1.dServerFeeMonthly," +         
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
                           " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID" +

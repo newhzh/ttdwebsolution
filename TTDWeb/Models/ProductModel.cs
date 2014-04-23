@@ -112,6 +112,16 @@ namespace TTDWeb.Models
         public decimal ServerFeeOnce { get; set; }
 
         /// <summary>
+        /// 总费用（用于显示）
+        /// </summary>
+        public string TotalFeeDisplay { get; set; }
+
+        /// <summary>
+        /// 费用说明（用于显示）
+        /// </summary>
+        public string FeesDetail { get; set; }
+
+        /// <summary>
         /// 最快放款时间
         /// </summary>
         [Display(Name = "最快放款时间")]
