@@ -34,8 +34,8 @@
             </ul>
             <div class="content">
                 <div class="ct" style="margin-left:10px; line-height:30px;">
-<div><div style="width:190px; float:left;"><strong>金额：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div><strong>额度范围：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.MoneyBottom ～ @Model.MoneyTop 万元</div>
-<div><div style="width:190px; float:left;"><strong>期限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;12月</div><strong>期限范围：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.TermBottom ～ @Model.TermTop 个月</div>
+<div><div style="width:190px; float:left;"><strong>金额：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@ViewBag.money 万元</div><strong>额度范围：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.MoneyBottom ～ @Model.MoneyTop 万元</div>
+<div><div style="width:190px; float:left;"><strong>期限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@ViewBag.term 个月</div><strong>期限范围：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.TermBottom ～ @Model.TermTop 个月</div>
 <div><div style="width:190px; float:left;"><strong>月供：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.RepaymentMonthly 元</div><strong>还款方式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.RepaymentTypeDisplay </div>
 <div><div style="width:190px; float:left;"><strong>总费用：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.TotalFeeDisplay 万元</div><strong>放款时间：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.GetLoanDays 天 </div>
 <div><div style="width:350px; float:left;"><strong>费用说明：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@Model.FeesDetail </div></div>
