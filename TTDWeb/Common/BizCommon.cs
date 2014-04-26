@@ -304,5 +304,113 @@ namespace TTDWeb.Common
         }
         #endregion
 
+        #region 产品转换函数
+        public static ProductModel Convert2Product(DataRow dr, DataRow[] listCustomRows, decimal money, int term)
+        {
+            ProductModel p;
+            p = new ProductModel();
+            p.ProductCode = dr["sProductCode"].ToString();
+            p.ProductType = dr["sProductType"].ToString();
+            p.ProductName = dr["sProductName"].ToString();
+            p.OrganID = dr["sOrganID"].ToString();
+            p.OrganName = dr["sOrganName"].ToString();
+            p.AnnualRate = dr["dAnnualRate"] is DBNull ? 0m : Convert.ToDecimal(dr["dAnnualRate"]);
+            p.AnnualRateDisplay = (p.AnnualRate * 100).ToString("F1") + "%";
+            p.RepaymentType = dr["sRepaymentType"].ToString();
+            p.ApplyCondition = dr["sApplyCondition"].ToString();
+            p.RequiredFile = dr["sRequiredFile"].ToString();
+            p.Memo = dr["sMemo"].ToString();
+            p.Details = dr["sDetails"].ToString();
+            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
+            p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
+            p.Chars = dr["sChars"].ToString();
+
+            //小潮started here
+            p.MoneyTop = dr["dMoneyTop"] is DBNull ? 0m : Convert.ToInt32(dr["dMoneyTop"]) / 10000;   //便于显示，不知道怎么去掉decimal后面的小数点，所以用了int32
+            p.MoneyBottom = dr["dMoneyBottom"] is DBNull ? 0m : Convert.ToInt32(dr["dMoneyBottom"]) / 10000;
+            p.TermTop = dr["nTermTop"] is DBNull ? 0 : Convert.ToInt32(dr["nTermTop"]);
+            p.TermBottom = dr["nTermBottom"] is DBNull ? 0 : Convert.ToInt32(dr["nTermBottom"]);
+            p.RepaymentTypeDisplay = DisplayRepaymentType(dr["sRepaymentType"].ToString());
+            p.GetLoanDays = dr["nGetLoanDays"] is DBNull ? 0 : Convert.ToInt32(dr["nGetLoanDays"]);
+            p.ServerFeeMonthly = dr["dServerFeeMonthly"] is DBNull ? 0m : Convert.ToDecimal(dr["dServerFeeMonthly"]);
+            p.ServerFeeOnce = dr["dServerFeeOnce"] is DBNull ? 0m : Convert.ToDecimal(dr["dServerFeeOnce"]);
+            p.TotalFeeDisplay = TotalFee(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate, money, term).ToString("F2");
+            p.FeesDetail = Feesdetail(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate);
+
+            //end here
+
+            CustomModel c;
+            foreach (DataRow drCustom in listCustomRows)
+            {
+                c = new CustomModel();
+                c.CustomName = drCustom["sCustomName"].ToString();
+                c.OrganName = drCustom["sOrganName"].ToString();
+                p.Customs.Add(c);
+            }
+            return p;
+        }
+
+        static string Feesdetail(decimal ServerFeeOnce, decimal ServerFeeMonthly, decimal annualRate)
+        {
+            string a = "", b = "", c = "";
+            if (ServerFeeOnce != 0)
+            {
+                a = "一次性费用" + (ServerFeeOnce * 100).ToString("F1") + "% ";
+            }
+            if (ServerFeeMonthly != 0)
+            {
+                b = "月服务费" + (ServerFeeMonthly * 100).ToString("F1") + "% ";
+            }
+            if (annualRate != 0)
+            {
+                c = "月利率" + ((annualRate / 12) * 100).ToString("F1") + "%";
+            }
+            return a + b + c;
+        }
+
+        static decimal TotalFee(decimal ServerFeeOnce, decimal ServerFeeMonthly, decimal annualRate, decimal money, int term)
+        {
+
+            decimal sumTotal = money * (ServerFeeOnce + (ServerFeeMonthly + (annualRate / 12)) * term) / 10000;
+            return sumTotal;
+
+        }
+
+        //小潮
+        static string DisplayRepaymentType(string repaymentType)
+        {
+            string s = "月利清本";
+            switch (repaymentType)
+            {
+                case "02":
+                    s = "等额本息";
+                    break;
+            }
+            return s;
+        }
+        //end
+
+        static decimal CalcRepaymentMonthly(string repaymentType, decimal annualRate, decimal money, int term)
+        {
+            decimal sumMonth = 0, moneyCap = 0, moneyAcc = 0, moneyBalance = 0;
+            decimal monthlyRate = annualRate / 12;
+            switch (repaymentType)
+            {
+                case "01":  //月利清本
+                    Message.FunctionCommon.BorrowRateCalc_03(false, money, money, monthlyRate, term,
+                                                             ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                    break;
+                case "02":  //等额本息
+                    Message.FunctionCommon.BorrowRateCalc_01(money, money, monthlyRate, term,
+                                                            ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                    break;
+                default:
+                    break;
+            }
+
+            return sumMonth;
+        }
+        #endregion
+
     }
 }

@@ -396,11 +396,107 @@ namespace TTDWeb.Controllers
 
         #endregion
 
-        #region 信贷经理·我发布的产品
+        #region 信贷经理·个人主页
 
         public ActionResult MyProducts()
         {
-            return View();
+            if (Session["loginedcustom"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            Message.CustomInfo loginUser = Session["loginedcustom"] as Message.CustomInfo;
+            string sql1 = "select t1.sEmail,t1.sCustomName,t1.sCertState,t1.sSex,t1.dtBirthday,t1.sCellPhone,t1.sOrganID,t1.sWorkYears, " +
+                "t2.sOrganName,t2.sAddress "+
+                " from t_custom t1 ";
+            string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," +
+                          "t1.dMoneyTop,t1.dMoneyBottom," +
+                          "t1.nTermTop, t1.nTermBottom," +
+                          "t1.nGetLoanDays,t1.dServerFeeOnce,t1.dServerFeeMonthly," +
+                          " t2.sOrganName, t2.sLogo" +
+                          " from T_Product t1" +
+                          " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID" +
+                          " where t1.sOrganID='" + loginUser.OrganID + "'";
+            string sql3 = "select t1.*," +
+                "t2.aaa103 as sProductTypeName " +
+                " from t_applyrecord t1 " +
+                " left join aa10 t2 on t1.sProductType=t2.aaa102 and t2.aaa100='sProductType'" +
+                " inner join t_product t3 on t1.sProductCode=t3.sProductCode and t3.sOrganID='" + loginUser.OrganID + "'";
+            
+            DA_Adapter da = new DA_Adapter();
+            DataSet ds = new DataSet();
+            string err = "";
+            da.Common_Query_MultiTable(ref ds, sql1, "T_Custom", sql2, "T_Product", sql3, "T_ApplyRecord", ref err);
+
+            DataRow drCustom = ds.Tables["T_Custom"].Rows[0];
+            CustomModel m = new CustomModel();
+            m.CellPhone = drCustom["sCellPhone"].ToString();
+            m.CustomID = loginUser.CustomID;
+            m.CustomName = drCustom["sCustomName"].ToString();
+            m.DateOfBirth =drCustom["dtBirthday"] is DBNull ? "": Convert.ToDateTime(drCustom["dtBirthday"]).ToString("yyyy-MM-dd");
+            m.Email = drCustom["sEmail"].ToString();
+            m.Occupation = "";
+            m.OrganAddress = drCustom["sAddress"].ToString();
+            m.OrganID = drCustom["sOrganID"].ToString();
+            m.OrganName = drCustom["sOrganName"].ToString();
+            m.Sex = drCustom["sSex"].ToString();
+            m.WorkingAge = drCustom["sWorkYears"].ToString();
+
+            #region 加载产品列表
+            DataRow[] listCustomRows;
+            ProductModel p;
+            decimal dYuanMoney = 100000;
+            int term = 12;
+            foreach (DataRow drProduct in ds.Tables["T_Product"].Rows)
+            {
+                listCustomRows = ds.Tables["T_Custom"].Select("sOrganID='" + drCustom["sOrganID"].ToString() + "'");
+                p = BizCommon.Convert2Product(drProduct, listCustomRows, dYuanMoney, term);
+                m.ProductList.Add(p);//未分页显示。
+            }
+
+            #endregion
+
+            #region 加载申请列表
+
+            ApplyingRecord apply;
+            foreach (DataRow drApply in ds.Tables["T_ApplyRecord"].Rows)
+            {
+                apply = new ApplyingRecord();
+                apply.CarCustomerMonthlySalary = drApply["dCarCustomerMonthlySalary"] is DBNull ? 0 : Convert.ToDecimal(drApply["dCarCustomerMonthlySalary"]);
+                apply.CarProperty = drApply["sCarProperty"] is DBNull ? "" : drApply["sCarProperty"].ToString();
+                apply.CarPurchasingPeriod = drApply["sCarPurchasingPeriod"] is DBNull ? "" : drApply["sCarPurchasingPeriod"].ToString();
+                apply.CaseState = drApply["sCaseState"] is DBNull ? "" : drApply["sCaseState"].ToString();
+                apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
+                apply.CustomerEmail = drApply["sCustomerEmail"] is DBNull ? "" : drApply["sCustomerEmail"].ToString();
+                apply.CustomerName = drApply["sCustomerName"] is DBNull ? "" : drApply["sCustomerName"].ToString();
+                apply.CustomerPhone = drApply["sCustomerPhone"] is DBNull ? "" : drApply["sCustomerPhone"].ToString();
+                apply.FirmAccountBill = drApply["dFirmAccountBill"] is DBNull ? 0 : Convert.ToDecimal(drApply["dFirmAccountBill"]);
+                apply.FirmAge = drApply["sFirmAge"] is DBNull ? "" : drApply["sFirmAge"].ToString();
+                apply.FirmProperty = drApply["sFirmProperty"] is DBNull ? "" : drApply["sFirmProperty"].ToString();
+                apply.FirmType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.HouseIncome = drApply["sHouseIncome"] is DBNull ? "" : drApply["sHouseIncome"].ToString();
+                apply.HouseLocalorNot = drApply["sHouseLocalorNot"] is DBNull ? "" : drApply["sHouseLocalorNot"].ToString();
+                apply.HouseNew = drApply["sHouseNew"] is DBNull ? "" : drApply["sHouseNew"].ToString();
+                apply.HouseType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.PerslCardNo = drApply["sPerslCardNo"] is DBNull ? "" : drApply["sPerslCardNo"].ToString();
+                apply.PerslCreditAllowance = drApply["sPerslCreditAllowance"] is DBNull ? "" : drApply["sPerslCreditAllowance"].ToString();
+                apply.PerslCreditDue = drApply["sPerslCreditDue"] is DBNull ? "" : drApply["sPerslCreditDue"].ToString();
+                apply.PerslCreditOwner = drApply["sPerslCreditOwner"] is DBNull ? "" : drApply["sPerslCreditOwner"].ToString();
+                apply.PerslEmployment = drApply["sPerslEmployment"] is DBNull ? "" : drApply["sPerslEmployment"].ToString();
+                apply.PerslLoan = drApply["sPerslLoan"] is DBNull ? "" : drApply["sPerslLoan"].ToString();
+                apply.PerslLoanDue = drApply["sPerslLoanDue"] is DBNull ? "" : drApply["sPerslLoanDue"].ToString();
+                apply.PerslLoanSucc = drApply["sPerslLoanSucc"] is DBNull ? "" : drApply["sPerslLoanSucc"].ToString();
+                apply.PerslSalaryType = drApply["sPerslSalaryType"] is DBNull ? "" : drApply["sPerslSalaryType"].ToString();
+                apply.PerslWorkingAge = drApply["sPerslWorkingAge"] is DBNull ? "" : drApply["sPerslWorkingAge"].ToString();
+                apply.PerslYoBirth = drApply["sPerslYoBirth"] is DBNull ? "" : drApply["sPerslYoBirth"].ToString();
+                apply.ProductCode = drApply["sProductCode"] is DBNull ? "" : drApply["sProductCode"].ToString();
+                apply.ProductType = drApply["sProductType"] is DBNull ? "" : drApply["sProductType"].ToString();
+
+                m.ApplyingRecordList.Add(apply);
+            }
+
+            #endregion
+
+            return View(m);
         }
 
         #endregion
