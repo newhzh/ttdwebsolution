@@ -50,8 +50,15 @@
 <body>
     <div class="bg"></div>
     <div style="background: url(../content/images/topbg.png) repeat; width: 100%; height: 22px;">
+        @if (Session["loginedcustom"] != null)
+        {
+    <div class="denglu"><a href="@Url.Action("MyProducts", "Account")" style="margin-right:10px;">您好，@User.Identity.Name</a>|<a href="@Url.Action("LogOff", "Account")" style="margin-left:10px;">退出</a></div>
+        }
+        else
+        {
         <div class="denglu"><a href="@Url.Action("Productlist", "Home", new { type = 3, money = 10, term = 12 })" style="margin-right: 10px;">随便逛逛</a>|<a href="@Url.Action("Login", "Account")" style="margin-left:10px;">信贷经理登录</a></div>
-    </div>
+        }
+             </div>
     <div class="bodycontent" style="text-align: center; padding-top: 27px; width: 700px; height: 330px; min-height: 0">
         <div style="top: 50%; margin-top: -200px; position: absolute; width: 690px;">
             <img src="../content/images/logo.png" width="183" height="53" style="margin-bottom: 23px;" /><br />

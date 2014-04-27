@@ -1,0 +1,9 @@
+﻿
+
+@if (Session["loginedcustom"] != null)
+{
+    <div class="denglu" style="width: 950px;">客服热线：400-0000-000<a href="@Url.Action("MyProducts", "Account")" style="margin-right:10px; margin-left:35px;">您好，@User.Identity.Name</a>|<a href="@Url.Action("LogOff", "Account")" style="margin-left:10px;">退出</a></div>
+}
+else {
+    <div class="denglu" style="width: 950px;">客服热线：400-0000-000<a href="@Url.Action("Reg", "Account")" style="margin-right:10px; margin-left:35px;">注册</a>|<a href="@Url.Action("Login", "Account")" style="margin-left:10px;">信贷经理登录</a></div>
+}
