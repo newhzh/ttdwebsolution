@@ -407,7 +407,9 @@ namespace TTDWeb.Controllers
             Message.CustomInfo loginUser = Session["loginedcustom"] as Message.CustomInfo;
             string sql1 = "select t1.sEmail,t1.sCustomName,t1.sCertState,t1.sSex,t1.dtBirthday,t1.sCellPhone,t1.sOrganID,t1.sWorkYears, " +
                 "t2.sOrganName,t2.sAddress "+
-                " from t_custom t1 ";
+                " from t_custom t1 "+
+                " left join t_foreignorgan t2 on t1.sorganid=t2.sorganid "+
+                " where t1.sCustomID='"+ loginUser.CustomID + "'" ;
             string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," +
                           "t1.dMoneyTop,t1.dMoneyBottom," +
                           "t1.nTermTop, t1.nTermBottom," +
@@ -429,17 +431,21 @@ namespace TTDWeb.Controllers
 
             DataRow drCustom = ds.Tables["T_Custom"].Rows[0];
             CustomModel m = new CustomModel();
-            m.CellPhone = drCustom["sCellPhone"].ToString();
+
+           
+            m.CellPhone = drCustom["sCellPhone"] is DBNull ? "" : drCustom["sCellPhone"].ToString();                
             m.CustomID = loginUser.CustomID;
-            m.CustomName = drCustom["sCustomName"].ToString();
+            m.CustomName = drCustom["sCustomName"] is DBNull ? "" : drCustom["sCustomName"].ToString();
+            m.CertState = drCustom["sCertState"] is DBNull ? "" : drCustom["sCertState"].ToString(); 
             m.DateOfBirth =drCustom["dtBirthday"] is DBNull ? "": Convert.ToDateTime(drCustom["dtBirthday"]).ToString("yyyy-MM-dd");
-            m.Email = drCustom["sEmail"].ToString();
+            m.Email = drCustom["sEmail"] is DBNull ? "" : drCustom["sEmail"].ToString();                
             m.Occupation = "";
-            m.OrganAddress = drCustom["sAddress"].ToString();
-            m.OrganID = drCustom["sOrganID"].ToString();
-            m.OrganName = drCustom["sOrganName"].ToString();
-            m.Sex = drCustom["sSex"].ToString();
-            m.WorkingAge = drCustom["sWorkYears"].ToString();
+            m.OrganAddress = drCustom["sAddress"] is DBNull ? "" : drCustom["sAddress"].ToString();           
+            m.OrganID = drCustom["sOrganID"] is DBNull ? "" : drCustom["sOrganID"].ToString();    
+            m.OrganName = drCustom["sOrganName"] is DBNull ? "" : drCustom["sOrganName"].ToString();
+            m.Sex = drCustom["sSex"] is DBNull ? "" : drCustom["sSex"].ToString();
+            m.WorkingAge = drCustom["sWorkYears"] is DBNull ? "" : drCustom["sWorkYears"].ToString();
+            
 
             #region 加载产品列表
             DataRow[] listCustomRows;

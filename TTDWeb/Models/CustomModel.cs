@@ -74,5 +74,11 @@ namespace TTDWeb.Models
         /// </summary>
         public string WorkingAge { get; set; }
 
+        /// <summary>
+        /// 认证状态
+        /// </summary>
+        public string CertState { get; set; }
+        
+
     }
 }
