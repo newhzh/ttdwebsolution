@@ -1,4 +1,6 @@
-﻿@{
+﻿@model  TTDWeb.Models.CustomModel
+
+@{
     Layout = null;
 }
 
@@ -47,16 +49,16 @@
 </div>
 
 <div class="homeinf" style="padding-bottom:20px; line-height:35px;">
-<div class="infotitle">姓名</div><div class="infocontent">姓名</div>
-<div class="infotitle">性别</div><div class="infocontent">性别</div>
-<div class="infotitle">出生年月</div><div class="infocontent">出生年月</div>
-<div class="infotitle">所在地</div><div class="infocontent">所在地</div>
-<div class="infotitle">手机号码</div><div class="infocontent">手机号码</div>
-<div class="infotitle">邮箱</div><div class="infocontent">邮箱</div>
-<div class="infotitle">单位地址</div><div class="infocontent">单位地址</div>
-<div class="infotitle">公司名称</div><div class="infocontent">公司名称</div>
-<div class="infotitle">工作职位</div><div class="infocontent">工作职位</div>
-<div class="infotitle">工作年限</div><div class="infocontent">工作年限</div>
+<div class="infotitle">姓名</div><div class="infocontent">@Model.CustomName</div>
+<div class="infotitle">性别</div><div class="infocontent">@Model.Sex</div>
+<div class="infotitle">出生年月</div><div class="infocontent">@Model.DateOfBirth</div>
+<div class="infotitle">所在地</div><div class="infocontent"></div>
+<div class="infotitle">手机号码</div><div class="infocontent">@Model.CellPhone</div>
+<div class="infotitle">邮箱</div><div class="infocontent">@Model.Email</div>
+<div class="infotitle">单位地址</div><div class="infocontent">@Model.OrganAddress</div>
+<div class="infotitle">公司名称</div><div class="infocontent">@Model.OrganName</div>
+<div class="infotitle">工作职位</div><div class="infocontent">@Model.Occupation</div>
+<div class="infotitle">工作年限</div><div class="infocontent">@Model.WorkingAge</div>
 <div class="infotitle">本行业工作年限</div><div class="infocontent">本行业工作年限</div>
 </div>
 

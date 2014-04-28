@@ -1,4 +1,6 @@
-﻿@{
+﻿@model  TTDWeb.Models.CustomModel
+
+@{
     Layout = null;
 }
 
@@ -124,6 +126,8 @@
 </div>
 <div style="clear:both;"></div>
 
+@foreach (var itemProduct in Model.ApplyingRecordList)
+{
 <!--list start-->
 <div class="productup" style="background:url(../content/images/bglist2.png) left top no-repeat; padding-bottom:0; padding-top:8px;">
 <div style="float:left; width:250px; margin-top:2px;"><img src="../content/images/head.png" width="26" height="26" style="float:left; margin-right:20px;"/><span style="font-size:18px;">某某某</span></div>
@@ -155,107 +159,9 @@
 <!--container end-->
 </div>
 <!--list end-->
+}
 
 
-
-<!--list start-->
-<div class="productup" style="background:url(../content/images/bglist2.png) left top no-repeat; padding-bottom:0; padding-top:8px;">
-<div style="float:left; width:250px; margin-top:2px;"><img src="../content/images/head.png" width="26" height="26" style="float:left; margin-right:20px;"/><span style="font-size:18px;">某某某</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">消费贷款</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">13333333333</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">2014.01.01</span></div>
-<h1 class="look" style="margin-top:0px; margin-bottom:7px;">展开详情</h1>
-
-<div class="container" style="margin-top:0px;padding-left:15px; padding-bottom:0;">
-<div style="border-bottom:2px solid #bebebe; padding-top:20px; padding-left:20px; padding-bottom:5px; width:800px;"><strong>申请人资质详情</strong></div>
-<div style="padding-left:20px; padding-top:10px; line-height:30px; font-size:12px;">
-
-<div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>每月银行卡工资：</strong>&nbsp;&nbsp;&nbsp;&nbsp;2万元</div>
-<strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.00 万元</div>
-
-<div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;12月</div>
-<div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;3年</div>
-<strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;400万元</div>
-
-<div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>是否有信用卡：</strong>&nbsp;&nbsp;&nbsp;&nbsp;有，额度20000元</div>
-<strong>是否有负债（贷款）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.0 万元</div>
-
-</div>
-
-<iframe src="@Url.Action("OrderEdit", "Account")" scrolling="no" frameborder="0" width="850" height="80"></iframe>
-</div>
-<!--container end-->
-</div>
-<!--list end-->
-
-
-
-        <!--list start-->
-<div class="productup" style="background:url(../content/images/bglist2.png) left top no-repeat; padding-bottom:0; padding-top:8px;">
-<div style="float:left; width:250px; margin-top:2px;"><img src="../content/images/head.png" width="26" height="26" style="float:left; margin-right:20px;"/><span style="font-size:18px;">某某某</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">消费贷款</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">13333333333</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">2014.01.01</span></div>
-<h1 class="look" style="margin-top:0px; margin-bottom:7px;">展开详情</h1>
-
-<div class="container" style="margin-top:0px;padding-left:15px; padding-bottom:0;">
-<div style="border-bottom:2px solid #bebebe; padding-top:20px; padding-left:20px; padding-bottom:5px; width:800px;"><strong>申请人资质详情</strong></div>
-<div style="padding-left:20px; padding-top:10px; line-height:30px; font-size:12px;">
-
-<div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>每月银行卡工资：</strong>&nbsp;&nbsp;&nbsp;&nbsp;2万元</div>
-<strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.00 万元</div>
-
-<div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;12月</div>
-<div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;3年</div>
-<strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;400万元</div>
-
-<div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>是否有信用卡：</strong>&nbsp;&nbsp;&nbsp;&nbsp;有，额度20000元</div>
-<strong>是否有负债（贷款）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.00 万元</div>
-
-</div>
-
-<iframe src="@Url.Action("OrderEdit", "Account")" scrolling="no" frameborder="0" width="850" height="80"></iframe>
-</div>
-<!--container end-->
-</div>
-<!--list end-->
-
-
-        <!--list start-->
-<div class="productup" style="background:url(../content/images/bglist2.png) left top no-repeat; padding-bottom:0; padding-top:8px;">
-<div style="float:left; width:250px; margin-top:2px;"><img src="../content/images/head.png" width="26" height="26" style="float:left; margin-right:20px;"/><span style="font-size:18px;">某某某</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">消费贷款</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">13333333333</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">2014.01.01</span></div>
-<h1 class="look" style="margin-top:0px; margin-bottom:7px;">展开详情</h1>
-
-<div class="container" style="margin-top:0px;padding-left:15px; padding-bottom:0;">
-<div style="border-bottom:2px solid #bebebe; padding-top:20px; padding-left:20px; padding-bottom:5px; width:800px;"><strong>申请人资质详情</strong></div>
-<div style="padding-left:20px; padding-top:10px; line-height:30px; font-size:12px;">
-
-<div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>每月银行卡工资：</strong>&nbsp;&nbsp;&nbsp;&nbsp;2万元</div>
-<strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.00 万元</div>
-
-<div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;12月</div>
-<div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;3年</div>
-<strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;400万元</div>
-
-<div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;10万元</div>
-<div style="width:270px; float:left;"><strong>是否有信用卡：</strong>&nbsp;&nbsp;&nbsp;&nbsp;有，额度20000元</div>
-<strong>是否有负债（贷款）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;30.00 万元</div>
-
-</div>
-
-<iframe src="@Url.Action("OrderEdit", "Account")" scrolling="no" frameborder="0" width="850" height="80"></iframe>
-</div>
-<!--container end-->
-</div>
-<!--list end-->
 
 
 
