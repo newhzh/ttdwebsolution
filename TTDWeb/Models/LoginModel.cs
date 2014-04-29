@@ -8,11 +8,11 @@ namespace TTDWeb.Models
 {
     public class LoginModel
     {
-        [Required]
+        [Required(ErrorMessage = "请填入手机号码")]
         [Display(Name = "帐号")]
         public string UserName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "请填入密码")]
         [DataType(DataType.Password)]
         [Display(Name = "密码")]
         public string Password { get; set; }
