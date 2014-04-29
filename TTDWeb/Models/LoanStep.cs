@@ -21,8 +21,9 @@ namespace TTDWeb.Models
         /// <summary>
         /// 车贷-月打卡工资
         /// </summary>
+        [Required(ErrorMessage = "月打卡工资必填")]
         [Display(Name = "车贷-月打卡工资")]
-        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
+        ///[RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
         public decimal CarCustomerMonthlySalary { get; set; }
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 房贷-月收入
         /// </summary>
-        [Required(ErrorMessage = "房贷-月收入")]
+        [Required(ErrorMessage = "房贷-月收入必填")]
         [Display(Name = "房贷-月收入")]
         public string HouseIncome { get; set; }
 
@@ -141,8 +142,9 @@ namespace TTDWeb.Models
         /// <summary>
         /// 企业-流水
         /// </summary>
+        [Required(ErrorMessage = "企业-流水必填")]
         [Display(Name = "企业-流水")]
-        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
+        ///[RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
         public decimal FirmAccountBill { get; set; }
 
         /// <summary>
@@ -198,28 +200,28 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-雇佣
         /// </summary>
-        [Required(ErrorMessage = "个人-雇佣称必填")]
+        [Required(ErrorMessage = "雇佣称必填")]
         [Display(Name = "个人-雇佣")]
         public string PerslEmployment { get; set; }
 
         /// <summary>
         /// 个人-出生年份
         /// </summary>
-        [Required(ErrorMessage = "个人-出生年份必填")]
+        [Required(ErrorMessage = "出生年份必填")]
         [Display(Name = "个人-出生年份")]
         public string PerslYoBirth { get; set; }
 
         /// <summary>
         /// 个人-工资形式
         /// </summary>
-        [Required(ErrorMessage = "融资方名称个人-工资形式必填")]
+        [Required(ErrorMessage = "工资形式必填")]
         [Display(Name = "个人-工资形式")]
         public string PerslSalaryType { get; set; }
 
         /// <summary>
         /// 个人-工作时间
         /// </summary>
-        [Required(ErrorMessage = "个人-工作时间必填")]
+        [Required(ErrorMessage = "工作时间必填")]
         [Display(Name = "个人-工作时间")]
         public string PerslWorkingAge { get; set; }
     }

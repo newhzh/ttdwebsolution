@@ -10,7 +10,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Carloan1</title>
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+    <link href="~/content/Site.css" rel="stylesheet" type="text/css" media="screen" />
     <style type="text/css">
         body
         {
@@ -22,7 +25,8 @@
 </head>
 <body>
     <div style="width: 650px; text-align: center; margin-top: 30px; margin-bottom: 30px;">
-        <img src="../content/images/apply1.png" width="573" height="44" /></div>
+        <img src="../content/images/apply1.png" width="573" height="44" />
+    </div>
     <div style="background-color: #f7f7f7; padding-left: 100px; padding-top: 35px; height: 600px;">
         @using (Html.BeginForm("Purchaseloan1", "Home", FormMethod.Post))
         {
@@ -33,16 +37,25 @@
             @Html.ValidationMessageFor(m => m.PerslEmployment)
             <br />
             <br />
-            <div class="inputtitle">您的出生年份：</div>@Html.TextBoxFor(m => m.PerslYoBirth, new { placeholder = "如：1990", @class = "inputtext", style = "background:url(../content/images/time1.png) 235px center no-repeat;" })<br />
+            <div class="inputtitle">您的出生年份：</div>
+            @Html.TextBoxFor(m => m.PerslYoBirth, new { placeholder = "如：1990", @class = "inputtext", style = "background:url(../content/images/time1.png) 235px center no-repeat;" })
+            @Html.ValidationMessageFor(m => m.PerslYoBirth)
+            <br />
+             
             <br />
             <div class="inputtitle">工资发放形式：</div>
             @Html.DropDownList("PerslSalaryType", (SelectList)ViewBag.PerslSalaryType, new { @class = "inputtext", style = "width:256px; background:url(../content/images/select.png) 235px center no-repeat;" })   
             @Html.ValidationMessageFor(m => m.PerslSalaryType)
             <br />
             <br />
-            <div class="inputtitle">每月打入银行卡的工资：</div>@Html.TextBoxFor(m => m.PerslSalaryType, new { placeholder = "请输入数字，如：5000", @class = "inputtext", style = "background:url(../content/images/yuan.png) 235px center no-repeat;" })<br />
+            <div class="inputtitle">每月打入银行卡的工资：</div>
+            @Html.TextBoxFor(m => m.PerslSalaryType, new { placeholder = "请输入数字，如：5000", @class = "inputtext", style = "background:url(../content/images/yuan.png) 235px center no-repeat;" })
+            @Html.ValidationMessageFor(m => m.PerslSalaryType)
+                <br />
             <br />
-            <div class="inputtitle">您的工作时间：</div>@Html.TextBoxFor(m => m.PerslWorkingAge, new { placeholder = "如：6年10个月，请输入6年10月", @class = "inputtext" })<br />
+            <div class="inputtitle">您的工作时间：</div>@Html.TextBoxFor(m => m.PerslWorkingAge, new { placeholder = "如：6年，请输入6年", @class = "inputtext" })
+            @Html.ValidationMessageFor(m => m.PerslWorkingAge)
+                <br />
             <br />
             <div class="inputtitle">&nbsp;</div>
             <button type="submit" class="btn" style="font-size: 14px; height: 35px; width: 110px;">下一步</button>
