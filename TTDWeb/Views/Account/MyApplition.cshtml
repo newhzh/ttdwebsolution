@@ -128,10 +128,30 @@
 
 @foreach (var item in Model.ApplyingRecordList)
 {
+
+    ViewBag.ProductType = "";
+    if (item.ProductType == "0")
+    {
+        ViewBag.ProductType = "购车贷款";
+    }
+    else if (item.ProductType == "1")
+    {
+        ViewBag.ProductType = "购房贷款";
+    }
+    else if (item.ProductType == "2")
+    {
+        ViewBag.ProductType = "企业贷款";
+    }
+    else if (item.ProductType == "3")
+    {
+        ViewBag.ProductType = "消费贷款";
+    }
+        
+
 <!--list start-->
 <div class="productup" style="background:url(../content/images/bglist2.png) left top no-repeat; padding-bottom:0; padding-top:8px;">
 <div style="float:left; width:250px; margin-top:2px;"><img src="../content/images/head.png" width="26" height="26" style="float:left; margin-right:20px;"/><span style="font-size:18px;">@item.CustomerName</span></div>
-<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">@item.ProductType</span></div>
+<div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">@ViewBag.ProductType</span></div>
 <div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">@item.CustomerPhone</span></div>
 <div style="float:left; text-align:center; width:180px;margin-top:2px;"><span style="font-size:18px;">@item.CreatTime</span></div>
 <h1 class="look" style="margin-top:0px; margin-bottom:7px;">展开详情</h1>
