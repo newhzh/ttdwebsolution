@@ -49,8 +49,8 @@
             <br />
             <br />
             <div class="inputtitle">每月打入银行卡的工资：</div>
-            @Html.TextBoxFor(m => m.PerslSalaryType, new { placeholder = "请输入数字，如：5000", @class = "inputtext", style = "background:url(../content/images/yuan.png) 235px center no-repeat;" })
-            @Html.ValidationMessageFor(m => m.PerslSalaryType)
+            @Html.TextBoxFor(m => m.PerslSalary, new { placeholder = "请输入数字，如：5000", @class = "inputtext", style = "background:url(../content/images/yuan.png) 235px center no-repeat;" })
+            @Html.ValidationMessageFor(m => m.PerslSalary)
                 <br />
             <br />
             <div class="inputtitle">您的工作时间：</div>@Html.TextBoxFor(m => m.PerslWorkingAge, new { placeholder = "如：6年，请输入6年", @class = "inputtext" })
