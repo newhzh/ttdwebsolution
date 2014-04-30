@@ -11,7 +11,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Homeloan1</title>
-<link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+<script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="~/content/css/css.css">
+    <link href="~/content/Site.css" rel="stylesheet" type="text/css" media="screen" />
 <style type="text/css">
 body {
 	background-image:none;
@@ -34,12 +37,18 @@ body {
         @Html.DropDownList("HouseType",(SelectList)ViewBag.HouseType,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.HouseType)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>@Html.TextBoxFor(m=>m.HouseIncome,new { placeholder="请输入数字，如：5000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">每月工资收入：</div>
+        @Html.TextBoxFor(m=>m.HouseIncome,new { placeholder="请输入数字，如：5000",@class="inputtext",style="background:url(../content/images/yuan.png) 235px center no-repeat;"})
+        @Html.ValidationMessageFor(m => m.HouseIncome)
+        <br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">户籍：</div>
         @Html.DropDownList("HouseLocalorNot",(SelectList)ViewBag.HouseLocalorNot,new { @class="inputtext",style="width:256px; background:url(../content/images/select.png) 235px center no-repeat;"})   
     @Html.ValidationMessageFor(m => m.HouseLocalorNot)
 <br /><br />
-<div class="inputtitle" style="margin-right:20px; width:130px;">是否二手房：</div>@Html.RadioButtonFor(model => model.HouseNew, 0, new {@name = "HouseNew",style=" margin-top:10px;"})新房&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.HouseNew, 1, new {@name = "HouseNew",style=" margin-top:10px;"})二手房<br /><br />
+<div class="inputtitle" style="margin-right:20px; width:130px;">是否二手房：</div>
+        @Html.RadioButtonFor(model => model.HouseNew, 0, new {@name = "HouseNew",style=" margin-top:10px;"})新房&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.HouseNew, 1, new {@name = "HouseNew",style=" margin-top:10px;"})二手房
+        @Html.ValidationMessageFor(m => m.HouseNew)
+        <br /><br />
 <div class="inputtitle" style="margin-right:20px; width:130px;">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button>
   
 

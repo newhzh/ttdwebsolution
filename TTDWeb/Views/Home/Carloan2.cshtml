@@ -10,7 +10,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Carloan2</title>
+    <script src="~/Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js" type="text/javascript"></script>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
+    <link href="~/content/Site.css" rel="stylesheet" type="text/css" media="screen" />
 <style type="text/css">
     body
     {
@@ -27,9 +30,9 @@
 {
 <div style=" background-color:#f7f7f7; padding-left:70px; padding-top:35px; height:600px;">
 
-<div class="inputtitle1">您的姓名：</div>@Html.TextBoxFor(m=>m.CustomerName,new { placeholder="如：王先生",@class="inputtext"})<br /><br />
-<div class="inputtitle1">手机号码：</div>@Html.TextBoxFor(m=>m.CustomerPhone,new { placeholder="用于接收信贷员联系方式",@class="inputtext"})<br /><br />
-<div class="inputtitle1">电子邮箱：</div>@Html.TextBoxFor(m=>m.CustomerEmail,new { placeholder="用于接收申请贷款所需材料",@class="inputtext"})<br /><br />
+<div class="inputtitle1">您的姓名：</div>@Html.TextBoxFor(m=>m.CustomerName,new { placeholder="如：王先生",@class="inputtext"})@Html.ValidationMessageFor(m => m.CustomerName)<br /><br />
+<div class="inputtitle1">手机号码：</div>@Html.TextBoxFor(m=>m.CustomerPhone,new { placeholder="用于接收信贷员联系方式",@class="inputtext"})@Html.ValidationMessageFor(m => m.CustomerPhone)<br /><br />
+<div class="inputtitle1">电子邮箱：</div>@Html.TextBoxFor(m=>m.CustomerEmail,new { placeholder="用于接收申请贷款所需材料",@class="inputtext"})@Html.ValidationMessageFor(m => m.CustomerEmail)<br /><br />
 <div class="inputtitle1">&nbsp;</div><button type="submit" class="btn" style="font-size:14px; height:35px; width:110px;">下一步</button><br /><br />
         <div style="border-top:1px solid #e1e1e1; padding-top:10px; width:520px;">
     <div style="width:340px; margin-left:85px; "><span style="color:#5489d2;">天天贷郑重承诺</span><br />
