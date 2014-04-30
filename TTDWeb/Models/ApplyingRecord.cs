@@ -54,7 +54,7 @@ namespace TTDWeb.Models
         /// </summary>
         [Required(ErrorMessage = "月打卡工资必填")]
         [Display(Name = "车贷-月打卡工资")]
-        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
+        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "月打卡工资必须数值型!")]
         public decimal  CarCustomerMonthlySalary { get; set; }
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace TTDWeb.Models
         /// </summary>
         [Required(ErrorMessage = "企业流水必填")]
         [Display(Name = "企业-流水")]
-        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "利率必须数值型!")]
+        [RegularExpression(@"^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$", ErrorMessage = "企业流水必须数值型!")]
         public decimal  FirmAccountBill { get; set; }
 
         /// <summary>
@@ -141,6 +141,13 @@ namespace TTDWeb.Models
         [Required(ErrorMessage = "工资形式必填")]
         [Display(Name = "个人-工资形式")]
         public string PerslSalaryType { get; set; }
+
+        /// <summary>
+        /// 个人-月打卡工资
+        /// </summary>
+        [Required(ErrorMessage = "月收入必填")]
+        [Display(Name = "个人-月打卡工资")]
+        public string PerslSalary { get; set; }
 
         /// <summary>
         /// 个人-工作时间

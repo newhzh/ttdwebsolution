@@ -661,6 +661,8 @@ namespace TTDWeb.Controllers
             ViewBag.PerslEmployment = BizCommon.GetAA10Items("sPerslEmployment", "cast(aaa102 as int)");
             ViewBag.PerslSalaryType = BizCommon.GetAA10Items("sPerslSalaryType", "cast(aaa102 as int)");
             ViewBag.PerslWorkingAge = BizCommon.GetAA10Items("sPerslWorkingAge", "cast(aaa102 as int)");
+            ViewBag.PerslSalary = BizCommon.GetAA10Items("sHouseIncome", "cast(aaa102 as int)");
+
 
             if (Session[BizCommon.g_SessionName_ApplyProject] != null)
             {
@@ -672,6 +674,7 @@ namespace TTDWeb.Controllers
                 m.PerslSalaryType = p.PerslSalaryType;                  //选项
                 m.PerslWorkingAge = p.PerslWorkingAge;                  //选项
                 m.PerslYoBirth = p.PerslYoBirth;                        //选项（但不从数据库中取）
+                m.PerslSalary = p.PerslSalary;
 
                 return View(m);
             }
@@ -696,6 +699,8 @@ namespace TTDWeb.Controllers
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslSalaryType = c.PerslSalaryType;
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslWorkingAge = c.PerslWorkingAge;
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslYoBirth = c.PerslYoBirth;
+                    (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).PerslSalary = c.PerslSalary;
+
 
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductCode = productcode;
                     (Session[BizCommon.g_SessionName_ApplyProject] as ApplyingRecord).ProductType = producttype;
@@ -710,8 +715,10 @@ namespace TTDWeb.Controllers
                     p.PerslSalaryType = c.PerslSalaryType;
                     p.PerslWorkingAge = c.PerslWorkingAge;
                     p.PerslYoBirth = c.PerslYoBirth;
+                    p.PerslSalary = c.PerslSalary;
                     p.ProductCode = productcode;
                     p.ProductType = producttype;
+                    p.PerslSalary = c.PerslSalary;
 
                     //第一步创建project类放到session中
                     if (Session[BizCommon.g_SessionName_ApplyProject] != null)
@@ -729,6 +736,8 @@ namespace TTDWeb.Controllers
             ViewBag.PerslEmployment = BizCommon.GetAA10Items("sPerslEmployment", "cast(aaa102 as int)");
             ViewBag.PerslSalaryType = BizCommon.GetAA10Items("sPerslSalaryType", "cast(aaa102 as int)");
             ViewBag.PerslWorkingAge = BizCommon.GetAA10Items("sPerslWorkingAge", "cast(aaa102 as int)");
+            ViewBag.PerslSalary = BizCommon.GetAA10Items("sPerslSalary", "cast(aaa102 as int)");
+
             return View("Purchaseloan1");
         }
         #endregion

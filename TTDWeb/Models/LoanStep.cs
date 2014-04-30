@@ -217,6 +217,13 @@ namespace TTDWeb.Models
         public string PerslSalaryType { get; set; }
 
         /// <summary>
+        /// 个人-月打卡工资
+        /// </summary>
+        [Required(ErrorMessage = "月收入必填")]
+        [Display(Name = "个人-月打卡工资")]
+        public string PerslSalary { get; set; }
+
+        /// <summary>
         /// 个人-工作时间
         /// </summary>
         [Required(ErrorMessage = "个人-工作时间必填")]
