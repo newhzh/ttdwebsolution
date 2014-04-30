@@ -60,14 +60,14 @@ namespace TTDWeb.Models
         /// <summary>
         /// 车贷-购车阶段
         /// </summary>
-        [Required(ErrorMessage = "购车阶段必填")]
+        [Required(ErrorMessage = "请填入购车阶段")]
         [Display(Name = "车贷-购车阶段")]
         public string CarPurchasingPeriod { get; set; }
 
         /// <summary>
         /// 房贷-房屋类型
         /// </summary>
-        [Required(ErrorMessage = "房屋类型必填")]
+        [Required(ErrorMessage = "请输入房屋类型")]
         [Display(Name = "房贷-房屋类型")]
         public string HouseType { get; set; }
 
