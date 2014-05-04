@@ -537,6 +537,8 @@ namespace TTDWeb.Controllers
             m.CustomID = loginUser.CustomID;
             m.CustomName = drCustom["sCustomName"] is DBNull ? "" : drCustom["sCustomName"].ToString();
             m.CertState = drCustom["sCertState"] is DBNull ? "" : drCustom["sCertState"].ToString();
+            m.CertStateDisplay = ToCertState(m.CertState);
+
             m.DateOfBirth = drCustom["dtBirthday"] is DBNull ? "" : Convert.ToDateTime(drCustom["dtBirthday"]).ToString("yyyy-MM-dd");
             m.Email = drCustom["sEmail"] is DBNull ? "" : drCustom["sEmail"].ToString();
             m.Occupation = "";
@@ -603,6 +605,24 @@ namespace TTDWeb.Controllers
             #endregion
 
             return View(m);
+        }
+
+        string ToCertState(string c)
+        {
+            string s = "";
+            switch (c)
+            {
+                case "0":
+                    s = "未认证";
+                    break;
+                case "1":
+                    s = "保存成功！系统会在3个工作日内完成认证";
+                    break;
+                case "2":
+                    s = "已认证";
+                    break;                    
+            }
+            return s;
         }
 
         #endregion
