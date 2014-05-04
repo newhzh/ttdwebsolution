@@ -413,7 +413,7 @@ namespace TTDWeb.Controllers
                 apply.CarPurchasingPeriodDisplay = ToCarPurchasingPeriodDisplay(apply.CarPurchasingPeriod);
 
                 apply.CaseState = drApply["sCaseState"] is DBNull ? "" : drApply["sCaseState"].ToString();
-              //  apply.CaseStateDisplay = ToCaseStateDisplay(apply.CaseState);
+                apply.CaseStateDisplay = ToCaseStateDisplay(apply.CaseState);
 
 
                 apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
