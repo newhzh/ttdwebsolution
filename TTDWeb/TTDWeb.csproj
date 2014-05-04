@@ -267,6 +267,10 @@
     <Content Include="Content\images\star3.png" />
     <Content Include="Content\images\star4.png" />
     <Content Include="Content\images\star5.png" />
+    <Content Include="Content\images\state1.png" />
+    <Content Include="Content\images\state2.png" />
+    <Content Include="Content\images\state3.png" />
+    <Content Include="Content\images\state4.png" />
     <Content Include="Content\images\time.png" />
     <Content Include="Content\images\time1.png" />
     <Content Include="Content\images\top.png" />
