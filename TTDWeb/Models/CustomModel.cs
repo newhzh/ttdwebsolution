@@ -78,6 +78,12 @@ namespace TTDWeb.Models
         /// 认证状态
         /// </summary>
         public string CertState { get; set; }
+
+        
+        /// <summary>
+        /// 认证状态(用于显示)
+        /// </summary>
+        public string CertStateDisplay { get; set; }
         
 
     }
