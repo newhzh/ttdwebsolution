@@ -29,7 +29,7 @@ namespace TTDWeb.Controllers
         {
             //读取省级地区列表
             List<SelectListItem> items = GetRegionList("0", "");
-            SelectList list = new SelectList(items,"Value","Text","--请选择--");
+            SelectList list = new SelectList(items, "Value", "Text", "--请选择--");
             ViewBag.Province = list;
             ViewBag.City = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
             //ViewBag.County = new SelectList(GetRegionList("0", "-99"), "Value", "Text", "--请选择--");//传空值
@@ -68,7 +68,7 @@ namespace TTDWeb.Controllers
                 info.CertNum = "";
                 info.CertState = "1";
                 info.CertType = "";
-                
+
                 info.CreditGradeBorrow = "01";//默认初级
                 info.CreditGradeInvest = "01";//默认初级
                 info.CreditScoreBorrow = 0;
@@ -92,7 +92,7 @@ namespace TTDWeb.Controllers
                 info.PC = "";
                 info.PhotoFileName = "";
                 info.Points = 0;
-                
+
 
                 info.PYM = "";
                 info.RegDate = DateTime.Today;
@@ -206,7 +206,7 @@ namespace TTDWeb.Controllers
             return items;
         }
 
-        public JsonResult GetRegionDataJson(string level,string parentid)
+        public JsonResult GetRegionDataJson(string level, string parentid)
         {
             List<SelectListItem> items = GetRegionList(level, parentid);
             return Json(items, JsonRequestBehavior.AllowGet);
@@ -610,10 +610,10 @@ namespace TTDWeb.Controllers
             }
             Message.CustomInfo loginUser = Session["loginedcustom"] as Message.CustomInfo;
             string sql1 = "select t1.sEmail,t1.sCustomName,t1.sCertState,t1.sSex,t1.dtBirthday,t1.sCellPhone,t1.sOrganID,t1.sWorkYears, " +
-                "t2.sOrganName,t2.sAddress "+
-                " from t_custom t1 "+
-                " left join t_foreignorgan t2 on t1.sorganid=t2.sorganid "+
-                " where t1.sCustomID='"+ loginUser.CustomID + "'" ;
+                "t2.sOrganName,t2.sAddress " +
+                " from t_custom t1 " +
+                " left join t_foreignorgan t2 on t1.sorganid=t2.sorganid " +
+                " where t1.sCustomID='" + loginUser.CustomID + "'";
             string sql2 = " select t1.sProductCode,t1.sProductName,t1.sOrganID, t1.sProductType, t1.dAnnualRate, t1.sApplyCondition, t1.sRequiredFile, t1.sMemo, t1.sDetails,t1.sRepaymentType,t1.sChars," +
                           "t1.dMoneyTop,t1.dMoneyBottom," +
                           "t1.nTermTop, t1.nTermBottom," +
@@ -627,7 +627,7 @@ namespace TTDWeb.Controllers
                 " from t_applyrecord t1 " +
                 " left join aa10 t2 on t1.sProductType=t2.aaa102 and t2.aaa100='sProductType'" +
                 " inner join t_product t3 on t1.sProductCode=t3.sProductCode and t3.sOrganID='" + loginUser.OrganID + "'";
-            
+
             DA_Adapter da = new DA_Adapter();
             DataSet ds = new DataSet();
             string err = "";
@@ -636,20 +636,20 @@ namespace TTDWeb.Controllers
             DataRow drCustom = ds.Tables["T_Custom"].Rows[0];
             CustomModel m = new CustomModel();
 
-           
-            m.CellPhone = drCustom["sCellPhone"] is DBNull ? "" : drCustom["sCellPhone"].ToString();                
+
+            m.CellPhone = drCustom["sCellPhone"] is DBNull ? "" : drCustom["sCellPhone"].ToString();
             m.CustomID = loginUser.CustomID;
             m.CustomName = drCustom["sCustomName"] is DBNull ? "" : drCustom["sCustomName"].ToString();
-            m.CertState = drCustom["sCertState"] is DBNull ? "" : drCustom["sCertState"].ToString(); 
-            m.DateOfBirth =drCustom["dtBirthday"] is DBNull ? "": Convert.ToDateTime(drCustom["dtBirthday"]).ToString("yyyy-MM-dd");
-            m.Email = drCustom["sEmail"] is DBNull ? "" : drCustom["sEmail"].ToString();                
+            m.CertState = drCustom["sCertState"] is DBNull ? "" : drCustom["sCertState"].ToString();
+            m.DateOfBirth = drCustom["dtBirthday"] is DBNull ? "" : Convert.ToDateTime(drCustom["dtBirthday"]).ToString("yyyy-MM-dd");
+            m.Email = drCustom["sEmail"] is DBNull ? "" : drCustom["sEmail"].ToString();
             m.Occupation = "";
-            m.OrganAddress = drCustom["sAddress"] is DBNull ? "" : drCustom["sAddress"].ToString();           
-            m.OrganID = drCustom["sOrganID"] is DBNull ? "" : drCustom["sOrganID"].ToString();    
+            m.OrganAddress = drCustom["sAddress"] is DBNull ? "" : drCustom["sAddress"].ToString();
+            m.OrganID = drCustom["sOrganID"] is DBNull ? "" : drCustom["sOrganID"].ToString();
             m.OrganName = drCustom["sOrganName"] is DBNull ? "" : drCustom["sOrganName"].ToString();
             m.Sex = drCustom["sSex"] is DBNull ? "" : drCustom["sSex"].ToString();
             m.WorkingAge = drCustom["sWorkYears"] is DBNull ? "" : drCustom["sWorkYears"].ToString();
-            
+
 
             #region 加载产品列表
             DataRow[] listCustomRows;
@@ -672,8 +672,13 @@ namespace TTDWeb.Controllers
             {
                 apply = new ApplyingRecord();
                 apply.CarCustomerMonthlySalary = drApply["dCarCustomerMonthlySalary"] is DBNull ? 0 : Convert.ToDecimal(drApply["dCarCustomerMonthlySalary"]);
+                
                 apply.CarProperty = drApply["sCarProperty"] is DBNull ? "" : drApply["sCarProperty"].ToString();
+                apply.CarPropertyDisplay = ToCarPropertyDisplay(apply.CarProperty);
+
                 apply.CarPurchasingPeriod = drApply["sCarPurchasingPeriod"] is DBNull ? "" : drApply["sCarPurchasingPeriod"].ToString();
+                apply.CarPurchasingPeriodDisplay = ToCarPurchasingPeriodDisplay(apply.CarPurchasingPeriod);
+
                 apply.CaseState = drApply["sCaseState"] is DBNull ? "" : drApply["sCaseState"].ToString();
                 apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
                 apply.CustomerEmail = drApply["sCustomerEmail"] is DBNull ? "" : drApply["sCustomerEmail"].ToString();
@@ -681,21 +686,48 @@ namespace TTDWeb.Controllers
                 apply.CustomerPhone = drApply["sCustomerPhone"] is DBNull ? "" : drApply["sCustomerPhone"].ToString();
                 apply.FirmAccountBill = drApply["dFirmAccountBill"] is DBNull ? 0 : Convert.ToDecimal(drApply["dFirmAccountBill"]);
                 apply.FirmAge = drApply["sFirmAge"] is DBNull ? "" : drApply["sFirmAge"].ToString();
+
+
                 apply.FirmProperty = drApply["sFirmProperty"] is DBNull ? "" : drApply["sFirmProperty"].ToString();
+                apply.FirmPropertyDisplay = ToFirmPropertyDisplay(apply.FirmProperty);
+
                 apply.FirmType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.FirmTypeDisplay = ToFirmTypeDisplay(apply.FirmType);
+
                 apply.HouseIncome = drApply["sHouseIncome"] is DBNull ? "" : drApply["sHouseIncome"].ToString();
+                
                 apply.HouseLocalorNot = drApply["sHouseLocalorNot"] is DBNull ? "" : drApply["sHouseLocalorNot"].ToString();
+                apply.HouseLocalorNotDisplay = ToHouseLocalorNotDisplay(apply.HouseLocalorNot);
+
                 apply.HouseNew = drApply["sHouseNew"] is DBNull ? "" : drApply["sHouseNew"].ToString();
+                apply.HouseNewDisplay = YesOrNo(apply.HouseNew);
+
                 apply.HouseType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.HouseTypeDisplay = ToHouseTypeDisplay(apply.HouseType);
+
                 apply.PerslCardNo = drApply["sPerslCardNo"] is DBNull ? "" : drApply["sPerslCardNo"].ToString();
+                apply.PerslCardNoDisplay = YesOrNo(apply.PerslCardNo);
+
                 apply.PerslCreditAllowance = drApply["sPerslCreditAllowance"] is DBNull ? "" : drApply["sPerslCreditAllowance"].ToString();
                 apply.PerslCreditDue = drApply["sPerslCreditDue"] is DBNull ? "" : drApply["sPerslCreditDue"].ToString();
+
                 apply.PerslCreditOwner = drApply["sPerslCreditOwner"] is DBNull ? "" : drApply["sPerslCreditOwner"].ToString();
+                apply.PerslCreditOwnerDisplay = YesOrNo(apply.PerslCreditOwner);
+
                 apply.PerslEmployment = drApply["sPerslEmployment"] is DBNull ? "" : drApply["sPerslEmployment"].ToString();
+                apply.PerslEmploymentDisplay = ToPerslEmploymentDisplay(apply.PerslEmployment);
+
                 apply.PerslLoan = drApply["sPerslLoan"] is DBNull ? "" : drApply["sPerslLoan"].ToString();
+                apply.PerslLoanDisplay = YesOrNo(apply.PerslLoan);
+
                 apply.PerslLoanDue = drApply["sPerslLoanDue"] is DBNull ? "" : drApply["sPerslLoanDue"].ToString();
+
                 apply.PerslLoanSucc = drApply["sPerslLoanSucc"] is DBNull ? "" : drApply["sPerslLoanSucc"].ToString();
+                apply.PerslLoanSuccDisplay = YesOrNo(apply.PerslLoanSucc);
+
                 apply.PerslSalaryType = drApply["sPerslSalaryType"] is DBNull ? "" : drApply["sPerslSalaryType"].ToString();
+                apply.PerslSalaryTypeDisplay = ToPerslSalaryTypeDisplay(apply.PerslSalaryType);
+
                 apply.PerslWorkingAge = drApply["sPerslWorkingAge"] is DBNull ? "" : drApply["sPerslWorkingAge"].ToString();
                 apply.PerslYoBirth = drApply["sPerslYoBirth"] is DBNull ? "" : drApply["sPerslYoBirth"].ToString();
                 apply.ProductCode = drApply["sProductCode"] is DBNull ? "" : drApply["sProductCode"].ToString();
@@ -704,11 +736,187 @@ namespace TTDWeb.Controllers
                 m.ApplyingRecordList.Add(apply);
             }
 
+
+
             #endregion
 
             return View(m);
         }
 
+        string ToPerslSalaryTypeDisplay(string any)
+        {
+            string s = "";
+            switch (any)
+            {
+                case "0":
+                    s = "公司代发到银行工资卡";
+                    break;
+                case "1":
+                    s = "现金领取";
+                    break;
+            }
+            return s;
+        }
+
+        string ToPerslEmploymentDisplay(string P)
+        {
+            string s = "";
+            switch (P)
+            {
+                case "1":
+                    s = "无固定职业";
+                    break;
+                case "2":
+                    s = "私营企业";
+                    break;
+                case "3":
+                    s = "公务员/事业单位";
+                    break;
+                case "4":
+                    s = "国企/上市企业";
+                    break;
+            }
+            return s;
+        }
+
+        string ToFirmPropertyDisplay(string Property)
+        {
+            string s = "";
+            switch (Property)
+            {
+                case "1":
+                    s = "没有本地房产";
+                    break;
+                case "2":
+                    s = "有（有房产证）";
+                    break;              
+            }
+            return s;
+        }
+
+        string ToFirmTypeDisplay(string FirmTypeDisplay)
+        {
+            string s = "";
+            switch (FirmTypeDisplay)
+            {
+                case "1":
+                    s = "个体工商户";
+                    break;
+                case "2":
+                    s = "私营企业";
+                    break;
+                case "3":
+                    s = "公务员/事业单位";
+                    break;
+                case "4":
+                    s = "国企";
+                    break;
+                case "5":
+                    s = "世界500强企业";
+                    break;
+                case "6":
+                    s = "上市企业";
+                    break;
+                case "7":
+                    s = "普通企业";
+                    break;
+                case "8":
+                    s = "无固定职业";
+                    break;
+            }
+            return s;
+        }
+
+        string ToCarPropertyDisplay(string CarProperty)
+        {
+            string s = "";
+            switch (CarProperty)
+            {
+                case "1":
+                    s = "没有本地商品房";
+                    break;
+                case "2":
+                    s = "本人名下有本地商品房（有房产证）";
+                    break;
+                case "3":
+                    s = "父母、配偶名下有本地商品房（有房产证）";
+                    break;
+            }
+            return s;
+        }
+        
+        string ToCarPurchasingPeriodDisplay(string CarPurchasingPeriod)
+        {
+            string s = "";
+            switch (CarPurchasingPeriod)
+            {
+                case "1":
+                    s = "未选好车型";
+                    break;
+                case "2":
+                    s = "准备去4S店看车";
+                    break;
+                case "3":
+                    s = "已经选好车型";
+                    break;
+            }
+            return s;
+        }
+
+        string ToHouseTypeDisplay(string HouseType)
+        {
+            string s = "";
+            switch (HouseType)
+            {
+                case "1":
+                    s = "商品房";
+                    break;
+                case "2":
+                    s = "商铺";
+                    break;
+                case "3":
+                    s = "写字楼";
+                    break;
+                case "4":
+                    s = "房改房";
+                    break;
+                case "5":
+                    s = "经济适用房";
+                    break;
+            }
+            return s;
+        }
+
+        string ToHouseLocalorNotDisplay(string any)
+        {
+            string s = "";
+            switch (any)
+            {
+                case "0":
+                    s = "本地户口";
+                    break;
+                case "1":
+                    s = "外地户口";
+                    break;
+            }
+            return s;
+        }
+
+        string YesOrNo(string any)
+        {
+            string s = "";
+            switch (any)
+            {
+                case "0":
+                    s = "是";
+                    break;
+                case "1":
+                    s = "否";
+                    break;
+            }
+            return s;
+        }
         #endregion
     }
 }
+

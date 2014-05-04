@@ -412,5 +412,13 @@ namespace TTDWeb.Common
         }
         #endregion
 
+        #region 申请信息转换函数 小潮
+
+        //不会fuck！全部用public？不安全吧。。。
+        //还是放applyingrecord.cs里面好了。
+
+
+        #endregion
+
     }
 }
