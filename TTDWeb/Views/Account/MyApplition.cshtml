@@ -167,42 +167,42 @@
 <div><div style="width:200px; float:left;"><strong>月工资收入：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarCustomerMonthlySalary 元</div>
 </div>
 
-<div><div style="width:200px; float:left;"><strong>购车阶段：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPurchasingPeriod </div>
+<div><div style="width:200px; float:left;"><strong>购车阶段：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPurchasingPeriodDisplay </div>
 </div>
     }
     else if (item.ProductType == "1")
     {
-    <div><div style="width:200px; float:left;"><strong>房屋类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseType</div>
+    <div><div style="width:200px; float:left;"><strong>房屋类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseTypeDisplay</div>
 <div style="width:270px; float:left;"><strong>月工资收入：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseIncome 元</div>
 </div>
 
-<div><div style="width:200px; float:left;"><strong>户籍：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseLocalorNot</div>
-<div style="width:270px; float:left;"><strong>二手房：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseNew</div>
+<div><div style="width:200px; float:left;"><strong>户籍：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseLocalorNotDisplay</div>
+<div style="width:270px; float:left;"><strong>二手房：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseNewDisplay</div>
 </div>
     }
     else if (item.ProductType == "2")
     {
-    <div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmType</div>
-<div style="width:270px; float:left;"><strong>经营年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAge</div>
+    <div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmTypeDisplay</div>
+<div style="width:270px; float:left;"><strong>经营年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAge 年</div>
 </div>
 
 <div><div style="width:200px; float:left;"><strong>公司月流水：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAccountBill 元</div>
-<div style="width:270px; float:left;"><strong>本地房产：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmProperty</div>
+<div style="width:270px; float:left;"><strong>本地房产：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmPropertyDisplay</div>
 </div>
     }
     else if (item.ProductType == "3")
     { 
-    <div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslEmployment</div>
+    <div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslEmploymentDisplay</div>
 <div style="width:270px; float:left;"><strong>每月银行卡工资：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslSalary 元</div>
-<strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslCardNo ，负债 @item.PerslCreditDue 元</div>
+<strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslCardNoDisplay ，负债 @item.PerslCreditDue 元</div>
 
 <div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslYoBirth</div>
 <div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslWorkingAge</div>
-<strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslLoanSucc</div>
+<strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslLoanSuccDisplay</div>
 
-<div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslSalaryType</div>
-<div style="width:270px; float:left;"><strong>是否有信用卡：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslCreditOwner，额度 @item.PerslCreditAllowance 元</div>
-<strong>是否有负债（贷款）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslLoan，额度 @item.PerslLoanDue 元</div>
+<div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslSalaryTypeDisplay</div>
+<div style="width:270px; float:left;"><strong>是否有信用卡：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslCreditOwnerDisplay，额度 @item.PerslCreditAllowance 元</div>
+<strong>是否有负债（贷款）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslLoanDisplay，额度 @item.PerslLoanDue 元</div>
     }
 </div>
 
