@@ -413,6 +413,9 @@ namespace TTDWeb.Controllers
                 apply.CarPurchasingPeriodDisplay = ToCarPurchasingPeriodDisplay(apply.CarPurchasingPeriod);
 
                 apply.CaseState = drApply["sCaseState"] is DBNull ? "" : drApply["sCaseState"].ToString();
+              //  apply.CaseStateDisplay = ToCaseStateDisplay(apply.CaseState);
+
+
                 apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
                 apply.CustomerEmail = drApply["sCustomerEmail"] is DBNull ? "" : drApply["sCustomerEmail"].ToString();
                 apply.CustomerName = drApply["sCustomerName"] is DBNull ? "" : drApply["sCustomerName"].ToString();
@@ -799,6 +802,28 @@ namespace TTDWeb.Controllers
         #endregion
 
         #region 申请显示转化
+
+        string ToCaseStateDisplay(string c)
+        {
+            string s = "";
+            switch (c)
+            {
+                case "0":
+                    s = "../content/images/state1.png";
+                    break;
+                case "1":
+                    s = "../content/images/state2.png";
+                    break;
+                case "2":
+                    s = "../content/images/state3.png";
+                    break;
+                case "3":
+                    s = "../content/images/state4.png";
+                    break;
+            }
+            return s;
+        }
+
         string ToPerslSalaryTypeDisplay(string any)
         {
             string s = "";

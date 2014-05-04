@@ -148,9 +148,7 @@ namespace TTDWeb.Common
             return val;
         }
 
-        #endregion
-
-        
+        #endregion            
 
         #region 获取所在地名称
         public static string GetRegionFullName(string provinceID, string cityID, string countryID)

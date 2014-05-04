@@ -270,6 +270,12 @@ namespace TTDWeb.Models
         public string CaseState { get; set; }
 
         /// <summary>
+        /// 状态(用于显示)
+        /// </summary>
+        [Display(Name = "申请状态(用于显示)")]
+        public string CaseStateDisplay { get; set; }
+
+        /// <summary>
         /// 用户IP地址
         /// </summary>
         [Display(Name = "用户IP地址")]
