@@ -405,8 +405,13 @@ namespace TTDWeb.Controllers
             {
                 apply = new ApplyingRecord();
                 apply.CarCustomerMonthlySalary = drApply["dCarCustomerMonthlySalary"] is DBNull ? 0 : Convert.ToDecimal(drApply["dCarCustomerMonthlySalary"]);
+
                 apply.CarProperty = drApply["sCarProperty"] is DBNull ? "" : drApply["sCarProperty"].ToString();
+                apply.CarPropertyDisplay = ToCarPropertyDisplay(apply.CarProperty);
+
                 apply.CarPurchasingPeriod = drApply["sCarPurchasingPeriod"] is DBNull ? "" : drApply["sCarPurchasingPeriod"].ToString();
+                apply.CarPurchasingPeriodDisplay = ToCarPurchasingPeriodDisplay(apply.CarPurchasingPeriod);
+
                 apply.CaseState = drApply["sCaseState"] is DBNull ? "" : drApply["sCaseState"].ToString();
                 apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
                 apply.CustomerEmail = drApply["sCustomerEmail"] is DBNull ? "" : drApply["sCustomerEmail"].ToString();
@@ -414,21 +419,48 @@ namespace TTDWeb.Controllers
                 apply.CustomerPhone = drApply["sCustomerPhone"] is DBNull ? "" : drApply["sCustomerPhone"].ToString();
                 apply.FirmAccountBill = drApply["dFirmAccountBill"] is DBNull ? 0 : Convert.ToDecimal(drApply["dFirmAccountBill"]);
                 apply.FirmAge = drApply["sFirmAge"] is DBNull ? "" : drApply["sFirmAge"].ToString();
+
+
                 apply.FirmProperty = drApply["sFirmProperty"] is DBNull ? "" : drApply["sFirmProperty"].ToString();
+                apply.FirmPropertyDisplay = ToFirmPropertyDisplay(apply.FirmProperty);
+
                 apply.FirmType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.FirmTypeDisplay = ToFirmTypeDisplay(apply.FirmType);
+
                 apply.HouseIncome = drApply["sHouseIncome"] is DBNull ? "" : drApply["sHouseIncome"].ToString();
+
                 apply.HouseLocalorNot = drApply["sHouseLocalorNot"] is DBNull ? "" : drApply["sHouseLocalorNot"].ToString();
+                apply.HouseLocalorNotDisplay = ToHouseLocalorNotDisplay(apply.HouseLocalorNot);
+
                 apply.HouseNew = drApply["sHouseNew"] is DBNull ? "" : drApply["sHouseNew"].ToString();
-                apply.HouseType = drApply["sFirmType"] is DBNull ? "" : drApply["sFirmType"].ToString();
+                apply.HouseNewDisplay = YesOrNo(apply.HouseNew);
+
+                apply.HouseType = drApply["sHouseType"] is DBNull ? "" : drApply["sHouseType"].ToString();
+                apply.HouseTypeDisplay = ToHouseTypeDisplay(apply.HouseType);
+
                 apply.PerslCardNo = drApply["sPerslCardNo"] is DBNull ? "" : drApply["sPerslCardNo"].ToString();
+                apply.PerslCardNoDisplay = YesOrNo(apply.PerslCardNo);
+
                 apply.PerslCreditAllowance = drApply["sPerslCreditAllowance"] is DBNull ? "" : drApply["sPerslCreditAllowance"].ToString();
                 apply.PerslCreditDue = drApply["sPerslCreditDue"] is DBNull ? "" : drApply["sPerslCreditDue"].ToString();
+
                 apply.PerslCreditOwner = drApply["sPerslCreditOwner"] is DBNull ? "" : drApply["sPerslCreditOwner"].ToString();
+                apply.PerslCreditOwnerDisplay = YesOrNo(apply.PerslCreditOwner);
+
                 apply.PerslEmployment = drApply["sPerslEmployment"] is DBNull ? "" : drApply["sPerslEmployment"].ToString();
+                apply.PerslEmploymentDisplay = ToPerslEmploymentDisplay(apply.PerslEmployment);
+
                 apply.PerslLoan = drApply["sPerslLoan"] is DBNull ? "" : drApply["sPerslLoan"].ToString();
+                apply.PerslLoanDisplay = YesOrNo(apply.PerslLoan);
+
                 apply.PerslLoanDue = drApply["sPerslLoanDue"] is DBNull ? "" : drApply["sPerslLoanDue"].ToString();
+
                 apply.PerslLoanSucc = drApply["sPerslLoanSucc"] is DBNull ? "" : drApply["sPerslLoanSucc"].ToString();
+                apply.PerslLoanSuccDisplay = YesOrNo(apply.PerslLoanSucc);
+
                 apply.PerslSalaryType = drApply["sPerslSalaryType"] is DBNull ? "" : drApply["sPerslSalaryType"].ToString();
+                apply.PerslSalaryTypeDisplay = ToPerslSalaryTypeDisplay(apply.PerslSalaryType);
+
                 apply.PerslWorkingAge = drApply["sPerslWorkingAge"] is DBNull ? "" : drApply["sPerslWorkingAge"].ToString();
                 apply.PerslYoBirth = drApply["sPerslYoBirth"] is DBNull ? "" : drApply["sPerslYoBirth"].ToString();
                 apply.ProductCode = drApply["sProductCode"] is DBNull ? "" : drApply["sProductCode"].ToString();
@@ -436,6 +468,8 @@ namespace TTDWeb.Controllers
 
                 m.ApplyingRecordList.Add(apply);
             }
+
+
 
             #endregion
 
@@ -742,14 +776,16 @@ namespace TTDWeb.Controllers
 
             return View(m);
         }
+        #endregion
 
+        #region 申请显示转化
         string ToPerslSalaryTypeDisplay(string any)
         {
             string s = "";
             switch (any)
             {
                 case "0":
-                    s = "公司代发到银行工资卡";
+                    s = "发到工资卡";
                     break;
                 case "1":
                     s = "现金领取";
@@ -763,16 +799,16 @@ namespace TTDWeb.Controllers
             string s = "";
             switch (P)
             {
-                case "1":
+                case "0":
                     s = "无固定职业";
                     break;
-                case "2":
+                case "1":
                     s = "私营企业";
                     break;
-                case "3":
+                case "2":
                     s = "公务员/事业单位";
                     break;
-                case "4":
+                case "3":
                     s = "国企/上市企业";
                     break;
             }
@@ -836,10 +872,10 @@ namespace TTDWeb.Controllers
                     s = "没有本地商品房";
                     break;
                 case "2":
-                    s = "本人名下有本地商品房（有房产证）";
+                    s = "名下有房";
                     break;
                 case "3":
-                    s = "父母、配偶名下有本地商品房（有房产证）";
+                    s = "父母、配偶名下有房";
                     break;
             }
             return s;
@@ -868,19 +904,19 @@ namespace TTDWeb.Controllers
             string s = "";
             switch (HouseType)
             {
-                case "1":
+                case "0":
                     s = "商品房";
                     break;
-                case "2":
+                case "1":
                     s = "商铺";
                     break;
-                case "3":
+                case "2":
                     s = "写字楼";
                     break;
-                case "4":
+                case "3":
                     s = "房改房";
                     break;
-                case "5":
+                case "4":
                     s = "经济适用房";
                     break;
             }
@@ -917,6 +953,8 @@ namespace TTDWeb.Controllers
             return s;
         }
         #endregion
+
+        
     }
 }
 
