@@ -319,7 +319,7 @@ namespace TTDWeb.Common
             p.RequiredFile = dr["sRequiredFile"].ToString();
             p.Memo = dr["sMemo"].ToString();
             p.Details = dr["sDetails"].ToString();
-            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType, p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
+            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType,p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
             p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
             p.Chars = dr["sChars"].ToString();
 
@@ -396,7 +396,9 @@ namespace TTDWeb.Common
             {
                 case "01":  //月利清本
                     Message.FunctionCommon.BorrowRateCalc_03(false, money, money, monthlyRate, term,
-                                                             ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                                                            ref sumMonth, ref moneyCap, ref moneyAcc, ref moneyBalance);
+                    //sumMonth = money * (ServerFeeMonthly + monthlyRate) / term; 
+
                     break;
                 case "02":  //等额本息
                     Message.FunctionCommon.BorrowRateCalc_01(money, money, monthlyRate, term,

@@ -267,7 +267,7 @@ namespace TTDWeb.Models
         /// <summary>
         /// 个人-是否成功贷款
         /// </summary>
-        [Required(ErrorMessage = "*书否成功贷款必填")]
+        [Required(ErrorMessage = "*是否成功贷款必填")]
         [Display(Name = "个人-是否成功贷款")]
         public string PerslLoanSucc { get; set; }
 
