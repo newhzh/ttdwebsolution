@@ -132,23 +132,22 @@
         <div style="padding: 15px; margin-top: 20px;">
             机构类型:<input class="sx" id="agency" name="" type="text" value="不限" readonly="readonly" style="background: url(../content/images/select.png) 160px center no-repeat; cursor: pointer;" />
             <ul class="agencytype" id="agencytype">
-                <a href="productlist.html">
+                <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=">
                     <li>不限</li>
                 </a>
-                <a href="productlist.html">
+                <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=银行">
                     <li>银行</li>
                 </a>
-                <a href="productlist.html">
+                <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=小贷公司">
                     <li>小贷公司</li>
-                </a>
-                <a href="productlist.html">
-                    <li>担保公司</li>
-                </a>
-                <a href="productlist.html">
+                </a>                
+                <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=p2p">
                     <li>P2P网贷</li>
                 </a>
             </ul>
-            <div class="producthead"><a href="#" style="background: none; padding-right: 0px;">默认</a><a href="#">总利息</a><a href="#">月供</a></div>
+            <div class="producthead"><a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=''" style="background: none; padding-right: 0px;">默认</a>
+                <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby='dTotalCost desc'">总利息</a>
+                
         </div>
         @foreach (var item in Model)
         {
@@ -166,11 +165,11 @@
             {
                 if (i == ViewBag.PageIndex)
                 { 
-                <a class="numberclick" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1">@i.ToString()</a>
+                <a class="numberclick" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby">@i.ToString()</a>
                 }
                 else
                 {
-                <a class="number" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1">@i.ToString()</a>
+                <a class="number" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby">@i.ToString()</a>
                 }
             }
             <a class="number" href="@Url.Action("NextPage", new { pindex = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term,term1=@ViewBag.term1 })">下一页</a>

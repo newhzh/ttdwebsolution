@@ -313,13 +313,13 @@ namespace TTDWeb.Common
             p.OrganID = dr["sOrganID"].ToString();
             p.OrganName = dr["sOrganName"].ToString();
             p.AnnualRate = dr["dAnnualRate"] is DBNull ? 0m : Convert.ToDecimal(dr["dAnnualRate"]);
-            p.AnnualRateDisplay = (p.AnnualRate * 100).ToString("F1") + "%";
+            
             p.RepaymentType = dr["sRepaymentType"].ToString();
             p.ApplyCondition = dr["sApplyCondition"].ToString();
             p.RequiredFile = dr["sRequiredFile"].ToString();
             p.Memo = dr["sMemo"].ToString();
             p.Details = dr["sDetails"].ToString();
-            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType,p.AnnualRate, money, term).ToString("F2");   //每月偿还金额
+            
             p.OrganLogo = "../photos/" + dr["sLogo"].ToString();
             p.Chars = dr["sChars"].ToString();
 
@@ -335,6 +335,8 @@ namespace TTDWeb.Common
             p.TotalFeeDisplay = TotalFee(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate, money, term).ToString("F2");
             p.FeesDetail = Feesdetail(p.ServerFeeOnce, p.ServerFeeMonthly, p.AnnualRate);
 
+            p.RepaymentMonthly = CalcRepaymentMonthly(p.RepaymentType,p.AnnualRate, money, term,p.ServerFeeMonthly).ToString("F2");   //每月偿还金额
+            p.AnnualRateDisplay = ((p.AnnualRate + p.ServerFeeMonthly * 12) * 100).ToString("F1") + "%";
             //end here
 
             CustomModel c;
@@ -388,10 +390,10 @@ namespace TTDWeb.Common
         }
         //end
 
-        static decimal CalcRepaymentMonthly(string repaymentType, decimal annualRate, decimal money, int term)
+        static decimal CalcRepaymentMonthly(string repaymentType, decimal annualRate, decimal money, int term,decimal serverFeeMonthly)
         {
             decimal sumMonth = 0, moneyCap = 0, moneyAcc = 0, moneyBalance = 0;
-            decimal monthlyRate = annualRate / 12;
+            decimal monthlyRate = annualRate / 12 + serverFeeMonthly;
             switch (repaymentType)
             {
                 case "01":  //月利清本

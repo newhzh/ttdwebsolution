@@ -249,6 +249,7 @@ namespace TTDWeb.Models
         /// 个人-信用卡总额度
         /// </summary>
         [Display(Name = "*请输入总信用额度")]
+        [Required(ErrorMessage = "*总信用额度必填")]
         public string PerslCreditAllowance { get; set; }
 
         /// <summary>
@@ -262,6 +263,7 @@ namespace TTDWeb.Models
         /// 个人-信用卡负债额
         /// </summary>
         [Display(Name = "*请输入信用卡负债额")]
+        [Required(ErrorMessage = "*负载额必填")]
         public string PerslCreditDue { get; set; }
 
         /// <summary>
