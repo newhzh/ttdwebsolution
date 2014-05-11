@@ -359,7 +359,8 @@ namespace TTDWeb.Controllers
                 "t2.aaa103 as sProductTypeName " +
                 " from t_applyrecord t1 " +
                 " left join aa10 t2 on t1.sProductType=t2.aaa102 and t2.aaa100='sProductType'" +
-                " inner join t_product t3 on t1.sProductCode=t3.sProductCode and t3.sOrganID='" + loginUser.OrganID + "'";
+                " inner join t_product t3 on t1.sProductCode=t3.sProductCode and t3.sOrganID='" + loginUser.OrganID + "'" +
+                " order by dtCreatTime desc";
 
             DA_Adapter da = new DA_Adapter();
             DataSet ds = new DataSet();
@@ -416,7 +417,7 @@ namespace TTDWeb.Controllers
                 apply.CaseStateDisplay = ToCaseStateDisplay(apply.CaseState);
 
 
-                apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : drApply["dtCreatTime"].ToString();
+                apply.CreatTime = drApply["dtCreatTime"] is DBNull ? "" : Convert.ToDateTime(drApply["dtCreatTime"]).ToString("yyyy-MM-dd");
                 apply.CustomerEmail = drApply["sCustomerEmail"] is DBNull ? "" : drApply["sCustomerEmail"].ToString();
                 apply.CustomerName = drApply["sCustomerName"] is DBNull ? "" : drApply["sCustomerName"].ToString();
                 apply.CustomerPhone = drApply["sCustomerPhone"] is DBNull ? "" : drApply["sCustomerPhone"].ToString();
@@ -460,6 +461,8 @@ namespace TTDWeb.Controllers
 
                 apply.PerslLoanSucc = drApply["sPerslLoanSucc"] is DBNull ? "" : drApply["sPerslLoanSucc"].ToString();
                 apply.PerslLoanSuccDisplay = YesOrNo(apply.PerslLoanSucc);
+
+                apply.PerslSalary = drApply["sHouseIncome"] is DBNull ? "" : drApply["sHouseIncome"].ToString();
 
                 apply.PerslSalaryType = drApply["sPerslSalaryType"] is DBNull ? "" : drApply["sPerslSalaryType"].ToString();
                 apply.PerslSalaryTypeDisplay = ToPerslSalaryTypeDisplay(apply.PerslSalaryType);

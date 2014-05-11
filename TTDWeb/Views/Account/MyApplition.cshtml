@@ -91,11 +91,11 @@
 <div style="clear:both; height:10px;"></div>
 
 <a href="@Url.Action("MyProducts", "Account")" style="color:#282828;"><div class="homehead">
-<br />我的理财产品<br /><span style="font-size: 36px; color: #fbb03f;">20</span><span style="font-size:12px;">款</span>
+<br />我的理财产品<br /><span style="font-size: 36px; color: #fbb03f;">@Model.ProductList.Count</span><span style="font-size:12px;">款</span>
 </div></a>
 
 <a href="@Url.Action("MyApplition", "Account")" style="color:#282828;"><div class="homehead" style="background-color:#d7e2f1;">
-<br />我收到的申请<br /><span style="font-size: 36px; color: #fbb03f;">20</span><span style="font-size:12px;">个</span>
+<br />我收到的申请<br /><span style="font-size: 36px; color: #fbb03f;">@Model.ApplyingRecordList.Count</span><span style="font-size:12px;">个</span>
 </div></a>
 
 <a href="@Url.Action("MyInfo", "Account")" style="color:#282828;"><div class="homehead" style="margin-right:0; width:302px; line-height:28px;">

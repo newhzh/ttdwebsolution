@@ -20,13 +20,15 @@ namespace TTDWeb.Controllers
         #endregion
 
         #region 产品列表 
-        public ActionResult ProductList(string type,string money,string term1,string term,string pindex)
+        public ActionResult ProductList(string type,string money,string term1,string term,string pindex,string orderby,string organeasyname)
         {
             //前端页要用这三个参数
             ViewBag.type=type;
             ViewBag.money = money;
             ViewBag.term = term;
             ViewBag.term1 = term1;
+            ViewBag.orderby = orderby;
+            ViewBag.organeasyname = organeasyname;
 
             decimal dYuanMoney = Convert.ToDecimal(money) * 10000;
             DA_Adapter da = new DA_Adapter();
@@ -35,12 +37,23 @@ namespace TTDWeb.Controllers
                           "t1.dMoneyTop,t1.dMoneyBottom,"+
                           "t1.nTermTop, t1.nTermBottom," +
                           "t1.nGetLoanDays,t1.dServerFeeOnce,t1.dServerFeeMonthly," +
+                          "(t1.dServerFeeMonthly+t1.dAnnualRate+t1.dServerFeeOnce) as dTotalCost,"+
                           " t2.sOrganName, t2.sLogo" +
                           " from T_Product t1" +
-                          " left join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
+                          " inner join T_ForeignOrgan t2 on t1.sOrganID=t2.sOrganID"+
                           " where t1.sProductType='" + type + "' and t1.dMoneyBottom<=" + dYuanMoney.ToString() + 
                           " and t1.dMoneyTop>=" + dYuanMoney.ToString() +
                           " and t1.nTermBottom<="+ term +" and t1.nTermTop>="+ term;
+            
+            if (organeasyname != null && organeasyname != "")
+            {
+                sql1 += " and t2.sEasyName='" + organeasyname + "'";
+            }
+
+            if (orderby != null && orderby != "")
+            {
+                sql1 += " order by " + orderby;
+            }
 
             string sql2 = " select t1.sCustomName, t1.sOrganID, t2.sOrganName" +
                           " from T_Custom t1" +
@@ -865,7 +878,7 @@ namespace TTDWeb.Controllers
                 p.FirmType = "";
 
 
-                p.HouseIncome = "";
+                p.HouseIncome = p.PerslSalary;
                 p.HouseLocalorNot = "";
                 p.HouseNew = "";
                 p.HouseType = "";
