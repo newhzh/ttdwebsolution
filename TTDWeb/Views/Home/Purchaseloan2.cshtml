@@ -29,20 +29,18 @@ body {
     <div style=" background-color:#f7f7f7; padding-left:60px; padding-top:35px; height:600px;">
     <br />    
 <div class="inputtitle" style="margin-right:20px;">您是否有信用卡：</div>
-        @Html.RadioButtonFor(model => model.PerslCreditOwner, 0, new {@name = "PerslCreditOwner"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslCreditOwner, 1, new {@name = "PerslCreditOwner"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总信用额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslCreditAllowance,new { placeholder="请输入数字",@class="inputtext",style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
-        <div style="margin-left:20px; height:20px;"> @Html.ValidationMessageFor(m => m.PerslCreditOwner)</div>
-        <div style="margin-left:20px; height:20px;"> @Html.ValidationMessageFor(m => m.PerslCreditAllowance)</div>
+        @Html.RadioButtonFor(model => model.PerslCreditOwner, 1, new {@name = "PerslCreditOwner"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslCreditOwner, 0, new {@name = "PerslCreditOwner", @id = "PerslCreditOwner"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;总信用额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslCreditAllowance,new { placeholder="请输入数字",@class="inputtext", @id = "PerslCreditOwnerN", style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
+        <div style="margin-left:20px; height:20px;"> @Html.ValidationMessageFor(m => m.PerslCreditOwner) @Html.ValidationMessageFor(m => m.PerslCreditAllowance)</div>
 
        
         
 <div class="inputtitle" style="margin-right:20px;">您是否有负债(信用卡)：</div>
-        @Html.RadioButtonFor(model => model.PerslCardNo, 0, new {@name = "PerslCardNo"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslCardNo, 1, new {@name = "PerslCardNo"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslCreditDue,new { placeholder="请输入数字",@class="inputtext",style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
-         <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslCardNo)</div>
-         <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslCreditDue)</div>
+        @Html.RadioButtonFor(model => model.PerslCardNo, 1, new {@name = "PerslCardNo", @id = "PerslCardNo"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslCardNo, 0, new {@name = "PerslCardNo"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslCreditDue,new { placeholder="请输入数字",@class="inputtext", @id="PerslCardNoN", style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
+         <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslCardNo) @Html.ValidationMessageFor(m => m.PerslCreditDue)</div>
        
         
 <div class="inputtitle" style="margin-right:20px;">您是否有成功申请贷款：</div>
-        @Html.RadioButtonFor(model => model.PerslLoanSucc, 0, new {@name = "PerslLoanSucc",style="margin-top:10px;"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslLoanSucc, 1, new {@name = "PerslLoanSucc"})没有 
+        @Html.RadioButtonFor(model => model.PerslLoanSucc, 1, new {@name = "PerslLoanSucc", style="margin-top:10px;"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslLoanSucc, 0, new {@name = "PerslLoanSucc"})有 
         <br />
         <div style="position: absolute; left:80px; height:20px;">@Html.ValidationMessageFor(m => m.PerslLoanSucc)</div>
         <br />
@@ -50,9 +48,8 @@ body {
         
         
 <div class="inputtitle" style="margin-right:20px;">您是否有负债(贷款)：</div>
-        @Html.RadioButtonFor(model => model.PerslLoan, 0, new {@name = "PerslLoan"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslLoan, 1, new {@name = "PerslLoan"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslLoanDue,new { placeholder="请输入数字",@class="inputtext",style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
-        <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslLoan)</div>
-        <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslLoanDue)</div>
+        @Html.RadioButtonFor(model => model.PerslLoan, 1, new {@name = "PerslLoan", @id = "PerslLoan"})没有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.RadioButtonFor(model => model.PerslLoan, 0, new {@name = "PerslLoan", @id = "PerslLoan"})有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;负债数额：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@Html.TextBoxFor(m=>m.PerslLoanDue,new { placeholder="请输入数字",@class="inputtext",@id = "PerslLoanN",style="width:120px; background:url(../content/images/yuan.png) 100px center no-repeat;"})
+        <div style="margin-left:20px; height:20px;">@Html.ValidationMessageFor(m => m.PerslLoan) @Html.ValidationMessageFor(m => m.PerslLoanDue)</div>
 
         
         <br />
@@ -60,5 +57,28 @@ body {
 
 </div>
 }
+
+
+    <script type="text/javascript">
+        var Owner = document.getElementById("PerslCreditOwner"), OwnerN = document.getElementById("PerslCreditOwnerN"),
+            CardNo = document.getElementById("PerslCardNo"), CardNoN = document.getElementById("PerslCardNoN"),
+            Loan = document.getElementById("PerslLoan"), LoanN = document.getElementById("PerslLoanN");
+        Owner.onchange = function () {
+            if (Owner.checked) {
+                OwnerN.value = "0";
+            }
+        }
+        CardNo.onchange = function () {
+            if (CardNo.checked) {
+                CardNoN.value = "0";
+            }
+        }
+        Loan.onchange = function () {
+            if (Loan.checked) {
+                LoanN.value = "0";
+            }
+        }
+
+</script> 
 </body>
 </html>
