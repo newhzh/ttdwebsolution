@@ -19,7 +19,24 @@
     {
         ViewBag.Title = "消费贷款-天天贷";
     }
-        
+
+    ViewBag.Organname = "";
+    if (ViewBag.organeasyname == "")
+    {
+        ViewBag.Organname = "不限";
+    }
+    else if (ViewBag.organeasyname == "银行")
+    {
+        ViewBag.Organname = "银行";
+    }
+    else if (ViewBag.organeasyname == "小贷公司")
+    {
+        ViewBag.Organname = "小贷公司";
+    }
+    else if (ViewBag.organeasyname == "p2p")
+    {
+        ViewBag.Organname = "p2p网贷";
+    }
 }
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -130,7 +147,7 @@
         </div>
 
         <div style="padding: 15px; margin-top: 20px;">
-            机构类型:<input class="sx" id="agency" name="" type="text" value="不限" readonly="readonly" style="background: url(../content/images/select.png) 160px center no-repeat; cursor: pointer;" />
+            机构类型:<input class="sx" id="agency" name="" type="text" value="@ViewBag.organname" readonly="readonly" style="background: url(../content/images/select.png) 160px center no-repeat; cursor: pointer;" />
             <ul class="agencytype" id="agencytype">
                 <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=">
                     <li>不限</li>
@@ -145,9 +162,10 @@
                     <li>P2P网贷</li>
                 </a>
             </ul>
+        
             <div class="producthead"><a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=''" style="background: none; padding-right: 0px;">默认</a>
                 <a href="?pindex=@ViewBag.PageIndex&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby='dTotalCost desc'">总利息</a>
-                
+            </div>    
         </div>
         @foreach (var item in Model)
         {
