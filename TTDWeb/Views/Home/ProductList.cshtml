@@ -178,19 +178,19 @@
 
 
         <div class="pagenumber">
-            <a class="number" href="@Url.Action("PreviewPage", new { pindex = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term,term1=@ViewBag.term1 })">上一页</a>
+            <a class="number" href="@Url.Action("PreviewPage", new { pindex = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term,term1=@ViewBag.term1, organeasyname=@ViewBag.organeasyname })">上一页</a>
             @for (int i = 1; i <= ViewBag.PageCount; i++)
             {
                 if (i == ViewBag.PageIndex)
                 { 
-                <a class="numberclick" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby">@i.ToString()</a>
+                <a class="numberclick" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=@ViewBag.organeasyname">@i.ToString()</a>
                 }
                 else
                 {
-                <a class="number" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby">@i.ToString()</a>
+                <a class="number" href="?pindex=@i.ToString()&money=@ViewBag.money&type=@ViewBag.type&term=@ViewBag.term&term1=@ViewBag.term1&orderby=@ViewBag.orderby&organeasyname=@ViewBag.organeasyname">@i.ToString()</a>
                 }
             }
-            <a class="number" href="@Url.Action("NextPage", new { pindex = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term,term1=@ViewBag.term1 })">下一页</a>
+            <a class="number" href="@Url.Action("NextPage", new { pindex = @ViewBag.PageIndex, money = @ViewBag.money, type = @ViewBag.type, term = @ViewBag.term,term1=@ViewBag.term1, organeasyname=@ViewBag.organeasyname })">下一页</a>
         </div>
 
         <div class="footer">
