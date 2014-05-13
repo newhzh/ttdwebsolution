@@ -160,34 +160,34 @@
 <div style="padding-left:20px; padding-top:10px; line-height:30px; font-size:12px;">
     @if (item.ProductType == "0")
     {
-    <div><div style="width:200px; float:left;"><strong>本地房产：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPropertyDisplay </div>
-</div>
+<div style="width:200px; float:left;"><strong>本地房产：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPropertyDisplay </div>
+<br />
 
-<div><div style="width:200px; float:left;"><strong>月工资收入：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarCustomerMonthlySalary 元</div>
-</div>
+<div style="width:200px; float:left;"><strong>月工资收入：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarCustomerMonthlySalary 元</div>
+<br />
 
-<div><div style="width:200px; float:left;"><strong>购车阶段：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPurchasingPeriodDisplay </div>
-</div>
+<div style="width:200px; float:left;"><strong>购车阶段：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.CarPurchasingPeriodDisplay </div>
+<br />
     }
     else if (item.ProductType == "1")
     {
-    <div><div style="width:200px; float:left;"><strong>房屋类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseTypeDisplay</div>
+<div style="width:200px; float:left;"><strong>房屋类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseTypeDisplay</div>
 <div style="width:270px; float:left;"><strong>月工资收入：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseIncome 元</div>
-</div>
+<br />
 
-<div><div style="width:200px; float:left;"><strong>户籍：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseLocalorNotDisplay</div>
+<div style="width:200px; float:left;"><strong>户籍：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseLocalorNotDisplay</div>
 <div style="width:270px; float:left;"><strong>二手房：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.HouseNewDisplay</div>
-</div>
+<br />
     }
     else if (item.ProductType == "2")
     {
-    <div><div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmTypeDisplay</div>
+<div style="width:200px; float:left;"><strong>公司类型：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmTypeDisplay</div>
 <div style="width:270px; float:left;"><strong>经营年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAge 年</div>
-</div>
+<br />
 
-<div><div style="width:200px; float:left;"><strong>公司月流水：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAccountBill 元</div>
+<div style="width:200px; float:left;"><strong>公司月流水：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmAccountBill 元</div>
 <div style="width:270px; float:left;"><strong>本地房产：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.FirmPropertyDisplay</div>
-</div>
+<br />
     }
     else if (item.ProductType == "3")
     { 
@@ -195,8 +195,8 @@
 <div style="width:270px; float:left;"><strong>每月银行卡工资：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslSalary 元</div>
 <strong>是否有负债（信用卡）：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslCardNoDisplay ，负债 @item.PerslCreditDue 元</div>
 
-<div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslYoBirth</div>
-<div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslWorkingAge</div>
+<div><div style="width:200px; float:left;"><strong>出生年份：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslYoBirth 年</div>
+<div style="width:270px; float:left;"><strong>工作年限：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslWorkingAge 年</div>
 <strong>之前是否成功申请贷款：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslLoanSuccDisplay</div>
 
 <div><div style="width:200px; float:left;"><strong>工资发放形式：</strong>&nbsp;&nbsp;&nbsp;&nbsp;@item.PerslSalaryTypeDisplay</div>
