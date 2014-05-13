@@ -127,6 +127,19 @@ a:hover{
 	color:#5489d2;
 	background:url(../images/down2.png) right center no-repeat;
 	}
+.productheadup{
+	float:right; line-height:40px;
+	}
+.productheadup a{
+	color:#282828;
+	padding-left:20px;
+	padding-right:10px;
+	background:url(../images/up1.png) right center no-repeat;
+	}
+.productheadup a:hover{
+	color:#5489d2;
+	background:url(../images/up2.png) right center no-repeat;
+	}
 .productup{
 	width:922px;
 	background:url(../images/bglist.png) no-repeat;
