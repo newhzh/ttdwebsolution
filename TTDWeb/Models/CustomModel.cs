@@ -84,7 +84,17 @@ namespace TTDWeb.Models
         /// 认证状态(用于显示)
         /// </summary>
         public string CertStateDisplay { get; set; }
-        
+
+
+        //以下属性是新添加
+        public DateTime Birthday { get; set; }
+        public string Address { get; set; }
+
+        /// <summary>
+        /// 当作职位
+        /// </summary>
+        public string OrganDpt { get; set; }
+        public string WorkYears { get; set; }
 
     }
 }

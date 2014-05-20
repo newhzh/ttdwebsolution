@@ -1,4 +1,4 @@
-﻿@model TTDWeb.Models.RegisterModel
+﻿@model TTDWeb.Models.CustomModel
 @{
     Layout = null;
 }
@@ -10,6 +10,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>个人信息</title>
     <link rel="stylesheet" type="text/css" href="~/content/css/css.css" />
+    <script type="text/javascript" src="~/Scripts/jquery-1.7.1.min.js"></script>
 </head>
 <body style="overflow-y:scroll;">
 <div style="background-color:#587fb6; height:100px;">
@@ -41,30 +42,47 @@
 </div></a>
 
 <div style="clear:both;"></div>
-    <form action="@Url.Action("MyInfo", "Account")">
-<div class="homeinf" style="border-bottom:none; height:30px;">
-<div style="width:120px; text-align:right; float:left;"><strong>个人信息</strong></div>
-<div class="homedit"><button type="submit">保存</button></div>
-</div>
+    @using (Html.BeginForm())
+    {
+        <div class="homeinf" style="border-bottom:none; height:30px;">
+            <div style="width:120px; text-align:right; float:left;"><strong>个人信息</strong></div>
+            <div class="homedit"><button type="submit">保存</button></div>
+            </div>
 
-<div class="homeinf" style="padding-bottom:20px; line-height:35px;">
-<div style="clear:both;"><div class="infotitle">姓名</div><input type="text"  value="姓名" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">性别</div>
-<select name="" style="margin-bottom:6px;">
- 		<option value="1"  selected="selected">男</option>
-		<option value="2" >女</option>
-  </select></div>
-<div style="clear:both;"><div class="infotitle">出生年月</div><input type="text"  value="1990-09-09" maxlength="11" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">所在地</div><input type="text"  value="杭州市杭州路100号" maxlength="30" style="width:300px;" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">手机号码</div><input type="text"  value="12345678901" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">邮箱</div><input type="text"  value="12113@qq.com" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">单位地址</div><input type="text"  value="杭州市杭州路100号" maxlength="30" style="width:300px;" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">公司名称</div><input type="text"  value="天代宝公司" maxlength="30" style="width:300px;" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">工作职位</div><input type="text"  value="经理" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">工作年限</div><input type="text"  value="12年" class="infoedit"/></div>
-<div style="clear:both;"><div class="infotitle">本行业工作年限</div><input type="text"  value="3年" class="infoedit"/></div>
-</div>
-        </form>
+            <div class="homeinf" style="padding-bottom:20px; line-height:35px;">
+            <div style="clear:both;"><div class="infotitle">姓名</div>
+                <input type="text" name="sCustomName" id="sCustomName"  value="@Model.CustomName" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">性别</div>
+            <select name="sSex" id="sSex" style="margin-bottom:6px;">
+                @if(Model.Sex=="男"){
+ 		            <option value="男" selected="selected">男</option>
+		            <option value="女">女</option>
+                }
+                else{
+                    <option value="男" >男</option>
+		            <option value="女" selected="selected">女</option>
+                }
+              </select></div>
+
+            <div style="clear:both;"><div class="infotitle">出生年月</div>
+                <input type="date" name="dtBirthday" id="dtBirthday"  value="@Model.DateOfBirth" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">所在地</div>
+                <input type="text" name="sAddress" id="sAddress"  value="@Model.Address" maxlength="50" style="width:300px;" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">手机号码</div>
+                <input type="text" name="sCellPhone" id="sCellPhone"  value="@Model.CellPhone" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">邮箱</div>
+                <input type="text" name="sEmail" id="sEmail"  value="@Model.Email" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">单位地址</div>
+                <input type="text" name="sOrganAddress" id="sOrganAddress" value="@Model.OrganAddress" maxlength="30" style="width:300px;" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">公司名称</div>
+                <input type="text" name="sOrganName" id="sOrganName"  value="@Model.OrganName" maxlength="30" style="width:300px;" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">工作职位</div>
+                <input type="text" name="sOrganDpt" id="sOrganDpt"  value="@Model.OrganDpt" class="infoedit"/></div>
+            <div style="clear:both;"><div class="infotitle">工作年限</div>
+                <input type="text" name="sWorkYears" id="sWorkYears" value="@Model.WorkYears" class="infoedit"/></div>
+            <!--<div style="clear:both;"><div class="infotitle">本行业工作年限</div><input type="text"  value="3年" class="infoedit"/></div>-->
+        </div>
+    }
 <div style="clear:both; height:15px;"></div>
 
 <div class="homeinf" style="border-bottom:none; height:30px;">
