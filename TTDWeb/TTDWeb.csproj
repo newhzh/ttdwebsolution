@@ -278,6 +278,7 @@
     <Content Include="Content\images\topbg.png" />
     <Content Include="Content\images\up.png" />
     <Content Include="Content\images\up1.png" />
+    <Content Include="Content\images\up2.png" />
     <Content Include="Content\images\user.png" />
     <Content Include="Content\images\yuan.png" />
     <Content Include="Content\js\jquery-1.4.3.min.js" />

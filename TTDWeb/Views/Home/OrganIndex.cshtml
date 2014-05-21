@@ -325,19 +325,19 @@
           <div style="clear:both; height:20px;"></div>
 
         <div class="pagenumber" style="margin: 0 auto; width: 950px; margin-bottom: 30px;">
-            <a class="number" href="@Url.Action("PreviewPage", new { p = @ViewBag.PageIndex, organid = @ViewBag.organid })">上一页</a>
+            <a class="number" href="@Url.Action("PreviewPage", new { pindex = @ViewBag.PageIndex, organid = @ViewBag.organid })">上一页</a>
             @for (int i = 1; i <= ViewBag.PageCount; i++)
             {
                 if (i == ViewBag.PageIndex)
                 { 
-                <a class="numberclick" href="?p=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
+                <a class="numberclick" href="?pindex=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
                 }
                 else
                 {
-                <a class="number" href="?p=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
+                <a class="number" href="?pindex=@i.ToString()&organid=@ViewBag.organid">@i.ToString()</a>
                 }
             }
-            <a class="number" href="@Url.Action("NextPage", new { p = @ViewBag.PageIndex, organid = @ViewBag.organid })">下一页</a>
+            <a class="number" href="@Url.Action("NextPage", new { pindex = @ViewBag.PageIndex, organid = @ViewBag.organid })">下一页</a>
         </div>
 
             <div class="footer">

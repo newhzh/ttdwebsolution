@@ -54,6 +54,20 @@ namespace TTDWeb.Models
         public string NickName { get; set; }
 
         public string yzm { get; set; }
+
+        //以下属性是新添加
+        public string CustomID { get; set; }
+        public string Sex { get; set; }
+        public DateTime Birthday { get; set; }
+        public string Address { get; set; }
+        public string OrganAddress { get; set; }
+        public string OrganName { get; set; }
+        
+        /// <summary>
+        /// 当作职位
+        /// </summary>
+        public string OrganDpt { get; set; }
+        public string WorkYears { get; set; }
     }
     #endregion
 }

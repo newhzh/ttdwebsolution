@@ -510,9 +510,39 @@ namespace TTDWeb.Controllers
             {
                 return RedirectToAction("Login", "Account");
             }
+            CustomModel m = GetCustomModel();
+
+            return View(m);
+        }
+
+        string ToCertState(string c)
+        {
+            string s = "";
+            switch (c)
+            {
+                case "0":
+                    s = "未认证";
+                    break;
+                case "1":
+                    s = "保存成功！系统会在3个工作日内完成认证";
+                    break;
+                case "2":
+                    s = "已认证";
+                    break;                    
+            }
+            return s;
+        }
+
+        #endregion
+
+        #region 读取个人资料对象
+
+        CustomModel GetCustomModel()
+        {
             Message.CustomInfo loginUser = Session["loginedcustom"] as Message.CustomInfo;
             string sql1 = "select t1.sEmail,t1.sCustomName,t1.sCertState,t1.sSex,t1.dtBirthday,t1.sCellPhone,t1.sOrganID,t1.sWorkYears, " +
-                "t2.sOrganName,t2.sAddress " +
+                "t1.sOrganAddress,t1.sOrganDpt,t1.sAddress," +
+                "t2.sOrganName " +
                 " from t_custom t1 " +
                 " left join t_foreignorgan t2 on t1.sorganid=t2.sorganid " +
                 " where t1.sCustomID='" + loginUser.CustomID + "'";
@@ -554,6 +584,9 @@ namespace TTDWeb.Controllers
             m.Sex = drCustom["sSex"] is DBNull ? "" : drCustom["sSex"].ToString();
             m.WorkingAge = drCustom["sWorkYears"] is DBNull ? "" : drCustom["sWorkYears"].ToString();
 
+            m.Address = drCustom["sAddress"] is DBNull ? "" : drCustom["sAddress"].ToString();
+            m.WorkYears = drCustom["sWorkYears"] is DBNull ? "" : drCustom["sWorkYears"].ToString();
+            m.OrganDpt = drCustom["sOrganDpt"] is DBNull ? "" : drCustom["sOrganDpt"].ToString();
 
             #region 加载产品列表
             DataRow[] listCustomRows;
@@ -610,25 +643,7 @@ namespace TTDWeb.Controllers
 
             #endregion
 
-            return View(m);
-        }
-
-        string ToCertState(string c)
-        {
-            string s = "";
-            switch (c)
-            {
-                case "0":
-                    s = "未认证";
-                    break;
-                case "1":
-                    s = "保存成功！系统会在3个工作日内完成认证";
-                    break;
-                case "2":
-                    s = "已认证";
-                    break;                    
-            }
-            return s;
+            return m;
         }
 
         #endregion
@@ -637,7 +652,65 @@ namespace TTDWeb.Controllers
 
         public ActionResult MyInfoEdit_Basic()
         {
-            return View();
+            if (Session["loginedcustom"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            CustomModel m = GetCustomModel();
+            return View(m);
+        }
+
+        [HttpPost]
+        public ActionResult MyInfoEdit_Basic(FormCollection values)
+        {
+            if (Session["loginedcustom"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            Message.CustomInfo loginUser = Session["loginedcustom"] as Message.CustomInfo;
+
+            CustomModel m = new CustomModel();
+            m.CustomName = (values["sCustomName"] == null ? "" : values["sCustomName"].ToString());
+            m.Sex = (values["sSex"] == null ? "" : values["sSex"].ToString());
+            m.Birthday = ((values["dtBirthday"] == null || values["dtBirthday"].ToString() == "") ? Convert.ToDateTime("1900-01-01") : Convert.ToDateTime(values["dtBirthday"]));
+            m.Address = (values["sAddress"] == null ? "" : values["sAddress"].ToString());
+            m.CellPhone = (values["sCellPhone"] == null ? "" : values["sCellPhone"].ToString());
+            m.Email = (values["sEmail"] == null ? "" : values["sEmail"].ToString());
+            m.OrganAddress = (values["sOrganAddress"] == null ? "" : values["sOrganAddress"].ToString());
+            m.OrganName = (values["sOrganName"] == null ? "" : values["sOrganName"].ToString());
+            m.WorkYears = (values["sWorkYears"] == null ? "" : values["sWorkYears"].ToString());
+            m.OrganDpt = (values["sOrganDpt"] == null ? "" : values["sOrganDpt"].ToString());
+
+            string sql = "update T_Custom set " +
+                    "sCustomName=" + "'" + m.CustomName + "'" +
+                    ",sSex=" + "'" + m.Sex + "'" +
+                    ",dtBirthday=" + ((m.Birthday.Year == 1 || m.Birthday.Year == 1900) ? "null" : "'" + m.Birthday.ToString("yyyy-MM-dd") + "'") +
+                    ",sAddress=" + "'" + m.Address + "'" +
+                    ",sCellPhone=" + "'" + m.CellPhone + "'" +
+                    ",sEmail=" + "'" + m.Email + "'" +
+                    ",sOrganAddress=" + "'" + m.OrganAddress + "'" +
+                    ",sOrganName=" + "'" + m.OrganName + "'" +
+                    ",sWorkYears=" + "'" + m.WorkYears + "'" +
+                    ",sOrganDpt=" + "'" + m.OrganDpt + "'" +
+                    " where sCustomID=" + "'" + loginUser.CustomID + "'";
+
+            DA_Adapter da = new DA_Adapter();
+            if (da.Common_Excute(sql) == 0)
+            {
+                //成功
+                CustomModel model = GetCustomModel();
+                return View("MyInfo", model);
+            }
+            else
+            {
+                //失败
+                ModelState.AddModelError("", "保存失败。");
+                CustomModel model = GetCustomModel();
+                return View(model);
+            }
+
+            
         }
 
         #endregion
